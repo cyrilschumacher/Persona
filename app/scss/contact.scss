@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+/* Compass. */
+@import "compass/css3";
+
+/* Tools. */
+@import "tools/_brandcolors";
+@import "tools/_fonts";
+@import "tools/_variables";
+
+.nav-item-contact {
+    border-color: #fff !important;
+    cursor: default;
+    
+    &:hover, &:focus {
+        background: none;   
+    }
+}
+
+.l-header {
+    height: 50rem;
+}
+
+.l-header-background {
+    background: $grass-primary-color;
+    z-index: 1;
+}
+
+.l-header-wrapper {
+    color: #fff;
+    display: table;
+    height: inherit;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+
+    .container {
+        height: auto;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        width: 80%;
+
+        h1 {
+            display: inline-block;
+
+            .my-name {
+                border: 1px solid #fff;
+                color: #fff;
+                padding: 0 3rem;
+                text-transform: uppercase;
+                @include transition(all 250ms);
+            }
+        }
+
+        .description {
+            font-size: 3.58rem;
+            font-weight: 300;
+            margin: 0 0 3rem;
+        }
+    }
+}
+
+.l-section {
+    header {
+        h2 {
+            text-transform: uppercase;
+        }
+
+        p.subtitle {
+            background: $base-foreground-color;
+            color: $base-background-color;
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 200;
+            padding: 1rem 2rem;
+        }
+    }
+}
+
+.form-section {
+    z-index: 2;
+    
+    .form-content {
+    }
+}

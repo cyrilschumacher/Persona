@@ -1,0 +1,59 @@
+{
+    "common": {
+        "nav": {
+            "home": "Accueil",
+            "about": "A propos",
+            "works": "Réalisations",
+            "contact": "Contact"
+        },
+        "footer": {
+            "all_right_reserved": "Tous droits réservés."
+        }
+    },
+    
+    "home": {
+        "scroll": "Défiler",
+        "header": {
+            "hello_i_am": "Bonjour ! je suis",
+            "student_in": "Étudiant en 4ème année logiciel à Exia.Cesi de Nancy"
+        },
+        "about": {
+            "title": "A propos",
+            "subtitle": "Découvrez qui je suis",
+            "presentation": "Présentation",
+            "presentation_description": "Ma présentation expliquant qui je suis et pourquoi le domaine de l'informatique m'intéresse.",
+            "education": "Formations",
+            "education_description": "Mes formations que j'ai suivies, mes expériences que j'ai effectuées, mes compétences que j'ai acquises.",
+            "experience": "Experiences",
+            "experience_description": "Mon portfolio qui vous présente mes applications réalisées durant mon stage en entreprise ou à l'école en tant que projet.",
+            "skills": "Compétences",
+            "skills_description": "Prenez Mes compétences que j'ai acquise durant mon apprentissage à l'école ou en entreprise."
+        },
+        "works": {
+            "title": "Mes réalisations",
+            "subtitle": "Decouvrez, explorer ce que j'ai réalisé"
+        },
+        "contact": {
+            "header": {
+                "title": "Me contacter",
+                "subtitle": "Prenez contact avec moi"    
+            },
+            "vcard": "vCard",
+            "download_my_vcard": "Télécharger ma carte de visite pour obtenir mes coordonnées personnelles.",
+            "form": "Formulaire",
+            "contact_me": "Prenez contact avec moi en complétant mon formulaire."
+        }
+    },
+    
+    "contact": {
+        "contactMe": "Contacter moi",
+        "youHaveQuestions" : "Avez-vous des questions ?",
+        
+        "form": {
+            "name": "Nom",
+            "email": "Adresse e-mail",
+            "subject": "Sujet",
+            "message": "Message"
+        }
+    }
+}

@@ -1,0 +1,12 @@
+.full-background-fixed {
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @include background-size(cover);
+    height: inherit;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: inherit;
+}

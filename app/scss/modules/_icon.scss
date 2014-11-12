@@ -1,0 +1,13 @@
+.icon {
+    border: $base-border solid;
+    @include border-radius(100%);
+    display: table;
+    height: auto;
+    margin: .5em auto;
+    width: auto;
+}
+
+.icon-text {
+    display: table-cell;
+    vertical-align: middle;
+}

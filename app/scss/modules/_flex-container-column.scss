@@ -1,0 +1,9 @@
+.flex-container-column {
+    align-items: center;
+    @include display-flex;
+    @include flex-direction(column);
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}

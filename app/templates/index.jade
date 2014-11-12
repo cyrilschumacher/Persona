@@ -1,0 +1,62 @@
+doctype html
+html(lang="fr" prefix="og:http://ogp.me/ns#" ng-app="persona")
+    head
+        meta(charset="utf-8")
+        title Persona
+        
+        meta(name="description" content="")
+        meta(name="robots" content="")
+        meta(name="msvalidate.01" content="")
+        meta(name="google-site-verification" content="")
+        
+        link(href="stylesheets/style.css", rel="stylesheet")
+        
+        script(scr="scripts/vendors/modernizr/modernizr.js")
+
+    body
+        nav.l-nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation" lang="fr" arial-label="Main Site Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement")
+            div.container-fluid
+                div.navbar-collapse.collapse
+                    ul.nav.navbar-nav
+                        li(itemprop="url")
+                            a.nav-item-home.button(href="/" itemprop="name" rel="prerender")
+                                span.button-text(ng-i18next="common.nav.home") 
+                                
+                        li(itemprop="url")
+                            a.nav-item-about.button(href="#about" itemprop="name" rel="prerender")
+                                span.button-text(ng-i18next="common.nav.about") 
+                        li(itemprop="url")
+                            a.nav-item-works.button(href="#works" itemprop="name" rel="prerender")
+                                span.button-text(ng-i18next="common.nav.works") 
+                        li(itemprop="url")
+                            a.nav-item-contact.button(href="#contact" itemprop="name" rel="prerender")
+                                span.button-text(ng-i18next="common.nav.contact") 
+        
+        section.l-main(ng-view)
+                    
+        footer.l-footer(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
+            div.container.row
+                section.copyright.col-xs-4
+                    p © 
+                        span(itemprop="copyrightYear") 2014 
+                        span(itemprop="copyrightHolder") Cyril Schumacher. 
+                        span(ng-i18next="common.footer.all_right_reserved")
+                        
+                section.social-network.col-xs-4
+                
+                section.social-network.col-xs-4
+                    ul.social-icons
+                        li.social-icon
+                            a.github.button(rel="external" title="GitHub" href="https://github.com/cyrilschumacher")
+                                i.button-text.fa.fa-github
+                                span.button-text.name GitHub
+                        li.social-icon
+                            a.linkedin.button(rel="external" title="Linkedin" href="http://www.linkedin.com/in/cyrilschumacher")
+                                i.button-text.fa.fa-linkedin
+                                span.button-text.name Linkedin
+                        li.social-icon
+                            a.twitter.button(rel="external" title="Twitter" href="http://www.twitter.com/CyrilSchumacher")
+                                i.button-text.fa.fa-twitter
+                                span.button-text.name Twitter
+
+        script(data-main="scripts/main.js" src="/scripts/vendors/requirejs/require.js")

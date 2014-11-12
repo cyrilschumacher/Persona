@@ -1,0 +1,63 @@
+mixin about(id, name, description, icon)
+    div.col-xs-4(class=id)
+        div.icon
+            i.icon-text.fa(class=icon)
+        h3(ng-i18next=name)
+        p(ng-i18next=description)
+
+header.l-header
+    div.full-background-fixed.l-header-background
+    div.l-header-wrapper
+        div.container(itemscope itemtype="http://schema.org/Person")
+            h1
+                span(class="my-name" itemprop="name") Cyril Schumacher
+            p.description(itemprop="description" ng-i18next="home.header.student_in")
+            p.scroll-down
+                a(role="button" ng-click="scrollTo('.about-section')")
+                    span.icon
+                        i.icon-text.fa.fa-angle-down
+                    span.text(ng-i18next="home.scroll")
+
+section.l-section.about-section
+    header
+        h2(ng-i18next="home.about.title")
+        p.subtitle(ng-i18next="home.about.subtitle")
+    section.about-content
+        div.row
+            +about('presentation', 'home.about.presentation', 'home.about.presentation_description', 'fa-user')
+            +about('education', 'home.about.education', 'home.about.education_description', 'fa-graduation-cap')
+            +about('experience', 'home.about.experience', 'home.about.experience_description', 'fa-suitcase')
+            +about('skills', 'home.about.skills', 'home.about.skills_description', 'fa-code')
+
+section.l-section.works-section
+    header.works-content
+        h2(ng-i18next="home.works.title")
+        p.subtitle(ng-i18next="home.works.subtitle")
+    section
+        ul.works-items
+            li.work-item(ng-repeat="work in works")
+                article.work-item-content
+                    div.work-item-content-thumbnail
+                        img(src="{{work.img}}")
+                    div.work-item-content-info
+                        span.name {{work.name}}
+
+section.l-section.contact-section
+    header
+        h2(ng-i18next="home.contact.header.title")
+        p.subtitle(ng-i18next="home.contact.header.subtitle")
+    section.contact-content
+        div.row
+            div.col-xs-1
+            div.contact-item.col-xs-5
+                div.icon
+                    i.icon-text.fa.fa-list-alt
+                h3(ng-i18next="home.contact.vcard")
+                p(ng-i18next="home.contact.download_my_vcard")
+                
+            div.contact-item.col-xs-5
+                div.icon
+                    i.icon-text.fa.fa-envelope-o
+                h3(ng-i18next="home.contact.form")
+                p(ng-i18next="home.contact.contact_me")
+            div.col-xs-1
