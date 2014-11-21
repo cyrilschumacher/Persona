@@ -14,8 +14,7 @@
     "home": {
         "scroll": "Défiler",
         "header": {
-            "hello_i_am": "Bonjour ! je suis",
-            "student_in": "Étudiant en 4ème année logiciel à Exia.Cesi de Nancy"
+            "subtitle": "Étudiant en 4ème année logiciel à Exia.Cesi de Nancy"
         },
         "about": {
             "title": "A propos",

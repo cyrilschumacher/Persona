@@ -38,6 +38,13 @@ module.exports = function (grunt) {
             dev: {
                 files: [
                     {
+                        cwd: 'app/',
+                        expand: true,
+                        src: 'contents/**/*',
+                        dest: 'debug/',
+                        filter: 'isFile'
+                    },
+                    {
                         cwd: 'app/typescript/',
                         expand: true,
                         src: 'locales/**/*',
@@ -60,6 +67,17 @@ module.exports = function (grunt) {
                             'requirejs/*.js'
                         ],
                         dest: 'debug/scripts/vendors/'
+                    }
+                ]
+            },
+            locales: {
+                files: [
+                    {
+                        cwd: 'app/typescript/',
+                        expand: true,
+                        src: 'locales/**/*',
+                        dest: 'debug/scripts/',
+                        filter: 'isFile'
                     }
                 ]
             }

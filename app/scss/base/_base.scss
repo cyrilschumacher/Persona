@@ -1,9 +1,14 @@
+@viewport { 
+    width: device-width; 
+    initial-scale: 1;
+}
+
 html { font-size: $base-font-size }
 
 html, body {
     height: 100%;
     min-height: 100%;
-    width: 100%;   
+    width: 100%;
 }
 	
 body {
@@ -11,6 +16,10 @@ body {
     color: $base-foreground-color;
     font: $body-font-size $base-font-family;
     font-weight: $base-font-weight;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $bebas-neue-font;
 }
 
 h1 {

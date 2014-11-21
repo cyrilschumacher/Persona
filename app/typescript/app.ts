@@ -43,14 +43,19 @@ module Application {
          * @summary Initialize controllers.
          */
         private _initControllers() {
-            this._app.controller("homeController", [
-                "$scope", "$i18next",
-                ($scope, $i18next) => new Controllers.HomeController($scope, $i18next)
+            this._app.controller("homeController", ["$scope", "$i18next", "worksService",
+                ($scope, $i18next, $worksService) => new Controllers.HomeController($scope, $i18next, $worksService)
+            ]);
+            this._app.controller("contactController", [
+                "$scope", "$i18next", ($scope, $i18next) => new Controllers.ContactController($scope, $i18next)
             ]);
         }
-
+    
+        /**
+         * @summary Initialize services.
+         */
         private _initServices() {
-            //this._app.factory('worksService', ["$http", Services.WorksService]);
+            this._app.factory('worksService', ["$http", ($http) => new Services.WorksService()]);
         }
     
         /**
@@ -60,11 +65,12 @@ module Application {
         public init(config: Object) {
             this._initAngularConfig(Config);
             this._initControllers();
+            this._initServices();
         }
     }
 }
     
-require(['angularAnimate', 'angularRoute', 'angularRouteStyles', 'ngI18next', 'configuration', 'homeController'], function () {
+require(['angularAnimate', 'angularRoute', 'angularRouteStyles', 'ngI18next', 'configuration', 'homeController', 'contactController', 'worksService'], function () {
     var modules: Array<string> = ['ngRoute', 'ngAnimate', 'routeStyles', 'jm.i18next'];
     var persona = new Application.Persona(modules);
     persona.init(Application.Config);

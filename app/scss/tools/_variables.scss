@@ -1,12 +1,15 @@
 // Typography.
-$font-family-sans-serif:    'Source Sans Pro', 'Segoe UI', Arial, sans-serif    !default;
-$font-family-serif:         Times                                               !default;
-$base-font-family:          $font-family-sans-serif                             !default;
+$source-sans-pro-font:  'Source Sans Pro';
+$bebas-neue-font:       'Bebas Neue';
+    
+$font-family-sans-serif:    $source-sans-pro-font, sans-serif   !default;
+$font-family-serif:         Times                               !default;
+$base-font-family:          $font-family-sans-serif             !default;
 
 // Font sizes.
 $base-font-size:    62.5%;
 $body-font-size:    1.5rem                  !default;
-$h1-font-size:      $base-font-size * 8     !default;
+$h1-font-size:      $base-font-size * 10    !default;
 $h2-font-size:      $base-font-size * 6     !default;
 $h3-font-size:      $base-font-size * 3     !default;
 $h4-font-size:      $base-font-size * 2     !default;
@@ -27,32 +30,6 @@ $h6-font-weight:    200 !default;
 $base-border:  2px  !default;
 $base-margin:  10px !default;
 $base-padding: 10px !default;
-
-// Colors.
-// Flattastic Pro Color Palette.
-$aqua-primary-color:            #3bafda;
-$aqua-secondary-color:          #4fc1e9;
-$grass-primary-color:           #8cc152;
-$grass-secondary-color:         #a0d468;
-$bittersweet-primary-color:     #e9573f;
-$bittersweet-secondary-color:   #fc6e51;
-$lavander-primary-color:        #967adc;
-$lavander-secondary-color:      #ac92ec;
-$grapefruit-primary-color:      #da4453;
-$grapefruit-secondary-color:    #ed5565;
-$darkgray-primary-color:        #434a54;
-$darkgray-secondary-color:      #656d78;
-$lightgray-primary-color:       #e6e9ed;
-$lightgray-secondary-color:     #f5f7fa;
-
-// Stream Status.
-$error-color:       #f04747;
-$pause-color:       #ebaf3c;
-$running-color:     #38b87c;
-
-// Specific colors.
-$base-background-color:     #e6e6e6;
-$base-foreground-color:     #444545;
 
 // Specific max-width device.
 $mobile-device-max-width:           320px;

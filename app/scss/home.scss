@@ -5,6 +5,7 @@
 
 /* Tools. */
 @import "tools/_brandcolors";
+@import "tools/_colors";
 @import "tools/_fonts";
 @import "tools/_variables";
 
@@ -29,7 +30,10 @@
     height: 1024px;
 }
 
-.l-header-background { background: $aqua-primary-color }
+.l-header-background { 
+    background: $darkgray-primary-color url(/contents/images/polygon-mountain.jpg) bottom no-repeat;
+    @include background-size(cover);
+}
 
 .l-header-wrapper {
     color: #fff;
@@ -61,7 +65,7 @@
 
         .description {
             @include animation(opening-fade 1s 1.5s forwards);
-            font-size: 3.58rem;
+            font-size: $h3-font-size;
             font-weight: 300;
             margin: 0 0 3rem;
             @include opacity(0);
@@ -94,21 +98,20 @@
                     }
                 } 
 
-                .icon {
+                .round-icon {
                     border-color: #fff;
                     @include border-radius(100%);
                     cursor: pointer;
                     height: 5rem;
-                    margin: 1em  auto;
+                    margin: 1rem auto;
                     width: 5rem;
 
-                    .icon-text.fa {
-                        font-size: 2rem;
+                    .round-icon-text.fa {
+                        font-size: 3rem;
                     }
                 }
 
                 .text {
-                    display: block;
                     @include opacity(0);
                     @include transform(scale(0.90));
                     @include transition(all 200ms);
@@ -153,12 +156,12 @@
                     text-transform: uppercase;
                 }
 
-                .icon {
+                .round-icon {
                     border-color: $base-foreground-color;
                     height: 12rem;
                     width: 12rem;
 
-                    .icon-text { font-size: 3rem }
+                    .round-icon-text { font-size: 3rem }
                 }
             }
         }
@@ -167,6 +170,7 @@
 
 .works-section {
     z-index: 3;
+    background: rgba(208, 208, 208, .8) !important;
                 
     .works-items {
         height: 200px;
@@ -255,12 +259,12 @@
                     text-transform: uppercase;
                 }
 
-                .icon {
+                .round-icon {
                     border-color: $base-foreground-color;
                     height: 12rem;
                     width: 12rem;
 
-                    .icon-text {
+                    .round-icon-text {
                         font-size: 3rem;
                     }
                 }

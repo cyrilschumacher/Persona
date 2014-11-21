@@ -1,0 +1,18 @@
+# Cache directories and files.
+.tscache
+.*.*
+
+# Debug directory.
+debug
+
+# Bower directory.
+bower_components
+
+# Node directory.
+node_modules
+
+# Windows image file caches 
+Thumbs.db
+
+# Windows shortcuts 
+*.lnk 
