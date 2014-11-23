@@ -13,7 +13,7 @@ header.l-header
                 span(class="my-name" itemprop="name") Cyril Schumacher
             p.description(itemprop="description" ng-i18next="home.header.subtitle")
             p.scroll-down
-                a(role="button" ng-click="scrollTo('.about-section')")
+                a(role="button" ng-scroll-to to=".about-section")
                     span.round-icon
                         i.round-icon-text.fa.fa-angle-down
                     span.text(ng-i18next="home.scroll")

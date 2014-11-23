@@ -5,8 +5,10 @@ header.l-header
             h1(ng-i18next="contact.contactMe")
             p.description(ng-i18next="contact.youHaveQuestions")
 
+section.l-section.vcard-section
+
 section.l-section.map-section#map
-        
+    
 section.l-section.form-section
     header
         h2 Formulaire de contact
@@ -17,12 +19,13 @@ section.l-section.form-section
                 p
                     input#name(type="text" size="36")
                     span.field-information 3 caractères minimum et 40 caractères maximum.
-                    
+            
                 label(ng-i18next="contact.form.email")
                 p  
                     input#email(type="email" size="64" aria_required="true" placeholder="Obligatoire")
                     span.field-information 255 caractères maximum. Exemple: email@example.com
                     
+            fieldset
                 label(ng-i18next="contact.form.subject")
                 p
                     input#subject(type="text" size="64" aria_required="true")
@@ -31,3 +34,5 @@ section.l-section.form-section
                 label(ng-i18next="contact.form.message")
                 p
                     textarea#message
+            fieldset
+                input(type="submit")

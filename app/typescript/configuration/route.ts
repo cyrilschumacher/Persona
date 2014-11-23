@@ -1,20 +1,19 @@
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts"/>
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts"/>
 
-module Application {
+module Application.Configuration {
 
     /**
-     * @summary Persona configuration.
+     * @summary Persona routing configuration.
      * @author  Cyril Schumacher
+     * @class
      */
-    export class Config {
+    export class Route {
         /**
          * @summary Constructor.
          * @param {IRouteProvider} $routeProvier Route provider.
-         * @param {any} $i18nextProvider i18next provider.
          */
-        public constructor(private $routeProvider: ng.route.IRouteProvider, private $i18nextProvider: any) {
-            this._initRoute($routeProvider);
-            this._initI18next($i18nextProvider);
+        public constructor(private $routeProvider: ng.route.IRouteProvider) {
+            this._init($routeProvider);
         }
         
         /**
@@ -33,27 +32,12 @@ module Application {
          * @summary Initialize route.
          * @param {IRouteProvider} $routeProvier Route provider.
          */
-        private _initRoute = ($routeProvider: ng.route.IRouteProvider) => { 
+        private _init = ($routeProvider: ng.route.IRouteProvider) => { 
             this._createRoute($routeProvider, '/', 'homeController', 'home.css', 'home.html');
             this._createRoute($routeProvider, '/contact', 'contactController', 'contact.css', 'contact.html');
             $routeProvider.otherwise({redirectTo: '/'});
         }
-
-        /**
-         * @summary Initialize i18next plugin.
-         * @param {any} $i18nextProvider i18next provider.
-         */
-        private _initI18next = ($i18nextProvider: any) => {
-            $i18nextProvider.options = {
-                debug: true,
-                fallbackLng: 'dev',
-                lng: 'dev',
-                resGetPath: '/scripts/locales/__ns__-__lng__.json',
-                useCookie: false,
-                useLocalStorage: false
-            };
-        }
     }
 
-    Config.$inject = ['$routeProvider', '$i18nextProvider'];
+    Route.$inject = ['$routeProvider'];
 }

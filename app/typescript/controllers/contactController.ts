@@ -7,6 +7,7 @@ module Application.Controllers {
     
     /**
      * @summary Controller for home.
+     * @author  Cyril Schumacher
      * @class
      */
     export class ContactController {
@@ -17,22 +18,38 @@ module Application.Controllers {
          * @param $i18next      {any}           Localization.
          */
         public constructor(private $scope: any, private $i18next: any) {
-            var groundLoc = new Microsoft.Maps.Location(47, -122, 100, Microsoft.Maps.AltitudeReference.ground);
-            var ellipsoidLoc = new Microsoft.Maps.Location(47, -122, 100, Microsoft.Maps.AltitudeReference.ellipsoid);
+            this._addWindowEvents();
+            this._initMap();
+        }
 
+        /**
+         * @summary Add events on window element.
+         */
+        private _addWindowEvents () {
+            $(window).scroll(this._windowScroll);
+        }
+        
+        private _initMap(): void {
             var mapOptions = { 
                 credentials: "AiscBCv-CUb6kGw_scA6Voo8U8cO6XKiOQpNppd9lJAv_0ohATT3Vhwd2lx_RgJ_",
-                center: groundLoc,
-                mapTypeId: Microsoft.Maps.MapTypeId.road ,
+                disableKeyboardInput: true,
+                disableMouseInput: true,
+                mapTypeId: Microsoft.Maps.MapTypeId.road,
                 showCopyright: false,
                 showDashboard: false,
                 showScalebar: false,
-                zoom: 5
+                zoom: 10
             };
-
+            
             var map = new Microsoft.Maps.Map(document.getElementById("map"), mapOptions);
-            map.entities.push(new Microsoft.Maps.Pushpin(groundLoc, {text: "G"}));
-            map.entities.push(new Microsoft.Maps.Pushpin(ellipsoidLoc, {text: "E"}));
+            map.setView({center:new Microsoft.Maps.Location(48.6833, 6.2)});
+        }
+
+        /**
+         * @summary Occurs when the window is scrolled.
+         */
+        private _windowScroll() {
+            $('.l-header-wrapper').fadeOnScroll(30);
         }
     }
 }

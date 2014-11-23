@@ -31,11 +31,12 @@
 }
 
 .l-header-background { 
-    background: $darkgray-primary-color url(/contents/images/polygon-mountain.jpg) bottom no-repeat;
+    background: $darkgray-primary-color url(/contents/images/bird.png) top no-repeat;
     @include background-size(cover);
 }
 
 .l-header-wrapper {
+    background: url(/contents/images/top-overlay.png);
     color: #fff;
     display: table;
     height: 100%;

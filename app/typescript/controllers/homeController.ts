@@ -7,6 +7,7 @@ module Application.Controllers {
     
     /**
      * @summary Controller for home.
+     * @author  Cyril Schumacher
      * @class
      */
     export class HomeController {
@@ -18,62 +19,35 @@ module Application.Controllers {
          * @param $worksService {WorksService}  Service.
          */
         public constructor(private $scope: any, private $i18next: any, private $worksService: Services.WorksService) {
+            // Adds window events.
             this._addWindowEvents();
-            this._windowResize();
+            this._onWindowResize();
             
-            $scope.scrollTo = this._scrollSmoothEffect;
-            $scope.works = $worksService.getWorks().sort( () => { return Math.random() });
+            // Obtains works and mix.
+            var works:any = $worksService.getWorks();
+            $scope.works = works.sort(() => { return 0.5 - Math.random() });
         }
 
         /**
-         * @summary Add events on window element.
+         * @summary Adds events on window element.
          */
-        private _addWindowEvents = (): void => {
-            $(window).scroll(this._windowScroll);
-            $(window).resize(this._windowResize);
-        }
-        
-        /**
-         * @summary Changes opacity of header wrapper according to the position of the scroll.
-         * @param {number} scrollPosition Scroll position.
-         */
-        private _changesOpacityHeaderScroll = (element: string, scrollPosition: number): void => {
-            var headerContent: JQuery = $(element);
-            var opacityHeaderContent: number = 1.0;
-            var windowHeight: number = $(window).height();
-
-            if ((scrollPosition > (windowHeight / 4)) && (scrollPosition < windowHeight)) {
-                var progressPercent: number = (scrollPosition / windowHeight) * 100;
-                var leftPercent: number = 100 - ((progressPercent - 25) * 2);
-                opacityHeaderContent = leftPercent / 100;
-            } else if (scrollPosition > windowHeight) {
-                opacityHeaderContent = 0;
-            }
-            
-            headerContent.css('opacity', opacityHeaderContent);
-        }
-
-        /**
-         * @summary Scroll to an element by its identifier.
-         * @param {string} id Element identifier.
-         */
-        private _scrollSmoothEffect = (id: string): void => {
-            $('html, body').animate({ scrollTop: $(id).offset().top }, 'slow');  
+        private _addWindowEvents() {
+            $(window).scroll(this._onWindowScroll);
+            $(window).resize(this._onWindowResize);
         }
 
         /**
          * @summary Occurs when the window is resized.
          */
-        private _windowResize = (): void => {
+        private _onWindowResize() {
             $('.l-header').height($(window).height());
         }
 
         /**
          * @summary Occurs when the window is scrolled.
          */
-        private _windowScroll = ():void => {
-            var scrollPosition: number = $(window).scrollTop();
-            this._changesOpacityHeaderScroll('.l-header-wrapper', scrollPosition);
+        private _onWindowScroll() {
+            $('.l-header-wrapper').fadeOnScroll(25, {element: $('.l-header-wrapper .container')});
         }
     }
 }

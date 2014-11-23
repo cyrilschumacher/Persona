@@ -6,6 +6,7 @@ module Application {
     /**
      * @summary Persona application.
      * @author  Cyril Schumacher
+     * @class
      */
     export class Persona {
         /**
@@ -35,8 +36,10 @@ module Application {
          * @summary Initialize configuration.
          * @param {Object} config Angular configuration.
          */
-        private _initAngularConfig(config: Object) {
-            this._app.config(config); 
+        private _initConfig(config: Array<Object>) {
+            for (var index in config) {
+                this._app.config(config[index]);
+            }
         }
 
         /**
@@ -52,6 +55,13 @@ module Application {
         }
     
         /**
+         * @summary Initialize directives.
+         */
+        private _initDirectives() {
+            this._app.directive('ngScrollTo', () => new Directives.ScrollToDirective());
+        }
+    
+        /**
          * @summary Initialize services.
          */
         private _initServices() {
@@ -60,18 +70,20 @@ module Application {
     
         /**
          * @summary Initialize class.
-         * @param {Object} config Angular configuration.
+         * @param {Object} route Angular routing.
          */
-        public init(config: Object) {
-            this._initAngularConfig(Config);
+        public init(config: Array<Object>) {
+            this._initConfig(config);
             this._initControllers();
             this._initServices();
+            this._initDirectives();
         }
     }
 }
     
-require(['angularAnimate', 'angularRoute', 'angularRouteStyles', 'ngI18next', 'configuration', 'homeController', 'contactController', 'worksService'], function () {
+require(['angularAnimate', 'angularRoute', 'angularRouteStyles', 'ngI18next', 'i18n', 'route', 'scrollToDirective', 'jqueryFadeOnScroll', 'homeController', 'contactController', 'worksService'], function () {
     var modules: Array<string> = ['ngRoute', 'ngAnimate', 'routeStyles', 'jm.i18next'];
-    var persona = new Application.Persona(modules);
-    persona.init(Application.Config);
+    var persona: Persona = new Application.Persona(modules);
+    var config: Array = [Application.Configuration.Route, Application.Configuration.Internationalization];
+    persona.init(config);
 });

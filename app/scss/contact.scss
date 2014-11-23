@@ -86,3 +86,52 @@
     position: relative;
     width: 100%;
 }
+
+.form-section {
+    form {
+        margin: 0 auto;
+        width: 800px;
+        
+        input {
+            display: block;
+            margin: 0 auto;
+    
+            &:active, &:focus {
+                border-color: $grass-primary-color;
+            }
+        }
+        
+        input:active + .field-information,
+        input:focus + .field-information, {
+            transform: scaleY(1);
+            height: auto;
+        }
+        
+        .field-information {
+            display: inline-block;
+            background: $grass-primary-color;
+            color: #fff;
+            padding: 1rem 2rem;
+            position: relative;
+            top: 10px;
+            transform: scaleY(0);
+            transform-origin: 50% 0;
+            height: 0;
+            transition:transform 200ms ease;
+            
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: -10px;
+                width: 0;
+                height: 0;
+                margin-left: -10px;
+                border-color: transparent $grass-primary-color transparent transparent;
+                border-style: solid;
+                border-width: 10px;
+            }
+        }
+    }
+}

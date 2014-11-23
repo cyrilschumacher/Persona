@@ -19,7 +19,13 @@ requirejs.config({
         
         // Application.
         application:        'app',
-        configuration:      'config',
+        
+        // Configuration.
+        i18n:               'configuration/internationalization',
+        route:              'configuration/route',
+        
+        // Directives.
+        scrollToDirective:  'directives/scrollToDirective',
         
         // Controllers.
         homeController:     'controllers/homeController',
@@ -27,7 +33,10 @@ requirejs.config({
         
         // Services.
         resumeService:      'services/resumeService',
-        worksService:       'services/worksService'
+        worksService:       'services/worksService',
+        
+        // Librairies.
+        jqueryFadeOnScroll: 'librairies/jquery.fadeonscroll/jquery.fadeonscroll'
     },
     shim: {
         // Librairies.
