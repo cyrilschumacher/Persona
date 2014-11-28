@@ -5,7 +5,7 @@ mixin about(id, name, description, icon)
         h3(ng-i18next=name)
         p(ng-i18next=description)
 
-header.l-header
+header.l-header(ng-full-height-window)
     div.full-background-fixed.l-header-background
     div.l-header-wrapper
         div.container(itemscope itemtype="http://schema.org/Person")

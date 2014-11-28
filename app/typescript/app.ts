@@ -59,6 +59,7 @@ module Application {
          */
         private _initDirectives() {
             this._app.directive('ngScrollTo', () => new Directives.ScrollToDirective());
+            this._app.directive('ngFullHeightWindow', () => new Directives.FullHeightWindowDirective());
         }
     
         /**
@@ -81,7 +82,7 @@ module Application {
     }
 }
     
-require(['angularAnimate', 'angularRoute', 'angularRouteStyles', 'ngI18next', 'i18n', 'route', 'scrollToDirective', 'jqueryFadeOnScroll', 'homeController', 'contactController', 'worksService'], function () {
+require(['angularAnimate', 'angularRoute', 'angularRouteStyles', 'ngI18next', 'i18n', 'route', 'fullHeightWindowDirective', 'scrollToDirective', 'jqueryFadeOnScroll', 'homeController', 'contactController', 'worksService'], function () {
     var modules: Array<string> = ['ngRoute', 'ngAnimate', 'routeStyles', 'jm.i18next'];
     var persona: Persona = new Application.Persona(modules);
     var config: Array = [Application.Configuration.Route, Application.Configuration.Internationalization];

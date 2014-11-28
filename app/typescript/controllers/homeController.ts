@@ -21,7 +21,7 @@ module Application.Controllers {
         public constructor(private $scope: any, private $i18next: any, private $worksService: Services.WorksService) {
             // Adds window events.
             this._addWindowEvents();
-            this._onWindowResize();
+            //this._onWindowResize();
             
             // Obtains works and mix.
             var works:any = $worksService.getWorks();
@@ -33,7 +33,7 @@ module Application.Controllers {
          */
         private _addWindowEvents() {
             $(window).scroll(this._onWindowScroll);
-            $(window).resize(this._onWindowResize);
+            //$(window).resize(this._onWindowResize);
         }
 
         /**

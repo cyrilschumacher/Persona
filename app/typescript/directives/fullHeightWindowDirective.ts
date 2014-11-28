@@ -6,7 +6,12 @@ module Application.Directives {
      * @author  Cyril Schumacher
      * @class
      */
-    export class ScrollToDirective implements ng.IDirective {
+    export class FullHeightWindowDirective implements ng.IDirective {
+        /**
+         * @summary Current element.
+         */
+        private _element: JQuery;
+        
         /**
          * @summary Restrict option.
          */
@@ -18,13 +23,17 @@ module Application.Directives {
          * @param {JQuery}      element jqLite-wrapped element that this directive matches.
          * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
          */
-        public link(scope: ng.IScope, element: JQuery, attrs: ng.IAttributes) {
-            element.bind('click', function () {
-                var to: String = attrs.to;
-                var duration = (duration) ? duration : 'slow';
-                
-                $('html, body').animate({ scrollTop: $(to).offset().top }, duration);  
-            });
+        public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
+            this._element = element;
+            this._onWindowResize();
+            $(window).bind('resize', this._onWindowResize);
+        }
+
+        /**
+         * @summary Occurs when the window is resized.
+         */
+        private _onWindowResize = (): void => {
+            this._element.height($(window).height());
         }
     };
 }
