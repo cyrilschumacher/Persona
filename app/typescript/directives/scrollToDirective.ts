@@ -10,7 +10,7 @@ module Application.Directives {
         /**
          * @summary Restrict option.
          */
-        public restrict: String = 'A';
+        public restrict: string = 'A';
         
         /**
          * @summary Manipulates the DOM of the current page.
@@ -20,7 +20,7 @@ module Application.Directives {
          */
         public link(scope: ng.IScope, element: JQuery, attrs: ng.IAttributes) {
             element.bind('click', function () {
-                var to: String = attrs.to;
+                var to: string = (<any>attrs).to;
                 var duration = (duration) ? duration : 'slow';
                 
                 $('html, body').animate({ scrollTop: $(to).offset().top }, duration);  

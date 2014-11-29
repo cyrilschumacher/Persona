@@ -1,13 +1,11 @@
-requirejs(['ngI18next']);
-
 module Application.Configuration {
-
+    
     /**
      * @summary Persona internationalization configuration.
      * @author  Cyril Schumacher
      * @class
      */
-    export class Internationalization {
+    export class i18nextConfiguration {
         /**
          * @summary Constructor.
          * @param {any} $i18nextProvider i18next provider.
@@ -32,5 +30,5 @@ module Application.Configuration {
         }
     }
 
-    Internationalization.$inject = ['$i18nextProvider'];
+    i18nextConfiguration.$inject = ['$i18nextProvider'];
 }

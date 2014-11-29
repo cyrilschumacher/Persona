@@ -1,6 +1,7 @@
 # Cache directories and files.
 .tscache
 .*.*
+!.travis.yml
 
 # Debug directory.
 debug

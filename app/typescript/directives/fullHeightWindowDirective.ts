@@ -15,7 +15,7 @@ module Application.Directives {
         /**
          * @summary Restrict option.
          */
-        public restrict: String = 'A';
+        public restrict: string = 'A';
         
         /**
          * @summary Manipulates the DOM of the current page.

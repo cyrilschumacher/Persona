@@ -7,7 +7,7 @@ module Application.Configuration {
      * @author  Cyril Schumacher
      * @class
      */
-    export class Route {
+    export class RouteConfiguration {
         /**
          * @summary Constructor.
          * @param {IRouteProvider} $routeProvier Route provider.
@@ -39,5 +39,5 @@ module Application.Configuration {
         }
     }
 
-    Route.$inject = ['$routeProvider'];
+    RouteConfiguration.$inject = ['$routeProvider'];
 }

@@ -1,7 +1,5 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
 
-requirejs(['angular']);
-
 module Application.Services {
     'use strict';
     

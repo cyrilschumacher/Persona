@@ -1,7 +1,5 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/requirejs/require.d.ts"/>
 
-requirejs(['jquery']);
-
 module Application.Controllers {
     'use strict';
     

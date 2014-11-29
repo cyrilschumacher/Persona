@@ -3,50 +3,40 @@
 requirejs.config({
     baseUrl: '/scripts/',
     paths: {
-        // Librairies.
-        // JQuery.
-        jquery:                     'vendors/jquery/dist/jquery',
-        jqueryUi:                   'vendors/jquery-ui/jquery-ui',
-        // AngularJS.
-        angular:                    'vendors/angular/angular',
-        angularRoute:               'vendors/angular-route/angular-route',
-        angularRouteStyles:         'vendors/angular-route-styles/route-styles',
-        angularUiRouter:            'vendors/angular-ui-router/release/angular-ui-router',
-        angularAnimate:             'vendors/angular-animate/angular-animate',
-        // i18next.
-        i18next:                    'vendors/i18next/i18next',
-        ngI18next:                  'vendors/ng-i18next/dist/ng-i18next',
+        'jquery':                     'vendors/jquery/dist/jquery',
+        'jquery-ui':                  'vendors/jquery-ui/jquery-ui',
+        'angular':                    'vendors/angular/angular',
+        'angular-animate':            'vendors/angular-animate/angular-animate',
+        'angular-route':              'vendors/angular-route/angular-route',
+        'angular-route-styles':       'vendors/angular-route-styles/route-styles',
+        'angular-ui-router':          'vendors/angular-ui-router/release/angular-ui-router',
+        'i18next':                    'vendors/i18next/i18next',
+        'ng-i18next':                 'vendors/ng-i18next/dist/ng-i18next',
         
-        // Application.
-        application:                'app',
+        'app':                        'app',
+        'persona':                    'persona',
         
-        // Configuration.
-        i18n:                       'configuration/internationalization',
-        route:                      'configuration/route',
+        'i18nextConfiguration':       'configuration/i18nextConfiguration',
+        'routeConfiguration':         'configuration/routeConfiguration',
+        'homeController':             'controllers/homeController',
+        'contactController':          'controllers/contactController',
+        'scrollToDirective':          'directives/scrollToDirective',
+        'fullHeightWindowDirective':  'directives/fullHeightWindowDirective',
+        'resumeService':              'services/resumeService',
+        'worksService':               'services/worksService',
         
-        // Directives.
-        scrollToDirective:          'directives/scrollToDirective',
-        fullHeightWindowDirective:  'directives/fullHeightWindowDirective',
-        
-        // Controllers.
-        homeController:             'controllers/homeController',
-        contactController:          'controllers/contactController',
-        
-        // Services.
-        resumeService:              'services/resumeService',
-        worksService:               'services/worksService',
-        
-        // Librairies.
-        jqueryFadeOnScroll:         'librairies/jquery.fadeonscroll/jquery.fadeonscroll'
+        'jquery.fadeonscroll':        'librairies/jquery.fadeonscroll/jquery.fadeonscroll'
     },
     shim: {
-        // Librairies.
-        angularRoute:       ['angular'],
-        angularRouteStyles: ['angular'],
-        angularUiRouter:    ['angular'],
-        angularAnimate:     ['angular'],
-        ngI18next:          ['angular', 'i18next']
+        'angular-animate':      ['angular'],
+        'angular-route':        ['angular'],
+        'angular-route-styles': ['angular'],
+        'angular-ui-router':    ['angular'],
+        'i18next':              ['jquery'],
+        'jquery-ui':            ['jquery'],
+        'ng-i18next':           ['angular', 'i18next'],
+        'persona':              ['angular-animate', 'angular-route', 'angular-route-styles', 'ng-i18next']
     },
     priority: ['angular'],
-    deps: ['application']
+    deps: ['app']
 });
