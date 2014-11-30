@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     /* Grunt configuration. */
     grunt.initConfig({
         clean: {
-            locales: ['app/locales/'],
+            locales: ['src/locales/'],
             reset: ['debug']
         },
         compass: {
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                     debugInfo: true,
                     environment: 'development',
                     noLineComments: false,
-                    sassDir: 'app/scss/',
+                    sassDir: 'src/scss/',
                     sourcemap: true,
                     trace: true
                 }
@@ -38,14 +38,14 @@ module.exports = function (grunt) {
             dev: {
                 files: [
                     {
-                        cwd: 'app/',
+                        cwd: 'src/',
                         expand: true,
                         src: 'contents/**/*',
                         dest: 'debug/',
                         filter: 'isFile'
                     },
                     {
-                        cwd: 'app/typescript/',
+                        cwd: 'src/typescript/',
                         expand: true,
                         src: 'locales/**/*',
                         dest: 'debug/scripts/',
@@ -74,7 +74,7 @@ module.exports = function (grunt) {
             locales: {
                 files: [
                     {
-                        cwd: 'app/typescript/',
+                        cwd: 'src/typescript/',
                         expand: true,
                         src: 'locales/**/*',
                         dest: 'debug/scripts/',
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
                     }
                 },
                 files: [{
-                    cwd: 'app/templates/',
+                    cwd: 'src/templates/',
                     dest: 'debug/',
                     expand: true,
                     ext: '.html',
@@ -102,7 +102,7 @@ module.exports = function (grunt) {
         },
         ts: {
             dev: {
-                src: ['app/typescript/**/*.ts'],
+                src: ['src/typescript/**/*.ts'],
                 outDir: 'debug/scripts/',
                 options: {
                     declaration: false,
@@ -114,19 +114,19 @@ module.exports = function (grunt) {
         },
         watch: {
             locales: {
-                files: 'app/typescript/locales/*.json',
+                files: 'src/typescript/locales/*.json',
                 tasks: ['clean:locales', 'copy:locales']
             },
             scripts: {
-                files: 'app/typescript/**/*.ts',
+                files: 'src/typescript/**/*.ts',
                 tasks: ['ts:dev']
             },
             styles: {
-                files: 'app/scss/**/*.scss',
+                files: 'src/scss/**/*.scss',
                 tasks: ['compass:dev']
             },
             views: {
-                files: ['app/templates/**/*.jade'],
+                files: ['src/templates/**/*.jade'],
                 tasks: ['jade:dev']
             }
         }

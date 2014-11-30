@@ -39,13 +39,15 @@ module Application.Controllers {
          */
         public constructor(private $scope: any, private $i18next: any, private $worksService: Services.WorksService) {
             this._addWindowEvents();
-            this._initScope();
+            this._initScope($scope, $worksService);
         }
         
         /**
          * @summary Initialize angular scope.
+         * @param {any}             $scope          Model.
+         * @param {WorksService}    $worksService   Service.
          */
-        private _initScope($scope: any) {
+        private _initScope($scope: any, $worksService: Services.WorksService) {
             // Obtains works and mix.
             var works:any = $worksService.getWorks();
             $scope.works = works.sort(() => { return 0.5 - Math.random() });
