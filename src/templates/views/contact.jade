@@ -2,14 +2,18 @@ header.l-header
     div.full-background-fixed.l-header-background
     div.l-header-wrapper
         div.container
-            h1(ng-i18next="contact.contactMe")
-            p.description(ng-i18next="contact.youHaveQuestions")
+            h1(ng-i18next="contact.contact_me")
+            p.description(ng-i18next="contact.you_have_questions")
 
 section.l-section.vcard-section
-
-section.l-section.map-section#map
-    div.map-information
-        p Hello,world!
+    header
+        h2(ng-i18next="contact.form.title")
+        
+section.l-section.map-section
+    header
+        h2(ng-i18next="contact.find_me")
+        
+    article#map
     
 section.l-section.form-section
     header

@@ -22,7 +22,6 @@
  */
 
 module Application.Controllers {
-    'use strict';
     
     /**
      * @summary Controller for home.
@@ -30,6 +29,8 @@ module Application.Controllers {
      * @class
      */
     export class HomeController {
+        'use strict';
+    
         /**
          * @summary Constructor.
          * @constructs
@@ -58,14 +59,6 @@ module Application.Controllers {
          */
         private _addWindowEvents() {
             $(window).scroll(this._onWindowScroll);
-            //$(window).resize(this._onWindowResize);
-        }
-
-        /**
-         * @summary Occurs when the window is resized.
-         */
-        private _onWindowResize() {
-            $('.l-header').height($(window).height());
         }
 
         /**

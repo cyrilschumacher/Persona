@@ -21,16 +21,15 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts"/>
-
 module Application.Configuration {
-
     /**
      * @summary Persona routing configuration.
      * @author  Cyril Schumacher
      * @class
      */
     export class RouteConfiguration {
+        'use strict';
+    
         /**
          * @summary Constructor.
          * @param {IRouteProvider} $routeProvier Route provider.

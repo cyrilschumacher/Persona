@@ -36,15 +36,26 @@ html(lang="fr" prefix="og:http://ogp.me/ns#" ng-app="persona")
                     
         footer.l-footer(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
             div.container.row
-                section.copyright.col-xs-4
-                    p © 
+                section.footer-left.col-xs-4
+                    div.links
+                        ul
+                            li
+                                a(href="/" ng-i18next="common.nav.home")
+                            li
+                                a(href="#about" ng-i18next="common.nav.about")
+                            li
+                                a(href="#works" ng-i18next="common.nav.works")
+                            li
+                                a(href="#contact" ng-i18next="common.nav.contact")
+                                
+                    p.copyright © 
                         span(itemprop="copyrightYear") 2014 
                         span(itemprop="copyrightHolder") Cyril Schumacher. 
                         span(ng-i18next="common.footer.all_right_reserved")
                         
                 section.social-network.col-xs-4
                 
-                section.social-network.col-xs-4
+                section.footer-right.col-xs-4
                     ul.social-icons
                         li.social-icon
                             a.github.button(rel="external" title="GitHub" href="https://github.com/cyrilschumacher")

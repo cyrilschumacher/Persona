@@ -7,20 +7,44 @@
     
     .container {
         margin: 0 auto;
-        padding: 3rem 0;
+        padding: 5rem 0;
         height: 50%;
         width: 80%;
-        
-        .social-network, .copyright {
+                            
+        .footer-left,
+        .footer-right {
             display: table;
             height: 5rem;
+            
+            a {
+                &:link, &:visited { color: $dark-secondary-color }
+            }
         }
         
-        .social-network {
+        .footer-left {
+            .links {
+                li {
+                    display: inline-block;
+                    
+                    &:after { 
+                        content: ' | ';
+                        padding: 0 2rem;
+                    }
+                    
+                    &:last-child:after { content: '' }
+                    
+                    a {
+                        &:hover, &:active { color: $light-primary-color }
+                    }
+                }
+            }
+        }
+
+        .footer-right {
             .social-icons {
                 display: table-cell;
-                vertical-align: middle;
                 float: right;
+                vertical-align: middle;
                 
                 .social-icon {
                     display: inline-block;
@@ -29,8 +53,6 @@
                     text-align: center;
                             
                     a {
-                        &:link, &:visited { color: $dark-secondary-color }
-
                         &:hover, &:focus {
                             .fa, .name { color: #fff }
                             .name { width: 60px !important }
@@ -41,7 +63,7 @@
                         .name {
                             display: inline-block;
                             overflow: hidden;
-                            @include transition(all 350ms ease-out);
+                            @include transition(background, border-color, width 350ms ease-out);
                             width: 0 !important;
                         }
                     }
@@ -67,14 +89,6 @@
                         }
                     }
                 }
-            }
-        }
-        
-        .copyright {
-            p {
-                display: table-cell;
-                height: 50%;
-                vertical-align: middle;
             }
         }
     }

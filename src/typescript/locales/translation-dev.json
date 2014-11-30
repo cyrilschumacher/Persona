@@ -45,8 +45,9 @@
     },
     
     "contact": {
-        "contactMe": "Contacter moi",
-        "youHaveQuestions" : "Avez-vous des questions ?",
+        "contact_me": "Contacter moi",
+        "you_have_questions": "Avez-vous des questions ?",
+        "find_me": "Trouvez-moi",
         
         "form": {
             "title": "Formulaire de contact",

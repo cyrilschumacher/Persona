@@ -22,13 +22,14 @@
  */
 
 module Application.Configuration {
-    
     /**
      * @summary Persona internationalization configuration.
      * @author  Cyril Schumacher
      * @class
      */
     export class i18nextConfiguration {
+        'use strict';
+    
         /**
          * @summary Constructor.
          * @param {any} $i18nextProvider i18next provider.

@@ -24,14 +24,14 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
 
 module Application {
-    'use strict';
-    
     /**
      * @summary Persona application.
      * @author  Cyril Schumacher
      * @class
      */
     export class Persona {
+        'use strict';
+    
         /**
          * @summary Application.
          * @member {string}
@@ -42,7 +42,7 @@ module Application {
          * @summary Constructor.
          */
         public constructor() {
-            this._app = angular.module('persona', ['ngRoute', 'ngAnimate', 'routeStyles', 'jm.i18next']);
+            this._app = angular.module('persona', ['ngRoute', 'routeStyles', 'ngAnimate', 'jm.i18next']);
             
             this._initConfigurations();
             this._initControllers();

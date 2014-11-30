@@ -22,14 +22,14 @@
  */
 
 module Application.Controllers {
-    'use strict';
-    
     /**
      * @summary Controller for home.
      * @author  Cyril Schumacher
      * @class
      */
     export class ContactController {
+        'use strict';
+    
         /**
          * @summary Constructor.
          * @constructs
@@ -74,10 +74,12 @@ module Application.Controllers {
                 zoom: 15
             };
             
+            var infoboxLayer = new Microsoft.Maps.EntityCollection();
             var map = new Microsoft.Maps.Map(document.getElementById("map"), mapOptions);
-            
+            map.entities.push(infoboxLayer);
+
             var pinLocation = new Microsoft.Maps.Location(location.coordinates.latitude, location.coordinates.longitude)
-            var pin = new Microsoft.Maps.Pushpin(pinLocation, {}); 
+            var pin = new Microsoft.Maps.Pushpin(pinLocation, {});
             
             map.setView({center: pinLocation});
             map.entities.push(pin);
