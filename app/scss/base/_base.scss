@@ -12,15 +12,13 @@ html, body {
 }
 	
 body {
-    background: $base-background-color;
-    color: $base-foreground-color;
+    background: $light-secondary-color;
+    color: $dark-primary-color;
     font: $body-font-size $base-font-family;
     font-weight: $base-font-weight;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: $bebas-neue-font;
-}
+h1, h2, h3, h4, h5, h6 { font-family: $bebas-neue-font }
 
 h1 {
     font-size: $h1-font-size;

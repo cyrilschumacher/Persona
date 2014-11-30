@@ -8,31 +8,46 @@ header.l-header
 section.l-section.vcard-section
 
 section.l-section.map-section#map
+    div.map-information
+        p Hello,world!
     
 section.l-section.form-section
     header
-        h2 Formulaire de contact
+        h2(ng-i18next="contact.form.title")
+
     section.form-content
         form 
+            p(ng-i18next="contact.form.description")
             fieldset
-                label(ng-i18next="contact.form.name")
-                p
-                    input#name(type="text" size="36")
-                    span.field-information 3 caractères minimum et 40 caractères maximum.
+                div.row
+                    div.col-xs-6
+                        label(ng-i18next="contact.form.firstname")
+                        p
+                            input(ng-model="form.firstname" type="text" size="36")
+                            span.field-information 3 caractères minimum et 40 caractères maximum.
+                    div.col-xs-6
+                        label(ng-i18next="contact.form.lastname")
+                        p
+                            input(ng-model="form.lastname" type="text" size="36")
+                            span.field-information 3 caractères minimum et 40 caractères maximum.
             
                 label(ng-i18next="contact.form.email")
+                span.input-required *
                 p  
-                    input#email(type="email" size="64" aria_required="true" placeholder="Obligatoire")
+                    input(ng-model="form.emailAddress" type="email" size="64" aria_required="true")
                     span.field-information 255 caractères maximum. Exemple: email@example.com
                     
             fieldset
                 label(ng-i18next="contact.form.subject")
+                span.input-required *
                 p
-                    input#subject(type="text" size="64" aria_required="true")
-                    span.field-information 255 caractères maximum. Exemple: email@example.com
+                    input(type="text" size="64" aria_required="true")
+                    span.field-information 255 caractères maximum.
 
                 label(ng-i18next="contact.form.message")
+                span.input-required *
                 p
-                    textarea#message
+                    textarea#message(ng-model="form.message" rows="1" maxlength="5000")
+                    
             fieldset
-                input(type="submit")
+                button(type="submit" ng-i18next="contact.form.send_my_message")

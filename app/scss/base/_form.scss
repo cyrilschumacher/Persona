@@ -1,0 +1,22 @@
+form {
+    fieldset { margin: 2rem 0 }
+    
+    label { font-weight: 600 }
+
+    button, 
+    input, 
+    textarea {
+        border: 1px solid $light-primary-color;
+        font-size: 1.8rem;
+        padding: 1rem 2rem;
+    }
+    
+    button[type="submit"],
+    input[type="submit"] {
+        border: none;
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}

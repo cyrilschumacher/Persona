@@ -40,7 +40,7 @@
      * @param {number} percentage   Percentage to which the animation is running.
      * @param {Object} options      Options.
      */
-    $.fn.fadeOnScroll = (percentage: number, options: Object): void => {
+    $.fn.fadeOnScroll = function(percentage: number, options: Object) {
         'use strict';
         
         var settings = $.extend({

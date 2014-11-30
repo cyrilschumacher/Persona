@@ -13,9 +13,7 @@
     border-color: #fff !important;
     cursor: default;
     
-    &:hover, &:focus {
-        background: none;   
-    }
+    &:hover, &:focus { background: none }
 }
 
 .l-header {
@@ -66,18 +64,7 @@
     z-index: 2;
     
     header {
-        h2 {
-            text-transform: uppercase;
-        }
-
-        p.subtitle {
-            background: $base-foreground-color;
-            color: $base-background-color;
-            display: inline-block;
-            font-size: 3rem;
-            font-weight: 200;
-            padding: 1rem 2rem;
-        }
+        h2 { text-transform: uppercase }
     }
 }
 
@@ -90,23 +77,48 @@
 .form-section {
     form {
         margin: 2rem auto;
+        text-align: left;
         width: 640px;
         
-        input {
+        p {
+            text-align: center;
+        }
+        
+        .input-required {
+            color: $grass-primary-color;
+            font-weight: 900;
+            margin: 0 .3rem;
+        }
+        
+        input, textarea {
+            background: none;
             display: block;
-            margin: 0 auto;
+            margin: .5rem auto;
             width: 100%;
+            
+            &:hover { border-color: $grass-primary-color }
     
             &:active, &:focus {
                 border-color: $grass-primary-color;
+                background: #f0f0f0;
             }
+        }
+        
+        button[type="submit"] { 
+            background: $grass-primary-color;
+            color: #fff;
         }
         
         input:active + .field-information,
         input:focus + .field-information, {
             transform: scaleY(1);
             height: auto;
-            margin: 10px 0 2rem;
+            margin: 5px 0 2rem;
+        }
+        
+        textarea {
+            max-height: 200px;
+            @include transition(height 200ms);
         }
         
         .field-information {
@@ -118,7 +130,7 @@
             transform: scaleY(0);
             transform-origin: 50% 0;
             height: 0;
-            transition: all 200ms ease;
+            transition: all 250ms ease;
             
             &:after {
                 content: '';
@@ -128,7 +140,6 @@
                 bottom: 100%;
                 width: 0;
                 height: 0;
-                margin-left: -10px;
                 border-color: transparent transparent $grass-primary-color transparent;
                 border-style: solid;
                 border-width: 10px;

@@ -49,10 +49,14 @@
         "youHaveQuestions" : "Avez-vous des questions ?",
         
         "form": {
-            "name": "Nom",
+            "title": "Formulaire de contact",
+            "description": "Un projet en tête ? Vous souhaitez travailler avec moi ? Vous avez un autre sujet que vous aimeriez discuter avec moi ? N'hésitez pas à me contacter, je vous répondrai avec plaisir.",
+            "firstname": "Prénom",
+            "lastname": "Nom",
             "email": "Adresse e-mail",
             "subject": "Sujet",
-            "message": "Message"
+            "message": "Message",
+            "send_my_message": "Envoyer mon message"
         }
     }
 }

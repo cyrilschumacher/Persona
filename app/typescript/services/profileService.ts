@@ -21,42 +21,50 @@
  * SOFTWARE.
  */
 
-module Application.Directives {
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
+
+module Application.Services {
     'use strict';
     
     /**
-     * @summary Directive for scroll to an element by its identifier.
-     * @author  Cyril Schumacher
+     * @summary Resume service.
      * @class
      */
-    export class FullHeightWindowDirective implements ng.IDirective {
+    export class ProfileService {
         /**
-         * @summary Current element.
+         * @summary HTTP service.
+         * @type    {IHttpService}
+         * @private
          */
-        private _element: JQuery;
+        private _http: ng.IHttpService;
         
         /**
-         * @summary Restrict option.
+         * @summary Constructor.
+         * @constructs
+         * @param {IHttpService} $http HTTP service.
          */
-        public restrict: string = 'A';
-        
-        /**
-         * @summary Manipulates the DOM of the current page.
-         * @param {IScope}      scope   Angular scope object.
-         * @param {JQuery}      element jqLite-wrapped element that this directive matches.
-         * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
-         */
-        public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-            this._element = element;
-            this._onWindowResize();
-            $(window).bind('resize', this._onWindowResize);
+        public construct($http: ng.IHttpService) {
+            this._http = $http;
         }
-
+    
         /**
-         * @summary Occurs when the window is resized.
+         * @summary Returns a list of skill.
+         * @returns {Object} List of skill.
          */
-        private _onWindowResize = (): void => {
-            this._element.height($(window).height());
+        public getLocation = (): Object => {
+            return {
+                coordinates: {
+                    latitude: 48.68339,
+                    longitude: 6.17574
+                },
+                address: {
+                    addressLine1:   '12, rue Victor Prouvé',
+                    city:           'Nancy',
+                    countryRegion:  'France',
+                    postalCode:     '54100',
+                    stateProvince:  'Lorraine'
+                }
+            };
         }
-    };
+    }
 }

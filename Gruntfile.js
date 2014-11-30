@@ -62,6 +62,7 @@ module.exports = function (grunt) {
                             'angular-ui-router/release/**/*.js',
                             'i18next/**/*.js',
                             'jquery/dist/**/*.js',
+                            'jquery-autosize/*.js',
                             'jquery-ui/*.js',
                             'ng-i18next/dist/*.js',
                             'requirejs/*.js'
@@ -141,5 +142,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-ts');
 
     /* Tasks. */
-    grunt.registerTask('build:dev', ['jade:dev', 'compass:dev', 'ts:dev', 'copy:dev']);
+    grunt.registerTask('dev', ['jade:dev', 'compass:dev', 'ts:dev', 'copy:dev']);
 };

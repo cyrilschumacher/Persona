@@ -1,6 +1,6 @@
 .l-footer {
-    background: $base-foreground-color;
-    color: $base-background-color;
+    background: $dark-primary-color;
+    color: $dark-secondary-color;
     position: relative;
     width: inherit;
     z-index: 2;
@@ -29,17 +29,14 @@
                     text-align: center;
                             
                     a {
-                        &:link, &:visited { color: $base-background-color }
+                        &:link, &:visited { color: $dark-secondary-color }
 
                         &:hover, &:focus {
                             .fa, .name { color: #fff }
-
                             .name { width: 60px !important }
                         }
                         
-                        .fa {
-                            padding: 0 .6rem;
-                        }
+                        .fa { padding: 0 .6rem }
 
                         .name {
                             display: inline-block;
