@@ -42,8 +42,11 @@ requirejs.config({
         
         'i18nextConfiguration':       'configuration/i18nextConfiguration',
         'routeConfiguration':         'configuration/routeConfiguration',
-        'homeController':             'controllers/homeController',
+        
+        'aboutController':            'controllers/aboutController',
         'contactController':          'controllers/contactController',
+        'homeController':             'controllers/homeController',
+        
         'scrollToDirective':          'directives/scrollToDirective',
         'fullHeightWindowDirective':  'directives/fullHeightWindowDirective',
         'profileService':             'services/profileService',

@@ -1,4 +1,26 @@
 .l-header {
+    height: 50rem;
     width: inherit;
     z-index: 1;
+}
+
+.l-header-wrapper {
+    display: table;
+    height: inherit;
+    position: fixed;
+    width: 100%;
+    
+    .container {
+        height: auto;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+
+        h1 { display: inline-block }
+
+        .description {
+            font-size: $h3-font-size;
+            font-weight: 300;
+        }
+    }
 }

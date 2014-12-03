@@ -16,10 +16,6 @@
     &:hover, &:focus { background: none }
 }
 
-.l-header {
-    height: 50rem;
-}
-
 .l-header-background {
     background: $grass-primary-color;
     z-index: 1;
@@ -27,37 +23,7 @@
 
 .l-header-wrapper {
     color: #fff;
-    display: table;
-    height: inherit;
-    position: fixed;
-    width: 100%;
     z-index: 2;
-
-    .container {
-        height: auto;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        width: 80%;
-
-        h1 {
-            display: inline-block;
-
-            .my-name {
-                border: 1px solid #fff;
-                color: #fff;
-                padding: 0 3rem;
-                text-transform: uppercase;
-                @include transition(all 250ms);
-            }
-        }
-
-        .description {
-            font-size: 3.58rem;
-            font-weight: 300;
-            margin: 0 0 3rem;
-        }
-    }
 }
 
 .l-section {
@@ -70,13 +36,15 @@
 
 .map-section {
     height: 75rem;
+    padding-left: 0;
+    padding-right: 0;
     
     #map {
         border: 1px solid $light-primary-color;
-        height: 90%;
+        height: 50rem;
         margin: 2rem auto;
         position: relative;
-        width: 50%;
+        width: 100%;
     }
 }
 

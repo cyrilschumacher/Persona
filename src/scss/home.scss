@@ -36,87 +36,71 @@
 }
 
 .l-header-wrapper {
-    background: url(/contents/images/top-overlay.png);
+    background: url(/contents/images/grid.png);
     color: #fff;
-    display: table;
-    height: 100%;
-    position: fixed;
-    width: 100%;
-    z-index: 2;
 
-    .container {
-        height: auto;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        width: 80%;
+    h1 {
+        @include animation(opening-fade 3s);
 
-        h1 {
-            @include animation(opening-fade 3s);
-            display: inline-block;
-
-            .my-name {
-                border: 1px solid #fff;
-                color: #fff;
-                padding: 0 3rem;
-                text-transform: uppercase;
-                @include transition(all 250ms);
-            }
-        }
-
-        .description {
-            @include animation(opening-fade 1s 1.5s forwards);
-            font-size: $h3-font-size;
-            font-weight: 300;
-            margin: 0 0 3rem;
-            @include opacity(0);
-            text-transform: lowercase;
-        }
-
-        .scroll-down {
-            @include animation(opening-fade 1s 2.5s forwards);
-            margin: 0 auto;
-            @include opacity(0);
+        .my-name {
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 0 3rem;
             text-transform: uppercase;
+            @include transition(all 250ms);
+        }
+    }
 
-            &:before {
-                content: '\a';
-                white-space: pre;
-            }
+    .description {
+        @include animation(opening-fade 1s 1.5s forwards);
+        margin: 0 0 3rem;
+        @include opacity(0);
+        text-transform: lowercase;
+    }
 
-            a {
-                @include animation(arrow-animation 500ms infinite ease-in-out alternate);
-                @include animation-play-state(running);
-                color: #fff !important;
-                position: relative;
+    .scroll-down {
+        @include animation(opening-fade 1s 2.5s forwards);
+        margin: 0 auto;
+        @include opacity(0);
+        text-transform: uppercase;
 
-                &:hover {
-                    @include animation-play-state(paused);
+        &:before {
+            content: '\a';
+            white-space: pre;
+        }
 
-                    .text {
-                        @include opacity(1);
-                        @include transform(scale(1));
-                    }
-                } 
+        a {
+            @include animation(arrow-animation 500ms infinite ease-in-out alternate);
+            @include animation-play-state(running);
+            color: #fff !important;
+            position: relative;
 
-                .round-icon {
-                    border-color: #fff;
-                    @include border-radius(100%);
-                    cursor: pointer;
-                    height: 5rem;
-                    margin: 1rem auto;
-                    width: 5rem;
-
-                    .round-icon-text.fa {
-                        font-size: 3rem;
-                    }
-                }
+            &:hover {
+                @include animation-play-state(paused);
 
                 .text {
-                    @include opacity(0);
-                    @include transform(scale(0.90));
-                    @include transition(all 200ms);
+                    @include opacity(1);
+                    @include transform(scale(1));
                 }
+            } 
+
+            .round-icon {
+                border-color: #fff;
+                @include border-radius(100%);
+                cursor: pointer;
+                height: 5rem;
+                margin: 1rem auto;
+                width: 5rem;
+
+                .round-icon-text.fa {
+                    font-size: 3rem;
+                }
+            }
+
+            .text {
+                @include opacity(0);
+                @include transform(scale(0.90));
+                @include transition(all 200ms);
             }
         }
     }
@@ -127,14 +111,20 @@
         h2 {
             text-transform: uppercase;
         }
+    }
+    
+    section {
+        h3 {
+            margin: 1.5rem 0;
+            text-transform: uppercase;
+        }
+        
+        .round-icon {
+            border-color: $dark-primary-color;
+            height: 12rem;
+            width: 12rem;
 
-        p.subtitle {
-            background: $dark-primary-color;
-            color: $light-primary-color;
-            display: inline-block;
-            font-size: 3rem;
-            font-weight: 200;
-            padding: 1rem 2rem;
+            .round-icon-text { font-size: 3rem }
         }
     }
 }
@@ -151,19 +141,6 @@
                 max-width: 40rem;
                 padding: 0 1rem;
                 width: 25%;
-
-                h3 {
-                    margin: 1.5rem 0;
-                    text-transform: uppercase;
-                }
-
-                .round-icon {
-                    border-color: $dark-primary-color;
-                    height: 12rem;
-                    width: 12rem;
-
-                    .round-icon-text { font-size: 3rem }
-                }
             }
         }
     }
@@ -179,6 +156,7 @@
         overflow: hidden;
 
         .work-item {
+            border: 1px solid #bbb;
             display: inline-block;
             margin: .8rem;
             overflow: hidden;
@@ -202,7 +180,6 @@
                     background: $dark-primary-color !important;
                     color: $light-secondary-color;
                     height: inherit;
-                    left: 0;
                     padding: .5em;
                     position: absolute;
                     top: 100%;
@@ -228,9 +205,9 @@
                 }
 
                 .work-item-content-thumbnail {
+                    bottom: 0;
                     left: 0;
                     position: relative;
-                    bottom: 0;
                     @include transition(bottom 250ms ease-out);
 
                     img {
@@ -254,21 +231,6 @@
             .contact-item {
                 max-width: 40rem;
                 padding: 0 1rem;
-
-                h3 {
-                    margin: 1.5rem 0;
-                    text-transform: uppercase;
-                }
-
-                .round-icon {
-                    border-color: $dark-primary-color;
-                    height: 12rem;
-                    width: 12rem;
-
-                    .round-icon-text {
-                        font-size: 3rem;
-                    }
-                }
             }
         }
     }

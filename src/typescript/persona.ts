@@ -33,10 +33,17 @@ module Application {
         'use strict';
     
         /**
-         * @summary Application.
-         * @member {string}
+         * @summary Angular module.
+         * @member {IModule}
          */
         private _app: ng.IModule;
+    
+        /**
+         * Gets the angular module.
+         */
+        public get app():ng.IModule {
+            return this._app;
+        } 
 
         /**
          * @summary Constructor.
@@ -63,6 +70,7 @@ module Application {
          */
         private _initControllers() {
             this._app.controller("homeController", ["$scope", "$i18next", "worksService", ($scope, $i18next, $worksService) => new Controllers.HomeController($scope, $i18next, $worksService)])
+                     .controller("aboutController", ["$scope", "$i18next", ($scope, $i18next) => new Controllers.AboutController($scope, $i18next)])
                      .controller("contactController", ["$scope", "$i18next", "profileService", ($scope, $i18next, $profileService) => new Controllers.ContactController($scope, $i18next, $profileService)]);
         }
     

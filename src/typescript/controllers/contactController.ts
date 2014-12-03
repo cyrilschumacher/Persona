@@ -23,7 +23,7 @@
 
 module Application.Controllers {
     /**
-     * @summary Controller for home.
+     * @summary Controller for contact.
      * @author  Cyril Schumacher
      * @class
      */
@@ -71,7 +71,7 @@ module Application.Controllers {
                 showCopyright: false,
                 showDashboard: false,
                 showScalebar: false,
-                zoom: 15
+                zoom: 12
             };
             
             var infoboxLayer = new Microsoft.Maps.EntityCollection();

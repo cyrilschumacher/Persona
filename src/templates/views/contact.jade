@@ -5,19 +5,17 @@ header.l-header
             h1(ng-i18next="contact.contact_me")
             p.description(ng-i18next="contact.you_have_questions")
 
-section.l-section.vcard-section
-    header
-        h2(ng-i18next="contact.form.title")
-        
 section.l-section.map-section
     header
         h2(ng-i18next="contact.find_me")
-        
-    article#map
+        p.subtitle Découvrez où je réside actuellement
+    section
+        div#map
     
 section.l-section.form-section
     header
         h2(ng-i18next="contact.form.title")
+        p.subtitle Compléter les champs ci-dessous
 
     section.form-content
         form 

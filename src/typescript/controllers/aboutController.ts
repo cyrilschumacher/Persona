@@ -21,17 +21,22 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
-
-module Application {
-    'use strict';
-
-    define(['jquery', 'angular-animate', 'angular-route', 'angular-route-styles', 'ng-i18next', 'i18nextConfiguration', 'routeConfiguration', 'fullHeightWindowDirective', 'scrollToDirective', 'jquery-autosize', 'jquery.fadeonscroll', 'aboutController', 'homeController', 'contactController', 'profileService', 'resumeService', 'worksService', 'persona'], initialize);
+module Application.Controllers {
+    /**
+     * @summary Controller for about.
+     * @author  Cyril Schumacher
+     * @class
+     */
+    export class AboutController {
+        'use strict';
     
-    function initialize() {
-        angular.element(document).ready(function() {
-            var persona = new Application.Persona();
-            angular.bootstrap(document, [persona.app.name]);
-        });
+        /**
+         * @summary Constructor.
+         * @constructs
+         * @param $scope            {any}           Model.
+         * @param $i18next          {any}           Localization.
+         */
+        public constructor(private $scope: any, private $i18next: any) {
+        }
     }
 }

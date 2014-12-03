@@ -56,6 +56,7 @@ module Application.Configuration {
          */
         private _init = ($routeProvider: ng.route.IRouteProvider) => { 
             this._createRoute($routeProvider, '/', 'homeController', 'home.css', 'home.html');
+            this._createRoute($routeProvider, '/about', 'aboutController', 'about.css', 'about.html');
             this._createRoute($routeProvider, '/contact', 'contactController', 'contact.css', 'contact.html');
             $routeProvider.otherwise({redirectTo: '/'});
         }
