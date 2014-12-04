@@ -21,17 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
-
-module Application {
-    'use strict';
-
-    define(['jquery', 'angular-animate', 'angular-route', 'angular-route-styles', 'ng-i18next', 'i18nextConfiguration', 'routeConfiguration', 'fullHeightWindowDirective', 'scrollToDirective', 'jquery-autosize', 'jquery.fadeonscroll', 'aboutController', 'homeController', 'contactController', 'profileService', 'resumeService', 'worksService', 'persona'], initialize);
-    
-    function initialize() {
-        angular.element(document).ready(function() {
-            var persona = new Application.Persona();
-            angular.bootstrap(document, [persona.app.name]);
-        });
-    }
-}
+require(
+    ['angular', 'angular-route', 'angular-route-styles', 'ng-i18next', 'jquery-autosize', 'persona', 'scrollToDirective', 'fullHeightWindowDirective', 'profileService', 'worksService'], persona => {
+    angular.bootstrap(document, ['persona']);
+});

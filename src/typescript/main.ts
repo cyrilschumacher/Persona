@@ -23,9 +23,11 @@
 
 /// <reference path="../../bower_components/DefinitelyTyped/requirejs/require.d.ts"/>
 
-requirejs.config({
+require.config({
     baseUrl: '/scripts/',
+    urlArgs: 'v=1.0',
     paths: {
+        // Vendors.
         'jquery':                     'vendors/jquery/dist/jquery',
         'jquery-ui':                  'vendors/jquery-ui/jquery-ui',
         'jquery-autosize':            'vendors/jquery-autosize/jquery.autosize',
@@ -37,23 +39,33 @@ requirejs.config({
         'i18next':                    'vendors/i18next/i18next',
         'ng-i18next':                 'vendors/ng-i18next/dist/ng-i18next',
         
+        // Application.
         'app':                        'app',
         'persona':                    'persona',
         
+        // Configurations.
         'i18nextConfiguration':       'configuration/i18nextConfiguration',
         'routeConfiguration':         'configuration/routeConfiguration',
         
+        // Controllers.
         'aboutController':            'controllers/aboutController',
         'contactController':          'controllers/contactController',
         'homeController':             'controllers/homeController',
         
+        // Directives.
         'scrollToDirective':          'directives/scrollToDirective',
         'fullHeightWindowDirective':  'directives/fullHeightWindowDirective',
+        
+        // Services.
         'profileService':             'services/profileService',
         'resumeService':              'services/resumeService',
         'worksService':               'services/worksService',
         
-        'jquery.fadeonscroll':        'librairies/jquery.fadeonscroll/jquery.fadeonscroll'
+        // Librairies.
+        'jquery.fadeonscroll':        'librairies/jquery.fadeonscroll/jquery.fadeonscroll',
+        
+        // Utilities.
+        'routeResolver':              'utils/routeResolver'
     },
     shim: {
         'angular-animate':      ['angular'],
@@ -62,9 +74,8 @@ requirejs.config({
         'angular-ui-router':    ['angular'],
         'i18next':              ['jquery'],
         'jquery-ui':            ['jquery'],
+        'jquery-autosize':      ['jquery'],
         'ng-i18next':           ['angular', 'i18next'],
-        'persona':              ['angular-animate', 'angular-route', 'angular-route-styles', 'ng-i18next']
     },
-    priority: ['angular'],
     deps: ['app']
 });

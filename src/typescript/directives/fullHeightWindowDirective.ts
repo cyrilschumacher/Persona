@@ -21,15 +21,16 @@
  * SOFTWARE.
  */
 
+import persona = require('persona');
 module Application.Directives {
-    'use strict';
-    
     /**
      * @summary Directive for scroll to an element by its identifier.
      * @author  Cyril Schumacher
      * @class
      */
     export class FullHeightWindowDirective implements ng.IDirective {
+        'use strict';
+        
         /**
          * @summary Current element.
          */
@@ -58,5 +59,8 @@ module Application.Directives {
         private _onWindowResize = (): void => {
             this._element.height($(window).height());
         }
-    };
+    }
+
+    FullHeightWindowDirective.$inject = [];
+    persona.module.directive('ngFullHeightWindow', () => new Directives.FullHeightWindowDirective());
 }

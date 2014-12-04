@@ -23,6 +23,7 @@
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
 
+import persona = require('persona');
 module Application.Services {
     'use strict';
     
@@ -37,6 +38,10 @@ module Application.Services {
          * @private
          */
         private _http: ng.IHttpService;
+    
+        get $get(): WorksService {
+            return this;   
+        }
         
         /**
          * @summary Constructor.
@@ -86,4 +91,7 @@ module Application.Services {
             ];
         }
     }
+
+    WorksService.$inject = ['$http'];
+    persona.module.factory('worksService', ['$http', $http => new WorksService($http)]);
 }

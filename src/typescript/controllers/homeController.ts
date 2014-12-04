@@ -21,8 +21,8 @@
  * SOFTWARE.
  */
 
+import persona = require('persona');
 module Application.Controllers {
-    
     /**
      * @summary Controller for home.
      * @author  Cyril Schumacher
@@ -34,13 +34,13 @@ module Application.Controllers {
         /**
          * @summary Constructor.
          * @constructs
-         * @param $scope        {any}           Model.
+         * @param $scope        {IScope}        Model.
          * @param $i18next      {any}           Localization.
-         * @param $worksService {WorksService}  Service.
+         * @param worksService  {WorksService}  Service.
          */
-        public constructor(private $scope: any, private $i18next: any, private $worksService: Services.WorksService) {
+        public constructor(private $scope: IScope, private $i18next: any, private worksService: Services.WorksService) {
             this._addWindowEvents();
-            this._initScope($scope, $worksService);
+            this._initScope();
         }
         
         /**
@@ -48,10 +48,10 @@ module Application.Controllers {
          * @param {any}             $scope          Model.
          * @param {WorksService}    $worksService   Service.
          */
-        private _initScope($scope: any, $worksService: Services.WorksService) {
+        private _initScope() {
             // Obtains works and mix.
-            var works:any = $worksService.getWorks();
-            $scope.works = works.sort(() => { return 0.5 - Math.random() });
+            var works:any = this.worksService.getWorks();
+            this.$scope.works = works.sort(() => { return 0.5 - Math.random() });
         }
 
         /**
@@ -68,4 +68,7 @@ module Application.Controllers {
             $('.l-header-wrapper').fadeOnScroll(25, {element: $('.l-header-wrapper .container')});
         }
     }
+
+    HomeController.$inject = ['$scope', '$i18next', 'worksService'];
+    persona.module.register.controller('homeController', ['$scope', '$i18next', 'worksService', ($scope, $i18next, worksService) => new HomeController($scope, $i18next, worksService)]);
 }

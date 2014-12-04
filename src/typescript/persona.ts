@@ -36,60 +36,46 @@ module Application {
          * @summary Angular module.
          * @member {IModule}
          */
-        private _app: ng.IModule;
+        private _module: ng.IModule;
     
         /**
          * Gets the angular module.
          */
-        public get app():ng.IModule {
-            return this._app;
+        public get module():ng.IModule {
+            return this._module;
         } 
 
         /**
          * @summary Constructor.
          */
         public constructor() {
-            this._app = angular.module('persona', ['ngRoute', 'routeStyles', 'ngAnimate', 'jm.i18next']);
-            
+            this._module = angular.module('persona', ['ngRoute', 'routeStyles', 'jm.i18next']);
             this._initConfigurations();
-            this._initControllers();
-            this._initServices();
-            this._initDirectives();
         }
 
         /**
          * @summary Initialize configuration.
          */
         private _initConfigurations() {
-            this._app.config(Application.Configuration.RouteConfiguration)
-                     .config(Application.Configuration.i18nextConfiguration);
-        }
-
-        /**
-         * @summary Initialize controllers.
-         */
-        private _initControllers() {
-            this._app.controller("homeController", ["$scope", "$i18next", "worksService", ($scope, $i18next, $worksService) => new Controllers.HomeController($scope, $i18next, $worksService)])
-                     .controller("aboutController", ["$scope", "$i18next", ($scope, $i18next) => new Controllers.AboutController($scope, $i18next)])
-                     .controller("contactController", ["$scope", "$i18next", "profileService", ($scope, $i18next, $profileService) => new Controllers.ContactController($scope, $i18next, $profileService)]);
-        }
-    
-    
-        /**
-         * @summary Initialize directives.
-         */
-        private _initDirectives() {
-            this._app.directive('ngScrollTo', () => new Directives.ScrollToDirective())
-                     .directive('ngFullHeightWindow', () => new Directives.FullHeightWindowDirective());
-        }
-    
-        /**
-         * @summary Initialize services.
-         */
-        private _initServices() {
-            this._app.factory('profileService', ["$http", ($http) => new Services.ProfileService()])
-                     .factory('resumeService', ["$http", ($http) => new Services.ResumeService()])
-                     .factory('worksService', ["$http", ($http) => new Services.WorksService()]);
+            this._module.config(Application.Configuration.RouteConfiguration)
+                     .config(Application.Configuration.i18nextConfiguration)
+                     .config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', 
+                              ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) => {
+                         this._module.register = { 
+                             controller: $controllerProvider.register, 
+                             directive: $compileProvider.directive, 
+                             filter: $filterProvider.register, 
+                             factory: $provide.factory, 
+                             service: $provide.service
+                         }; 
+                     }]);
         }
     }
+
+
+    define(
+        ['jquery.fadeonscroll', 'routeResolver', 'routeConfiguration', 'i18nextConfiguration'], 
+        () => {
+        return new Persona();
+    });
 }

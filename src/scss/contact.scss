@@ -16,14 +16,10 @@
     &:hover, &:focus { background: none }
 }
 
-.l-header-background {
-    background: $grass-primary-color;
-    z-index: 1;
-}
-
 .l-header-wrapper {
+    background: $grass-primary-color;
     color: #fff;
-    z-index: 2;
+    z-index: 1;
 }
 
 .l-section {

@@ -21,15 +21,16 @@
  * SOFTWARE.
  */
 
+import persona = require('persona');
 module Application.Directives {
-    'use strict';
-    
     /**
      * @summary Directive for scroll to an element by its identifier.
      * @author  Cyril Schumacher
      * @class
      */
     export class ScrollToDirective implements ng.IDirective {
+        'use strict';
+        
         /**
          * @summary Restrict option.
          */
@@ -49,5 +50,8 @@ module Application.Directives {
                 $('html, body').animate({ scrollTop: $(to).offset().top }, duration);  
             });
         }
-    };
+    }
+    
+    ScrollToDirective.$inject = [];
+    persona.module.directive('ngScrollTo', () => new Directives.ScrollToDirective());
 }

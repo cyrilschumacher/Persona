@@ -21,6 +21,7 @@
  * SOFTWARE.
  */
 
+import persona = require('persona');
 module Application.Controllers {
     /**
      * @summary Controller for contact.
@@ -33,16 +34,16 @@ module Application.Controllers {
         /**
          * @summary Constructor.
          * @constructs
-         * @param $scope            {any}           Model.
-         * @param $i18next          {any}           Localization.
-         * @param $profileService   {any}           Profile service.
+         * @param $scope            {IScope}    Model.
+         * @param $i18next          {any}       Localization.
+         * @param profileService    {any}       Profile service.
          */
-        public constructor(private $scope: any, private $i18next: any, private $profileService) {
-            var location: any = $profileService.getLocation();
+        public constructor(private $scope: IScope, private $i18next: any, private profileService) {
+            var location: any = profileService.getLocation();
             
             this._addWindowEvents();
             this._initMap(location);
-            this._initScope($scope);
+            this._initScope();
             $('#message').autosize();
         }
 
@@ -56,8 +57,8 @@ module Application.Controllers {
         /**
          * @summary Initialize angular scope.
          */
-        private _initScope($scope: any) {
-            $scope.form = {firstname: "", lastname: "", subject: "", emailAddress: "", message: ""};
+        private _initScope() {
+            this.$scope.form = {firstname: '', lastname: '', subject: '', emailAddress: '', message: ''};
         }
         
         /**
@@ -89,7 +90,10 @@ module Application.Controllers {
          * @summary Occurs when the window is scrolled.
          */
         private _onWindowScroll() {
-            $('.l-header-wrapper').fadeOnScroll(30);
+            $('.l-header-wrapper').fadeOnScroll(25);
         }
     }
+
+    ContactController.$inject = ['$scope', '$i18next', 'profileService'];
+    persona.module.register.controller('contactController', ['$scope', '$i18next', 'profileService', ($scope, $i18next, profileService) => new ContactController($scope, $i18next, profileService)]);
 }

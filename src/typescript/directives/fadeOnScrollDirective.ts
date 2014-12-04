@@ -22,25 +22,38 @@
  */
 
 import persona = require('persona');
-module Application.Controllers {
+module Application.Directives {
     /**
-     * @summary Controller for about.
+     * @summary Directive for scroll to an element by its identifier.
      * @author  Cyril Schumacher
      * @class
      */
-    export class AboutController {
+    export class FadeOnScrollDirective implements ng.IDirective {
         'use strict';
-    
+        
         /**
-         * @summary Constructor.
-         * @constructs
-         * @param $scope    {IScope}    Model.
-         * @param $i18next  {any}       Localization.
+         * @summary Current element.
          */
-        public constructor(private $scope: IScope, private $i18next: any) {
+        private _element: JQuery;
+        
+        /**
+         * @summary Restrict option.
+         */
+        public restrict: string = 'A';
+        
+        /**
+         * @summary Manipulates the DOM of the current page.
+         * @param {IScope}      scope   Angular scope object.
+         * @param {JQuery}      element jqLite-wrapped element that this directive matches.
+         * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
+         */
+        public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
+            this._element = element;
+            this._onWindowResize();
+            $(window).bind('resize', this._onWindowResize);
         }
     }
 
-    AboutController.$inject = ['$scope', '$i18next'];
-    persona.module.register.controller('aboutController', ['$scope', '$i18next', ($scope, $i18next) => new AboutController($scope, $i18next)]);
+    FadeOnScrollDirective.$inject = [];
+    persona.module.directive('ngFadeOnScroll', () => new Directives.FadeOnScrollDirective());
 }

@@ -39,26 +39,15 @@ module Application.Configuration {
         }
         
         /**
-         * @summary Create a route.
-         * @param {IRouteProvider} $routeProvier Route provider.
-         * @param {string} path Route path.
-         * @param {string} controllerName Controller name.
-         * @param {string} cssPath Path to CSS file.
-         * @param {string} templatePath Path to template file.
-         */
-        private _createRoute = ($routeProvider: ng.route.IRouteProvider, path: string, controllerName: string, cssPath: string, templatePath: string) => {
-            $routeProvider.when(path, {controller: controllerName, css: '/stylesheets/' + cssPath, templateUrl: '/views/' + templatePath});
-        }
-
-        /**
          * @summary Initialize route.
          * @param {IRouteProvider} $routeProvier Route provider.
          */
-        private _init = ($routeProvider: ng.route.IRouteProvider) => { 
-            this._createRoute($routeProvider, '/', 'homeController', 'home.css', 'home.html');
-            this._createRoute($routeProvider, '/about', 'aboutController', 'about.css', 'about.html');
-            this._createRoute($routeProvider, '/contact', 'contactController', 'contact.css', 'contact.html');
-            $routeProvider.otherwise({redirectTo: '/'});
+        private _init = ($routeProvider: ng.route.IRouteProvider): void => {
+            var routeResolver = new RouteResolver('/scripts/controllers/', '/stylesheets/', '/views/');
+            $routeProvider.when('/', routeResolver.resolve('home'))
+                          .when('/about', routeResolver.resolve('about'))
+                          .when('/contact', routeResolver.resolve('contact'))
+                          .otherwise({redirectTo: '/'});
         }
     }
 

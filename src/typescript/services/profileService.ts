@@ -23,6 +23,7 @@
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
 
+import persona = require('persona');
 module Application.Services {
     'use strict';
     
@@ -67,4 +68,7 @@ module Application.Services {
             };
         }
     }
+
+    ProfileService.$inject = ['$http'];
+    persona.module.factory('profileService', ['$http', $http => new ProfileService($http)]);
 }
