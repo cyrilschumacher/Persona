@@ -43,7 +43,9 @@ module Application.Directives {
          * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
          */
         public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-            element.fadeByScroll(25);
+            var percentage: number = attrs.percentage;
+            
+            element.fadeByScroll(percentage, {element: $(attrs.element)});
         }
     }
 
