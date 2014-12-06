@@ -32,14 +32,18 @@ module Application.Controllers {
         'use strict';
     
         /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = ['$scope', '$i18next', 'worksService'];
+    
+        /**
          * @summary Constructor.
-         * @constructs
+         * @constructor
          * @param $scope        {IScope}        Model.
          * @param $i18next      {any}           Localization.
          * @param worksService  {WorksService}  Service.
          */
         public constructor(private $scope: IScope, private $i18next: any, private worksService: Services.WorksService) {
-            this._addWindowEvents();
             this._initScope();
         }
         
@@ -53,22 +57,7 @@ module Application.Controllers {
             var works:any = this.worksService.getWorks();
             this.$scope.works = works.sort(() => { return 0.5 - Math.random() });
         }
-
-        /**
-         * @summary Adds events on window element.
-         */
-        private _addWindowEvents() {
-            $(window).scroll(this._onWindowScroll);
-        }
-
-        /**
-         * @summary Occurs when the window is scrolled.
-         */
-        private _onWindowScroll() {
-            $('.l-header-wrapper').fadeOnScroll(25, {element: $('.l-header-wrapper .container')});
-        }
     }
 
-    HomeController.$inject = ['$scope', '$i18next', 'worksService'];
-    persona.module.register.controller('homeController', ['$scope', '$i18next', 'worksService', ($scope, $i18next, worksService) => new HomeController($scope, $i18next, worksService)]);
+    persona.module.register.controller('homeController', HomeController);
 }

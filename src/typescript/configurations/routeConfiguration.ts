@@ -21,39 +21,27 @@
  * SOFTWARE.
  */
 
-import persona = require('persona');
-module Application.Directives {
+module Application.Configuration {
     /**
-     * @summary Directive for scroll to an element by its identifier.
+     * @summary Persona routing configuration.
      * @author  Cyril Schumacher
      * @class
      */
-    export class FadeOnScrollDirective implements ng.IDirective {
+    export class RouteConfiguration {
         'use strict';
-        
+    
         /**
-         * @summary Current element.
+         * @summary Constructor.
+         * @param {IRouteProvider} $routeProvier Route provider.
          */
-        private _element: JQuery;
-        
-        /**
-         * @summary Restrict option.
-         */
-        public restrict: string = 'A';
-        
-        /**
-         * @summary Manipulates the DOM of the current page.
-         * @param {IScope}      scope   Angular scope object.
-         * @param {JQuery}      element jqLite-wrapped element that this directive matches.
-         * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
-         */
-        public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-            this._element = element;
-            this._onWindowResize();
-            $(window).bind('resize', this._onWindowResize);
+        public constructor(private $routeProvider: ng.route.IRouteProvider) {
+            var routeResolver = new RouteResolver('/scripts/controllers/', '/stylesheets/', '/views/');
+            $routeProvider.when('/', routeResolver.resolve('home'))
+                          .when('/about', routeResolver.resolve('about'))
+                          .when('/contact', routeResolver.resolve('contact'))
+                          .otherwise({redirectTo: '/'});
         }
     }
 
-    FadeOnScrollDirective.$inject = [];
-    persona.module.directive('ngFadeOnScroll', () => new Directives.FadeOnScrollDirective());
+    RouteConfiguration.$inject = ['$routeProvider'];
 }

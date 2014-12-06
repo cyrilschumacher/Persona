@@ -31,6 +31,7 @@ require.config({
         'jquery':                     'vendors/jquery/dist/jquery',
         'jquery-ui':                  'vendors/jquery-ui/jquery-ui',
         'jquery-autosize':            'vendors/jquery-autosize/jquery.autosize',
+        'jquery.fadebyscroll':        'vendors/jquery.fadebyscroll/dist/jquery.fadebyscroll',
         'angular':                    'vendors/angular/angular',
         'angular-animate':            'vendors/angular-animate/angular-animate',
         'angular-route':              'vendors/angular-route/angular-route',
@@ -44,8 +45,8 @@ require.config({
         'persona':                    'persona',
         
         // Configurations.
-        'i18nextConfiguration':       'configuration/i18nextConfiguration',
-        'routeConfiguration':         'configuration/routeConfiguration',
+        'i18nextConfiguration':       'configurations/i18nextConfiguration',
+        'routeConfiguration':         'configurations/routeConfiguration',
         
         // Controllers.
         'aboutController':            'controllers/aboutController',
@@ -53,16 +54,14 @@ require.config({
         'homeController':             'controllers/homeController',
         
         // Directives.
-        'scrollToDirective':          'directives/scrollToDirective',
+        'fadeByScrollDirective':      'directives/fadeByScrollDirective',
         'fullHeightWindowDirective':  'directives/fullHeightWindowDirective',
+        'scrollToDirective':          'directives/scrollToDirective',
         
         // Services.
         'profileService':             'services/profileService',
         'resumeService':              'services/resumeService',
         'worksService':               'services/worksService',
-        
-        // Librairies.
-        'jquery.fadeonscroll':        'librairies/jquery.fadeonscroll/jquery.fadeonscroll',
         
         // Utilities.
         'routeResolver':              'utils/routeResolver'
@@ -73,7 +72,6 @@ require.config({
         'angular-route-styles': ['angular'],
         'angular-ui-router':    ['angular'],
         'i18next':              ['jquery'],
-        'jquery-ui':            ['jquery'],
         'jquery-autosize':      ['jquery'],
         'ng-i18next':           ['angular', 'i18next'],
     },

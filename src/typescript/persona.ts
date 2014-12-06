@@ -72,10 +72,5 @@ module Application {
         }
     }
 
-
-    define(
-        ['jquery.fadeonscroll', 'routeResolver', 'routeConfiguration', 'i18nextConfiguration'], 
-        () => {
-        return new Persona();
-    });
+    define(['angular-route', 'angular-route-styles', 'i18next', 'routeResolver', 'routeConfiguration', 'i18nextConfiguration', 'ng-i18next'], () => new Persona);
 }

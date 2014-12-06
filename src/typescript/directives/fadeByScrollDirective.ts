@@ -21,38 +21,32 @@
  * SOFTWARE.
  */
 
-module Application.Configuration {
+import persona = require('persona');
+module Application.Directives {
     /**
-     * @summary Persona internationalization configuration.
+     * @summary Directive for scroll to an element by its identifier.
      * @author  Cyril Schumacher
      * @class
      */
-    export class i18nextConfiguration {
+    export class FadeByScrollDirective implements ng.IDirective {
         'use strict';
-    
+        
         /**
-         * @summary Constructor.
-         * @param {any} $i18nextProvider i18next provider.
+         * @summary Restrict option.
          */
-        public constructor(private $i18nextProvider: any) {
-            this._init($i18nextProvider);
-        }
-
+        public restrict: string = 'A';
+        
         /**
-         * @summary Initialize i18next plugin.
-         * @param {any} $i18nextProvider i18next provider.
+         * @summary Manipulates the DOM of the current page.
+         * @param {IScope}      scope   Angular scope object.
+         * @param {JQuery}      element jqLite-wrapped element that this directive matches.
+         * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
          */
-        private _init = ($i18nextProvider: any) => {
-            $i18nextProvider.options = {
-                debug: true,
-                fallbackLng: 'dev',
-                lng: 'dev',
-                resGetPath: '/scripts/locales/__ns__-__lng__.json',
-                useCookie: false,
-                useLocalStorage: false
-            };
+        public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
+            element.fadeByScroll(25);
         }
     }
 
-    i18nextConfiguration.$inject = ['$i18nextProvider'];
+    FadeByScrollDirective.$inject = [];
+    persona.module.directive('ngFadeByScroll', () => new Directives.FadeByScrollDirective());
 }

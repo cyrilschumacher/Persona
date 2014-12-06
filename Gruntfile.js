@@ -63,6 +63,7 @@ module.exports = function (grunt) {
                             'i18next/**/*.js',
                             'jquery/dist/**/*.js',
                             'jquery-autosize/*.js',
+                            'jquery.fadebyscroll/dist/*.js',
                             'jquery-ui/*.js',
                             'ng-i18next/dist/*.js',
                             'requirejs/*.js'

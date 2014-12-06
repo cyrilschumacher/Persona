@@ -32,6 +32,11 @@ module Application.Controllers {
         'use strict';
     
         /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = ['$scope', '$i18next', 'profileService'];
+    
+        /**
          * @summary Constructor.
          * @constructs
          * @param $scope            {IScope}    Model.
@@ -41,17 +46,9 @@ module Application.Controllers {
         public constructor(private $scope: IScope, private $i18next: any, private profileService) {
             var location: any = profileService.getLocation();
             
-            this._addWindowEvents();
             this._initMap(location);
             this._initScope();
             $('#message').autosize();
-        }
-
-        /**
-         * @summary Add events on window element.
-         */
-        private _addWindowEvents () {
-            $(window).scroll(this._onWindowScroll);
         }
         
         /**
@@ -85,15 +82,7 @@ module Application.Controllers {
             map.setView({center: pinLocation});
             map.entities.push(pin);
         }
-
-        /**
-         * @summary Occurs when the window is scrolled.
-         */
-        private _onWindowScroll() {
-            $('.l-header-wrapper').fadeOnScroll(25);
-        }
     }
 
-    ContactController.$inject = ['$scope', '$i18next', 'profileService'];
-    persona.module.register.controller('contactController', ['$scope', '$i18next', 'profileService', ($scope, $i18next, profileService) => new ContactController($scope, $i18next, profileService)]);
+    persona.module.register.controller('contactController', ContactController);
 }

@@ -21,11 +21,30 @@
  * SOFTWARE.
  */
 
-interface JQuery {
+module Application.Configuration {
     /**
-     * @summary Apply an opacity on the content of an element after exceeding a limit.
-     * @param {number} percentage   Percentage to which the animation is running.
-     * @param {Object} options      Options.
+     * @summary Persona internationalization configuration.
+     * @author  Cyril Schumacher
+     * @class
      */
-    fadeOnScroll(percentage: number, options: Object): void;
+    export class i18nextConfiguration {
+        'use strict';
+    
+        /**
+         * @summary Constructor.
+         * @param {any} $i18nextProvider i18next provider.
+         */
+        public constructor(private $i18nextProvider: any) {
+            $i18nextProvider.options = {
+                debug: true,
+                fallbackLng: 'dev',
+                lng: 'dev',
+                resGetPath: '/scripts/locales/__ns__-__lng__.json',
+                useCookie: false,
+                useLocalStorage: false
+            };
+        }
+    }
+
+    i18nextConfiguration.$inject = ['$i18nextProvider'];
 }

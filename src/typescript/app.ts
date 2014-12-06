@@ -21,7 +21,6 @@
  * SOFTWARE.
  */
 
-require(
-    ['angular', 'angular-route', 'angular-route-styles', 'ng-i18next', 'jquery-autosize', 'persona', 'scrollToDirective', 'fullHeightWindowDirective', 'profileService', 'worksService'], persona => {
+require(['jquery-autosize', 'jquery.fadebyscroll', 'fadeByScrollDirective', 'fullHeightWindowDirective', 'scrollToDirective', 'profileService', 'worksService', 'persona'], persona => {
     angular.bootstrap(document, ['persona']);
 });

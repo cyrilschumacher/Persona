@@ -7,7 +7,7 @@ mixin about(id, name, description, icon)
 
 header.l-header(ng-full-height-window)
     div.full-background-fixed.l-header-background
-    div.l-header-wrapper
+    div.l-header-wrapper(ng-fade-by-scroll)
         div.container(itemscope itemtype="http://schema.org/Person")
             h1
                 span(class="my-name" itemprop="name") Cyril Schumacher
