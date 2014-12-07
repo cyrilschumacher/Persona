@@ -22,6 +22,7 @@
  */
 
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts"/>
 
 module Application {
     /**
@@ -49,28 +50,44 @@ module Application {
          * @summary Constructor.
          */
         public constructor() {
-            this._module = angular.module('persona', ['ngRoute', 'routeStyles', 'jm.i18next']);
+            this._initModule();
             this._initConfigurations();
         }
-
+        
         /**
          * @summary Initialize configuration.
          */
-        private _initConfigurations() {
+        private _initConfigurations = (): void => {
             this._module.config(Application.Configuration.RouteConfiguration)
                      .config(Application.Configuration.i18nextConfiguration)
-                     .config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', 
-                              ($routeProvider, $controllerProvider, $compileProvider, $filterProvider, $provide) => {
-                         this._module.register = { 
-                             controller: $controllerProvider.register, 
-                             directive: $compileProvider.directive, 
-                             filter: $filterProvider.register, 
-                             factory: $provide.factory, 
-                             service: $provide.service
-                         }; 
-                     }]);
+                     .config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', this._register]);
+        }
+        
+        /**
+         * @summary Initialize module.
+         */
+        private _initModule = (): void => {
+            this._module = angular.module('persona', ['ngRoute', 'routeStyles', 'jm.i18next']);
+        }
+    
+        /**
+         * @summary Register providers.
+         * @param {IRouteProvider}      $routeProvider      Route provider.
+         * @param {IControllerProvider} $controllerProvider Controller provider.
+         * @param {ICompileProvider}    $compileProvider    Compile provider.
+         * @param {IFilterProvider}     $filterProvider     Filter provider.
+         * @param {any}                 $provide            Provide.
+         */
+        private _register = ($routeProvider: ng.route.IRouteProvider, $controllerProvider: ng.IControllerProvider, $compileProvider: ng.ICompileProvider, $filterProvider: ng.IFilterProvider, $provide: any) => {
+            this._module.register = { 
+                controller: $controllerProvider.register, 
+                directive: $compileProvider.directive, 
+                filter: $filterProvider.register, 
+                factory: $provide.factory, 
+                service: $provide.service
+            };
         }
     }
 
-    define(['angular-route', 'angular-route-styles', 'i18next', 'routeResolver', 'routeConfiguration', 'i18nextConfiguration', 'ng-i18next'], () => new Persona);
+    define(['angular-route', 'angular-route-styles', 'routeResolver', 'routeConfiguration', 'i18nextConfiguration', 'ng-i18next'], () => new Persona);
 }

@@ -21,7 +21,10 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
+
 import persona = require('persona');
+import contactModel = require('contactModel');
 module Application.Controllers {
     /**
      * @summary Controller for contact.
@@ -43,7 +46,7 @@ module Application.Controllers {
          * @param $i18next          {any}       Localization.
          * @param profileService    {any}       Profile service.
          */
-        public constructor(private $scope: IScope, private $i18next: any, private profileService) {
+        public constructor(private $scope: ng.IScope, private $i18next: any, private profileService) {
             var location: any = profileService.getLocation();
             
             this._initMap(location);
@@ -55,7 +58,7 @@ module Application.Controllers {
          * @summary Initialize angular scope.
          */
         private _initScope() {
-            this.$scope.form = {firstname: '', lastname: '', subject: '', emailAddress: '', message: ''};
+            this.$scope.form = contactModel;
         }
         
         /**

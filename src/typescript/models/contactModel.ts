@@ -21,30 +21,44 @@
  * SOFTWARE.
  */
 
-module Application.Configuration {
+/**
+ * @summary Model for contact form.
+ * @author  Cyril Schumacher
+ * @class
+ */
+export class ContactModel {
     /**
-     * @summary Persona routing configuration.
-     * @author  Cyril Schumacher
-     * @class
+     * @summary Firstname.
+     * @member {string}
+     * @public
      */
-    export class RouteConfiguration {
-        'use strict';
+    public firstname: string;
+
+    /**
+     * @summary Lastname.
+     * @member {string}
+     * @public
+     */
+    public lastname: string
     
-        /**
-         * @summary Dependencies injection.
-         */
-        public static $inject: Array<String> = ['$routeProvider'];
-    
-        /**
-         * @summary Constructor.
-         * @param {IRouteProvider} $routeProvier Route provider.
-         */
-        public constructor(private $routeProvider: ng.route.IRouteProvider) {
-            var routeResolver = new RouteResolver('/scripts/controllers/', '/stylesheets/', '/views/');
-            $routeProvider.when('/', routeResolver.resolve('home'))
-                          .when('/about', routeResolver.resolve('about'))
-                          .when('/contact', routeResolver.resolve('contact'))
-                          .otherwise({redirectTo: '/'});
-        }
-    }
+    /**
+     * @summary Subject.
+     * @member {string}
+     * @public
+     */
+    public subject: string;
+
+    /**
+     * @summary Email address.
+     * @member {string}
+     * @public
+     */
+    public emailAddress: string;
+
+    /**
+     * @summary Message.
+     * @member {string}
+     * @public
+     */
+    public message: string;
 }

@@ -93,7 +93,7 @@ module.exports = function (grunt) {
                     }
                 },
                 files: [{
-                    cwd: 'src/templates/',
+                    cwd: 'src/',
                     dest: 'debug/',
                     expand: true,
                     ext: '.html',
@@ -127,7 +127,7 @@ module.exports = function (grunt) {
                 tasks: ['compass:dev']
             },
             views: {
-                files: ['src/templates/**/*.jade'],
+                files: ['src/**/*.jade'],
                 tasks: ['jade:dev']
             }
         }

@@ -25,13 +25,19 @@
 
 import persona = require('persona');
 module Application.Services {
-    'use strict';
     
     /**
      * @summary Resume service.
      * @class
      */
     export class ProfileService {
+        'use strict';
+    
+        /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = ['$http'];
+    
         /**
          * @summary HTTP service.
          * @type    {IHttpService}
@@ -69,6 +75,5 @@ module Application.Services {
         }
     }
 
-    ProfileService.$inject = ['$http'];
-    persona.module.factory('profileService', ['$http', $http => new ProfileService($http)]);
+    persona.module.service('profileService', ProfileService);
 }

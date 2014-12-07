@@ -25,13 +25,18 @@
 
 import persona = require('persona');
 module Application.Services {
-    'use strict';
-    
     /**
      * @summary Works service.
      * @class
      */
     export class WorksService {
+        'use strict';
+    
+        /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = ['$http'];
+    
         /**
          * @summary HTTP service.
          * @type    {IHttpService}
@@ -92,6 +97,5 @@ module Application.Services {
         }
     }
 
-    WorksService.$inject = ['$http'];
-    persona.module.factory('worksService', ['$http', $http => new WorksService($http)]);
+    persona.module.service('worksService', WorksService);
 }

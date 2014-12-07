@@ -58,6 +58,9 @@ require.config({
         'fullHeightWindowDirective':  'directives/fullHeightWindowDirective',
         'scrollToDirective':          'directives/scrollToDirective',
         
+        // Models.
+        'contactModel':               'models/contactModel',
+        
         // Services.
         'profileService':             'services/profileService',
         'resumeService':              'services/resumeService',

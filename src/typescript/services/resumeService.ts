@@ -23,14 +23,21 @@
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
 
+import persona = require('persona');
 module Application.Services {
-    'use strict';
     
     /**
      * @summary Resume service.
      * @class
      */
     export class ResumeService {
+        'use strict';
+    
+        /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = ['$http'];
+    
         /**
          * @summary HTTP service.
          * @type    {IHttpService}
@@ -211,4 +218,6 @@ module Application.Services {
             ];
         }
     }
+
+    persona.module.service('resumeService', ResumeService);
 }

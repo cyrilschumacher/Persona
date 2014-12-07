@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
+
 import persona = require('persona');
 module Application.Controllers {
     /**
@@ -32,15 +34,19 @@ module Application.Controllers {
         'use strict';
     
         /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = ['$scope', '$i18next'];
+    
+        /**
          * @summary Constructor.
          * @constructs
          * @param $scope    {IScope}    Model.
          * @param $i18next  {any}       Localization.
          */
-        public constructor(private $scope: IScope, private $i18next: any) {
+        public constructor(private $scope: ng.IScope, private $i18next: any) {
         }
     }
 
-    AboutController.$inject = ['$scope', '$i18next'];
-    persona.module.register.controller('aboutController', ['$scope', '$i18next', ($scope, $i18next) => new AboutController($scope, $i18next)]);
+    persona.module.register.controller('aboutController', AboutController);
 }

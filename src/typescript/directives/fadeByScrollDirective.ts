@@ -30,6 +30,11 @@ module Application.Directives {
      */
     export class FadeByScrollDirective implements ng.IDirective {
         'use strict';
+    
+        /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = [];
         
         /**
          * @summary Restrict option.
@@ -49,6 +54,5 @@ module Application.Directives {
         }
     }
 
-    FadeByScrollDirective.$inject = [];
     persona.module.directive('ngFadeByScroll', () => new Directives.FadeByScrollDirective());
 }

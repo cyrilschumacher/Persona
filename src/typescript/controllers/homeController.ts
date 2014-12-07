@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
+
 import persona = require('persona');
 module Application.Controllers {
     /**
@@ -43,7 +45,7 @@ module Application.Controllers {
          * @param $i18next      {any}           Localization.
          * @param worksService  {WorksService}  Service.
          */
-        public constructor(private $scope: IScope, private $i18next: any, private worksService: Services.WorksService) {
+        public constructor(private $scope: ng.IScope, private $i18next: any, private worksService: Services.WorksService) {
             this._initScope();
         }
         

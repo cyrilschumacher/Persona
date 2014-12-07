@@ -31,6 +31,11 @@ module Application.Configuration {
         'use strict';
     
         /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = ['$i18nextProvider'];
+    
+        /**
          * @summary Constructor.
          * @param {any} $i18nextProvider i18next provider.
          */
@@ -45,6 +50,4 @@ module Application.Configuration {
             };
         }
     }
-
-    i18nextConfiguration.$inject = ['$i18nextProvider'];
 }

@@ -30,6 +30,11 @@ module Application.Directives {
      */
     export class ScrollToDirective implements ng.IDirective {
         'use strict';
+    
+        /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = [];
         
         /**
          * @summary Restrict option.
@@ -52,6 +57,5 @@ module Application.Directives {
         }
     }
     
-    ScrollToDirective.$inject = [];
     persona.module.directive('ngScrollTo', () => new Directives.ScrollToDirective());
 }

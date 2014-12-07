@@ -46,7 +46,9 @@
     
     "about": {
         "about": "A propos",
-        "find_who_am_i": "Découvrez qui je suis"
+        "find_who_am_i": "Découvrez qui je suis",
+        "presentation": "Présentation",
+        "let_me_introduce_myself": "Laissez-moi me présenter"
     },
     
     "contact": {

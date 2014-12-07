@@ -30,6 +30,11 @@ module Application.Directives {
      */
     export class FullHeightWindowDirective implements ng.IDirective {
         'use strict';
+    
+        /**
+         * @summary Dependencies injection.
+         */
+        public static $inject: Array<String> = [];
         
         /**
          * @summary Current element.
@@ -61,6 +66,5 @@ module Application.Directives {
         }
     }
 
-    FullHeightWindowDirective.$inject = [];
     persona.module.directive('ngFullHeightWindow', () => new Directives.FullHeightWindowDirective());
 }
