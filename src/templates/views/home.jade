@@ -13,27 +13,27 @@ header.l-header(ng-full-height-window)
                 span(class="my-name" itemprop="name") Cyril Schumacher
             p.description(itemprop="description" ng-i18next="home.header.subtitle")
             p.scroll-down
-                a(role="button" ng-scroll-to to=".about-section")
+                a(role="button" ng-scroll-to to="#about")
                     span.round-icon
                         i.round-icon-text.fa.fa-angle-down
                     span.text(ng-i18next="home.scroll")
 
-section.l-section.about-section
+article.l-article.about-article#about
     header
         h2(ng-i18next="home.about.title")
         p.subtitle(ng-i18next="home.about.subtitle")
-    section.about-content
+    section.l-section
         div.row
             +about('presentation', 'home.about.presentation', 'home.about.presentation_description', 'fa-user')
             +about('education', 'home.about.education', 'home.about.education_description', 'fa-graduation-cap')
             +about('experience', 'home.about.experience', 'home.about.experience_description', 'fa-suitcase')
             +about('skills', 'home.about.skills', 'home.about.skills_description', 'fa-code')
 
-section.l-section.works-section
-    header.works-content
+article.l-article.works-article
+    header
         h2(ng-i18next="home.works.title")
         p.subtitle(ng-i18next="home.works.subtitle")
-    section
+    section.l-section
         ul.works-items
             li.work-item(ng-repeat="work in works")
                 article.work-item-content
@@ -42,11 +42,11 @@ section.l-section.works-section
                     div.work-item-content-info
                         span.name {{work.name}}
 
-section.l-section.contact-section
+article.l-article.contact-article
     header
         h2(ng-i18next="home.contact.header.title")
         p.subtitle(ng-i18next="home.contact.header.subtitle")
-    section.contact-content
+    section.l-section
         div.row
             div.col-xs-1
             div.contact-item.col-xs-5

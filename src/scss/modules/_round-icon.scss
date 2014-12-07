@@ -2,12 +2,13 @@
     border: $base-border solid;
     @include border-radius(100%);
     display: table;
-    height: auto;
+    height: 12rem;
     margin: .5em auto;
-    width: auto;
+    width: 12rem;
     
     .round-icon-text {
         display: table-cell;
+        font-size: 3rem;
         vertical-align: middle;
     }
 }

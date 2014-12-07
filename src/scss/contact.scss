@@ -4,7 +4,6 @@
 @import "compass/css3";
 
 /* Tools. */
-@import "tools/_brandcolors";
 @import "tools/_colors";
 @import "tools/_fonts";
 @import "tools/_variables";
@@ -54,11 +53,7 @@
             text-align: center;
         }
         
-        .input-required {
-            color: $grass-primary-color;
-            font-weight: 900;
-            margin: 0 .3rem;
-        }
+        .input-required { color: $grass-primary-color }
         
         input, textarea {
             background: none;

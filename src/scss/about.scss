@@ -4,7 +4,6 @@
 @import "compass/css3";
 
 /* Tools. */
-@import "tools/_brandcolors";
 @import "tools/_colors";
 @import "tools/_fonts";
 @import "tools/_variables";
@@ -28,4 +27,9 @@
     header {
         h2 { text-transform: uppercase }
     }
+}
+
+.presentation-section {
+    margin: 2rem auto;
+    width: $desktop-device-max-width;   
 }

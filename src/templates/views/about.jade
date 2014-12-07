@@ -1,23 +1,25 @@
 header.l-header
-    div.l-header-wrapper
+    div.l-header-wrapper(ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
             h1(ng-i18next="about.about")
             p.description(ng-i18next="about.find_who_am_i")
             
             
-section.l-section
+article.l-article
     header
         h2 Présentation
         p.subtitle laissez-moi me présenter
+    section.l-section.presentation-section
+        p Passionné des technologies Microsoft depuis l'âge de 14 ans, je suis également Microsoft Student Partner depuis le début de ma scolarité. Je suis actuellement étudiant à l'exia.cesi de Nancy où j'apprends, découvre de nouvelles technologies. Un développeur, que je suis, qui aime découvrir et qui adore toucher à tout : C, C#, XAML, PHP, ASP.NET, Assembleur et bien d'autres langages existants.
         
-section.l-section
+article.l-article
     header
         h2 Formations
         
-section.l-section
+article.l-article
     header
         h2 Expériences Professionnelles
 
-section.l-section
+article.l-article
     header
         h2 Compétences techniques

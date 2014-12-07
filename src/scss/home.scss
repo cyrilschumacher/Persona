@@ -4,7 +4,6 @@
 @import "compass/css3";
 
 /* Tools. */
-@import "tools/_brandcolors";
 @import "tools/_colors";
 @import "tools/_fonts";
 @import "tools/_variables";
@@ -24,10 +23,6 @@
     cursor: default;
     
     &:hover, &:focus { background: none }
-}
-
-.l-header {
-    height: 1024px;
 }
 
 .l-header-background { 
@@ -86,15 +81,9 @@
 
             .round-icon {
                 border-color: #fff;
-                @include border-radius(100%);
                 cursor: pointer;
                 height: 5rem;
-                margin: 1rem auto;
                 width: 5rem;
-
-                .round-icon-text.fa {
-                    font-size: 3rem;
-                }
             }
 
             .text {
@@ -108,17 +97,15 @@
 
 .l-section {
     header {
-        h2 {
-            text-transform: uppercase;
-        }
+        h2 { text-transform: uppercase }
     }
-    
+
     section {
         h3 {
             margin: 1.5rem 0;
             text-transform: uppercase;
         }
-        
+
         .round-icon {
             border-color: $dark-primary-color;
             height: 12rem;
@@ -129,10 +116,8 @@
     }
 }
 
-.about-section {
-    z-index: 2;
-    
-    .about-content {
+.about-article {
+    section {
         .row {
             display: inline-block;
             margin: 5rem 0 1rem;
@@ -146,73 +131,72 @@
     }
 }
 
-.works-section {
-    z-index: 3;
-    background: rgba(208, 208, 208, .8) !important;
-                
-    .works-items {
-        height: 200px;
-        margin: 3rem 0 1rem;
-        overflow: hidden;
-
-        .work-item {
-            border: 1px solid #bbb;
-            display: inline-block;
-            margin: .8rem;
+.works-article {
+    background: rgba(208, 208, 208, .6) !important;
+    
+    section {
+        .works-items {
+            height: 20rem;
+            margin: 3rem 0 1rem;
             overflow: hidden;
 
-            .work-item-content {
-                color: $dark-primary-color;
-                position: relative;
-                height: 200px;
+            .work-item {
+                display: inline-block;
+                height: inherit;
+                margin: .8rem;
+                overflow: hidden;
+                width: 30rem;
 
-                &:hover {
+                .work-item-content {
+                    color: $dark-primary-color;
+                    position: relative;
+                    height: inherit;
+
+                    &:hover {
+                        .work-item-content-info { top: 80% }
+                        .work-item-content-thumbnail { bottom: 20% }
+                    }
+
                     .work-item-content-info {
-                        top: 80%;
+                        background: $dark-primary-color;
+                        color: $light-secondary-color;
+                        height: inherit;
+                        padding: .5em;
+                        position: absolute;
+                        top: 100%;
+                        @include transition(top 250ms ease-out);
+                        width: 100%;
+
+                        .name {
+                            display: block;
+                            font-size: 1em;
+                            text-transform: capitalize;
+
+                            &:after {
+                                border: 10px solid;
+                                border-color: transparent transparent $dark-primary-color transparent;
+                                content: '';
+                                display: block;
+                                left: 50%;
+                                margin-left: -10px;
+                                position: absolute;
+                                top: -15px;
+                            }
+                        }
                     }
 
                     .work-item-content-thumbnail {
-                        bottom: 20%;
-                    }
-                }
-
-                .work-item-content-info {
-                    background: $dark-primary-color !important;
-                    color: $light-secondary-color;
-                    height: inherit;
-                    padding: .5em;
-                    position: absolute;
-                    top: 100%;
-                    @include transition(top 250ms ease-out);
-                    width: 100%;
-
-                    .name {
-                        display: block;
-                        font-size: 1em;
-                        text-transform: capitalize;
-
-                        &:after {
-                            border: 10px solid;
-                            border-color: transparent transparent $dark-primary-color transparent;
-                            content: '';
-                            display: block;
-                            left: 50%;
-                            margin-left: -10px;
-                            position: absolute;
-                            top: -18px;
-                        }
-                    }
-                }
-
-                .work-item-content-thumbnail {
-                    bottom: 0;
-                    left: 0;
-                    position: relative;
-                    @include transition(bottom 250ms ease-out);
-
-                    img {
+                        bottom: 0;
                         height: inherit;
+                        left: 0;
+                        position: relative;
+                        @include transition(bottom 250ms ease-out);
                         width: inherit;
+
+                        img {
+                            height: inherit;
+                            width: inherit;
+                        }
                     }
                 }
             }
@@ -220,10 +204,8 @@
     }
 }
 
-.contact-section {
-    z-index: 4;
-    
-    .contact-content {
+.contact-article {
+    section {
         .row {
             display: inline-block;
             margin: 5rem 0 1rem;
