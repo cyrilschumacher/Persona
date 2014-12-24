@@ -53,13 +53,14 @@ module.exports = function (grunt) {
                     },
                     {
                         cwd: 'bower_components/',
-                        expand: true, 
+                        expand: true,
                         src: [
                             'angular/**/*.js', 
                             'angular-animate/**/*.js',
                             'angular-route/**/*.js',
                             'angular-route-styles/route-styles.js',
                             'angular-ui-router/release/**/*.js',
+                            'bootstrap/dist/**/*.js',
                             'i18next/**/*.js',
                             'jquery/dist/**/*.js',
                             'jquery-autosize/*.js',
@@ -69,6 +70,23 @@ module.exports = function (grunt) {
                             'requirejs/*.js'
                         ],
                         dest: 'debug/scripts/vendors/'
+                    },
+                    {
+                        cwd: 'bower_components/',
+                        expand: true,
+                        src: ['bootstrap/dist/**/*.css'],
+                        dest: 'debug/stylesheets/vendors/',
+                        filter: 'isFile'
+                    }
+                ]
+            },
+            contents: {
+                files: [
+                    {
+                        cwd: 'src/contents/',
+                        expand: true,
+                        src: '**/*',
+                        dest: 'debug/'
                     }
                 ]
             },
@@ -88,7 +106,9 @@ module.exports = function (grunt) {
             dev: {
                 options: {
                     data: {
-                        debug: true,
+                        data: {
+                            debug: true
+                        },
                         pretty: true
                     }
                 },
@@ -121,6 +141,10 @@ module.exports = function (grunt) {
             scripts: {
                 files: 'src/typescript/**/*.ts',
                 tasks: ['ts:dev']
+            },
+            contents: {
+                files: 'src/contents/**/*.*',
+                tasks: ['copy:contents']
             },
             styles: {
                 files: 'src/scss/**/*.scss',

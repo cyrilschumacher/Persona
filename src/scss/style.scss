@@ -7,26 +7,29 @@
 @import "compass/reset";
 
 /* Tools. */
-@import "tools/_colors";
-@import "tools/_fonts";
-@import "tools/_variables";
+@import "tools/colors";
+@import "tools/fonts";
+@import "tools/variables";
 
 /* Base. */
-@import "base/_base";
-@import "base/_form";
+@import "base/base";
+@import "base/form";
 
 /* Layout. */
-@import "layout/_article";
-@import "layout/_footer";
-@import "layout/_header";
-@import "layout/_main";
-@import "layout/_nav";
-@import "layout/_section";
+@import "layout/article";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/main";
+@import "layout/nav";
+@import "layout/section";
 
 /* Modules. */
-@import "modules/_button";
-@import "modules/_flex-container-column";
-@import "modules/_full-background-fixed";
-@import "modules/_input-required";
-@import "modules/_round-icon";
-@import "modules/_subtitle";
+@import "modules/animation-fade-fast";
+@import "modules/animation-fade-slow";
+@import "modules/button";
+@import "modules/flex-container-column";
+@import "modules/full-background-fixed";
+@import "modules/input-required";
+@import "modules/no-selection";
+@import "modules/round-icon";
+@import "modules/subtitle";

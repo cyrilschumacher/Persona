@@ -45,6 +45,8 @@ module Application.Configuration {
                           .when('/about', routeResolver.resolve('about'))
                           .when('/contact', routeResolver.resolve('contact'))
                           .otherwise({redirectTo: '/'});
+            
+            
         }
     }
 }

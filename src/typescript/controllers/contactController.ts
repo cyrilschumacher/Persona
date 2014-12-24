@@ -47,27 +47,33 @@ module Application.Controllers {
          * @param profileService    {any}       Profile service.
          */
         public constructor(private $scope: ng.IScope, private $i18next: any, private profileService) {
-            var location: any = profileService.getLocation();
-            
-            this._initMap(location);
+            this._initMap();
             this._initScope();
+            this._initElements();
+        }
+    
+        /**
+         * @summary Initialize elements.
+         */
+        private _initElements = (): void => {
             $('#message').autosize();
         }
         
         /**
          * @summary Initialize angular scope.
          */
-        private _initScope() {
+        private _initScope = (): void => {
             this.$scope.form = contactModel;
         }
         
         /**
          * @summary Initialize map.
          */
-        private _initMap(location: any): void {
+        private _initMap(): void {
             var mapOptions = { 
                 credentials: "AiscBCv-CUb6kGw_scA6Voo8U8cO6XKiOQpNppd9lJAv_0ohATT3Vhwd2lx_RgJ_",
                 disableKeyboardInput: true,
+                disableZooming: true,
                 mapTypeId: Microsoft.Maps.MapTypeId.road,
                 showCopyright: false,
                 showDashboard: false,
@@ -79,8 +85,9 @@ module Application.Controllers {
             var map = new Microsoft.Maps.Map(document.getElementById("map"), mapOptions);
             map.entities.push(infoboxLayer);
 
+            var location: any = this.profileService.getLocation();
             var pinLocation = new Microsoft.Maps.Location(location.coordinates.latitude, location.coordinates.longitude)
-            var pin = new Microsoft.Maps.Pushpin(pinLocation, {});
+            var pin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'contents/images/pin.svg', height: 60, width: 80});
             
             map.setView({center: pinLocation});
             map.entities.push(pin);

@@ -1,0 +1,7 @@
+@import "compass/css3/selection";
+@import "compass/css3/user-interface";
+    
+.no-selection {
+    @include selection(red, red);
+    @include user-select(none);
+}

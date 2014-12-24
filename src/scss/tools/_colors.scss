@@ -1,20 +1,6 @@
 @import "colors/_brandcolors";
-
-// Colors.
-// Flattastic Pro Color Palette.
-$aqua-primary-color:            #3bafda;
-$aqua-secondary-color:          #4fc1e9;
-$grass-primary-color:           #8cc152;
-$grass-secondary-color:         #a0d468;
-$lavander-primary-color:        #967adc;
-$lavander-secondary-color:      #ac92ec;
-$grapefruit-primary-color:      #da4453;
-$grapefruit-secondary-color:    #ed5565;
-
-// Stream Status.
-$error-color:       #f04747;
-$pause-color:       #ebaf3c;
-$running-color:     #38b87c;
+@import "colors/_flattastic_pro";
+@import "colors/_stream_status";
 
 // Specific colors.
 $light-primary-color:       #d0d0d0;

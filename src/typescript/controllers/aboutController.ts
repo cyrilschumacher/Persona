@@ -36,7 +36,7 @@ module Application.Controllers {
         /**
          * @summary Dependencies injection.
          */
-        public static $inject: Array<String> = ['$scope', '$i18next'];
+        public static $inject: Array<String> = ['$scope', '$i18next', 'resumeService'];
     
         /**
          * @summary Constructor.
@@ -44,7 +44,8 @@ module Application.Controllers {
          * @param $scope    {IScope}    Model.
          * @param $i18next  {any}       Localization.
          */
-        public constructor(private $scope: ng.IScope, private $i18next: any) {
+        public constructor(private $scope: ng.IScope, private $i18next: any, private resumeService: Services.ResumeService) {
+            $scope.schools = resumeService.getEducation();
         }
     }
 

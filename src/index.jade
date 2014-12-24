@@ -1,3 +1,32 @@
+// The MIT License (MIT)
+// 
+// Copyright (c) 2014 Cyril Schumacher.fr
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+// Mixins.
+mixin menuItem(className, labelName, url)
+    li(itemprop="url")
+        a.button(class=className, href=url itemprop="name" rel="prerender")
+            span.button-text(ng-i18next=labelName) 
+
+// Content.
 doctype html
 html(lang="fr" prefix="og:http://ogp.me/ns#")
     head
@@ -6,31 +35,33 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
         
         meta(name="description" content="")
         meta(name="robots" content="")
-        meta(name="msvalidate.01" content="")
-        meta(name="google-site-verification" content="")
+        meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
+        meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
+        
+        meta(property="og:title" content="")
+        meta(property="og:type" content="")
+        meta(property="og:url" content="")
         
         link(href="stylesheets/style.css", rel="stylesheet")
+        link(href="stylesheets/vendors/bootstrap/dist/bootstrap.min.css", rel="stylesheet")
         
         script(scr="scripts/vendors/modernizr/modernizr.js")
 
     body
         nav.l-nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation" lang="fr" arial-label="Main Site Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement")
             div.container-fluid
-                div.navbar-collapse.collapse
+                div.navbar-header
+                    button.navbar-toggle(type="button" data-toggle="collapse" data-target="#navbar-items")
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                        
+                div#navbar-items.navbar-collapse.collapse
                     ul.nav.navbar-nav
-                        li(itemprop="url")
-                            a.nav-item-home.button(href="/" itemprop="name" rel="prerender")
-                                span.button-text(ng-i18next="common.nav.home") 
-                                
-                        li(itemprop="url")
-                            a.nav-item-about.button(href="#about" itemprop="name" rel="prerender")
-                                span.button-text(ng-i18next="common.nav.about") 
-                        li(itemprop="url")
-                            a.nav-item-works.button(href="#works" itemprop="name" rel="prerender")
-                                span.button-text(ng-i18next="common.nav.works") 
-                        li(itemprop="url")
-                            a.nav-item-contact.button(href="#contact" itemprop="name" rel="prerender")
-                                span.button-text(ng-i18next="common.nav.contact") 
+                        +menuItem("nav-item-home", "common.nav.home", "/")                                
+                        +menuItem("nav-item-about", "common.nav.about", "#/about")                                
+                        +menuItem("nav-item-works", "common.nav.works", "#/works")                                
+                        +menuItem("nav-item-contact", "common.nav.contact", "#/contact")
         
         section.l-main(ng-view)
                     
@@ -49,7 +80,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                                 a(href="#contact" ng-i18next="common.nav.contact")
                                 
                     p.copyright © 
-                        span(itemprop="copyrightYear") 2014 
+                        span(itemprop="copyrightYear") 2012-2015 
                         span(itemprop="copyrightHolder") Cyril Schumacher. 
                         span(ng-i18next="common.footer.all_right_reserved")
 

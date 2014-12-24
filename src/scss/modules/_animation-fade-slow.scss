@@ -1,0 +1,9 @@
+@include keyframes(opacity-animation) {  
+    from { @include opacity(0) }
+    to { @include opacity(1) }
+}
+
+.animation-fade-slow {
+    @include animation(opacity-animation 3s forwards);
+    @include opacity(0);
+}

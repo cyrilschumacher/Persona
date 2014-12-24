@@ -2,11 +2,22 @@
     background: none;
     border: none;
     margin: 0 auto;
+    padding: 5rem;
     position: absolute;
-    top: 5rem;
-    width: 80%;
-            
+
+    .navbar-toggle {
+        border-color: #fff;
+        border-radius: 0;
+        float: right;
+
+        &:hover, &:focus {
+            background: none !important;
+        }
+    }
+
     .navbar-collapse {
+        border: none;
+
         ul {
             display: table;
             float: none !important;
@@ -20,7 +31,6 @@
             }
 
             li {
-                margin: 0 1rem;
                 width: 14rem;
 
                 &:hover, &:focus {
@@ -40,11 +50,27 @@
                         background: #fff !important;
                         color: #000 !important;
                     }
-                    
+
                     span {
                         display: block;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-header { float: right }
+    
+    .navbar-collapse {
+        @include box-shadow(none);
+        float: left;
+        
+        ul {
+            li {
+                display: inline-block;
+                margin: 4px 0;
             }
         }
     }

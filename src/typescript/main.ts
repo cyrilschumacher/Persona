@@ -28,6 +28,7 @@ require.config({
     urlArgs: 'v=1.0',
     paths: {
         // Vendors.
+        'bootstrap':                  'vendors/bootstrap/dist/js/bootstrap',
         'jquery':                     'vendors/jquery/dist/jquery',
         'jquery-ui':                  'vendors/jquery-ui/jquery-ui',
         'jquery-autosize':            'vendors/jquery-autosize/jquery.autosize',
@@ -74,6 +75,7 @@ require.config({
         'angular-route':        ['angular'],
         'angular-route-styles': ['angular'],
         'angular-ui-router':    ['angular'],
+        'bootstrap':            ['jquery'],
         'i18next':              ['jquery'],
         'jquery-autosize':      ['jquery'],
         'ng-i18next':           ['angular', 'i18next'],
