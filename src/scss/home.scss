@@ -35,7 +35,6 @@
             border: 1px solid #fff;
             color: #fff;
             padding: 0 3rem;
-            text-transform: uppercase;
             @include transition(all 250ms);
         }
     }
@@ -43,41 +42,54 @@
     .description {
         @include animation-delay(1.5s);
         margin: 0 0 3rem;
-        text-transform: lowercase;
     }
+}
 
-    .scroll-down {
-        @include animation-delay(2.5s);
-        margin: 0 auto;
-        text-transform: uppercase;
+.scroll-down {
+    @include animation-delay(2.5s);
+    margin: 0 auto;
 
-        a {
-            @include animation(arrow-animation 500ms infinite ease-in-out alternate);
-            @include animation-play-state(running);
-            color: #fff !important;
-            position: relative;
+    a {
+        @include animation(arrow-animation 500ms infinite ease-in-out alternate);
+        @include animation-play-state(running);
+        color: #fff !important;
+        position: relative;
 
-            &:hover {
-                @include animation-play-state(paused);
-
-                .text {
-                    @include opacity(1);
-                    @include transform(scale(1));
-                }
-            } 
-
-            .round-icon {
-                border-color: #fff;
-                cursor: pointer;
-                height: 5rem;
-                width: 5rem;
-            }
+        &:hover {
+            @include animation-play-state(paused);
 
             .text {
-                @include opacity(0);
-                @include transform(scale(0.90));
-                @include transition(all 200ms);
+                @include opacity(1);
+                @include transform(scale(1));
             }
+        } 
+
+        .round-icon {
+            border-color: #fff;
+            cursor: pointer;
+            height: 5rem;
+            width: 5rem;
+        }
+
+        .text {
+            @include opacity(0);
+            @include transform(scale(0.90));
+            @include transition(all 200ms);
+        }
+    }
+}
+    
+.more-details {
+    .button {
+        margin: 4rem auto 0;
+
+        &-text {
+            padding: 0 2rem;   
+        }
+
+        &:hover {
+            @include transition(background, color 150ms);
+            background: transparent !important;
         }
     }
 }
@@ -89,7 +101,7 @@
 
     section {
         h3 {
-            margin: 1.5rem 0;
+            margin: 1.5rem 0 0;
             text-transform: uppercase;
         }
     }
@@ -136,6 +148,18 @@
                     color: #fff;
                     
                     &:after{ border-color: $grapefruit-primary-color transparent transparent transparent }
+                }
+            }
+        }
+    
+        .more-details {
+            .button {
+                background: $grapefruit-primary-color;
+                border-color: $grapefruit-primary-color;
+                color: #fff;
+                
+                &:hover {
+                    color: $grapefruit-primary-color;
                 }
             }
         }

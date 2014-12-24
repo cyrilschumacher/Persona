@@ -73,6 +73,13 @@
             &:enabled {
                 background: $grass-primary-color;
                 color: #fff;
+                
+                &:hover {
+                    @include transition(background, color 150ms);
+                    background: transparent;
+                    border-color: $grass-primary-color;
+                    color: $grass-primary-color;
+                }
             }
             
             &:disabled {

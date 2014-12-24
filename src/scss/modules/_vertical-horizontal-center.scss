@@ -1,0 +1,5 @@
+.vertical-horizontal-center {
+    align-items: center;
+    @include display-flex;
+    justify-content: center;   
+}

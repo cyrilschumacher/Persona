@@ -38,13 +38,6 @@ module.exports = function (grunt) {
             dev: {
                 files: [
                     {
-                        cwd: 'src/',
-                        expand: true,
-                        src: 'contents/**/*',
-                        dest: 'debug/',
-                        filter: 'isFile'
-                    },
-                    {
                         cwd: 'src/typescript/',
                         expand: true,
                         src: 'locales/**/*',
@@ -83,10 +76,11 @@ module.exports = function (grunt) {
             contents: {
                 files: [
                     {
-                        cwd: 'src/contents/',
+                        cwd: 'src/',
                         expand: true,
-                        src: '**/*',
-                        dest: 'debug/'
+                        src: 'contents/**/*',
+                        dest: 'debug/',
+                        filter: 'isFile'
                     }
                 ]
             },
@@ -167,5 +161,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-ts');
 
     /* Tasks. */
-    grunt.registerTask('dev', ['jade:dev', 'compass:dev', 'ts:dev', 'copy:dev']);
+    grunt.registerTask('default', ['jade:dev', 'compass:dev', 'ts:dev', 'copy:contents', 'copy:dev']);
 };

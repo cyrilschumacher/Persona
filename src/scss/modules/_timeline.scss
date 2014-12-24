@@ -1,0 +1,111 @@
+/**
+ * Vertical Timeline, by 64 feedbacks
+ * URL address: http://codyhouse.co/gem/vertical-timeline/
+ */
+
+.timeline {
+    padding: 2em 0;
+    position: relative;
+    margin: 2em 0;
+    
+    &:before {
+        content: "";
+        height: 100%;
+        left: 18px;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
+    
+    &-block {
+        margin: 2em 0;
+        position: relative;
+        
+        &:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+        
+        &:first-child { margin-top: 0 }
+        
+        &:last-child { margin-bottom: 0 }
+        
+        &-icon {
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+        
+        &-content {
+            border: 7px solid transparent;
+            position: relative;
+            margin-left: 60px;
+            padding: 1rem;
+            
+            &:before {
+                content: "";
+                height: 0;
+                position: absolute;
+                right: 100%;
+                top: 16px;
+                width: 0;
+                border: 7px solid transparent;
+                border-left-color: white;
+            }
+            
+            &:after {
+                clear: both;
+                content: "";
+                display: table;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    .timeline {
+        margin-top: 3rem 0;
+        
+        &:before { left: 50%; margin-left: -2px;  }
+    
+        &-block {
+            margin: 4em 0;
+
+            &:first-child { margin-top: 0 }
+
+            &:last-child { margin-bottom: 0 }
+            
+            &:nth-child(even) {
+                .timeline-block-content {
+                    &:before {
+                        top: 24px;
+                        left: auto;
+                        right: 100%;
+                        border-color: transparent;
+//                        border-right-color: white;
+                    }
+                }
+            }
+            
+            &:nth-child(even) {
+                .timeline-block-content { float: right }
+            }
+            
+            &-icon {
+                height: 60px;
+                left: 50%;
+                width: 60px;
+                margin-left: -30px;
+            }
+            
+            &-content {
+                margin-left: 0;
+                padding: 1.6em;
+                width: 45%;
+
+                &:before { left: 100%; top: 24px }
+            }
+        }
+    }
+}
