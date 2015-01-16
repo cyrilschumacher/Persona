@@ -24,6 +24,7 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
 
 import persona = require('persona');
+
 module Application.Controllers {
     /**
      * @summary Controller for about.

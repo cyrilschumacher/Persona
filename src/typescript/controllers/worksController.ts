@@ -21,31 +21,33 @@
  * SOFTWARE.
  */
 
-module Application.Configuration {
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
+
+import persona = require('persona');
+
+module Application.Controllers {
     /**
-     * @summary Persona routing configuration.
+     * @summary Controller for about.
      * @author  Cyril Schumacher
      * @class
      */
-    export class RouteConfiguration {
+    export class WorksController {
         'use strict';
     
         /**
          * @summary Dependencies injection.
          */
-        public static $inject: Array<String> = ['$routeProvider'];
+        public static $inject: Array<String> = ['$scope', '$i18next'];
     
         /**
          * @summary Constructor.
-         * @param {IRouteProvider} $routeProvier Route provider.
+         * @constructs
+         * @param $scope    {IScope}    Model.
+         * @param $i18next  {any}       Localization.
          */
-        public constructor(private $routeProvider: ng.route.IRouteProvider) {
-            var routeResolver = new RouteResolver('/scripts/controllers/', '/stylesheets/', '/views/');
-            $routeProvider.when('/', routeResolver.resolve('home'))
-                          .when('/about', routeResolver.resolve('about'))
-                          .when('/works', routeResolver.resolve('works'))
-                          .when('/contact', routeResolver.resolve('contact'))
-                          .otherwise({redirectTo: '/'});
+        public constructor(private $scope: ng.IScope, private $i18next: any) {
         }
     }
+
+    persona.module.register.controller('worksController', WorksController);
 }

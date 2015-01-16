@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-header.l-header
+header.l-header.no-selection
     div.l-header-wrapper(ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
             h1(ng-i18next="about.about")
@@ -47,7 +47,7 @@ article.l-article
 article.l-article
     header
         h2 Formations
-        p.subtitle(ng-i18next="about.let_me_introduce_myself")
+        p.subtitle Les écoles que j'ai intégré
     section.timeline.formation
         div.timeline-block(ng-repeat="school in schools")
             div.timeline-block-icon.vertical-horizontal-center

@@ -1,12 +1,5 @@
 @charset "utf-8";
-
-/* Compass. */
-@import "compass/css3";
-
-/* Tools. */
-@import "tools/_colors";
-@import "tools/_fonts";
-@import "tools/_variables";
+@import "main";
 
 .nav-item-about {
     border-color: #fff !important;

@@ -22,9 +22,13 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts"/>
+/// <reference path="../../../bower_components/DefinitelyTyped/bingmaps/Microsoft.Maps.d.ts"/>
+/// <reference path="../../../bower_components/DefinitelyTyped/velocity-animate/velocity-animate.d.ts"/>
 
 import persona = require('persona');
 import contactModel = require('contactModel');
+import velocity = require('velocity');
+
 module Application.Controllers {
     /**
      * @summary Controller for contact.
@@ -47,30 +51,20 @@ module Application.Controllers {
          * @param profileService    {any}       Profile service.
          */
         public constructor(private $scope: ng.IScope, private $i18next: any, private profileService) {
-            this._initMap();
             this._initScope();
             this._initElements();
+            this._initEvents();
         }
     
         /**
-         * @summary Initialize elements.
+         * @summary Initializes elements.
          */
         private _initElements = (): void => {
+            // Adds the autosize effect on message element.
             $('#message').autosize();
-        }
-        
-        /**
-         * @summary Initialize angular scope.
-         */
-        private _initScope = (): void => {
-            this.$scope.form = contactModel;
-        }
-        
-        /**
-         * @summary Initialize map.
-         */
-        private _initMap(): void {
-            var mapOptions = { 
+            
+            // Initializes Bing maps.
+            var mapOptions: Microsoft.Maps.MapOptions = { 
                 credentials: "AiscBCv-CUb6kGw_scA6Voo8U8cO6XKiOQpNppd9lJAv_0ohATT3Vhwd2lx_RgJ_",
                 disableKeyboardInput: true,
                 disableZooming: true,
@@ -81,16 +75,54 @@ module Application.Controllers {
                 zoom: 12
             };
             
-            var infoboxLayer = new Microsoft.Maps.EntityCollection();
-            var map = new Microsoft.Maps.Map(document.getElementById("map"), mapOptions);
+            var infoboxLayer: Microsoft.Maps.EntityCollection = new Microsoft.Maps.EntityCollection();
+            var map: Microsoft.Maps.Map = new Microsoft.Maps.Map(document.getElementById("map"), mapOptions);
             map.entities.push(infoboxLayer);
 
             var location: any = this.profileService.getLocation();
             var pinLocation = new Microsoft.Maps.Location(location.coordinates.latitude, location.coordinates.longitude)
-            var pin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'contents/images/pin.svg', height: 60, width: 80});
+            var pin: Microsoft.Maps.Pushpin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'contents/images/pin.svg', height: 60, width: 80});
             
             map.setView({center: pinLocation});
             map.entities.push(pin);
+        }
+        
+        /**
+         * @summary Initializes events.
+         */
+        private _initEvents = (): void => {
+            
+            this.$scope.submit = this._submit;
+            this.$scope.reset = this._reset;
+        }
+        
+        /**
+         * @summary Initializes angular scope.
+         */
+        private _initScope = (): void => {
+            this.$scope.form = contactModel;
+        }
+        
+        /**
+         * @summary Resets the form.
+         */
+        private _reset = (): void => {
+            this.$scope.form = $scope.initial;
+            if (velocity) {
+                $(".alert").velocity('reverse', { display: 'none' });
+                $(".alert-content").velocity('reverse', { duration: 1000 });
+            }
+        }
+        
+        /**
+         * @summary Submits message.
+         */
+        private _submit = (): void => {
+            if (velocity) {
+                $(".alert").velocity({ opacity: 1 }, { display: 'block', duration: 500 });
+                $(".alert-content").velocity({ translateY: [0, 500] }, { duration: 1000, easing: [70, 10] });
+                $(".alert-content header, .alert-content section").velocity({ translateY: [0, 250] }, { duration: 1000, easing: [70, 10] });
+            }
         }
     }
 

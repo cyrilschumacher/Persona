@@ -1,17 +1,12 @@
 @charset "utf-8";
-
-/* Compass. */
-@import "compass/css3";
-
-/* Tools. */
-@import "tools/_colors";
-@import "tools/_fonts";
-@import "tools/_variables";
+@import "main";
 
 @include keyframes(arrow-animation) {
     from { top: 0 }
     to   { top: 10px }
 }
+
+.hyphen { background: $dark-primary-color }
 
 .nav-item-home {
     border-color: #fff !important;
@@ -78,21 +73,6 @@
         }
     }
 }
-    
-.more-details {
-    .button {
-        margin: 4rem auto 0;
-
-        &-text {
-            padding: 0 2rem;   
-        }
-
-        &:hover {
-            @include transition(background, color 150ms);
-            background: transparent !important;
-        }
-    }
-}
 
 .l-article {
     header {
@@ -107,12 +87,12 @@
     }
     
     .row {
+        display: inline-block;
+        margin: 2rem 0 1rem;
+        
         .square-icon {
-            align-items: center;
-            @include display-flex;
             height: 18rem;
-            justify-content: center;
-            margin: 40px auto;
+            margin: 0 auto 3rem;
             position: relative;
             width: 100%;
 
@@ -133,103 +113,82 @@
 }
 
 .about-article {
-    section {
-        .row {
-            display: inline-block;
-            margin: 5rem 0 1rem;
+    .col-xs-4 {
+        max-width: 40rem;
+        padding: 0 1rem;
+        width: 25%;
+    }
 
-            .col-xs-4 {
-                max-width: 40rem;
-                padding: 0 1rem;
-                width: 25%;
-                
-                .square-icon {
-                    background: $grapefruit-primary-color;
-                    color: #fff;
-                    
-                    &:after{ border-color: $grapefruit-primary-color transparent transparent transparent }
-                }
-            }
-        }
-    
-        .more-details {
-            .button {
-                background: $grapefruit-primary-color;
-                border-color: $grapefruit-primary-color;
-                color: #fff;
-                
-                &:hover {
-                    color: $grapefruit-primary-color;
-                }
-            }
-        }
+    .square-icon {
+        background: $grapefruit-primary-color;
+        color: #fff;
+
+        &:after{ border-color: $grapefruit-primary-color transparent transparent transparent }
     }
 }
 
 .works-article {
-    section {
-        .works-items {
-            height: 20rem;
-            margin: 3rem 0 1rem;
+    .works-items {
+        height: 20rem;
+        margin: 3rem 0 1rem;
+        overflow: hidden;
+
+        .work-item {
+            display: inline-block;
+            height: inherit;
+            margin: .8rem;
             overflow: hidden;
+            width: 30rem;
 
-            .work-item {
-                display: inline-block;
+            .work-item-content {
+                color: $dark-primary-color;
+                position: relative;
                 height: inherit;
-                margin: .8rem;
-                overflow: hidden;
-                width: 30rem;
 
-                .work-item-content {
-                    color: $dark-primary-color;
-                    position: relative;
+                &:hover {
+                    .work-item-content-info { top: 80% }
+                    .work-item-content-thumbnail { bottom: 20% }
+                }
+
+                .work-item-content-info {
+                    background: $dark-primary-color;
+                    color: $light-secondary-color;
                     height: inherit;
+                    padding: .5em;
+                    position: absolute;
+                    top: 100%;
+                    @include transition(top 250ms ease-out);
+                    width: 100%;
 
-                    &:hover {
-                        .work-item-content-info { top: 80% }
-                        .work-item-content-thumbnail { bottom: 20% }
-                    }
+                    .name {
+                        display: block;
+                        font-size: 1em;
+                        text-transform: capitalize;
 
-                    .work-item-content-info {
-                        background: $dark-primary-color;
-                        color: $light-secondary-color;
-                        height: inherit;
-                        padding: .5em;
-                        position: absolute;
-                        top: 100%;
-                        @include transition(top 250ms ease-out);
-                        width: 100%;
-
-                        .name {
+                        &:after {
+                            border: 10px solid;
+                            border-color: transparent transparent $dark-primary-color transparent;
+                            content: '';
                             display: block;
-                            font-size: 1em;
-                            text-transform: capitalize;
-
-                            &:after {
-                                border: 10px solid;
-                                border-color: transparent transparent $dark-primary-color transparent;
-                                content: '';
-                                display: block;
-                                left: 50%;
-                                margin-left: -10px;
-                                position: absolute;
-                                top: -15px;
-                            }
+                            left: 50%;
+                            margin-left: -10px;
+                            position: absolute;
+                            top: -15px;
                         }
                     }
+                }
 
-                    .work-item-content-thumbnail {
-                        bottom: 0;
+                .work-item-content-thumbnail {
+                    bottom: 0;
+                    height: inherit;
+                    left: 0;
+                    position: relative;
+                    @include transition(bottom 250ms ease-out);
+                    width: inherit;
+
+                    img {
                         height: inherit;
-                        left: 0;
-                        position: relative;
-                        @include transition(bottom 250ms ease-out);
                         width: inherit;
-
-                        img {
-                            height: inherit;
-                            width: inherit;
-                        }
                     }
                 }
             }
@@ -238,22 +197,15 @@
 }
 
 .contact-article {
-    section {
-        .row {
-            display: inline-block;
-            margin: 5rem 0 1rem;
-
-            .contact-item {
-                max-width: 40rem;
-                padding: 0 1rem;
-            }
-        }
-    }
-                
     .square-icon {
         background: $grass-primary-color;
         color: #fff;
 
         &:after{ border-color: $grass-primary-color transparent transparent transparent }
+    }
+
+    .contact-item {
+        max-width: 40rem;
+        padding: 0 1rem;
     }
 }

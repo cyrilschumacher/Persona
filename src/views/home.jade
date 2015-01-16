@@ -23,7 +23,7 @@
 // Mixins.
 mixin itemCategory(id, name, description, icon)
     div.col-xs-4(class=id)
-        div.square-icon
+        div.square-icon.vertical-horizontal-center
             i.square-icon-text.fa(class=icon)
         h3(ng-i18next=name)
         p(ng-i18next=description)
@@ -60,10 +60,6 @@ article.l-article.about-article#about
             +itemCategory("education", "home.about.education", "home.about.education_description", "fa-graduation-cap")
             +itemCategory("experience", "home.about.experience", "home.about.experience_description", "fa-suitcase")
             +itemCategory("skills", "home.about.skills", "home.about.skills_description", "fa-code")
-        div
-            p.more-details.text-uppercase
-                a.button(href="#/about")
-                    span.button-text(ng-i18next="home.more_details")
 
 article.l-article.works-article
     header

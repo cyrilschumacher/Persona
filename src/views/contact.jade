@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-header.l-header
+header.l-header.no-selection
     div.l-header-wrapper(ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
             h1(ng-i18next="contact.contact_me")
@@ -32,14 +32,13 @@ article.l-article.map-section
         p.subtitle Découvrez où je réside actuellement
     section.l-section
         div#map
-    
 article.l-article.form-section
     header
         h2(ng-i18next="contact.form.title")
         p.subtitle Compléter les champs ci-dessous
 
     section.l-section.form-content
-        form(name="contactForm")
+        form(name="contactForm" ng-submit="submit()")
             p(ng-i18next="contact.form.description")
             fieldset
                 div.row
@@ -64,7 +63,7 @@ article.l-article.form-section
                 label(ng-i18next="contact.form.subject")
                 span.input-required *
                 p
-                    input(required type="text" size="64" aria_required="true")
+                    input(required ng-model="form.subject" type="text" size="64" aria_required="true")
                     span.field-information 255 caractères maximum.
 
                 label(ng-i18next="contact.form.message")
@@ -74,3 +73,14 @@ article.l-article.form-section
                     
             fieldset
                 button(type="submit" ng-i18next="contact.form.send_my_message" ng-disabled="contactForm.$invalid")
+div.alert
+    div.alert-content
+        header
+            p
+                i.fa.fa-check-circle
+            h2(ng-i18next="thanks")
+        section
+            p(ng-i18next="contact.form.your_message_has_been_sent")
+            p
+                a.button(ng-click="reset()")
+                    span.button-text.text-uppercase(ng-i18next="close")

@@ -58,16 +58,21 @@ module.exports = function (grunt) {
                             'jquery/dist/**/*.js',
                             'jquery-autosize/*.js',
                             'jquery.fadebyscroll/dist/*.js',
+                            'jquery-viewport-checker/src/*.js',
                             'jquery-ui/*.js',
                             'ng-i18next/dist/*.js',
-                            'requirejs/*.js'
+                            'requirejs/*.js',
+                            'velocity/*.js'
                         ],
                         dest: 'debug/scripts/vendors/'
                     },
                     {
                         cwd: 'bower_components/',
                         expand: true,
-                        src: ['bootstrap/dist/**/*.css'],
+                        src: [
+                            'animate.css/*.css',
+                            'bootstrap/dist/**/*.css'
+                        ],
                         dest: 'debug/stylesheets/vendors/',
                         filter: 'isFile'
                     }

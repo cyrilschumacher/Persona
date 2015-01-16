@@ -26,6 +26,7 @@
 require.config({
     baseUrl: '/scripts/',
     urlArgs: 'v=1.0',
+    
     paths: {
         // Vendors.
         'bootstrap':                  'vendors/bootstrap/dist/js/bootstrap',
@@ -40,6 +41,7 @@ require.config({
         'angular-ui-router':          'vendors/angular-ui-router/release/angular-ui-router',
         'i18next':                    'vendors/i18next/i18next',
         'ng-i18next':                 'vendors/ng-i18next/dist/ng-i18next',
+        'velocity':                   'vendors/velocity/velocity',
         
         // Application.
         'app':                        'app',
@@ -71,14 +73,14 @@ require.config({
         'routeResolver':              'utils/routeResolver'
     },
     shim: {
-        'angular-animate':      ['angular'],
-        'angular-route':        ['angular'],
-        'angular-route-styles': ['angular'],
-        'angular-ui-router':    ['angular'],
-        'bootstrap':            ['jquery'],
-        'i18next':              ['jquery'],
-        'jquery-autosize':      ['jquery'],
-        'ng-i18next':           ['angular', 'i18next'],
+        'angular-animate':          ['angular'],
+        'angular-route':            ['angular'],
+        'angular-route-styles':     ['angular'],
+        'angular-ui-router':        ['angular'],
+        'bootstrap':                ['jquery'],
+        'i18next':                  ['jquery'],
+        'jquery-autosize':          ['jquery'],
+        'ng-i18next':               ['angular', 'i18next'],
     },
     deps: ['app']
 });
