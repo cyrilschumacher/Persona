@@ -9,6 +9,7 @@ form {
         border: 1px solid $medium-gray-primary-color;
         font-size: 1.8rem;
         padding: 1rem 2rem;
+        outline: none;
         
         &:hover {
             border-color: $medium-gray-secondary-color;   

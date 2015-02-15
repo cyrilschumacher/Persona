@@ -62,14 +62,14 @@
         }
         
         &-icon {
-            background: #ddd;
+            background: $grapefruit-primary-color;
             border: 1px solid $grapefruit-primary-color;
             height: 50px;
             margin: 15px -25px;
             width: 50px;
             
             .icon {
-                color: $grapefruit-primary-color;
+                color: $light-secondary-color;
                 font-size: $h4-font-size;
             }
         }

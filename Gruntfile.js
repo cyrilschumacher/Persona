@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         browserSync: {
             bsFiles: {
-                src: 'dist/*.*'
+                src: 'dist/**/*.*'
             },
             options: {
                 server: {

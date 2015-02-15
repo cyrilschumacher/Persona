@@ -28,6 +28,7 @@
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="jqueryAutosize"/>
 /// <amd-dependency path="service/profileService"/>
+/// <amd-dependency path="velocity"/>
 
 import app = require('app');
 import contactModel = require('model/contactModel');
@@ -116,10 +117,9 @@ class ContactController {
      */
     private _reset = (): void => {
         this.$scope['form'] = this.$scope['initial'];
-        if (velocity) {
-            $(".alert").velocity('reverse', { display: 'none' });
-            $(".alert-content").velocity('reverse', { duration: 1000 });
-        }
+        
+        $(".alert").velocity('reverse', { display: 'none' });
+        $(".alert-content").velocity('reverse', { duration: 1000 });
     }
 
     /**
