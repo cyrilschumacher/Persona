@@ -1,0 +1,86 @@
+// The MIT License (MIT)
+// 
+// Copyright (c) 2014 Cyril Schumacher.fr
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+header.l-header.no-selection
+    div.l-header-wrapper(ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
+        div.container
+            h1(ng-i18next="contact.contact_me")
+            p.description(ng-i18next="contact.you_have_questions")
+
+article.l-article.map-section
+    header
+        h2(ng-i18next="contact.find_me")
+        p.subtitle Découvrez où je réside actuellement
+    section.l-section
+        div#map
+article.l-article.form-section
+    header
+        h2(ng-i18next="contact.form.title")
+        p.subtitle Compléter les champs ci-dessous
+
+    section.l-section.form-content
+        form(name="contactForm" ng-submit="submit()")
+            p(ng-i18next="contact.form.description")
+            fieldset
+                div.row
+                    div.col-xs-6
+                        label(ng-i18next="contact.form.firstname")
+                        p
+                            input(ng-model="form.firstname" type="text" size="36")
+                            span.field-information 3 à 40 caractères maximum.
+                    div.col-xs-6
+                        label(ng-i18next="contact.form.lastname")
+                        p
+                            input(ng-model="form.lastname" type="text" size="36")
+                            span.field-information 3 à 40 caractères maximum.
+            
+                label(ng-i18next="contact.form.email")
+                span.input-required *
+                p  
+                    input(required ng-model="form.emailAddress" type="email" size="64" aria_required="true")
+                    span.field-information 255 caractères maximum. Exemple: email@example.com
+                    
+            fieldset
+                label(ng-i18next="contact.form.subject")
+                span.input-required *
+                p
+                    input(required ng-model="form.subject" type="text" size="64" aria_required="true")
+                    span.field-information 255 caractères maximum.
+
+                label(ng-i18next="contact.form.message")
+                span.input-required *
+                p
+                    textarea#message(required ng-model="form.message" rows="1" maxlength="5000")
+                    
+            fieldset
+                button(type="submit" ng-i18next="contact.form.send_my_message" ng-disabled="contactForm.$invalid")
+div.alert
+    div.alert-content
+        header
+            p
+                i.fa.fa-check-circle
+            h2(ng-i18next="thanks")
+        section
+            p(ng-i18next="contact.form.your_message_has_been_sent")
+            p
+                a.button(ng-click="reset()")
+                    span.button-text.text-uppercase(ng-i18next="close")

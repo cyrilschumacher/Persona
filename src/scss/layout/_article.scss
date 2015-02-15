@@ -7,8 +7,8 @@
     &:nth-child(even) { background: inherit }
     
     &:nth-child(odd) {
-        background: #ddd;
-        border-top: 1px solid #d0d0d0;
-        border-bottom: 1px solid #d0d0d0;
+        background: #f0f0f0;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
     }
 }

@@ -1,6 +1,6 @@
 /* The MIT License (MIT)
  * 
- * Copyright (c) 2014 Cyril Schumacher.fr
+ * Copyright (c) 2015 Cyril Schumacher.fr
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,6 +21,132 @@
  * SOFTWARE.
  */
 
-require(['bootstrap', 'jquery-autosize', 'jquery.fadebyscroll', 'fadeByScrollDirective', 'fullHeightWindowDirective', 'scrollToDirective', 'profileService', 'resumeService', 'worksService', 'persona'], persona => {
-    angular.bootstrap(document, ['persona']);
-});
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+
+/// <amd-dependency path="ngI18next"/>
+
+import routeConfiguration = require('configuration/routeConfiguration');
+import i18nextConfiguration = require('configuration/i18nextConfiguration');
+
+/**
+ * @summary Application.
+ * @author  Cyril Schumacher
+ * @class
+ */
+class Application {
+    'use strict';
+
+    /**
+     * @summary Instance.
+     * @private
+     * @type {Application}
+     */
+    private static _instance: Application;
+    
+    /**
+     * @summary Angular module.
+     * @private
+     * @type {IModule}
+     */
+    private _module: ng.IModule;
+    
+    /**
+     * @summary Gets the angular module.
+     * @public
+     * @returns {IModule} Module.
+     */
+    public get module(): ng.IModule {
+        return this._module;
+    }
+
+    /**
+     * @summary Gets the instance of class.
+     * @public
+     * @returns {Application} Instance of class.
+     */
+    public static get instance(): Application
+    {
+        if(!Application._instance) {
+            Application._instance = new Application();
+        }
+        
+        return Application._instance;
+    }
+
+    /**
+     * @summary Constructor.
+     * @constructs
+     * @private
+     */
+    constructor() {
+        // Initialize module.
+        this._initModule();
+    }
+
+    /**
+     * @summary Initialize class.
+     * @public
+     */
+    public initialize = (): void => {
+        // Initialize constants and configurations.
+        this._initConstants();
+        this._initConfigurations();
+    }
+        
+    /**
+     * @summary Initialize configuration.
+     * @private
+     */
+    private _initConfigurations = (): void => {
+        this._module.config(routeConfiguration)
+                    .config(i18nextConfiguration)
+                    .config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', this._register]);
+    }
+        
+    /**
+     * @summary Initialize constants.
+     * @private
+     */
+    private _initConstants = (): void => {
+        // Creates an application configuration.
+        var appConfig: any = {
+            'route': {
+                'controllerPath': 'scripts/controller/',
+                'cssPath': 'css/',
+                'viewPath': 'view/'
+            }
+        };
+        
+        this._module.constant('appConfig', appConfig)
+    }
+
+    /**
+     * @summary Initialize module.
+     * @private
+     */
+    private _initModule = (): void => {
+        this._module = angular.module('app', ['ngRoute', 'routeStyles', 'jm.i18next']);
+    }
+
+    /**
+     * @summary Register providers.
+     * @private
+     * @param {IRouteProvider}      $routeProvider      Route provider.
+     * @param {IControllerProvider} $controllerProvider Controller provider.
+     * @param {ICompileProvider}    $compileProvider    Compile provider.
+     * @param {IFilterProvider}     $filterProvider     Filter provider.
+     * @param {any}                 $provide            Provide.
+     */
+    private _register = ($routeProvider: ng.route.IRouteProvider, $controllerProvider: ng.IControllerProvider, $compileProvider: ng.ICompileProvider, $filterProvider: ng.IFilterProvider, $provide: any) => {
+        this._module['register'] = { 
+            controller: $controllerProvider.register, 
+            directive: $compileProvider.directive, 
+            filter: $filterProvider.register, 
+            factory: $provide.factory, 
+            service: $provide.service
+        };
+    }
+}
+
+export = Application;

@@ -1,6 +1,6 @@
 /* The MIT License (MIT)
  * 
- * Copyright (c) 2014 Cyril Schumacher.fr
+ * Copyright (c) 2015 Cyril Schumacher.fr
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,66 +21,44 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../bower_components/DefinitelyTyped/requirejs/require.d.ts"/>
+/// <reference path="../../bower_components/DefinitelyTyped/requirejs/require.d.ts" />
 
 require.config({
-    baseUrl: '/scripts/',
     urlArgs: 'v=1.0',
     
     paths: {
         // Vendors.
-        'bootstrap':                  'vendors/bootstrap/dist/js/bootstrap',
-        'jquery':                     'vendors/jquery/dist/jquery',
-        'jquery-ui':                  'vendors/jquery-ui/jquery-ui',
-        'jquery-autosize':            'vendors/jquery-autosize/jquery.autosize',
-        'jquery.fadebyscroll':        'vendors/jquery.fadebyscroll/dist/jquery.fadebyscroll',
-        'angular':                    'vendors/angular/angular',
-        'angular-animate':            'vendors/angular-animate/angular-animate',
-        'angular-route':              'vendors/angular-route/angular-route',
-        'angular-route-styles':       'vendors/angular-route-styles/route-styles',
-        'angular-ui-router':          'vendors/angular-ui-router/release/angular-ui-router',
-        'i18next':                    'vendors/i18next/i18next',
-        'ng-i18next':                 'vendors/ng-i18next/dist/ng-i18next',
-        'velocity':                   'vendors/velocity/velocity',
+        angular:                'vendor/angular/angular',
+        angularAnimate:         'vendor/angular-animate/angular-animate',
+        angularRoute:           'vendor/angular-route/angular-route',
+        angularRouteStyles:     'vendor/angular-route-styles/route-styles',
+        angularUiRouter:        'vendor/angular-ui-router/release/angular-ui-router',
+        bootstrap:              'vendor/bootstrap/dist/js/bootstrap',
+        jquery:                 'vendor/jquery/dist/jquery',
+        jqueryUi:               'vendor/jquery-ui/jquery-ui',
+        jqueryAutosize:         'vendor/jquery-autosize/jquery.autosize',
+        jqueryFadebyscroll:     'vendor/jquery.fadebyscroll/dist/jquery.fadebyscroll',
+        i18next:                'vendor/i18next/i18next',
+        ngI18next:              'vendor/ng-i18next/dist/ng-i18next',
+        velocity:               'vendor/velocity/velocity',
         
-        // Application.
-        'app':                        'app',
-        'persona':                    'persona',
-        
-        // Configurations.
-        'i18nextConfiguration':       'configurations/i18nextConfiguration',
-        'routeConfiguration':         'configurations/routeConfiguration',
-        
-        // Controllers.
-        'aboutController':            'controllers/aboutController',
-        'contactController':          'controllers/contactController',
-        'homeController':             'controllers/homeController',
-        
-        // Directives.
-        'fadeByScrollDirective':      'directives/fadeByScrollDirective',
-        'fullHeightWindowDirective':  'directives/fullHeightWindowDirective',
-        'scrollToDirective':          'directives/scrollToDirective',
-        
-        // Models.
-        'contactModel':               'models/contactModel',
-        
-        // Services.
-        'profileService':             'services/profileService',
-        'resumeService':              'services/resumeService',
-        'worksService':               'services/worksService',
-        
-        // Utilities.
-        'routeResolver':              'utils/routeResolver'
+        // Loader.
+        loader:                 'loader'
     },
+    
     shim: {
-        'angular-animate':          ['angular'],
-        'angular-route':            ['angular'],
-        'angular-route-styles':     ['angular'],
-        'angular-ui-router':        ['angular'],
-        'bootstrap':                ['jquery'],
-        'i18next':                  ['jquery'],
-        'jquery-autosize':          ['jquery'],
-        'ng-i18next':               ['angular', 'i18next'],
-    },
-    deps: ['app']
+        // Vendors.
+        angularRoute:       ['angular'],
+        angularRouteStyles: ['angular'],
+        bootstrap:          ['jquery'],
+        i18next:            ['jquery'],
+        jqueryAutosize:     ['jquery'],
+        jqueryUi:           ['jquery'],
+        ngI18next:          ['angular', 'i18next'],
+        
+        // Loader.
+        loader:             ['angularRoute', 'angularRouteStyles']
+    }
 });
+
+require(['loader']);

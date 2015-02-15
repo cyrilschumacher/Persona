@@ -1,0 +1,86 @@
+// The MIT License (MIT)
+// 
+// Copyright (c) 2014 Cyril Schumacher.fr
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+ 
+// Mixins.
+mixin itemCategory(id, name, description, icon)
+    div.col-xs-4(class=id)
+        div.square-icon.vertical-horizontal-center
+            i.square-icon-text.fa(class=icon)
+        h3(ng-i18next=name)
+        p(ng-i18next=description)
+        
+mixin videoSource(url)
+    source(src=url + ".mp4" type="video/mp4")
+    source(src=url + ".webm" type="video/webm")
+    source(src=url + ".ogv" type="video/ogg")
+
+// Content.
+header.l-header.no-selection(ng-full-height-window)
+    div.full-background-fixed.l-header-background
+        video(autoplay muted loop)
+            +videoSource("contents/videos/dust_particles_smoke_lighting")
+
+    div.l-header-wrapper(ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
+        div.container(itemscope itemtype="http://schema.org/Person")
+            h1.animation-fade-slow
+                span.text-uppercase(class="my-name" itemprop="name") Cyril Schumacher
+            p.description.animation-fade-fast.text-lowercase(itemprop="description" ng-i18next="home.header.subtitle")
+            p.scroll-down.animation-fade-fast
+                a(role="button" ng-scroll-to to="#about")
+                    span.round-icon
+                        i.round-icon-text.fa.fa-angle-down
+                    span.text.text-uppercase(ng-i18next="home.scroll")
+
+article.l-article.about-article#about
+    header
+        h2(ng-i18next="home.about.title")
+        p.subtitle(ng-i18next="home.about.subtitle")
+    section.l-section
+        div.row
+            +itemCategory("presentation", "home.about.presentation", "home.about.presentation_description", "fa-user")
+            +itemCategory("education", "home.about.education", "home.about.education_description", "fa-graduation-cap")
+            +itemCategory("experience", "home.about.experience", "home.about.experience_description", "fa-suitcase")
+            +itemCategory("skills", "home.about.skills", "home.about.skills_description", "fa-code")
+
+article.l-article.works-article
+    header
+        h2(ng-i18next="home.works.title")
+        p.subtitle(ng-i18next="home.works.subtitle")
+    section.l-section
+        ul.works-items
+            li.work-item(ng-repeat="work in works")
+                article.work-item-content
+                    div.work-item-content-thumbnail
+                        img(src="{{work.images[0]}}")
+                    div.work-item-content-info
+                        span.name {{work.name}}
+
+article.l-article.contact-article
+    header
+        h2(ng-i18next="home.contact.header.title")
+        p.subtitle(ng-i18next="home.contact.header.subtitle")
+    section.l-section
+        div.row
+            div.col-xs-2
+            +itemCategory("vcard", "home.contact.vcard", "home.contact.download_my_vcard", "fa-list-alt")
+            +itemCategory("vcard", "home.contact.form", "home.contact.contact_me", "fa-envelope-o")
+            div.col-xs-2

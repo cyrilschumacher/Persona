@@ -4,6 +4,16 @@ module.exports = function (grunt) {
 
     /* Grunt configuration. */
     grunt.initConfig({
+        browserSync: {
+            bsFiles: {
+                src: 'dist/*.*'
+            },
+            options: {
+                server: {
+                    baseDir: 'dist/'
+                }
+            }
+        },
         clean: {
             locales: ['src/locales/'],
             reset: ['debug']
@@ -11,26 +21,14 @@ module.exports = function (grunt) {
         compass: {
             dev: {
                 options: {
-                    cacheDir: 'debug/.sass-cache/',
-                    cssDir: 'debug/stylesheets/',
+                    cacheDir: 'dist/.sass-cache/',
+                    cssDir: 'dist/css/',
                     debugInfo: true,
                     environment: 'development',
                     noLineComments: false,
                     sassDir: 'src/scss/',
                     sourcemap: true,
                     trace: true
-                }
-            }
-        },
-        connect: {
-            dev: {
-                options: {
-                    base: 'debug/',
-                    debug: true,
-                    hostname: 'localhost',
-                    index: 'index.html',
-                    keepalive: true,
-                    port: 9001
                 }
             }
         },
@@ -41,7 +39,7 @@ module.exports = function (grunt) {
                         cwd: 'src/typescript/',
                         expand: true,
                         src: 'locales/**/*',
-                        dest: 'debug/scripts/',
+                        dest: 'dist/scripts/',
                         filter: 'isFile'
                     },
                     {
@@ -64,7 +62,7 @@ module.exports = function (grunt) {
                             'requirejs/*.js',
                             'velocity/*.js'
                         ],
-                        dest: 'debug/scripts/vendors/'
+                        dest: 'dist/scripts/vendor/'
                     },
                     {
                         cwd: 'bower_components/',
@@ -73,18 +71,18 @@ module.exports = function (grunt) {
                             'animate.css/*.css',
                             'bootstrap/dist/**/*.css'
                         ],
-                        dest: 'debug/stylesheets/vendors/',
+                        dest: 'dist/css/vendor/',
                         filter: 'isFile'
                     }
                 ]
             },
-            contents: {
+            content: {
                 files: [
                     {
                         cwd: 'src/',
                         expand: true,
-                        src: 'contents/**/*',
-                        dest: 'debug/',
+                        src: 'content/**/*',
+                        dest: 'dist/',
                         filter: 'isFile'
                     }
                 ]
@@ -95,7 +93,7 @@ module.exports = function (grunt) {
                         cwd: 'src/typescript/',
                         expand: true,
                         src: 'locales/**/*',
-                        dest: 'debug/scripts/',
+                        dest: 'dist/scripts/',
                         filter: 'isFile'
                     }
                 ]
@@ -113,7 +111,7 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     cwd: 'src/',
-                    dest: 'debug/',
+                    dest: 'dist/',
                     expand: true,
                     ext: '.html',
                     src: '**/*.jade'
@@ -123,7 +121,7 @@ module.exports = function (grunt) {
         ts: {
             dev: {
                 src: ['src/typescript/**/*.ts'],
-                outDir: 'debug/scripts/',
+                outDir: 'dist/scripts/',
                 options: {
                     declaration: false,
                     target: 'es5',
@@ -142,8 +140,8 @@ module.exports = function (grunt) {
                 tasks: ['ts:dev']
             },
             contents: {
-                files: 'src/contents/**/*.*',
-                tasks: ['copy:contents']
+                files: 'src/content/**/*.*',
+                tasks: ['copy:content']
             },
             styles: {
                 files: 'src/scss/**/*.scss',
@@ -157,14 +155,14 @@ module.exports = function (grunt) {
     });
 
     /* Dependencies. */
+    grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-ts');
 
     /* Tasks. */
-    grunt.registerTask('default', ['jade:dev', 'compass:dev', 'ts:dev', 'copy:contents', 'copy:dev']);
+    grunt.registerTask('default', ['jade:dev', 'compass:dev', 'ts:dev', 'copy:content', 'copy:dev']);
 };
