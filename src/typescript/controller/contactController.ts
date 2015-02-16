@@ -88,7 +88,7 @@ class ContactController {
 
         var location: any = this.profileService.getLocation();
         var pinLocation = new Microsoft.Maps.Location(location.coordinates.latitude, location.coordinates.longitude)
-        var pin: Microsoft.Maps.Pushpin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'contents/images/pin.svg', height: 60, width: 80});
+        var pin: Microsoft.Maps.Pushpin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'content/image/pin.svg', height: 60, width: 80});
 
         map.setView({center: pinLocation});
         map.entities.push(pin);

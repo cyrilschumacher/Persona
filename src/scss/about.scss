@@ -27,61 +27,88 @@
     margin: 2rem auto;
     width: 800px;
     
-    .resume {
-        height: 250px;
-    }
+    .resume { height: 250px }
     
     img { border: 1px solid $dark-primary-color }
 }
 
-.formation {
-    h3 {
-        background: $grapefruit-secondary-color;
-        display: inline-block;
-        padding: .5rem 2rem;
-    }
-}
-
 .timeline {
-    margin: 0 auto;
-    width: 800px;
+    margin: 4rem auto 2rem;
+    width: $desktop-device-max-width;
     
     &:before { background: $grapefruit-primary-color }
     
     &-block {
+        &:first-child {
+            .timeline-block-icon {
+                background: $grapefruit-primary-color !important;
+                color: #fff;
+            }
+            
+            .timeline-block-content {
+                background: $grapefruit-primary-color !important;
+                color: #fff;
+
+                &:before { border-left-color: $grapefruit-primary-color }
+            }
+        }
+        
         &:nth-child(even) {
             .timeline-block-content {
                 &:before {
                     top: 24px;
                     left: auto;
                     right: 100%;
-                    border-right-color: $grapefruit-primary-color;
-                    margin-right: 7px;
+                    border-right-color: $light-primary-color;
                 }
             }
         }
         
         &-icon {
-            background: $grapefruit-primary-color;
-            border: 1px solid $grapefruit-primary-color;
+            background: $light-primary-color;
+            color: $light-secondary-color;
             height: 50px;
             margin: 15px -25px;
             width: 50px;
             
-            .icon {
-                color: $light-secondary-color;
-                font-size: $h4-font-size;
-            }
+            .icon { font-size: $h4-font-size }
         }
         
         &-content {
-            background: $grapefruit-primary-color;
-            color: #fff;
+            border: 1px solid $light-primary-color;
+            color: $light-primary-color;
             text-align: left;
             
             &:before {
-                border-left-color: $grapefruit-primary-color;
-                margin-left: 7px;
+                border-left-color: $light-primary-color;
+            }
+        }
+    }
+}
+
+.experience {
+    margin: 0 auto;
+    text-align: justify;
+    width: $desktop-device-max-width;
+    
+    h3 { color: $grapefruit-primary-color }
+    
+    .company {
+        padding: 4rem 0 1rem;
+        
+        .properties {
+            border: 1px solid $light-primary-color;
+            margin: 0 0 .5rem;
+            padding: .8rem 0;
+            
+            .information, .icon { height: 3rem; text-align: left }
+            .information { color: $light-primary-color; @include justify-content(flex-start) }
+            
+            .icon {
+                background: $grapefruit-primary-color;
+                width: 3rem;
+                
+                .fa { color: #fff }
             }
         }
     }

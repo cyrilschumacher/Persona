@@ -67,6 +67,7 @@
         "form": {
             "title": "Formulaire de contact",
             "description": "Un projet en tête ? Vous souhaitez travailler avec moi ? Vous avez un autre sujet que vous aimeriez discuter avec moi ? N'hésitez pas à me contacter, je vous répondrai avec plaisir.",
+            "download_my_vcard": "Télécharger ma vCard",
             "firstname": "Prénom",
             "lastname": "Nom",
             "email": "Adresse e-mail",

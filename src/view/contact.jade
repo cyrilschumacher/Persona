@@ -32,47 +32,58 @@ article.l-article.map-section
         p.subtitle Découvrez où je réside actuellement
     section.l-section
         div#map
-article.l-article.form-section
-    header
-        h2(ng-i18next="contact.form.title")
-        p.subtitle Compléter les champs ci-dessous
+article.l-article
+    div.row
+        div.col-xs-6.form-section
+            header
+                h2(ng-i18next="contact.form.title")
+                p.subtitle Compléter les champs ci-dessous
+            section.l-section.form-content
+                form(name="contactForm" ng-submit="submit()")
+                    p(ng-i18next="contact.form.description")
+                    fieldset
+                        div.row
+                            div.col-xs-6
+                                label(ng-i18next="contact.form.firstname")
+                                p
+                                    input(ng-model="form.firstname" type="text" size="36")
+                                    span.field-information 3 à 40 caractères maximum.
+                            div.col-xs-6
+                                label(ng-i18next="contact.form.lastname")
+                                p
+                                    input(ng-model="form.lastname" type="text" size="36")
+                                    span.field-information 3 à 40 caractères maximum.
 
-    section.l-section.form-content
-        form(name="contactForm" ng-submit="submit()")
-            p(ng-i18next="contact.form.description")
-            fieldset
-                div.row
-                    div.col-xs-6
-                        label(ng-i18next="contact.form.firstname")
-                        p
-                            input(ng-model="form.firstname" type="text" size="36")
-                            span.field-information 3 à 40 caractères maximum.
-                    div.col-xs-6
-                        label(ng-i18next="contact.form.lastname")
-                        p
-                            input(ng-model="form.lastname" type="text" size="36")
-                            span.field-information 3 à 40 caractères maximum.
-            
-                label(ng-i18next="contact.form.email")
-                span.input-required *
-                p  
-                    input(required ng-model="form.emailAddress" type="email" size="64" aria_required="true")
-                    span.field-information 255 caractères maximum. Exemple: email@example.com
-                    
-            fieldset
-                label(ng-i18next="contact.form.subject")
-                span.input-required *
-                p
-                    input(required ng-model="form.subject" type="text" size="64" aria_required="true")
-                    span.field-information 255 caractères maximum.
+                        label(ng-i18next="contact.form.email")
+                        span.input-required *
+                        p  
+                            input(required ng-model="form.emailAddress" type="email" size="64" aria_required="true")
+                            span.field-information 255 caractères maximum. Exemple: email@example.com
 
-                label(ng-i18next="contact.form.message")
-                span.input-required *
-                p
-                    textarea#message(required ng-model="form.message" rows="1" maxlength="5000")
-                    
-            fieldset
-                button(type="submit" ng-i18next="contact.form.send_my_message" ng-disabled="contactForm.$invalid")
+                    fieldset
+                        label(ng-i18next="contact.form.subject")
+                        span.input-required *
+                        p
+                            input(required ng-model="form.subject" type="text" size="64" aria_required="true")
+                            span.field-information 255 caractères maximum.
+
+                        label(ng-i18next="contact.form.message")
+                        span.input-required *
+                        p
+                            textarea#message(required ng-model="form.message" rows="1" maxlength="5000")
+
+                    fieldset
+                        button(type="submit" ng-i18next="contact.form.send_my_message" ng-disabled="contactForm.$invalid")
+        div.col-xs-6.annexe-form-section
+            header
+                h2 Informations complémentaires
+                p.subtitle Obtenez ma carte de visite virtuelle
+            section
+                a.button
+                    span.button-text.text-uppercase Télécharger ma vCard
+            header
+                h2(ng-i18next="contact.form.download_my_vcard")
+            section
 div.alert
     div.alert-content
         header

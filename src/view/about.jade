@@ -61,6 +61,40 @@ article.l-article
 article.l-article
     header
         h2 Expériences Professionnelles
+        p.subtitle Mes expériences passées en entreprise
+    section.experience
+        div.row.company(ng-repeat="company in experience")
+            div.col-xs-4
+                ul(itemscope itemtype="http://schema.org/Corporation")
+                    li
+                        div.row.properties
+                            div.col-xs-2
+                                div.icon.vertical-horizontal-center
+                                    i.fa.fa-building-o
+                            div.col-xs-10.information.vertical-horizontal-center
+                                span(itemprop="name") {{company.company.name}}
+                    li
+                        div.row.properties
+                            div.col-xs-2
+                                div.icon.vertical-horizontal-center
+                                    i.fa.fa-location-arrow
+                            div.col-xs-10.information.vertical-horizontal-center
+                                div(itemprop="address")
+                                    span(itemprop="addressLocality") {{company.company.location.address.city}},
+                                    span(itemprop="addressRegion") {{company.company.location.address.countryRegion}}
+                    li
+                        div.row.properties
+                            div.col-xs-2
+                                div.icon.vertical-horizontal-center
+                                    i.fa.fa-calendar
+                            div.col-xs-10.information.vertical-horizontal-center
+                                time(datetime="{{company.period.start}}") {{company.period.start | date:'MMMM yyyy - '}}
+                                time(datetime="{{company.period.end}}") {{company.period.end | date:'MMMM yyyy'}}
+                                    
+                        
+            div.col-xs-8
+                h3 {{company.name}}
+                p.summary {{company.summary}}
 
 article.l-article
     header

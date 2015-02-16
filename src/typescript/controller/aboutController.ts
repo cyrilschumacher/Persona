@@ -52,6 +52,7 @@ class AboutController {
      */
     public constructor(private $scope: ng.IScope, private $i18next: any, private resumeService: any) {
         $scope['schools'] = resumeService.getEducation();
+        $scope['experience'] = resumeService.getExperience();
     }
 }
 

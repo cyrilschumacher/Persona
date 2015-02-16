@@ -37,6 +37,10 @@
 }
 
 .form-section {
+    header {
+        margin: 0 0 3rem;
+    }
+    
     form {
         margin: 2rem auto;
         max-width: 640px;
@@ -121,6 +125,23 @@
     }
 }
 
+.annexe-form-section {
+    .button {
+        background: $grass-primary-color;
+        border: 1px solid $grass-primary-color;
+        margin: 1rem auto 5rem;
+        
+        &:hover {
+            background: none;
+            
+            @include transition(background $timing-fast);
+            .button-text { color: $grass-primary-color }
+        }
+        
+        &-text { color: $light-secondary-color; font-weight: normal }
+    }
+}
+
 .alert {
     background: rgba(0, 0, 0, .75);
     display: none;
@@ -135,7 +156,7 @@
         background: #fff;
         border: 1px solid #222;
         bottom: 0;
-        @include box-shadow(0px 5px 30px 5px rgba(0, 0, 0, .2));
+        @include box-shadow(0px 5px 30px 10px rgba(0, 0, 0, .5));
         height: 37rem;
         left: 0;
         margin: auto;

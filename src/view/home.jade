@@ -23,8 +23,8 @@
 // Mixins.
 mixin itemCategory(id, name, description, icon)
     div.col-xs-4(class=id)
-        div.square-icon.vertical-horizontal-center
-            i.square-icon-text.fa(class=icon)
+        div.round-icon.vertical-horizontal-center
+            i.round-icon-text.fa(class=icon)
         h3(ng-i18next=name)
         p(ng-i18next=description)
         
@@ -62,17 +62,18 @@ article.l-article.about-article#about
             +itemCategory("skills", "home.about.skills", "home.about.skills_description", "fa-code")
 
 article.l-article.works-article
-    header
-        h2(ng-i18next="home.works.title")
-        p.subtitle(ng-i18next="home.works.subtitle")
-    section.l-section
-        ul.works-items
-            li.work-item(ng-repeat="work in works")
-                article.work-item-content
-                    div.work-item-content-thumbnail
-                        img(src="{{work.images[0]}}")
-                    div.work-item-content-info
-                        span.name {{work.name}}
+    div.works-article-wrapper
+        header
+            h2(ng-i18next="home.works.title")
+            p.subtitle(ng-i18next="home.works.subtitle")
+        section.l-section
+            ul.works-items
+                li.work-item(ng-repeat="work in works")
+                    article.work-item-content
+                        div.work-item-content-thumbnail
+                            img(src="{{work.images[0]}}")
+                        div.work-item-content-info
+                            span.name {{work.name}}
 
 article.l-article.contact-article
     header
