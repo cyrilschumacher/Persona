@@ -57,7 +57,7 @@ class ScrollToDirective implements ng.IDirective {
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
         $(element).bind('click', () => {
             var to: string = attrs['to'];
-            var duration = (duration) ? duration : 'slow';
+            var duration: string = (duration) ? duration : 'slow';
 
             $('html, body').animate({ scrollTop: $(to).offset().top }, duration);  
         });

@@ -6,8 +6,6 @@
     to   { top: 10px }
 }
 
-.hyphen { background: $dark-primary-color }
-
 .nav-item-home {
     border-color: #fff !important;
     cursor: default;
@@ -98,7 +96,7 @@
             position: relative;
             width: 15rem;
 
-            &-text { font-size: 6rem }
+            &-text { font-size: 4rem }
         }
     }
 }
