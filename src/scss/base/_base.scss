@@ -3,6 +3,26 @@
     initial-scale: 1;
 }
 
+@media screen {
+    html { $font-size: $base-font-size }
+}
+
+@media screen and (max-width: $desktop-device-max-width) {
+    html { font-size: $desktop-base-font-size } 
+}
+
+@media screen and (max-width: $tablets-device-max-width) {
+    html { font-size: $tablets-base-font-size } 
+}
+
+@media screen and (max-width: $small-tablets-device-max-width) {
+    html { font-size: $small-tablets-base-font-size } 
+}
+
+@media screen and (max-width: $mobile-device-max-width) {
+    html { font-size: $mobile-base-font-size } 
+}
+
 html { font-size: $base-font-size }
 
 html, body {
@@ -12,8 +32,8 @@ html, body {
 }
 	
 body {
-    background: $light-secondary-color;
-    color: $dark-primary-color;
+    background: $base-background;
+    color: $base-color;
     font: $body-font-size $base-font-family;
     font-weight: $base-font-weight;
 }
@@ -56,20 +76,4 @@ a {
         outline: 0;
         text-decoration: none;
     }
-}
-
-@media screen and (max-width: $desktop-device-max-width) {
-    html { font-size: $desktop-base-font-size } 
-}
-
-@media screen and (max-width: $tablets-device-max-width) {
-    html { font-size: $tablets-base-font-size } 
-}
-
-@media screen and (max-width: $small-tablets-device-max-width) {
-    html { font-size: $small-tablets-base-font-size } 
-}
-
-@media screen and (max-width: $mobile-device-max-width) {
-    html { font-size: $mobile-base-font-size } 
 }

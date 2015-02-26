@@ -36,12 +36,10 @@ import worksService = require('service/worksService');
  * @class
  */
 class HomeController {
-    'use strict';
-
     /**
      * @summary Dependencies injection.
      * @public
-     * @type {string[]}
+     * @type {Array<string>}
      */
     public static $inject: Array<String> = ['$scope', '$i18next', 'worksService'];
     

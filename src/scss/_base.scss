@@ -1,0 +1,16 @@
+@include keyframes(loading-animation) {
+    from { @include transform(rotate(0deg)) }
+    to { @include transform(rotate(359deg)) }
+}
+
+.loading {
+    background: $base-background;
+    bottom: 2%;
+    padding: $base-margin;
+    position: fixed;
+    right: 2%;
+    z-index: 5;
+    
+    span { color: $base-color; margin: 0 ($base-margin / 2) }
+    .fa { @include animation(loading-animation 2s infinite linear) }
+}

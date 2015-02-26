@@ -28,6 +28,7 @@
 
 import routeConfiguration = require('configuration/routeConfiguration');
 import i18nextConfiguration = require('configuration/i18nextConfiguration');
+import loadingRun = require('run/loadingRun');
 
 /**
  * @summary Application.
@@ -35,8 +36,6 @@ import i18nextConfiguration = require('configuration/i18nextConfiguration');
  * @class
  */
 class Application {
-    'use strict';
-
     /**
      * @summary Instance.
      * @private
@@ -89,19 +88,28 @@ class Application {
      * @public
      */
     public initialize = (): void => {
-        // Initialize constants and configurations.
+        // Initialize constants, configuration and run blocks.
         this._initConstants();
         this._initConfigurations();
+        this._initRun();
     }
         
     /**
-     * @summary Initialize configuration.
+     * @summary Initialize configuration blocks.
      * @private
      */
     private _initConfigurations = (): void => {
         this._module.config(routeConfiguration)
                     .config(i18nextConfiguration)
                     .config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', this._register]);
+    }
+    
+    /**
+     * @summary Initialize run blocks.
+     * @private
+     */
+    private _initRun = (): void => {
+        this._module.run(loadingRun);   
     }
         
     /**
@@ -110,7 +118,7 @@ class Application {
      */
     private _initConstants = (): void => {
         // Creates an application configuration.
-        var appConfig: any = {
+        var appConfig: Object = {
             'route': {
                 'controllerPath': 'scripts/controller/',
                 'cssPath': 'css/',

@@ -34,8 +34,6 @@ import resumeService = require('service/resumeService');
  * @class
  */
 class AboutController {
-    'use strict';
-
     /**
      * @summary Dependencies injection.
      * @public

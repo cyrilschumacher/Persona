@@ -22,20 +22,22 @@
  */
 
 /**
- * @summary Persona internationalization configuration.
+ * @summary Persona internationalization configuration block.
  * @author  Cyril Schumacher
  * @class
  */
 class i18nextConfiguration {
-    'use strict';
-
     /**
      * @summary Dependencies injection.
+     * @public
+     * @type {Array<string>}
      */
     public static $inject: Array<String> = ['$i18nextProvider'];
 
     /**
      * @summary Constructor.
+     * @public
+     * @constructs
      * @param {any} $i18nextProvider i18next provider.
      */
     public constructor(private $i18nextProvider: any) {

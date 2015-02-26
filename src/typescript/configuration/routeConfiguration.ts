@@ -24,13 +24,11 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 
 /**
- * @summary Application routing configuration.
+ * @summary Application routing configuration block.
  * @author  Cyril Schumacher
  * @class
  */
 class RouteConfiguration {
-    'use strict';
-
     /**
      * @summary Dependencies injection.
      * @public
@@ -40,8 +38,8 @@ class RouteConfiguration {
 
     /**
      * @summary Constructor.
-     * @constructs
      * @public
+     * @constructs
      * @param {IRouteProvider} $routeProvier Route provider.
      * @param {any}            appConfig     Application configuration.
      */

@@ -32,8 +32,6 @@ import app = require('app');
  * @class
  */
 class FullHeightWindowDirective implements ng.IDirective {
-    'use strict';
-
     /**
      * @summary Dependencies injection.
      * @public

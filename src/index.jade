@@ -64,7 +64,11 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                         +menuItem("nav-item-contact", "common.nav.contact", "#/contact")
         
         section.l-main(data-ng-view)
-                    
+        div.loading(data-ng-hide="!isLoading")
+            span
+                i.fa.fa-circle-o-notch
+            span(data-ng-i18next="loading")
+
         footer.l-footer.no-selection(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
             div.container.row
                 section.footer-left.col-xs-6

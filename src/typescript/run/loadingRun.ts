@@ -21,33 +21,50 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
-/// <amd-dependency path="directive/fadeByScrollDirective"/>
-
-import app = require('app');
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 /**
- * @summary Works controller.
+ * @summary Persona loading run block.
  * @author  Cyril Schumacher
  * @class
  */
-class WorksController {
+class LoadingRun {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope'];
+    public static $inject: Array<string> = ['$rootScope', '$timeout'];
     
     /**
      * @summary Constructor.
-     * @constructs
      * @public
-     * @param $scope            {IScope}    Scope.
+     * @constructs
+     * @param {IRootScopeService} $rootScope    The root scope.
+     * @param {ITimeoutService }  $timeout      The timeout service.
      */
-    public constructor(private $scope: ng.IScope) {
+    public constructor(private $rootScope: ng.IRootScopeService, private $timeout: ng.ITimeoutService) {
+        $rootScope.$on('$routeChangeStart', this._start);
+        $rootScope.$on('$routeChangeSuccess', this._success);
+    }
+    
+    /**
+     * @summary Occurs when the route is loaded with success.
+     * @private
+     */
+    private _start = (): void => {
+        this.$rootScope['isLoading'] = true;
+    }
+    
+    /**
+     * @summary Occurs when the route is loading.
+     * @private
+     */
+    private _success = (): void => {
+        this.$timeout(() => {
+            this.$rootScope['isLoading'] = false;
+        }, 1000);
     }
 }
 
-export = WorksController;
-app.instance.module['register'].controller('worksController', WorksController);
+export = LoadingRun;

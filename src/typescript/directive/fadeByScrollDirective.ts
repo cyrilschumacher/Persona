@@ -33,8 +33,6 @@ import app = require('app');
  * @class
  */
 class FadeByScrollDirective implements ng.IDirective {
-    'use strict';
-
     /**
      * @summary Dependencies injection.
      * @public

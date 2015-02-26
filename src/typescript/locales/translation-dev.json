@@ -1,6 +1,8 @@
 {
     "close": "Fermer",
+    "loading": "Chargement",
     "thanks": "Merci",
+    
     "common": {
         "nav": {
             "home": "Accueil",

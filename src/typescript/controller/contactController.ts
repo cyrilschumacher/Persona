@@ -39,8 +39,6 @@ import contactModel = require('model/contactModel');
  * @class
  */
 class ContactController {
-    'use strict';
-
     /**
      * @summary Dependencies injection.
      * @public
