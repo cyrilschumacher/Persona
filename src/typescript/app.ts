@@ -119,6 +119,7 @@ class Application {
     private _initConstants = (): void => {
         // Creates an application configuration.
         var appConfig: Object = {
+            'restServer': 'http://private-b90a0-cyrilschumacher.apiary-mock.com/',
             'route': {
                 'controllerPath': 'scripts/controller/',
                 'cssPath': 'css/',

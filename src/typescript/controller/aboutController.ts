@@ -50,9 +50,15 @@ class AboutController {
      * @param resumeService {ResumeService}  Resume service.
      */
     public constructor(private $scope: ng.IScope, private $i18next: any, private resumeService: resumeService) {
-        $scope['schools'] = resumeService.getEducation();
-        $scope['experience'] = resumeService.getExperience();
-        $scope['skills'] = resumeService.getSkills();
+        resumeService.getEducation().then(schools => {
+            $scope['schools'] = schools;
+        });
+        resumeService.getExperience().then(companies => {
+            $scope['companies'] = companies;
+        });
+        resumeService.getSkills().then(skills => {
+            $scope['skills'] = skills;
+        });
     }
 }
 
