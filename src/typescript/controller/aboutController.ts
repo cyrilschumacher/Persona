@@ -26,6 +26,7 @@
 /// <amd-dependency path="service/resumeService"/>
 
 import app = require('app');
+import resumeService = require('service/resumeService');
 
 /**
  * @summary About controller.
@@ -50,9 +51,10 @@ class AboutController {
      * @param $i18next      {any}            Localization.
      * @param resumeService {ResumeService}  Resume service.
      */
-    public constructor(private $scope: ng.IScope, private $i18next: any, private resumeService: any) {
+    public constructor(private $scope: ng.IScope, private $i18next: any, private resumeService: resumeService) {
         $scope['schools'] = resumeService.getEducation();
         $scope['experience'] = resumeService.getExperience();
+        $scope['skills'] = resumeService.getSkills();
     }
 }
 

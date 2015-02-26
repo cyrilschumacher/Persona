@@ -1,4 +1,3 @@
-@charset "utf-8";
 @import "main";
 
 @include keyframes(arrow-animation) {
@@ -24,17 +23,16 @@
     color: #fff;
 
     h1 {
-        .my-name {
-            border: 1px solid #fff;
-            color: #fff;
-            padding: 0 3rem;
-            @include transition(all 250ms);
-        }
+        border: 5px solid #fff;
+        color: #fff;
+        margin: 0 0 $margin;
+        padding: 0 ($margin * 5);
+        @include transition(all 250ms);
     }
 
     .description {
         @include animation-delay(1.5s);
-        margin: 0 0 3rem;
+        margin: 0 0 ($margin * 3);
     }
 }
 
@@ -89,12 +87,11 @@
         margin: 5rem 0 1rem;
         
         .round-icon {
-            border-width: 1px;
-            border-style: solid;
-            height: 15rem;
+            border: .5rem solid $light-primary-color;
+            height: 12rem;
             margin: 0 auto 3rem;
             position: relative;
-            width: 15rem;
+            width: 12rem;
 
             &-text { font-size: 4rem }
         }
@@ -109,19 +106,14 @@
     }
     
     .round-icon {
-        border-color: $grapefruit-primary-color;
         &-text { color: $grapefruit-secondary-color }
     }
 }
 
 .works-article {
-    background: url(/content/image/subway_lines.png) fixed !important;
-    background-size: cover;
-    border: none !important;
     padding: 0;
     
     &-wrapper {
-        background: rgba(255, 255, 255, .8); 
         height: inherit;
         padding: 4em 2em;
         width: inherit;
@@ -133,13 +125,14 @@
         overflow: hidden;
 
         .work-item {
+            box-sizing:content-box;
             display: inline-block;
             height: inherit;
             margin: .8rem;
             overflow: hidden;
             width: 30rem;
 
-            .work-item-content {
+            &-content {
                 color: $dark-primary-color;
                 position: relative;
                 height: inherit;
@@ -149,7 +142,7 @@
                     .work-item-content-thumbnail { bottom: 20% }
                 }
 
-                .work-item-content-info {
+                &-info {
                     background: $dark-primary-color;
                     color: $light-secondary-color;
                     height: inherit;
@@ -177,7 +170,7 @@
                     }
                 }
 
-                .work-item-content-thumbnail {
+                &-thumbnail {
                     bottom: 0;
                     height: inherit;
                     left: 0;

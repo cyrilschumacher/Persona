@@ -1,4 +1,6 @@
 @charset "utf-8";
+
+/* External vendors. */
 @import url("//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css");
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css");
 
@@ -34,6 +36,7 @@
 @import "modules/round-icon";
 @import "modules/subtitle";
 @import "modules/text-center";
+@import "modules/text-justify";
 @import "modules/text-lowercase";
 @import "modules/text-uppercase";
 @import "modules/timeline";

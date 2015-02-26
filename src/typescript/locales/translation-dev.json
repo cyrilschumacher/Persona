@@ -29,7 +29,7 @@
             "experience": "Experiences",
             "experience_description": "Mon portfolio qui vous présente mes applications réalisées durant mon stage en entreprise ou à l'école en tant que projet.",
             "skills": "Compétences",
-            "skills_description": "Prenez Mes compétences que j'ai acquise durant mon apprentissage à l'école ou en entreprise."
+            "skills_description": "Mes compétences que j'ai acquise durant mon apprentissage à l'école ou en entreprise."
         },
         "works": {
             "title": "Mes réalisations",
@@ -51,7 +51,15 @@
         "about": "A propos",
         "find_who_am_i": "Découvrez qui je suis",
         "presentation": "Présentation",
-        "let_me_introduce_myself": "Laissez-moi me présenter"
+        "let_me_introduce_myself": "Laissez-moi me présenter",
+        "skills": {
+            "title": "Compétences techniques",
+            "subtitle": "Des connaissances qui me sont acquises"
+        },
+        "education": {
+            "title": "Formations",
+            "subtitle": "Les écoles que j'ai intégré"
+        }
     },
     
     "works": {

@@ -114,7 +114,7 @@ class Application {
             'route': {
                 'controllerPath': 'scripts/controller/',
                 'cssPath': 'css/',
-                'viewPath': 'view/'
+                'viewPath': 'content/view/'
             }
         };
         

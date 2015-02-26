@@ -24,7 +24,7 @@
 mixin menuItem(className, labelName, url)
     li(itemprop="url")
         a.button(class=className, href=url itemprop="name" rel="prerender")
-            span.button-text(ng-i18next=labelName) 
+            span.button-text(data-ng-i18next=labelName) 
 
 // Content.
 doctype html
@@ -45,7 +45,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
         link(href="css/vendor/animate.css/animate.min.css", rel="stylesheet")
         link(href="css/vendor/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
         
-        script(scr="scripts/vendor/modernizr/modernizr.js")
+        script(src="scripts/vendor/modernizr/modernizr.js")
 
     body
         nav.l-nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation" lang="fr" arial-label="Main Site Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement")
@@ -63,7 +63,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                         +menuItem("nav-item-works", "common.nav.works", "#/works")                                
                         +menuItem("nav-item-contact", "common.nav.contact", "#/contact")
         
-        section.l-main(ng-view)
+        section.l-main(data-ng-view)
                     
         footer.l-footer.no-selection(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
             div.container.row
@@ -71,7 +71,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                     div.links
                         ul
                             li
-                                a(href="/" ng-i18next="common.nav.home")
+                                a(href="/" data-ng-i18next="common.nav.home")
                             li
                                 a(href="#about" ng-i18next="common.nav.about")
                             li
@@ -82,7 +82,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                     p.copyright © 
                         span(itemprop="copyrightYear") 2015 
                         span(itemprop="copyrightHolder") Cyril Schumacher. 
-                        span(ng-i18next="common.footer.all_right_reserved")
+                        span(data-ng-i18next="common.footer.all_right_reserved")
 
                 section.footer-right.col-xs-6
                     ul.social-icons

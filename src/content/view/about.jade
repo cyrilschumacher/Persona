@@ -1,0 +1,115 @@
+// The MIT License (MIT)
+// 
+// Copyright (c) 2015 Cyril Schumacher.fr
+// 
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+// 
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+// 
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+header.l-header.no-selection
+    div.l-header-wrapper(data-ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
+        div.container
+            h1(data-ng-i18next="about.about")
+            p.description(data-ng-i18next="about.find_who_am_i")
+            
+            
+article.l-article
+    header
+        h2(data-ng-i18next="about.presentation")
+        p.subtitle(data-ng-i18next="about.let_me_introduce_myself")
+    section.l-section.l-section-presentation
+        div.row
+            div.col-xs-4
+                p
+                    img(alt="Cyril Schumacher" src="/content/image/me.jpg")
+            div.col-xs-8
+                div.vertical-horizontal-center.resume
+                    div.text-justify
+                        h3.my-name Je suis Cyril Schumacher
+                        p Passionné des technologies Microsoft depuis l'âge de 14 ans, je suis également Microsoft Student Partner depuis le début de ma scolarité. Je suis une personne autodidacte, depuis mes années au collège, qui ne cesse de repousser ces connaissances. Actuellement étudiant à l'exia.cesi de Nancy pour apprendre et découvrir avec passion, de nouvelles technologies à tout moment.
+                        ul
+                            li
+                                p Un développeur, que je suis, qui aime découvrir et qui adore toucher à tout : C, C#, XAML, PHP, ASP.NET, Assembleur et bien d'autres langages existants,
+                            li
+                                p qui se remet en question tous les jours pour repousser les limites,
+                            li
+                                p qui aime, concevoir des interfaces graphiques que ce soit web ou logiciel.
+
+article.l-article
+    header
+        h2(data-ng-i18next="about.education.title")
+        p.subtitle(data-ng-i18next="about.education.subtitle")
+    section.l-section.l-section-education.timeline
+        div.timeline-block(data-ng-repeat="school in schools")
+            div.timeline-block-icon.vertical-horizontal-center(itemscope itemtype="http://schema.org/School")
+                div.icon
+                    time(datetime="{{school.period.start}}") {{school.period.start | date:'yyyy'}}
+            div.timeline-block-content
+                h3(itemprop="name") {{school.name}}
+                ul.formation-degrees(itemprop="description")
+                    li(data-ng-repeat="degree in school.degrees") {{degree}}
+        
+article.l-article
+    header
+        h2 Expériences Professionnelles
+        p.subtitle Mes expériences passées en entreprise
+    section.l-section.l-section-experience
+        div.row.company(data-ng-repeat="company in experience")
+            div.col-xs-4
+                ul(itemscope itemtype="http://schema.org/Corporation")
+                    li
+                        div.row.properties
+                            div.col-xs-2
+                                div.icon.vertical-horizontal-center
+                                    i.fa.fa-building-o
+                            div.col-xs-10.information.vertical-horizontal-center
+                                span(itemprop="name") {{company.company.name}}
+                    li
+                        div.row.properties
+                            div.col-xs-2
+                                div.icon.vertical-horizontal-center
+                                    i.fa.fa-location-arrow
+                            div.col-xs-10.information.vertical-horizontal-center
+                                div(itemprop="address")
+                                    span(itemprop="addressLocality") {{company.company.location.address.city}},
+                                    span(itemprop="addressRegion") {{company.company.location.address.countryRegion}}
+                    li
+                        div.row.properties
+                            div.col-xs-2
+                                div.icon.vertical-horizontal-center
+                                    i.fa.fa-calendar
+                            div.col-xs-10.information.vertical-horizontal-center
+                                time(datetime="{{company.period.start}}") {{company.period.start | date:'MMMM yyyy - '}}
+                                time(datetime="{{company.period.end}}") {{company.period.end | date:'MMMM yyyy'}}
+                                    
+                        
+            div.col-xs-8.text-justify
+                h3 {{company.name}}
+                p.summary {{company.summary}}
+
+article.l-article
+    header
+        h2(data-ng-i18next="about.skills.title")
+        p.subtitle(data-ng-i18next="about.skills.subtitle")
+    section.l-section.l-section-skills
+        ul
+            li.skill(data-ng-repeat="skill in skills")
+                p.text-uppercase {{skill.name}}
+                div.progress
+                    div.progress-background(ng-style="{'width': skill.score + '%'}")
+                        p.progress-content.vertical-horizontal-center
+                            span.text-center {{skill.score}}%

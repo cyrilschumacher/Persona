@@ -217,11 +217,14 @@ class ResumeService {
      */
     public getSkills = (): Object => {
         return [
-            { id: 'eruditionem', name: 'eruditionem', progres: 50 },
-            { id: 'legam', name: 'legam', progres: 25 },
-            { id: 'mandaremus-de', name: 'mandaremus de', progres: 75 },
-            { id: 'fore-voluptatibus', name: 'fore voluptatibus', progres: 100 },
-            { id: 'irure', name: 'irure', progres: 0 }
+            { name: 'eruditionem', score: 50 },
+            { name: 'legam', score: 25 },
+            { name: 'mandaremus de', score: 75 },
+            { name: 'fore voluptatibus', score: 100 },
+            { name: 'irure', score: 0 },
+            { name: 'dolor', score: 10 },
+            { name: 'irure ab', score: 60 },
+            { name: 'tamen', score: 85 },
         ];
     }
 }
