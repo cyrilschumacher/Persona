@@ -20,13 +20,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-header.l-header.no-selection
+header.l-header.no-selection(data-ng-init="init()")
     div.l-header-wrapper(data-ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
             h1(data-ng-i18next="about.about")
             p.description(data-ng-i18next="about.find_who_am_i")
-            
-            
+
 article.l-article
     header
         h2(data-ng-i18next="about.presentation")
@@ -53,7 +52,7 @@ article.l-article
     header
         h2(data-ng-i18next="about.education.title")
         p.subtitle(data-ng-i18next="about.education.subtitle")
-    section.l-section.l-section-education.timeline
+    section.l-section.l-section-education.timeline(data-ng-hide="!schools")
         div.timeline-block(data-ng-repeat="school in schools")
             div.timeline-block-icon.vertical-horizontal-center(itemscope itemtype="http://schema.org/School")
                 div.icon
@@ -62,12 +61,12 @@ article.l-article
                 h3(itemprop="name") {{school.name}}
                 ul.formation-degrees(itemprop="description")
                     li(data-ng-repeat="degree in school.degrees") {{degree}}
-        
+
 article.l-article
     header
         h2 Expériences Professionnelles
         p.subtitle Mes expériences passées en entreprise
-    section.l-section.l-section-experience
+    section.l-section.l-section-experience(data-ng-hide="!companies")
         div.row.company(data-ng-repeat="company in companies")
             div.col-xs-4
                 ul(itemscope itemtype="http://schema.org/Corporation")
@@ -95,8 +94,8 @@ article.l-article
                             div.col-xs-10.information.vertical-horizontal-center
                                 time(datetime="{{company.period.start}}") {{company.period.start | date:'MMMM yyyy - '}}
                                 time(datetime="{{company.period.end}}") {{company.period.end | date:'MMMM yyyy'}}
-                                    
-                        
+
+
             div.col-xs-8.text-justify
                 h3 {{company.name}}
                 p.summary {{company.summary}}
@@ -105,7 +104,7 @@ article.l-article
     header
         h2(data-ng-i18next="about.skills.title")
         p.subtitle(data-ng-i18next="about.skills.subtitle")
-    section.l-section.l-section-skills
+    section.l-section.l-section-skills(data-ng-hide="!skills")
         ul
             li.skill(data-ng-repeat="skill in skills")
                 p.text-uppercase {{skill.name}}
