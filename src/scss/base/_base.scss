@@ -8,19 +8,19 @@
 }
 
 @media screen and (max-width: $desktop-device-max-width) {
-    html { font-size: $desktop-base-font-size } 
+    html { font-size: $desktop-base-font-size !important } 
 }
 
 @media screen and (max-width: $tablets-device-max-width) {
-    html { font-size: $tablets-base-font-size } 
+    html { font-size: $tablets-base-font-size !important } 
 }
 
 @media screen and (max-width: $small-tablets-device-max-width) {
-    html { font-size: $small-tablets-base-font-size } 
+    html { font-size: $small-tablets-base-font-size !important } 
 }
 
 @media screen and (max-width: $mobile-device-max-width) {
-    html { font-size: $mobile-base-font-size } 
+    html { font-size: $mobile-base-font-size !important } 
 }
 
 html { font-size: $base-font-size }

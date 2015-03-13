@@ -38,15 +38,26 @@ class WorksService {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$http'];
+    public static $inject: Array<String> = ['$http', 'appConfig'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param {IHttpService} $http HTTP service.
+     * @param {IHttpService}    $http       HTTP service.
+     * @param {Object}          appConfig   Application configuration.
      */
-    public constructor(private $http: ng.IHttpService) {
+    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
+    }
+    
+    /**
+     * @summary Gets the response from server.
+     * @private
+     * @param  {Object} response The HTTP response.
+     * @return {Object} The date contained in the HTTP response.
+     */
+    private _getDataComplete = (response: Object): Object => {
+        return response.data;
     }
     
     /**
@@ -55,38 +66,8 @@ class WorksService {
      * @returns {Object} List of works.
      */
     public getWorks = (): Object => {
-        return [ 
-            {
-                id: 'velit',
-                name: 'velit',
-                description: 'Occaecat quem possumus senserit ad sunt admodum ex ingeniis.',
-                images: ['http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/']
-            },
-            {
-                id: 'sunt-graviterque',
-                name: 'sunt graviterque',
-                description: 'Mentitum ab appellat, ita ab efflorescere.',
-                images: ['http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/']
-            },
-            {
-                id: 'firmissimum',
-                name: 'firmissimum',
-                description: 'Do esse concursionibus, arbitror legam officia.',
-                images: ['http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/']
-            },
-            {
-                id: 'adipisicing',
-                name: 'adipisicing',
-                description: 'Qui mandaremus comprehenderit, et ubi quae dolore esse.',
-                images: ['http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/']
-            },
-            {
-                id: 'fidelissimae-incididunt',
-                name: 'fidelissimae incididunt',
-                description: 'Iis anim incurreret despicationes id qui ipsum sint est appellat.',
-                images: ['http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/', 'http://fakeimg.pl/300x200/']
-            }
-        ];
+        var url: string = appConfig['restServer'].concat('works');
+        return this.$http.get(url).then(this._getDataComplete);
     }
 }
 

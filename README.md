@@ -1,4 +1,3 @@
-
 # ![Persona](https://raw.githubusercontent.com/cyrilschumacher/Persona/master/icon.png) Persona
 [![Build Status](https://travis-ci.org/cyrilschumacher/Persona.svg)](https://travis-ci.org/cyrilschumacher/Persona) for Travis CI passing
 
@@ -28,7 +27,7 @@ After installing Node.js dependencies, you can get [Bower](http://bower.io/) dep
 
 > The MIT License (MIT)
 > 
-> Copyright (c) 2014 Cyril Schumacher.fr
+> Copyright (c) 2015 Cyril Schumacher.fr
 > 
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal

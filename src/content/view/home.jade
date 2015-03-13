@@ -34,7 +34,7 @@ mixin videoSource(url)
     source(src=url + ".ogv" type="video/ogg")
 
 // Content.
-header.l-header.no-selection(data-ng-full-height-window)
+header.l-header.no-selection(data-ng-full-height-window data-ng-init="init()")
     div.full-background-fixed.l-header-background
         video(autoplay muted loop)
             +videoSource("content/video/dust_particles_smoke_lighting")

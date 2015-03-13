@@ -50,13 +50,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
     body
         nav.l-nav.navbar.navbar-inverse.navbar-fixed-top(role="navigation" lang="fr" arial-label="Main Site Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement")
             div.container-fluid
-                div.navbar-header
-                    button.navbar-toggle(type="button" data-toggle="collapse" data-target="#navbar-items")
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                        
-                div#navbar-items.navbar-collapse.collapse
+                div#navbar-items.navbar-collapse
                     ul.nav.navbar-nav
                         +menuItem("nav-item-home", "common.nav.home", "/")                                
                         +menuItem("nav-item-about", "common.nav.about", "#/about")                                

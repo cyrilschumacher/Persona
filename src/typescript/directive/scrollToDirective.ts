@@ -43,7 +43,7 @@ class ScrollToDirective implements ng.IDirective {
      * @public
      * @type {string}
      */
-    public static restrict: string = 'A';
+    public restrict: string = 'A';
     
     /**
      * @summary Manipulates the DOM of the current page.

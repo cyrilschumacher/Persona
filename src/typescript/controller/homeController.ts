@@ -41,30 +41,35 @@ class HomeController {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$i18next', 'worksService'];
+    public static $inject: Array<String> = ['$scope', 'worksService'];
     
     /**
      * @summary Constructor.
      * @constructor
      * @public
      * @param $scope        {IScope}        Model.
-     * @param $i18next      {any}           Localization.
      * @param worksService  {WorksService}  Service.
      */
-    public constructor(private $scope: ng.IScope, private $i18next: any, private worksService: worksService) {
-        this._initScope();
+    public constructor(private $scope: ng.IScope, private worksService: worksService) {
+        $scope['init'] = this._initialize;
+    }
+    
+    /**
+     * @summary Initialize controller.
+     * @private
+     */
+    private _initialize = (): void => {
+        this._initializeWorks();
     }
 
     /**
-     * @summary Initialize angular scope.
+     * @summary Initialize works.
      * @private
-     * @param {any}             $scope          Model.
-     * @param {WorksService}    $worksService   Service.
      */
-    private _initScope() {
-        // Obtains works and mix.
-        var works:any = this.worksService.getWorks();
-        this.$scope['works'] = works.sort(() => { return 0.5 - Math.random() });
+    private _initializeWorks() {
+        this.worksService.getWorks().then(works => {
+            this.$scope['works'] = works.sort(() => { return 0.5 - Math.random() });
+        });
     }
 }
 

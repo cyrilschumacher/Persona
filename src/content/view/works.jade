@@ -20,13 +20,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-header.l-header.no-selection
+header.l-header.no-selection(data-ng-init="init()")
     div.l-header-wrapper(ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
             h1(ng-i18next="works.my_works")
             p.description(ng-i18next="works.discover_my_works")
             
-article.l-article
+article.l-article.l-article-works
     header
         h2(ng-i18next="about.presentation")
         p.subtitle(ng-i18next="about.let_me_introduce_myself")
+    section.l-section
+        ul
+            li(data-ng-repeat="work in works")
+                p
+                    img(alt="{{work.name}}" src="{{work.images[0]}}")
+                h3
+                    a(href="#") {{work.name}}
+                p.text-justify {{work.description}}

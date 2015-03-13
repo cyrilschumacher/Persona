@@ -13,3 +13,24 @@
     color: #fff;
     z-index: 1;
 }
+
+.l-section {
+    margin: ($margin * 3) auto $margin;
+}
+
+.l-article-works {
+    ul {
+        display: inline-block;
+        margin: 0 auto;
+        
+        li {
+            display: inline-block;
+            margin: $margin;
+            float: left;
+            text-align: left;
+            width: 30rem;
+            
+            img {border: 1px solid $light-primary-color }
+        }
+    }
+}

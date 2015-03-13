@@ -23,8 +23,8 @@
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/jquery.autosize/jquery.autosize.d.ts" />
-/// <reference path="../../../bower_components/DefinitelyTyped/bingmaps/Microsoft.Maps.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/velocity-animate/velocity-animate.d.ts" />
+/// <amd-dependency path="directive/bingMapsDirective"/>
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="jqueryAutosize"/>
 /// <amd-dependency path="service/profileService"/>
@@ -67,9 +67,9 @@ class ContactController {
     private _initElements = (): void => {
         // Adds the autosize effect on message element.
         $('#message').autosize();
-
-        // Initializes Bing maps.
-        var mapOptions: Microsoft.Maps.MapOptions = { 
+        
+        // Initializes Bing Maps options.
+        this.$scope['mapOptions'] = { 
             credentials: "AiscBCv-CUb6kGw_scA6Voo8U8cO6XKiOQpNppd9lJAv_0ohATT3Vhwd2lx_RgJ_",
             disableKeyboardInput: true,
             disableZooming: true,
@@ -79,17 +79,16 @@ class ContactController {
             showScalebar: false,
             zoom: 12
         };
+        
+        var location: any = this.profileService.getProfile().then(profile => {
+            var pinLocation: Microsoft.Maps.Location = new Microsoft.Maps.Location(profile.coordinates.latitude, profile.coordinates.longitude)
+            var pin: Microsoft.Maps.Pushpin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'content/image/pin.svg', height: 60, width: 80});
 
-        var infoboxLayer: Microsoft.Maps.EntityCollection = new Microsoft.Maps.EntityCollection();
-        var map: Microsoft.Maps.Map = new Microsoft.Maps.Map(document.getElementById("map"), mapOptions);
-        map.entities.push(infoboxLayer);
-
-        var location: any = this.profileService.getLocation();
-        var pinLocation = new Microsoft.Maps.Location(location.coordinates.latitude, location.coordinates.longitude)
-        var pin: Microsoft.Maps.Pushpin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'content/image/pin.svg', height: 60, width: 80});
-
-        map.setView({center: pinLocation});
-        map.entities.push(pin);
+            this.$scope['pushpins'] = [pin];
+            this.$scope['viewOptions'] = {
+                center: pinLocation
+            };
+        });
     }
 
     /**

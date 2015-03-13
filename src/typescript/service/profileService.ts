@@ -38,36 +38,36 @@ class ProfileService {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$http'];
+    public static $inject: Array<String> = ['$http', 'appConfig'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param {IHttpService} $http HTTP service.
+     * @param {IHttpService}    $http       HTTP service.
+     * @param {Object}          appConfig   Application configuration.
      */
-    public constructor(private $http: ng.IHttpService) {
+    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
     }
     
     /**
-     * @summary Returns a list of skill.
-     * @public
-     * @returns {Object} List of skill.
+     * @summary Gets the response from server.
+     * @private
+     * @param  {Object} response The HTTP response.
+     * @return {Object} The date contained in the HTTP response.
      */
-    public getLocation = (): Object => {
-        return {
-            coordinates: {
-                latitude: 48.68339,
-                longitude: 6.17574
-            },
-            address: {
-                addressLine1:   '12, rue Victor Prouvé',
-                city:           'Nancy',
-                countryRegion:  'France',
-                postalCode:     '54100',
-                stateProvince:  'Lorraine'
-            }
-        };
+    private _getDataComplete = (response: Object): Object => {
+        return response.data;
+    }
+    
+    /**
+     * @summary Returns a profile.
+     * @public
+     * @returns {Object} Profile.
+     */
+    public getProfile = (): Object => {
+        var url: string = appConfig['restServer'].concat('profile');
+        return this.$http.get(url).then(this._getDataComplete);
     }
 }
 

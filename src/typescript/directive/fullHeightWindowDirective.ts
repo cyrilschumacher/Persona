@@ -44,13 +44,21 @@ class FullHeightWindowDirective implements ng.IDirective {
      * @public
      * @type {string}
      */
-    public static restrict: string = 'A';
+    public restrict: string = 'A';
     
     /**
      * @summary jqLite-wrapped element that this directive matches.
      * @private
      */
     private _element: JQuery;
+
+    /**
+     * @summary Occurs when the window is resized.
+     * @private
+     */
+    private _onWindowResize = (): void => {
+        this._element.height($(window).height());
+    }
     
     /**
      * @summary Manipulates the DOM of the current page.
@@ -63,14 +71,6 @@ class FullHeightWindowDirective implements ng.IDirective {
         this._element = $(element);
         this._onWindowResize();
         $(window).bind('resize', this._onWindowResize);
-    }
-
-    /**
-     * @summary Occurs when the window is resized.
-     * @private
-     */
-    private _onWindowResize = (): void => {
-        this._element.height($(window).height());
     }
 }
 

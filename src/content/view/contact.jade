@@ -31,7 +31,7 @@ article.l-article.map-section
         h2(data-ng-i18next="contact.find_me")
         p.subtitle Découvrez où je réside actuellement
     section.l-section
-        div#map
+        div(data-ng-bing-maps map-options="mapOptions" view-options="viewOptions" pushpins="pushpins")
 article.l-article
     div.row
         div.col-xs-6.form-section

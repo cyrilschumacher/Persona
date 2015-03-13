@@ -23,9 +23,11 @@
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
+/// <amd-dependency path="service/profileService"/>
 /// <amd-dependency path="service/resumeService"/>
 
 import app = require('app');
+import profileService = require('service/profileService');
 import resumeService = require('service/resumeService');
 
 /**
@@ -39,18 +41,18 @@ class AboutController {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$i18next', 'resumeService'];
+    public static $inject: Array<String> = ['$scope', 'profileService', 'resumeService'];
     
     /**
      * @summary Constructor.
-     * @constructs
      * @public
-     * @param $scope        {IScope}         Scope.
-     * @param $i18next      {any}            Localization.
-     * @param resumeService {ResumeService}  Resume service.
+     * @constructs
+     * @param $scope            {IScope}         Scope.
+     * @param profileService    {profileService} Profile service.
+     * @param resumeService     {ResumeService}  Resume service.
      */
-    public constructor(private $scope: ng.IScope, private $i18next: any, private resumeService: resumeService) {
-        $scope['init'] = this._initialize;        
+    public constructor(private $scope: ng.IScope, private profileService: profileService, private resumeService: resumeService) {
+        $scope['init'] = this._initialize;
     }
     
     /**
@@ -80,6 +82,16 @@ class AboutController {
     private _initializeExperience = (): void => {
         this.resumeService.getExperience().then(companies => {
             $scope['companies'] = companies;
+        });
+    }
+    
+    /**
+     * @summary Initialize profile data.
+     * @private
+     */
+    private _initializeProfile = (): void => {
+        this.profileService.getProfile().then(profile => {
+            $scope['profile'] = profile;
         });
     }
     
