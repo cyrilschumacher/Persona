@@ -33,7 +33,6 @@ require.config({
         angularRoute:           'vendor/angular-route/angular-route',
         angularRouteStyles:     'vendor/angular-route-styles/route-styles',
         angularUiRouter:        'vendor/angular-ui-router/release/angular-ui-router',
-        bootstrap:              'vendor/bootstrap/dist/js/bootstrap',
         jquery:                 'vendor/jquery/dist/jquery',
         jqueryUi:               'vendor/jquery-ui/jquery-ui',
         jqueryAutosize:         'vendor/jquery-autosize/jquery.autosize',

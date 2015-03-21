@@ -1,76 +1,50 @@
 .l-nav {
-    background: none;
-    border: none;
-    margin: 0 auto;
+    left: 0;
     padding: 5rem;
     position: absolute;
+    right: 0;
     z-index: 5;
 
-    .navbar-toggle {
-        border-color: #fff;
-        border-radius: 0;
-        float: right;
+    &-items {
+        margin: 0 auto;
+        text-align: center;
 
         &:hover, &:focus {
-            background: none !important;
+            li > a { opacity: 0.3 }
         }
-    }
 
-    .navbar-collapse {
-        border: none;
-
-        ul {
-            display: table;
-            float: none !important;
-            margin: 0 auto;
-            text-align: center;
+        li {
+            display: inline-block;
+            width: 15rem;
 
             &:hover, &:focus {
-                li {
-                    a { opacity: 0.3 }
+                a {
+                    border-color: #fff;
+                    opacity: 1;
                 }
             }
 
-            li {
-                width: 14rem;
+            a {
+                border-color: transparent;
+                padding: ($base-margin * 2) 0;
+                text-align: center;
+                @include transition(all 150ms);
+                width: inherit;
 
-                &:hover, &:focus {
-                    a {
-                        border-color: #fff;
-                        opacity: 1;
-                    }
-                }
+                &:link, &:visited { color: #fff }
+                &:active { background: #fff; color: #000 }
 
-                a {
-                    border-color: transparent;
-                    @include transition(all 150ms);
-
-                    &:link, &:visited { color: #fff }
-
-                    &:active {
-                        background: #fff !important;
-                        color: #000 !important;
-                    }
-
-                    span {
-                        display: block;
-                    }
-                }
+                span { display: block }
             }
         }
     }
 }
 
 @media screen and (max-width: 768px) {
-    .navbar-header { float: right }
-    
-    .navbar-collapse {
-        @include box-shadow(none);
-        
-        ul {
+    .l-nav {
+        &-items {
             li {
-                display: inline-block;
-                margin: 4px 0;
+                width: 10rem;
             }
         }
     }

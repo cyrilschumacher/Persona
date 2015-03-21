@@ -1,0 +1,6 @@
+mixin source(url, text)
+    source(src=url + ".mp4" type="video/mp4")
+    source(src=url + ".webm" type="video/webm")
+    source(src=url + ".ogv" type="video/ogg")
+    if text
+        p text

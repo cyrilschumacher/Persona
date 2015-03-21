@@ -26,7 +26,7 @@
  * @author  Cyril Schumacher
  * @class
  */
-class ContactModel {
+class ContactFormModel {
     /**
      * @summary Firstname.
      * @member {string}
@@ -63,4 +63,4 @@ class ContactModel {
     public message: string;
 }
 
-export = ContactModel;
+export = ContactFormModel;

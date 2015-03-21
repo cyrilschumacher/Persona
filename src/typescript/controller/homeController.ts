@@ -24,14 +24,11 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="directive/fullHeightWindowDirective"/>
-/// <amd-dependency path="directive/scrollToDirective"/>
-/// <amd-dependency path="service/worksService"/>
 
 import app = require('app');
-import worksService = require('service/worksService');
 
 /**
- * @summary Custom controller.
+ * @summary Home controller.
  * @author  Cyril Schumacher
  * @class
  */
@@ -41,35 +38,15 @@ class HomeController {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', 'worksService'];
+    public static $inject: Array<String> = ['$scope'];
     
     /**
      * @summary Constructor.
      * @constructor
      * @public
      * @param $scope        {IScope}        Model.
-     * @param worksService  {WorksService}  Service.
      */
-    public constructor(private $scope: ng.IScope, private worksService: worksService) {
-        $scope['init'] = this._initialize;
-    }
-    
-    /**
-     * @summary Initialize controller.
-     * @private
-     */
-    private _initialize = (): void => {
-        this._initializeWorks();
-    }
-
-    /**
-     * @summary Initialize works.
-     * @private
-     */
-    private _initializeWorks() {
-        this.worksService.getWorks().then(works => {
-            this.$scope['works'] = works.sort(() => { return 0.5 - Math.random() });
-        });
+    public constructor(private $scope: ng.IScope) {
     }
 }
 

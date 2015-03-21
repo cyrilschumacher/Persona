@@ -31,7 +31,7 @@
 /// <amd-dependency path="velocity"/>
 
 import app = require('app');
-import contactModel = require('model/contactModel');
+import contactFormModel = require('model/contactFormModel');
 
 /**
  * @summary Contact controller.
@@ -105,7 +105,7 @@ class ContactController {
      * @private
      */
     private _initScope = (): void => {
-        this.$scope['form'] = new contactModel();
+        this.$scope['form'] = new contactFormModel();
     }
 
     /**

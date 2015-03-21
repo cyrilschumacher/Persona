@@ -11,7 +11,10 @@
             "contact": "Contact"
         },
         "footer": {
-            "all_right_reserved": "Tous droits réservés."
+            "all_right_reserved": "Tous droits réservés.",
+            "go_to_linkedin": "Aller sur mon profil Linkedin",
+            "go_to_twitter": "Aller sur ma profil Twitter",
+            "go_to_github": "Aller sur mon profil GitHub"
         }
     },
     
