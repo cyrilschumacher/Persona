@@ -21,12 +21,15 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="service/profileService"/>
 /// <amd-dependency path="service/resumeService"/>
 
 import app = require('app');
+import controllerBase = require('controller/controllerBase');
 import profileService = require('service/profileService');
 import resumeService = require('service/resumeService');
 
@@ -34,25 +37,31 @@ import resumeService = require('service/resumeService');
  * @summary About controller.
  * @author  Cyril Schumacher
  * @class
+ * @extends ControllerBase
  */
-class AboutController {
+class AboutController extends controllerBase {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', 'profileService', 'resumeService'];
+    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'profileService', 'resumeService'];
     
     /**
      * @summary Constructor.
      * @public
      * @constructs
-     * @param $scope            {IScope}         Scope.
-     * @param profileService    {profileService} Profile service.
-     * @param resumeService     {ResumeService}  Resume service.
+     * @param $scope            {IScope}            Scope.
+     * @param $rootScope        {IRootScopeService} Root scope.
+     * @param $i18next          {I18nextStatic}     i18next.
+     * @param profileService    {profileService}    Profile service.
+     * @param resumeService     {ResumeService}     Resume service.
      */
-    public constructor(private $scope: ng.IScope, private profileService: profileService, private resumeService: resumeService) {
+    public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService, private $i18next: I18nextStatic, private profileService: profileService, private resumeService: resumeService) {
+        super($scope, $rootScope);
+        
         $scope['init'] = this._initialize;
+        $rootScope['title'] = $i18next('about.about');
     }
     
     /**
@@ -71,7 +80,7 @@ class AboutController {
      */
     private _initializeEducation = (): void => {
         this.resumeService.getEducation().then(schools => {
-            $scope['schools'] = schools;
+            this.$scope['schools'] = schools;
         });
     }
     
@@ -81,7 +90,7 @@ class AboutController {
      */
     private _initializeExperience = (): void => {
         this.resumeService.getExperience().then(companies => {
-            $scope['companies'] = companies;
+            this.$scope['companies'] = companies;
         });
     }
     
@@ -91,7 +100,7 @@ class AboutController {
      */
     private _initializeProfile = (): void => {
         this.profileService.getProfile().then(profile => {
-            $scope['profile'] = profile;
+            this.$scope['profile'] = profile;
         });
     }
     
@@ -101,7 +110,7 @@ class AboutController {
      */
     private _initializeSkills = (): void => {
         this.resumeService.getSkills().then(skills => {
-            $scope['skills'] = skills;
+            this.$scope['skills'] = skills;
         });
     }
 }

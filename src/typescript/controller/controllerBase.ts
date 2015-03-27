@@ -21,37 +21,22 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
-/// <amd-dependency path="directive/fadeByScrollDirective"/>
-/// <amd-dependency path="directive/fullHeightWindowDirective"/>
-
-import app = require('app');
-import controllerBase = require('controller/controllerBase');
 /**
- * @summary Home controller.
+ * @summary Controller base.
  * @author  Cyril Schumacher
  * @class
- * @extends ControllerBase
  */
-class HomeController extends controllerBase {
-    /**
-     * @summary Dependencies injection.
-     * @public
-     * @type {Array<string>}
-     */
-    public static $inject: Array<String> = ['$scope', '$rootScope'];
-    
+class ControllerBase {
     /**
      * @summary Constructor.
      * @constructor
      * @public
-     * @param $scope        {IScope}            Scope.
+     * @param $scope        {IScope}        Model.
      * @param $rootScope    {IRootScopeService} Root scope.
      */
     public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService) {
-        super($scope, $rootScope);
+        $rootScope['title'] = '';
     }
 }
 
-export = HomeController;
-app.instance.module['register'].controller('homeController', HomeController);
+export = ControllerBase;

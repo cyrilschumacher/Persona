@@ -26,12 +26,11 @@ mixin menuItem(className, labelName, url)
         a.button(class=className, href=url itemprop="name" rel="prerender")
             span.button-text(data-ng-i18next=labelName) 
 
-// Content.
 doctype html
 html(lang="fr" prefix="og:http://ogp.me/ns#")
     head
         meta(charset="utf-8")
-        title Persona
+        title {{title ? title + ' - ' : ''}} Persona
         
         meta(name="description" content="")
         meta(name="robots" content="")

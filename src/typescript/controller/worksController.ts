@@ -22,34 +22,42 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="service/worksService"/>
 
 import app = require('app');
+import controllerBase = require('controller/controllerBase');
 import worksService = require('service/worksService');
 
 /**
  * @summary Works controller.
  * @author  Cyril Schumacher
  * @class
+ * @extends ControllerBase
  */
-class WorksController {
+class WorksController extends controllerBase {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', 'worksService'];
+    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'worksService'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param $scope            {IScope}        Scope.
-     * @param worksService      {WorksService}  Service.
+     * @param $scope            {IScope}            Scope.
+     * @param $rootScope        {IRootScopeService} Root scope.
+     * @param $i18next          {I18nextStatic}     i18next.
+     * @param worksService      {WorksService}      Service.
      */
-    public constructor(private $scope: ng.IScope, private worksService: worksService) {
+    public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService, private $i18next: I18nextStatic, private worksService: worksService) {
+        super($scope, $rootScope);
+        
         $scope['init'] = this._initialize;
+        $rootScope['title'] = $i18next('works.my_works');
     }
     
     /**

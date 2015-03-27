@@ -22,6 +22,7 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/jquery.autosize/jquery.autosize.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/velocity-animate/velocity-animate.d.ts" />
 /// <amd-dependency path="directive/bingMapsDirective"/>
@@ -31,30 +32,35 @@
 /// <amd-dependency path="velocity"/>
 
 import app = require('app');
+import controllerBase = require('controller/controllerBase');
 import contactFormModel = require('model/contactFormModel');
 
 /**
  * @summary Contact controller.
  * @author  Cyril Schumacher
  * @class
+ * @extends ControllerBase
  */
-class ContactController {
+class ContactController extends controllerBase {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$i18next', 'profileService'];
+    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'profileService'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param $scope            {IScope}    Model.
-     * @param $i18next          {any}       Localization.
-     * @param profileService    {any}       Profile service.
+     * @param $scope            {IScope}            Model.
+     * @param $rootScope        {IRootScopeService} Root scope.
+     * @param $i18next          {any}               Localization.
+     * @param profileService    {any}               Profile service.
      */
-    public constructor(private $scope: ng.IScope, private $i18next: any, private profileService) {
+    public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService, private $i18next: I18nextStatic, private profileService) {
+        super($scope, $rootScope);
+        
         this._initScope();
         this._initElements();
         this._initEvents();
