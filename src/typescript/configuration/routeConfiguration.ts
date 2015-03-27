@@ -34,16 +34,16 @@ class RouteConfiguration {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$routeProvider', 'appConfig'];
+    public static $inject: Array<string> = ['$routeProvider', 'appConfigRoute'];
 
     /**
      * @summary Constructor.
      * @public
      * @constructs
      * @param {IRouteProvider} $routeProvier Route provider.
-     * @param {any}            appConfig     Application configuration.
+     * @param {Object}         appConfig     Application configuration.
      */
-    public constructor(private $routeProvider: ng.route.IRouteProvider, private appConfig: any) {
+    public constructor(private $routeProvider: ng.route.IRouteProvider, private appConfigRoute: Object) {
         $routeProvider.when('/', this._addRoute('home'))
                       .when('/about', this._addRoute('about'))
                       .when('/works', this._addRoute('works'))
@@ -65,8 +65,8 @@ class RouteConfiguration {
         
         var cssFile: Array<string>              = this._getCSSFiles(stylesheetName);
         var controllerNameWithPrefix: string    = controllerName.concat('Controller');
-        var templateFile: string                = this.appConfig.route.viewPath.concat(viewName, '.html');
-        var controllerFile: string              = this.appConfig.route.controllerPath.concat(controllerNameWithPrefix, '.js');
+        var templateFile: string                = this.appConfigRoute['viewPath'].concat(viewName, '.html');
+        var controllerFile: string              = this.appConfigRoute['controllerPath'].concat(controllerNameWithPrefix, '.js');
         
         return {
             controller:     controllerNameWithPrefix,
@@ -81,7 +81,7 @@ class RouteConfiguration {
      * @param {string} stylesheetName Stylesheet name.
      */
     private _formatCssPath = (stylesheetName: string) => {
-        return this.appConfig.route.cssPath.concat(stylesheetName, '.css');
+        return this.appConfigRoute['cssPath'].concat(stylesheetName, '.css');
     } 
      
     /**

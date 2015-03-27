@@ -48,7 +48,7 @@ class HomeController extends controllerBase {
      * @param $scope        {IScope}            Scope.
      * @param $rootScope    {IRootScopeService} Root scope.
      */
-    public constructor($scope: ng.IScope, $rootScope: ng.IRootScopeService) {
+    public constructor($scope: ng.IScope, $rootScope: ng.IRootScopeService, appConfig2) {
         super($scope, $rootScope);
     }
 }

@@ -25,13 +25,13 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
-/// <amd-dependency path="service/profileService"/>
-/// <amd-dependency path="service/resumeService"/>
+/// <amd-dependency path="service/resume/profileService"/>
+/// <amd-dependency path="service/resume/resumeService"/>
 
 import app = require('app');
 import controllerBase = require('controller/controllerBase');
-import profileService = require('service/profileService');
-import resumeService = require('service/resumeService');
+import profileService = require('service/resume/profileService');
+import resumeService = require('service/resume/resumeService');
 
 /**
  * @summary About controller.
@@ -68,7 +68,7 @@ class AboutController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
-        this.initializeHead(null, null, this.$i18next('about.about'));
+        this.initializeHead(this.$i18next('about.head.description'), this.$i18next('about.head.keywords'), this.$i18next('about.head.title'));
         
         this._initializeEducation();
         this._initializeExperience();

@@ -18,41 +18,12 @@
         }
     },
     
-    "home": {
-        "scroll": "Défiler",
-        "more_details": "Plus de détails",
-        "header": {
-            "subtitle": "Étudiant en 4ème année logiciel à Exia.Cesi de Nancy"
-        },
-        "about": {
-            "title": "A propos",
-            "subtitle": "Découvrez qui je suis",
-            "presentation": "Présentation",
-            "presentation_description": "Ma présentation expliquant qui je suis et pourquoi le domaine de l'informatique m'intéresse.",
-            "education": "Formations",
-            "education_description": "Mes formations que j'ai suivies, mes expériences que j'ai effectuées, mes compétences que j'ai acquises.",
-            "experience": "Experiences",
-            "experience_description": "Mon portfolio qui vous présente mes applications réalisées durant mon stage en entreprise ou à l'école en tant que projet.",
-            "skills": "Compétences",
-            "skills_description": "Mes compétences que j'ai acquise durant mon apprentissage à l'école ou en entreprise."
-        },
-        "works": {
-            "title": "Mes réalisations",
-            "subtitle": "Decouvrez, explorer ce que j'ai réalisé"
-        },
-        "contact": {
-            "header": {
-                "title": "Me contacter",
-                "subtitle": "Prenez contact avec moi"    
-            },
-            "vcard": "vCard",
-            "download_my_vcard": "Télécharger ma carte de visite pour obtenir mes coordonnées personnelles.",
-            "form": "Formulaire",
-            "contact_me": "Prenez contact avec moi en complétant mon formulaire."
-        }
-    },
-    
     "about": {
+        "head": {
+            "description": "Découvrez mes compétences que j'ai acquises durant mes formations et stages, mes expériences professionnelles que j'ai effectuées ainsi que mes formations que j'ai passées.",
+            "keywords": "a propos,formation,présentation,expériences,loisirs,cv,curriculum vitae,écoles,stage,entreprise,compétence",
+            "title": "A propos"  
+        },
         "about": "A propos",
         "find_who_am_i": "Découvrez qui je suis",
         "presentation": "Présentation",
@@ -67,16 +38,15 @@
         }
     },
     
-    "works": {
-        "my_works": "Mes réalisations",
-        "discover_my_works": "Decouvrez mes projets que j'ai réalisé"
-    },
-    
     "contact": {
+        "head": {
+            "description": "Contactez-moi pour une demande d'information, une observation, une suggestion, un autre motif.",
+            "keywords": "contact,mail,sujet,formulaire,nom,prénom,message,e-mail,demande,observation,suggestion",
+            "title": "Contact"  
+        },
         "contact_me": "Contacter moi",
         "you_have_questions": "Avez-vous des questions ?",
         "find_me": "Trouvez-moi",
-        
         "form": {
             "title": "Formulaire de contact",
             "description": "Un projet en tête ? Vous souhaitez travailler avec moi ? Vous avez un autre sujet que vous aimeriez discuter avec moi ? N'hésitez pas à me contacter, je vous répondrai avec plaisir.",
@@ -89,5 +59,16 @@
             "send_my_message": "Envoyer mon message",
             "your_message_has_been_sent": "Votre message a bien été envoyé et sera lu dès que possible."
         }
+    },
+    
+    "home": {
+        "header": {
+            "subtitle": "Étudiant en 4ème année logiciel à Exia.Cesi de Nancy"
+        }
+    },
+    
+    "works": {
+        "my_works": "Mes réalisations",
+        "discover_my_works": "Decouvrez mes projets que j'ai réalisé"
     }
 }

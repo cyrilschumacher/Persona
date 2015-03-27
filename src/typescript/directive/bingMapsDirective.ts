@@ -35,7 +35,7 @@ class BingMapsDirective implements ng.IDirective {
     /**
      * @summary Dependencies injection.
      * @public
-     * @type {string[]}
+     * @type {Array<string>}
      */
     public static $inject: Array<String> = [];
     

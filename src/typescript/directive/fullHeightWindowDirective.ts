@@ -70,6 +70,7 @@ class FullHeightWindowDirective implements ng.IDirective {
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
         this._element = $(element);
         this._onWindowResize();
+        
         $(window).bind('resize', this._onWindowResize);
     }
 }

@@ -19,7 +19,7 @@ module.exports = function (grunt) {
             reset: ['debug']
         },
         compass: {
-            dev: {
+            default: {
                 options: {
                     cacheDir: 'dist/.sass-cache/',
                     cssDir: 'dist/css/',
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            dev: {
+            dependencies: {
                 files: [
                     {
                         cwd: 'src/typescript/',
@@ -76,6 +76,16 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            configuration: {
+                files: [
+                    {
+                        cwd: 'src/typescript/',
+                        expand: true,
+                        src: 'configuration.json',
+                        dest: 'dist/scripts/'
+                    }
+                ]
+            },
             content: {
                 files: [
                     {
@@ -100,7 +110,7 @@ module.exports = function (grunt) {
             }
         },
         jade: {
-            dev: {
+            default: {
                 options: {
                     data: {
                         data: {
@@ -119,7 +129,7 @@ module.exports = function (grunt) {
             }
         },
         ts: {
-            dev: {
+            default: {
                 src: ['src/typescript/**/*.ts'],
                 outDir: 'dist/scripts/',
                 options: {
@@ -131,25 +141,29 @@ module.exports = function (grunt) {
             }
         },
         watch: {
+            configuration: {
+                files: 'src/typescript/configuration.json',
+                tasks: ['copy:configuration']
+            },
+            contents: {
+                files: 'src/content/**/*.*',
+                tasks: ['copy:content']
+            },
             locales: {
                 files: 'src/typescript/locales/*.json',
                 tasks: ['clean:locales', 'copy:locales']
             },
             scripts: {
                 files: 'src/typescript/**/*.ts',
-                tasks: ['ts:dev']
-            },
-            contents: {
-                files: 'src/content/**/*.*',
-                tasks: ['copy:content']
+                tasks: ['ts']
             },
             styles: {
                 files: 'src/scss/**/*.scss',
-                tasks: ['compass:dev']
+                tasks: ['compass']
             },
             views: {
                 files: ['src/**/*.jade'],
-                tasks: ['jade:dev']
+                tasks: ['jade']
             }
         }
     });
@@ -164,5 +178,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-ts');
 
     /* Tasks. */
-    grunt.registerTask('default', ['jade:dev', 'compass:dev', 'ts:dev', 'copy:content', 'copy:dev']);
+    grunt.registerTask('default', ['jade', 'compass', 'ts', 'copy:content', 'copy:configuration', 'copy:dependencies']);
 };

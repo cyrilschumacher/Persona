@@ -28,7 +28,7 @@
 /// <amd-dependency path="directive/bingMapsDirective"/>
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="jqueryAutosize"/>
-/// <amd-dependency path="service/profileService"/>
+/// <amd-dependency path="service/resume/profileService"/>
 /// <amd-dependency path="velocity"/>
 
 import app = require('app');
@@ -69,7 +69,7 @@ class ContactController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
-        this.initializeHead(null, null, this.$i18next('contact.contact_me'));
+        this.initializeHead(this.$i18next('contact.head.description'), this.$i18next('contact.head.keywords'), this.$i18next('contact.head.title'));
         
         this._initializeScope();
         this._initializeElements();

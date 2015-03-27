@@ -25,8 +25,9 @@
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <amd-dependency path="ngI18next"/>
 
-import routeConfiguration = require('configuration/routeConfiguration');
+import configurationProviderService = require('service/configurationProviderService');
 import i18nextConfiguration = require('configuration/i18nextConfiguration');
+import routeConfiguration = require('configuration/routeConfiguration');
 import loadingRun = require('run/loadingRun');
 
 /**
@@ -79,7 +80,7 @@ class Application {
      */
     constructor() {
         // Initialize module.
-        this._initModule();
+        this._initializeModule();
     }
 
     /**
@@ -88,52 +89,58 @@ class Application {
      */
     public initialize = (): void => {
         // Initialize constants, configuration and run blocks.
-        this._initConstants();
-        this._initConfigurations();
-        this._initRun();
+        this._initializeConstants();
+        this._initializeProvider();
+        this._initializeConfigurations();
+        this._initializeRun();
     }
         
     /**
      * @summary Initialize configuration blocks.
      * @private
      */
-    private _initConfigurations = (): void => {
-        this._module.config(routeConfiguration)
+    private _initializeConfigurations = (): void => {
+        this._module.config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', this._register])
                     .config(i18nextConfiguration)
-                    .config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', this._register]);
+                    .config(routeConfiguration);
     }
     
     /**
      * @summary Initialize run blocks.
      * @private
      */
-    private _initRun = (): void => {
+    private _initializeRun = (): void => {
         this._module.run(loadingRun);   
+    }
+        
+    /**
+     * @summary Initialize providers.
+     * @private
+     */
+    private _initializeProvider = (): void => {
+        var provide = new configurationProviderService(this._module, '/scripts/configuration.json');
+        this._module.provider('appConfig', provide);
     }
         
     /**
      * @summary Initialize constants.
      * @private
      */
-    private _initConstants = (): void => {
-        // Creates an application configuration.
-        var appConfig: Object = {
-            'restServer': 'http://private-b90a0-cyrilschumacher.apiary-mock.com/',
-            'route': {
-                'controllerPath': 'scripts/controller/',
-                'cssPath': 'css/',
-                'viewPath': 'content/view/'
-            }
-        };
-        
-        this._module.constant('appConfig', appConfig)
+    private _initializeConstants = (): void => {      
+        var appConfigRoute: Object = { 
+            'controllerPath': 'scripts/controller/', 
+            'cssPath': 'css/', 
+            'viewPath': 'content/view/' 
+        }; 
+
+        this._module.constant('appConfigRoute', appConfigRoute);
     }
 
     /**
      * @summary Initialize module.
      * @private
      */
-    private _initModule = (): void => {
+    private _initializeModule = (): void => {
         this._module = angular.module('app', ['ngRoute', 'routeStyles', 'jm.i18next']);
     }
 

@@ -54,7 +54,9 @@ class AutosizeDirective implements ng.IDirective {
      * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        $(element).autosize();
+        if ($.fn.autosize) {
+            $(element).autosize();
+        }
     }
 }
 

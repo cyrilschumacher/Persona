@@ -22,44 +22,38 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <amd-dependency path="jqueryFadebyscroll"/>
-
-import app = require('app');
+/// <reference path="../../../bower_components/DefinitelyTyped/jquery/jquery.d.ts" />
 
 /**
- * @summary Directive for scroll to an element by its identifier.
+ * @summary Persona external configuration block.
  * @author  Cyril Schumacher
  * @class
  */
-class FadeByScrollDirective implements ng.IDirective {
+class ConfigurationProviderService {
     /**
-     * @summary Dependencies injection.
+     * @summary Constructor.
+     * @constructs
      * @public
-     * @type {Array<string>}
+     * @param module    {IModule} Module.
+     * @param url       {string}  URL address to JSON configuration file.
      */
-    public static $inject: Array<String> = [];
-
-    /**
-     * @summary Restrict option.
-     * @public
-     * @type {string}
-     */
-    public restrict: string = 'A';
+    public constructor(private module: ng.IModule, private url: string) {
+    }
     
     /**
-     * @summary Manipulates the DOM of the current page.
+     * @summary Shortcut method to perform GET request.
      * @public
-     * @param {IScope}      scope   Angular scope object.
-     * @param {JQuery}      element jqLite-wrapped element that this directive matches.
-     * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
-    public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        if ($.fn.fadeByScroll) {
-            var percentage: number = attrs['percentage'];
-            $(element).fadeByScroll(percentage, {element: $(attrs['element'])});
+    public $get = () => {
+        var settings: JQueryAjaxSettings = {type: 'GET', url: this.url, cache: false, async: false, contentType: 'application/json', dataType: 'json'};
+        var q: JQueryXHR = jQuery.ajax(settings);
+        
+        if (q.status === 200) {
+            angular.extend(this.module, angular.fromJson(q.responseText));
         }
+        
+        return this.module;
     }
 }
 
-export = FadeByScrollDirective;
-app.instance.module['register'].directive('ngFadeByScroll', () => new FadeByScrollDirective());
+export = ConfigurationProviderService;
