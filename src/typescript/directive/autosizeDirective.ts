@@ -22,46 +22,41 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/jquery.autosize/jquery.autosize.d.ts" />
 
 import app = require('app');
-import httpServiceBase = require('service/httpServiceBase');
 
 /**
- * @summary Works service.
+ * @summary Directive for scroll to an element by its identifier.
  * @author  Cyril Schumacher
  * @class
  */
-class WorksService extends httpServiceBase {
-    'use strict';
-
+class AutosizeDirective implements ng.IDirective {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$http', 'appConfig'];
+    public static $inject: Array<String> = [];
+
+    /**
+     * @summary Restrict option.
+     * @public
+     * @type {string}
+     */
+    public restrict: string = 'A';
     
     /**
-     * @summary Constructor.
-     * @constructs
+     * @summary Manipulates the DOM of the current page.
      * @public
-     * @param {IHttpService}    $http       HTTP service.
-     * @param {Object}          appConfig   Application configuration.
+     * @param {IScope}      scope   Angular scope object.
+     * @param {JQuery}      element jqLite-wrapped element that this directive matches.
+     * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
-    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
-        super();
-    }
-    
-    /**
-     * @summary Returns a list of works.
-     * @public
-     * @returns {IPromise} The list of works.
-     */
-    public getWorks = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('works');
-        return this.$http.get(url).then(this.getDataComplete);
+    public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
+        $(element).autosize();
     }
 }
 
-export = WorksService;
-app.instance.module['register'].service('worksService', WorksService);
+export = AutosizeDirective;
+app.instance.module['register'].directive('ngAutosize', () => new AutosizeDirective());

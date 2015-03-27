@@ -24,44 +24,22 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 import app = require('app');
-import httpServiceBase = require('service/httpServiceBase');
 
 /**
- * @summary Works service.
+ * @summary HTTP service base.
  * @author  Cyril Schumacher
  * @class
  */
-class WorksService extends httpServiceBase {
-    'use strict';
-
+class HttpServiceBase {
     /**
-     * @summary Dependencies injection.
-     * @public
-     * @type {Array<string>}
+     * @summary Gets the response from server.
+     * @private
+     * @param  {IHttpPromiseCallbackArg} response The HTTP response.
+     * @return {Object}                           The date contained in the HTTP response.
      */
-    public static $inject: Array<String> = ['$http', 'appConfig'];
-    
-    /**
-     * @summary Constructor.
-     * @constructs
-     * @public
-     * @param {IHttpService}    $http       HTTP service.
-     * @param {Object}          appConfig   Application configuration.
-     */
-    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
-        super();
-    }
-    
-    /**
-     * @summary Returns a list of works.
-     * @public
-     * @returns {IPromise} The list of works.
-     */
-    public getWorks = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('works');
-        return this.$http.get(url).then(this.getDataComplete);
+    protected getDataComplete = (response: ng.IHttpPromiseCallbackArg<Object>): Object => {
+        return response.data;
     }
 }
 
-export = WorksService;
-app.instance.module['register'].service('worksService', WorksService);
+export = HttpServiceBase;

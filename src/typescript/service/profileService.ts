@@ -21,16 +21,17 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 import app = require('app');
+import httpServiceBase = require('service/httpServiceBase');
 
 /**
  * @summary Profile service.
  * @author  Cyril Schumacher
  * @class
  */
-class ProfileService {
+class ProfileService extends httpServiceBase {
     'use strict';
 
     /**
@@ -48,26 +49,17 @@ class ProfileService {
      * @param {Object}          appConfig   Application configuration.
      */
     public constructor(private $http: ng.IHttpService, private appConfig: Object) {
-    }
-    
-    /**
-     * @summary Gets the response from server.
-     * @private
-     * @param  {Object} response The HTTP response.
-     * @return {Object} The date contained in the HTTP response.
-     */
-    private _getDataComplete = (response: Object): Object => {
-        return response.data;
+        super();
     }
     
     /**
      * @summary Returns a profile.
      * @public
-     * @returns {Object} Profile.
+     * @returns {IPromise} The profile.
      */
-    public getProfile = (): Object => {
-        var url: string = appConfig['restServer'].concat('profile');
-        return this.$http.get(url).then(this._getDataComplete);
+    public getProfile = (): ng.IPromise<Object> => {
+        var url: string = this.appConfig['restServer'].concat('profile');
+        return this.$http.get(url).then(this.getDataComplete);
     }
 }
 

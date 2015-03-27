@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-header.l-header.no-selection
+header.l-header.no-selection(data-ng-init="init()")
     div.l-header-wrapper(data-ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
             h1(data-ng-i18next="contact.contact_me")
@@ -70,7 +70,7 @@ article.l-article
                         label(data-ng-i18next="contact.form.message")
                         span.input-required *
                         p
-                            textarea#message(required data-ng-model="form.message" rows="1" maxlength="5000")
+                            textarea#message(required data-ng-autosize data-ng-model="form.message" rows="1" maxlength="5000")
 
                     fieldset
                         button(type="submit" data-ng-i18next="contact.form.send_my_message" data-ng-disabled="contactForm.$invalid")

@@ -21,47 +21,32 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-
-import app = require('app');
-import httpServiceBase = require('service/httpServiceBase');
-
 /**
- * @summary Works service.
+ * @summary Model for the head of HTML page.
  * @author  Cyril Schumacher
  * @class
  */
-class WorksService extends httpServiceBase {
-    'use strict';
-
+class HtmlHeadModel {
     /**
-     * @summary Dependencies injection.
+     * @summary Description of the HTML page.
+     * @member {string}
      * @public
-     * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$http', 'appConfig'];
+    public description: string;
     
     /**
-     * @summary Constructor.
-     * @constructs
+     * @summary Keywords of the HTML page.
+     * @member {string}
      * @public
-     * @param {IHttpService}    $http       HTTP service.
-     * @param {Object}          appConfig   Application configuration.
      */
-    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
-        super();
-    }
+    public keywords: string;
     
     /**
-     * @summary Returns a list of works.
+     * @summary Title of the HTML page.
+     * @member {string}
      * @public
-     * @returns {IPromise} The list of works.
      */
-    public getWorks = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('works');
-        return this.$http.get(url).then(this.getDataComplete);
-    }
+    public title: string;
 }
 
-export = WorksService;
-app.instance.module['register'].service('worksService', WorksService);
+export = HtmlHeadModel;

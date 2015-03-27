@@ -42,22 +42,21 @@ class WorksController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'worksService'];
+    public static $inject: Array<String> = ['$i18next', 'worksService', '$scope', '$rootScope'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
+     * @param $i18next          {any}               i18next.
+     * @param worksService      {WorksService}      Service.
      * @param $scope            {IScope}            Scope.
      * @param $rootScope        {IRootScopeService} Root scope.
-     * @param $i18next          {I18nextStatic}     i18next.
-     * @param worksService      {WorksService}      Service.
      */
-    public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService, private $i18next: I18nextStatic, private worksService: worksService) {
+    public constructor(private $i18next: any, private worksService: worksService, $scope: ng.IScope, $rootScope: ng.IRootScopeService) {
         super($scope, $rootScope);
         
         $scope['init'] = this._initialize;
-        $rootScope['title'] = $i18next('works.my_works');
     }
     
     /**
@@ -65,6 +64,7 @@ class WorksController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
+        this.initializeHead(null, null, this.$i18next('works.my_works'));
         this._initializeWorks();
     }
 

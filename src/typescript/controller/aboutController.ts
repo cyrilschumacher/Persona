@@ -45,7 +45,7 @@ class AboutController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'profileService', 'resumeService'];
+    public static $inject: Array<String> = ['$i18next', 'profileService', 'resumeService', '$scope', '$rootScope'];
     
     /**
      * @summary Constructor.
@@ -53,15 +53,14 @@ class AboutController extends controllerBase {
      * @constructs
      * @param $scope            {IScope}            Scope.
      * @param $rootScope        {IRootScopeService} Root scope.
-     * @param $i18next          {I18nextStatic}     i18next.
+     * @param $i18next          {any}               i18next.
      * @param profileService    {profileService}    Profile service.
      * @param resumeService     {ResumeService}     Resume service.
      */
-    public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService, private $i18next: I18nextStatic, private profileService: profileService, private resumeService: resumeService) {
+    public constructor(private $i18next: any, private profileService: profileService, private resumeService: resumeService, $scope: ng.IScope, $rootScope: ng.IRootScopeService) {
         super($scope, $rootScope);
         
         $scope['init'] = this._initialize;
-        $rootScope['title'] = $i18next('about.about');
     }
     
     /**
@@ -69,6 +68,8 @@ class AboutController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
+        this.initializeHead(null, null, this.$i18next('about.about'));
+        
         this._initializeEducation();
         this._initializeExperience();
         this._initializeSkills();

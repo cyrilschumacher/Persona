@@ -23,8 +23,8 @@
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
-/// <reference path="../../../bower_components/DefinitelyTyped/jquery.autosize/jquery.autosize.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/velocity-animate/velocity-animate.d.ts" />
+/// <amd-dependency path="directive/AutosizeDirective"/>
 /// <amd-dependency path="directive/bingMapsDirective"/>
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="jqueryAutosize"/>
@@ -47,33 +47,40 @@ class ContactController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'profileService'];
+    public static $inject: Array<String> = ['$i18next', 'profileService', '$scope', '$rootScope'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param $scope            {IScope}            Model.
-     * @param $rootScope        {IRootScopeService} Root scope.
      * @param $i18next          {any}               Localization.
      * @param profileService    {any}               Profile service.
+     * @param $scope            {IScope}            Model.
+     * @param $rootScope        {IRootScopeService} Root scope.
      */
-    public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService, private $i18next: I18nextStatic, private profileService) {
+    public constructor(private $i18next: any, private profileService, $scope: ng.IScope, $rootScope: ng.IRootScopeService) {
         super($scope, $rootScope);
         
-        this._initScope();
-        this._initElements();
-        this._initEvents();
+        $scope['init'] = this._initialize;
+    }
+    
+    /**
+     * @summary Initialize controller.
+     * @private
+     */
+    private _initialize = (): void => {
+        this.initializeHead(null, null, this.$i18next('contact.contact_me'));
+        
+        this._initializeScope();
+        this._initializeElements();
+        this._initializeEvents();
     }
     
     /**
      * @summary Initializes elements.
      * @private
      */
-    private _initElements = (): void => {
-        // Adds the autosize effect on message element.
-        $('#message').autosize();
-        
+    private _initializeElements = (): void => {
         // Initializes Bing Maps options.
         this.$scope['mapOptions'] = { 
             credentials: "AiscBCv-CUb6kGw_scA6Voo8U8cO6XKiOQpNppd9lJAv_0ohATT3Vhwd2lx_RgJ_",
@@ -101,7 +108,7 @@ class ContactController extends controllerBase {
      * @summary Initializes events.
      * @private
      */
-    private _initEvents = (): void => {
+    private _initializeEvents = (): void => {
         this.$scope['submit'] = this._submit;
         this.$scope['reset'] = this._reset;
     }
@@ -110,7 +117,7 @@ class ContactController extends controllerBase {
      * @summary Initializes angular scope.
      * @private
      */
-    private _initScope = (): void => {
+    private _initializeScope = (): void => {
         this.$scope['form'] = new contactFormModel();
     }
 

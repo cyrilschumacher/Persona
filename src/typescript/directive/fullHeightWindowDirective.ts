@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <amd-dependency path="jquery"/>
 
 import app = require('app');

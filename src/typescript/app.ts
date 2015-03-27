@@ -23,7 +23,6 @@
 
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
-
 /// <amd-dependency path="ngI18next"/>
 
 import routeConfiguration = require('configuration/routeConfiguration');

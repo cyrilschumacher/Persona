@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+import headModel = require('model/html/headModel');
+
 /**
  * @summary Controller base.
  * @author  Cyril Schumacher
@@ -34,8 +36,23 @@ class ControllerBase {
      * @param $scope        {IScope}        Model.
      * @param $rootScope    {IRootScopeService} Root scope.
      */
-    public constructor(private $scope: ng.IScope, private $rootScope: ng.IRootScopeService) {
-        $rootScope['title'] = '';
+    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService) {
+        $rootScope['head'] = new headModel();
+    }
+    
+    /**
+     * @summary Initialize head information.
+     * @protected
+     * @param description   {string} Description.
+     * @param keywords      {string} Keywords.
+     * @param title         {string} Title.
+     */
+    protected initializeHead = (description?: string, keywords?: string, title?: string) => {
+        var head: headModel = this.$rootScope['head'];
+        
+        head.description = description;
+        head.keywords = keywords;
+        head.title = title;
     }
 }
 

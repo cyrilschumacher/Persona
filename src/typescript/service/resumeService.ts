@@ -21,18 +21,17 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 import app = require('app');
+import httpServiceBase = require('service/httpServiceBase');
 
 /**
  * @summary Resume service.
  * @author  Cyril Schumacher
  * @class
  */
-class ResumeService {
-    'use strict';
-
+class ResumeService extends httpServiceBase {
     /**
      * @summary Dependencies injection.
      * @public
@@ -48,46 +47,37 @@ class ResumeService {
      * @param {Object}          appConfig   Application configuration.
      */
     public constructor(private $http: ng.IHttpService, private appConfig: Object) {
-    }
-    
-    /**
-     * @summary Gets the response from server.
-     * @private
-     * @param  {Object} response The HTTP response.
-     * @return {Object} The date contained in the HTTP response.
-     */
-    private _getDataComplete = (response: Object): Object => {
-        return response.data;
+        super();
     }
     
     /**
      * @summary Returns a list of schools.
      * @public
-     * @returns {Promise} List of schools.
+     * @returns {IPromise} List of schools.
      */
-    public getEducation = (): ng.Promise<Array<Object>> => {
-        var url: string = appConfig['restServer'].concat('resume/education');
-        return this.$http.get(url).then(this._getDataComplete);
+    public getEducation = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('resume/education');
+        return this.$http.get(url).then(this.getDataComplete);
     }
 
     /**
      * @summary Returns a list of company.
      * @public
-     * @returns {Object} List of company.
+     * @returns {IPromise} List of company.
      */
-    public getExperience = (): Object => {
-        var url: string = appConfig['restServer'].concat('resume/experience');
-        return this.$http.get(url).then(this._getDataComplete);
+    public getExperience = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('resume/experience');
+        return this.$http.get(url).then(this.getDataComplete);
     }
 
     /**
      * @summary Returns a list of skill.
      * @public
-     * @returns {Promise} List of skill.
+     * @returns {IPromise} List of skill.
      */
-    public getSkills = (): ng.Promise<Array<Object>> => {
-        var url: string = appConfig['restServer'].concat('resume/skills');
-        return this.$http.get(url).then(this._getDataComplete);
+    public getSkills = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('resume/skills');
+        return this.$http.get(url).then(this.getDataComplete);
     }
 }
 
