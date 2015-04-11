@@ -36,47 +36,44 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
         meta(property="og:type" content="")
         meta(property="og:url" content="")
         
-        link(href="css/vendor/animate.css/animate.min.css", rel="stylesheet")
-        link(href="css/vendor/bootstrap/dist/css/bootstrap.min.css", rel="stylesheet")
-        
         script(src="scripts/vendor/modernizr/modernizr.js")
 
     body
-        nav.l-nav(role="navigation" lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
-            button.l-nav-toggle-link
-                span toggle
-
-            div.l-nav-container
-                ul
-                    li 
-                        a(href="#/")
-                            span.icon
-                                i.iconicfill-home
-                            span(data-ng-i18next="common.nav.home") 
-                    li
-                        a(href="#/about")
-                            span.icon
-                                i.iconicfill-folder-fill
-                            span(data-ng-i18next="common.nav.about") 
-                    li
-                        a(href="#/works")
-                            span.icon
-                                i.iconicfill-paperclip
-                            span(data-ng-i18next="common.nav.works") 
-                    li
-                        a(href="#/contact")
-                            span.icon
-                                i.iconicfill-map-pin-alt
-                            span(data-ng-i18next="common.nav.contact")
-        
+        input#drawer-toggle(type="checkbox" name="drawer-toggle")
+        label#drawer-toggle-label(for="drawer-toggle")
         section.l-main(data-ng-view)
+
         div.loading(data-ng-hide="!isLoading")
             span
                 i.fa.fa-circle-o-notch
             span(data-ng-i18next="loading")
 
+
+        nav.l-nav(role="navigation" lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
+            ul
+                li 
+                    a(href="#/")
+                        span.icon
+                            i.iconicfill-home
+                        span(data-ng-i18next="common.nav.home") 
+                li
+                    a(href="#/about")
+                        span.icon
+                            i.iconicfill-folder-fill
+                        span(data-ng-i18next="common.nav.about") 
+                li
+                    a(href="#/works")
+                        span.icon
+                            i.iconicfill-paperclip
+                        span(data-ng-i18next="common.nav.works") 
+                li
+                    a(href="#/contact")
+                        span.icon
+                            i.iconicfill-map-pin-alt
+                        span(data-ng-i18next="common.nav.contact")
+
         footer.l-footer.no-selection(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
-            div.l-footer-container.row
+            div.l-footer-container
                 section.l-footer-container-copyright
                     div.links
                         ul

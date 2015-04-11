@@ -1,6 +1,7 @@
 .l-footer {
     background: $dark-primary-color;
     color: $dark-secondary-color;
+    padding: 5rem 0;
     position: relative;
     width: inherit;
     z-index: 2;
@@ -8,7 +9,6 @@
     &-container {
         clear: both;
         margin: 0 auto;
-        padding: 5rem 0;
         height: 50%;
         width: 80%;
                             
@@ -29,11 +29,7 @@
                 li {
                     display: inline-block;
                     
-                    &:after { 
-                        content: ' | ';
-                        padding: 0 2rem;
-                    }
-                    
+                    &:after {  content: ' | '; padding: 0 2rem }
                     &:last-child:after { content: '' }
                     
                     a {

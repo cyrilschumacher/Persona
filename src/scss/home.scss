@@ -33,10 +33,9 @@
 }
 
 .l-footer {
+    bottom: 0;
     background: none !important;   
     color: $base-background;
-    position: absolute;
-    bottom: 0;
     left: 0;
-    z-index: 6;
+    position: absolute;
 }

@@ -2,17 +2,14 @@
     from { right: 0 }
     to { right: -50rem }
 }
-
 @include keyframes(navbar-opening) {
     from { right: -50rem }
     to { right: 0 }
 }
-
 @include keyframes(navbar-item-opening) {
     from { right: -100% }
     to { right: 0 }
 }
-
 @include keyframes(navbar-item-closing) {
     from { right: 0 }
     to { right: -100% }
@@ -27,101 +24,96 @@
 }
 
 .l-nav {
-    height: inherit;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    right: 0;
-    z-index: 5; 
+    @include animation(500ms navbar-closing forwards cubic-bezier(0.165, 0.840, 0.440, 1.000));
+    background: $dark-primary-color;
+	height: 100%;
+	position: fixed;
+    right: -25rem;
+	top: 0;
+	width: 25rem;
+    z-index: 3;
     
-    &-container {
-        @include animation(500ms navbar-closing forwards cubic-bezier(0.165, 0.840, 0.440, 1.000));
-        background: $dark-primary-color;
-        bottom: 0;
-        margin: auto;
-        padding: 2rem 1rem;
-        position: absolute;
-        top: 0;
-        width: 25rem;
+    ul {
+        margin: 3rem 0 3rem 1.5rem;
+        
+        li {
+            @include animation(navbar-item-closing 500ms forwards ease-out);
+            position: relative;
+            width: inherit;
 
-        > ul {
-            > li {
-                @include animation(navbar-item-closing 500ms forwards ease-out);
-                position: relative;
-                width: inherit;
+            a {
+                color: #fff;
+                display: inline-block;
+                font-size: 1.5rem;
+                opacity: .2;
+                padding: 1rem 2rem;
+                text-transform: uppercase;
+                @include transition( opacity);
+                width: 100%;
 
-                a {
-                    color: #fff;
+                .icon {
                     display: inline-block;
-                    font-size: 1.5rem;
-                    opacity: .2;
-                    padding: 1rem 2rem;
-                    text-transform: uppercase;
-                    @include transition($timing-fast opacity);
-                    width: 100%;
-                    
-                    .icon {
+                    margin: 0 1rem 0 0; 
+                    vertical-align: middle;
+
+                    i {
+                        @extend .vertical-horizontal-center;
+
+                        border: 1px solid #fff;
                         display: inline-block;
-                        margin: 0 1rem 0 0; 
-                        vertical-align: middle;
-                        
-                        > i {
-                            @extend .vertical-horizontal-center;
-
-                            border: 1px solid #fff;
-                            display: inline-block;
-                            height: 3rem;
-                            width: 3rem;
-                        }
+                        height: 3rem;
+                        width: 3rem;
                     }
-
-                    &:hover { opacity: 1 }
                 }
+
+                &:hover { opacity: 1 }
             }
         }
     }
 }
-
-.l-nav-toggle-link {
-    &:focus {
-        + .l-nav-container {
-            @include animation(100ms navbar-opening forwards cubic-bezier(0.215, 0.610, 0.355, 1.000));
-
-            ul {
-                @include animation-delay-child(4, 75ms, 'li');
-                li { @include animation(navbar-item-opening 250ms forwards ease-out); right: -100% }
-            }
-        }
-    }
-}
-
-.l-nav-toggle-link {
-    background: none;
-    border: 1px solid #fff;
-    cursor: pointer;
-    display: block;
-    font-size: 0;
-    height: 5rem;
-    overflow: hidden;
-    position: absolute;
-    right: 5rem;
-    top: 5rem;
-    width: 5rem;
+#drawer-toggle {
+    display: none;
     
-    span {
-        left: 1rem;
-        right: 1rem;
-        top: 2.3rem;
-
-        &:after, &:before { content: ''; width: 100% }
-        &:after { bottom: -1rem }
-        &:before { top: -1rem }
+    &:checked ~ #drawer-toggle-label {
+        height: 95%;
+        left: 0;
+        opacity: 0;
+        top: 0;
+        width: 100%;
     }
 
-    span, span:before, span:after {
+    &:checked ~ .l-nav {
+        @include animation(100ms navbar-opening forwards cubic-bezier(0.215, 0.610, 0.355, 1.000));
+        right: 0;
+
+        ul {
+            @include animation-delay-child(4, 75ms, 'li');
+            li { @include animation(navbar-item-opening 250ms forwards ease-out); right: -100% }
+        }
+    }
+}
+#drawer-toggle-label {
+    background: rgba(255, 255, 255, 0);
+	display: block;
+	height: 4rem;
+    left: 10%;
+    right: 10%;
+    position: absolute;
+    top: 5rem;
+    @include user-select(none);
+	width: 80%;
+	z-index: 2;
+
+    &:before {
         background: #fff;
+        @include box-shadow(0 .8rem 0 #fff, 0 1.6rem 0 #fff);
+        content: '';
         display: block;
         height: .3rem;
         position: absolute;
+        right: 0;
+        top: 0;
+        @include transition($timing-fast transform);
+        width: 24px;
     }
 }
