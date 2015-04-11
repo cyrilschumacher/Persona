@@ -2,10 +2,7 @@
 @import "base";
 
 .nav-item-works {
-    border-color: #fff !important;
-    cursor: default;
-    
-    &:hover, &:focus { background: none }
+    background: $dark-secondary-color;
 }
 
 .l-header-wrapper {

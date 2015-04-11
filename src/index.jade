@@ -50,27 +50,28 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
 
 
         nav.l-nav(role="navigation" lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
-            ul
-                li 
-                    a(href="#/")
-                        span.icon
-                            i.iconicfill-home
-                        span(data-ng-i18next="common.nav.home") 
-                li
-                    a(href="#/about")
-                        span.icon
-                            i.iconicfill-folder-fill
-                        span(data-ng-i18next="common.nav.about") 
-                li
-                    a(href="#/works")
-                        span.icon
-                            i.iconicfill-paperclip
-                        span(data-ng-i18next="common.nav.works") 
-                li
-                    a(href="#/contact")
-                        span.icon
-                            i.iconicfill-map-pin-alt
-                        span(data-ng-i18next="common.nav.contact")
+            div.l-nav-container.vertical-horizontal-center
+                ul
+                    li 
+                        a.nav-item-home(href="#/")
+                            span.icon
+                                i.iconicfill-home
+                            span(data-ng-i18next="common.nav.home") 
+                    li
+                        a.nav-item-about(href="#/about")
+                            span.icon
+                                i.iconicfill-folder-fill
+                            span(data-ng-i18next="common.nav.about") 
+                    li
+                        a.nav-item-works(href="#/works")
+                            span.icon
+                                i.iconicfill-paperclip
+                            span(data-ng-i18next="common.nav.works") 
+                    li
+                        a.nav-item-contact(href="#/contact")
+                            span.icon
+                                i.iconicfill-map-pin-alt
+                            span(data-ng-i18next="common.nav.contact")
 
         footer.l-footer.no-selection(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
             div.l-footer-container

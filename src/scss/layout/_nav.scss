@@ -33,8 +33,10 @@
 	width: 25rem;
     z-index: 3;
     
+    &-container { height: 100%; width: 100% }
+    
     ul {
-        margin: 3rem 0 3rem 1.5rem;
+        width: inherit;
         
         li {
             @include animation(navbar-item-closing 500ms forwards ease-out);
@@ -46,9 +48,9 @@
                 display: inline-block;
                 font-size: 1.5rem;
                 opacity: .2;
-                padding: 1rem 2rem;
+                padding: 2rem;
                 text-transform: uppercase;
-                @include transition( opacity);
+                @include transition($timing-fast background, opacity);
                 width: 100%;
 
                 .icon {
@@ -66,7 +68,7 @@
                     }
                 }
 
-                &:hover { opacity: 1 }
+                &:hover { background: $dark-secondary-color; opacity: 1 }
             }
         }
     }
