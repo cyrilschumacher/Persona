@@ -26,9 +26,9 @@
 
 .l-section-presentation {
     .my-name { color: $grapefruit-primary-color }
-    .resume { height: 25rem; line-height: ($body-font-size * 1.5) }
-    img { border: .5rem solid $light-primary-color; height: 25rem }
+    .resume { line-height: ($body-font-size * 1.5) }
     
+    img { border: .5rem solid $light-primary-color; height: 25rem }
     ul {
         list-style: square;
         margin: $margin 0 0 ($margin * 3);

@@ -1,51 +1,127 @@
+@include keyframes(navbar-closing) {
+    from { right: 0 }
+    to { right: -50rem }
+}
+
+@include keyframes(navbar-opening) {
+    from { right: -50rem }
+    to { right: 0 }
+}
+
+@include keyframes(navbar-item-opening) {
+    from { right: -100% }
+    to { right: 0 }
+}
+
+@include keyframes(navbar-item-closing) {
+    from { right: 0 }
+    to { right: -100% }
+}
+
+@mixin animation-delay-child($max-items-child, $delay, $element) {
+    @for $i from 1 through $max-items-child {
+        #{$element}:nth-child(#{$i}) {
+            @include animation-delay($delay * $i);
+        }
+    }
+}
+
 .l-nav {
+    height: inherit;
     left: 0;
-    padding: 5rem;
+    overflow: hidden;
     position: absolute;
     right: 0;
-    z-index: 5;
+    z-index: 5; 
+    
+    &-container {
+        @include animation(500ms navbar-closing forwards cubic-bezier(0.165, 0.840, 0.440, 1.000));
+        background: $dark-primary-color;
+        bottom: 0;
+        margin: auto;
+        padding: 2rem 1rem;
+        position: absolute;
+        top: 0;
+        width: 25rem;
 
-    &-items {
-        margin: 0 auto;
-        text-align: center;
-
-        &:hover, &:focus {
-            li > a { opacity: 0.3 }
-        }
-
-        li {
-            display: inline-block;
-            width: 15rem;
-
-            &:hover, &:focus {
-                a {
-                    border-color: #fff;
-                    opacity: 1;
-                }
-            }
-
-            a {
-                border-color: transparent;
-                padding: ($base-margin * 2) 0;
-                text-align: center;
-                @include transition(all 150ms);
+        > ul {
+            > li {
+                @include animation(navbar-item-closing 500ms forwards ease-out);
+                position: relative;
                 width: inherit;
 
-                &:link, &:visited { color: #fff }
-                &:active { background: #fff; color: #000 }
+                a {
+                    color: #fff;
+                    display: inline-block;
+                    font-size: 1.5rem;
+                    opacity: .2;
+                    padding: 1rem 2rem;
+                    text-transform: uppercase;
+                    @include transition($timing-fast opacity);
+                    width: 100%;
+                    
+                    .icon {
+                        display: inline-block;
+                        margin: 0 1rem 0 0; 
+                        vertical-align: middle;
+                        
+                        > i {
+                            @extend .vertical-horizontal-center;
 
-                span { display: block }
+                            border: 1px solid #fff;
+                            display: inline-block;
+                            height: 3rem;
+                            width: 3rem;
+                        }
+                    }
+
+                    &:hover { opacity: 1 }
+                }
             }
         }
     }
 }
 
-@media screen and (max-width: 768px) {
-    .l-nav {
-        &-items {
-            li {
-                width: 10rem;
+.l-nav-toggle-link {
+    &:focus {
+        + .l-nav-container {
+            @include animation(100ms navbar-opening forwards cubic-bezier(0.215, 0.610, 0.355, 1.000));
+
+            ul {
+                @include animation-delay-child(4, 75ms, 'li');
+                li { @include animation(navbar-item-opening 250ms forwards ease-out); right: -100% }
             }
         }
+    }
+}
+
+.l-nav-toggle-link {
+    background: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: 5rem;
+    overflow: hidden;
+    position: absolute;
+    right: 5rem;
+    top: 5rem;
+    width: 5rem;
+    
+    span {
+        left: 1rem;
+        right: 1rem;
+        top: 2.3rem;
+
+        &:after, &:before { content: ''; width: 100% }
+        &:after { bottom: -1rem }
+        &:before { top: -1rem }
+    }
+
+    span, span:before, span:after {
+        background: #fff;
+        display: block;
+        height: .3rem;
+        position: absolute;
     }
 }

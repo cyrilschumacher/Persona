@@ -2,5 +2,9 @@
     "bingMaps": {
         "credential": "AiscBCv-CUb6kGw_scA6Voo8U8cO6XKiOQpNppd9lJAv_0ohATT3Vhwd2lx_RgJ_"   
     },
-    "restServer": "http://private-b90a0-cyrilschumacher.apiary-mock.com/"
+    "restServer": "http://private-b90a0-cyrilschumacher.apiary-mock.com/",
+    "search-id": {
+        "google": "Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k",
+        "bing": "BD1F594BA412B936EF9573364E3DD353"
+    }
 }

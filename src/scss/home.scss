@@ -31,3 +31,12 @@
         margin: 0 0 ($margin * 3);
     }
 }
+
+.l-footer {
+    background: none !important;   
+    color: $base-background;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 6;
+}
