@@ -32,26 +32,28 @@
         &:last-child { margin-bottom: 0 }
         
         &-icon {
+            height: 40px;
             left: 0;
             position: absolute;
             top: 0;
+            width: 40px;
         }
         
         &-content {
             border: 7px solid transparent;
+            padding: 1em;
             position: relative;
             margin-left: 60px;
-            padding: 1rem;
             
             &:before {
+                border: 7px solid transparent;
+                border-left-color: transparent;
                 content: "";
                 height: 0;
                 position: absolute;
                 right: 100%;
                 top: 16px;
                 width: 0;
-                border: 7px solid transparent;
-                border-left-color: white;
             }
             
             &:after {
@@ -79,10 +81,10 @@
             &:nth-child(even) {
                 .timeline-block-content {
                     &:before {
-                        top: 24px;
+                        border-color: transparent;
                         left: auto;
                         right: 100%;
-                        border-color: transparent;
+                        top: 24px;
                     }
                 }
             }
@@ -100,7 +102,6 @@
             
             &-content {
                 margin-left: 0;
-                padding: 1.6em;
                 width: 45%;
 
                 &:before { left: 100%; top: 24px }

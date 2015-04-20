@@ -22,18 +22,19 @@
 @import "layout/section";
 
 /* Modules. */
+@import "modules/alignment/flex-container-column";
+@import "modules/alignment/vertical-horizontal-center";
+@import "modules/form/button";
+@import "modules/form/input-required";
+@import "modules/text/text-center";
+@import "modules/text/text-justify";
+@import "modules/text/text-lowercase";
+@import "modules/text/text-uppercase";
+
 @import "modules/animation-fade-fast";
 @import "modules/animation-fade-slow";
-@import "modules/button";
-@import "modules/flex-container-column";
 @import "modules/full-background-fixed";
-@import "modules/input-required";
 @import "modules/no-selection";
 @import "modules/round-icon";
 @import "modules/subtitle";
-@import "modules/text-center";
-@import "modules/text-justify";
-@import "modules/text-lowercase";
-@import "modules/text-uppercase";
 @import "modules/timeline";
-@import "modules/vertical-horizontal-center";

@@ -33,8 +33,6 @@ article.l-article
     section.l-section.l-section-presentation
         p
             img(alt="Cyril Schumacher" src="/content/image/me.jpg")
-            br
-            br
         div.resume
             h3.my-name Je suis Cyril Schumacher
             p Passionné des technologies Microsoft depuis l'âge de 14 ans, je suis également Microsoft Student Partner depuis le début de ma scolarité. Je suis une personne autodidacte, depuis mes années au collège, qui ne cesse de repousser ces connaissances. Actuellement étudiant à l'exia.cesi de Nancy pour apprendre et découvrir avec passion, de nouvelles technologies à tout moment.
@@ -58,11 +56,11 @@ article.l-article
         h2 Expériences Professionnelles
         p.subtitle Mes expériences passées en entreprise
     section.l-section.l-section-experience(data-ng-hide="!companies")
-        div.row.company(data-ng-repeat="company in companies")
-            div.col-xs-4
+        div.company(data-ng-repeat="company in companies")
+            div.company-details
                 ul(itemscope itemtype="http://schema.org/Corporation")
                     li
-                        div.row.properties
+                        div.company-details-properties
                             div.col-xs-2
                                 div.icon.vertical-horizontal-center
                                     i.fa.fa-building-o
@@ -86,8 +84,7 @@ article.l-article
                                 time(datetime="{{company.period.start}}") {{company.period.start | date:'MMMM yyyy - '}}
                                 time(datetime="{{company.period.end}}") {{company.period.end | date:'MMMM yyyy'}}
 
-
-            div.col-xs-8.text-justify
+            div.company-information
                 h3 {{company.name}}
                 p.summary {{company.summary}}
 

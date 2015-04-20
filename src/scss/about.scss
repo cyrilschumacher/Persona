@@ -13,7 +13,7 @@
 
 .l-section {
     margin: ($margin * 3) auto $margin;
-    width: 50%;
+    width: $desktop-device-max-width;
     z-index: 2;
     
     header {
@@ -25,7 +25,7 @@
     .my-name { color: $grapefruit-primary-color }
     .resume { line-height: ($body-font-size * 1.5) }
     
-    img { border: .5rem solid $light-primary-color; height: 25rem }
+    img { border: .5rem solid $light-primary-color; height: 25rem; margin: 0 0 2rem; }
     ul {
         list-style: square;
         margin: $margin 0 0 ($margin * 3);
@@ -39,13 +39,13 @@
         &:first-child {
             .timeline-block-icon {
                 background: $grapefruit-primary-color !important;
-                color: $light-primary-color;
+                color: #fff;
             }
             
             .timeline-block-content {
                 background: $grapefruit-primary-color !important;
                 border: none;
-                color: $light-primary-color;
+                color: #fff;
 
                 &:before {
                     border-left-color: $grapefruit-primary-color;
@@ -56,8 +56,10 @@
         
         &:nth-child(even) {
             .timeline-block-content {
+                margin: 0 ($base-margin * -2);
+                
                 &:before {
-                    border-right-color: $light-primary-color;
+                    border-right-color: $grapefruit-primary-color;
                     left: auto;
                     right: 100%;
                     top: 24px;
@@ -85,20 +87,13 @@
     }
 
     .timeline-block-content {
-        border: 1px solid $light-primary-color;
-        color: $light-primary-color;
+        border: 1px solid $grapefruit-primary-color;
+        color: $grapefruit-primary-color;
+        margin: 0 ($base-margin * -1);
+        padding: $base-margin;
         text-align: left;
 
-        &:before { border-left-color: $light-primary-color }
-                
-        &:hover {
-            border-color: $grapefruit-primary-color;
-            color: $grapefruit-primary-color;
-            @include transition($timing-fast border, color);
-
-            &:before {  border-left-color: $grapefruit-primary-color }
-            &:hover { border-color: $grapefruit-primary-color }
-        }
+        &:before { border-left-color: $grapefruit-primary-color }
     }
 }
 
