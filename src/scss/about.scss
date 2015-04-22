@@ -2,15 +2,6 @@
 
 @media only screen and (min-width: 1170px) {
     .timeline-block {
-        &:first-child {
-            .timeline-block-content {
-                &:before {
-                    border-left-color: $grapefruit-primary-color;
-                    border-right-color: transparent;
-                }
-            }
-        }
-
         &:nth-child(even) {
             .timeline-block-content {
                 margin: 0 ($base-margin * -2);
@@ -21,14 +12,14 @@
                 }
             }
         }
-    }
+        
+        &-content {
+            margin: -15px;
 
-    .timeline-block-content {
-        margin: -15px;
-
-        &:before {
-            border-left-color: $grapefruit-primary-color !important;
-            border-right-color: transparent !important;
+            &:before {
+                border-left-color: $grapefruit-primary-color !important;
+                border-right-color: transparent !important;
+            }
         }
     }
 }
