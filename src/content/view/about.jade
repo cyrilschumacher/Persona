@@ -61,29 +61,26 @@ article.l-article
                 ul(itemscope itemtype="http://schema.org/Corporation")
                     li
                         div.company-details-properties
-                            div.col-xs-2
-                                div.icon.vertical-horizontal-center
-                                    i.fa.fa-building-o
-                            div.col-xs-10.information.vertical-horizontal-center
+                            div.icon.vertical-horizontal-center
+                                i.fa.fa-building-o
+                            div.information.vertical-horizontal-center
                                 span(itemprop="name") {{company.company.name}}
                     li
-                        div.row.properties
-                            div.col-xs-2
-                                div.icon.vertical-horizontal-center
+                        div.company-details-properties
+                            div.icon.vertical-horizontal-center
                                     i.fa.fa-location-arrow
-                            div.col-xs-10.information.vertical-horizontal-center
+                            div.information.vertical-horizontal-center
                                 div(itemprop="address")
                                     span(itemprop="addressLocality") {{company.company.location.address.city}},
                                     span(itemprop="addressRegion") {{company.company.location.address.countryRegion}}
                     li
-                        div.row.properties
-                            div.col-xs-2
-                                div.icon.vertical-horizontal-center
-                                    i.fa.fa-calendar
-                            div.col-xs-10.information.vertical-horizontal-center
-                                time(datetime="{{company.period.start}}") {{company.period.start | date:'MMMM yyyy - '}}
+                        div.company-details-properties
+                            div.icon.vertical-horizontal-center
+                                i.fa.fa-calendar
+                            div.information.vertical-horizontal-center
+                                time(datetime="{{company.period.start}}") {{company.period.start | date:'MMMM yyyy'}}
+                                span.separator -
                                 time(datetime="{{company.period.end}}") {{company.period.end | date:'MMMM yyyy'}}
-
             div.company-information
                 h3 {{company.name}}
                 p.summary {{company.summary}}
@@ -95,8 +92,8 @@ article.l-article
     section.l-section.l-section-skills(data-ng-hide="!skills")
         ul
             li.skill(data-ng-repeat="skill in skills")
-                p.text-uppercase {{skill.name}}
                 div.progress
                     div.progress-background(ng-style="{'width': skill.score + '%'}")
-                        p.progress-content.vertical-horizontal-center
-                            span.text-center {{skill.score}}%
+                    div.progress-content.vertical-horizontal-center
+                        div.progress-content-name {{skill.name}}
+                        div.progress-content-value {{skill.score}}%

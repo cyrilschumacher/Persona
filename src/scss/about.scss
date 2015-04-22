@@ -1,5 +1,38 @@
 @import "main";
 
+@media only screen and (min-width: 1170px) {
+    .timeline-block {
+        &:first-child {
+            .timeline-block-content {
+                &:before {
+                    border-left-color: $grapefruit-primary-color;
+                    border-right-color: transparent;
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            .timeline-block-content {
+                margin: 0 ($base-margin * -2);
+                
+                &:before {
+                    border-left-color: transparent !important;
+                    border-right-color: $grapefruit-primary-color !important;
+                }
+            }
+        }
+    }
+
+    .timeline-block-content {
+        margin: -15px;
+
+        &:before {
+            border-left-color: $grapefruit-primary-color !important;
+            border-right-color: transparent !important;
+        }
+    }
+}
+
 .nav-item-about {
     background: $dark-secondary-color;
 }
@@ -94,62 +127,48 @@
     }
 }
 
-@media only screen and (min-width: 1170px) {
-    .timeline-block {
-        &:first-child {
-            .timeline-block-content {
-                &:before {
-                    border-left-color: $grapefruit-primary-color;
-                    border-right-color: transparent;
-                }
-            }
-        }
-
-        &:nth-child(even) {
-            .timeline-block-content {
-                margin: 0 ($base-margin * -2);
-                
-                &:before {
-                    border-left-color: transparent !important;
-                    border-right-color: $grapefruit-primary-color !important;
-                }
-            }
-        }
-    }
-
-    .timeline-block-content {
-        margin: -15px;
-
-        &:before {
-            border-left-color: $grapefruit-primary-color !important;
-            border-right-color: transparent !important;
-        }
-    }
-}
-
 .l-section-experience {
     h3 { color: $grapefruit-primary-color }
     
     .company {
         padding: 4rem 0 1rem;
+        @include display-flex;
+        @include flex-direction(row);
         
-        .properties {
-            border: 1px solid $light-primary-color;
-            margin: 0 0 .5rem;
-            padding: .8rem 0;
+        &-details {
+            width: 25%;
             
-            .information, .icon { height: 3rem; text-align: left }
-            .information { color: $grapefruit-primary-color; @include justify-content(flex-start) }
-            
-            .icon {
-                background: $grapefruit-primary-color;
-                width: 3rem;
+            &-properties {
+                border: 1px solid $light-primary-color;
+                @include display-flex;
+                @include flex-direction(row);
+                margin: 0 0 .5rem;
+                padding: .8rem;
+
+                > .information, > .icon { text-align: left }
+                > .information {
+                    color: $grapefruit-primary-color;
+                    @include justify-content(flex-start);
+                    
+                    > .separator { margin: 0 ($margin / 2) 0 0 }
+                }
                 
-                .fa { color: #fff }
+                > .icon {
+                    background: $grapefruit-primary-color;
+                    height: 3rem;
+                    margin: 0 1rem 0 0;
+                    width: 3rem;
+
+                    .fa { color: #fff }
+                }
             }
         }
         
-        .summary { border-left: 1rem solid $light-primary-color; padding: 0 0 0 1rem }
+        &-information {
+            padding: 0 0 0 $margin;
+            text-align: left;
+            width: 75%;
+        }
     }
 }
 
@@ -158,29 +177,45 @@
     
     .skill {
         display: inline-block;
-        margin: 0 $margin;
+        margin: $margin;
         vertical-align: top;
-        width: 22%;
+        width: 30%;
     }
     
     .progress {
-        border: 1px solid $grapefruit-primary-color;
+        background: $grapefruit-primary-color;
         @include border-radius(0);
         @include box-shadow(none);
-        height: 2rem;
+        height: 3rem;
         position: relative;
         width: 100%;
         word-wrap: break-word;
         
-        &-background, &-content { height: inherit }
-        &-background { background: $grapefruit-primary-color; position: absolute }
+        &-background {
+            background: $grapefruit-secondary-color;
+            border-right: 5px solid #fff;
+            left: 0;
+            height: 100%;
+            position: absolute;
+            right: 0;
+        }
         
         &-content {
-            color: $light-secondary-color;
-            position: absolute;
-            overflow: hidden;
+            @include display-flex;
+            @include flex-direction(row);
+            color: #fff;
             height: inherit;
+            overflow: hidden;
+            padding: 0 $margin;
+            position: absolute;
+            text-align: left;
             width: 100%;
+            
+            &-name {
+                font-weight: 900;
+                text-align: left;
+                width: 50%;
+            }
         }
     }
 }
