@@ -64,8 +64,7 @@ class Application {
      * @public
      * @returns {Application} Instance of class.
      */
-    public static get instance(): Application
-    {
+    public static get instance(): Application {
         if(!Application._instance) {
             Application._instance = new Application();
         }
@@ -141,7 +140,7 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        this._module = angular.module('app', ['ngRoute', 'routeStyles', 'jm.i18next']);
+        this._module = angular.module('app', ['ngRoute', 'routeStyles', 'jm.i18next', 'viewhead']);
     }
 
     /**

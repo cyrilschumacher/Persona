@@ -23,7 +23,7 @@
 header.l-header.no-selection(data-ng-init="init()")
     div.l-header-wrapper(data-ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
-            h1(data-ng-i18next="contact.contact_me")
+            h1(data-view-title data-ng-i18next="contact.contact_me")
             p.description(data-ng-i18next="contact.you_have_questions")
 
 article.l-article.map-section
@@ -33,57 +33,46 @@ article.l-article.map-section
     section.l-section
         div(data-ng-bing-maps map-options="mapOptions" view-options="viewOptions" pushpins="pushpins")
 article.l-article
-    div.row
-        div.col-xs-6.form-section
-            header
-                h2(data-ng-i18next="contact.form.title")
-                p.subtitle Compléter les champs ci-dessous
-            section.l-section.form-content
-                form(name="contactForm" data-ng-submit="submit()")
-                    p(data-ng-i18next="contact.form.description")
-                    fieldset
-                        div.row
-                            div.col-xs-6
-                                label(data-ng-i18next="contact.form.firstname")
-                                p
-                                    input(data-ng-model="form.firstname" type="text" size="36")
-                                    span.field-information 3 à 40 caractères maximum.
-                            div.col-xs-6
-                                label(data-ng-i18next="contact.form.lastname")
-                                p
-                                    input(data-ng-model="form.lastname" type="text" size="36")
-                                    span.field-information 3 à 40 caractères maximum.
+    div.form-section
+        header
+            h2(data-ng-i18next="contact.form.title")
+            p.subtitle Compléter les champs ci-dessous
+        section.l-section.form-content
+            form(name="contactForm" data-ng-submit="submit()")
+                p(data-ng-i18next="contact.form.description")
+                fieldset
+                    div.row
+                        div.col-xs-6
+                            label(data-ng-i18next="contact.form.firstname")
+                            p
+                                input(data-ng-model="form.firstname" type="text" size="36")
+                                span.field-information 3 à 40 caractères maximum.
+                        div.col-xs-6
+                            label(data-ng-i18next="contact.form.lastname")
+                            p
+                                input(data-ng-model="form.lastname" type="text" size="36")
+                                span.field-information 3 à 40 caractères maximum.
 
-                        label(data-ng-i18next="contact.form.email")
-                        span.input-required *
-                        p  
-                            input(required data-ng-model="form.emailAddress" type="email" size="64" aria_required="true")
-                            span.field-information 255 caractères maximum. Exemple: email@example.com
+                    label(data-ng-i18next="contact.form.email")
+                    span.input-required *
+                    p  
+                        input(required data-ng-model="form.emailAddress" type="email" size="64" aria_required="true")
+                        span.field-information 255 caractères maximum. Exemple: email@example.com
 
-                    fieldset
-                        label(data-ng-i18next="contact.form.subject")
-                        span.input-required *
-                        p
-                            input(required data-ng-model="form.subject" type="text" size="64" aria_required="true")
-                            span.field-information 255 caractères maximum.
+                fieldset
+                    label(data-ng-i18next="contact.form.subject")
+                    span.input-required *
+                    p
+                        input(required data-ng-model="form.subject" type="text" size="64" aria_required="true")
+                        span.field-information 255 caractères maximum.
 
-                        label(data-ng-i18next="contact.form.message")
-                        span.input-required *
-                        p
-                            textarea#message(required data-ng-autosize data-ng-model="form.message" rows="1" maxlength="5000")
+                    label(data-ng-i18next="contact.form.message")
+                    span.input-required *
+                    p
+                        textarea#message(required data-ng-autosize data-ng-model="form.message" rows="1" maxlength="5000")
 
-                    fieldset
-                        button(type="submit" data-ng-i18next="contact.form.send_my_message" data-ng-disabled="contactForm.$invalid")
-        div.col-xs-6.annexe-form-section
-            header
-                h2 Informations complémentaires
-                p.subtitle Obtenez ma carte de visite virtuelle
-            section
-                a.button
-                    span.button-text.text-uppercase Télécharger ma vCard
-            header
-                h2(data-ng-i18next="contact.form.download_my_vcard")
-            section
+                fieldset
+                    button(type="submit" data-ng-i18next="contact.form.send_my_message" data-ng-disabled="contactForm.$invalid")
 div.alert
     div.alert-content
         header

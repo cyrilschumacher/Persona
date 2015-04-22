@@ -8,10 +8,9 @@
     position: relative;
     margin: 2em 0;
     
-    &:before {
+    &::before {
         content: "";
         height: 100%;
-        left: 18px;
         position: absolute;
         top: 0;
         width: 4px;
@@ -28,7 +27,6 @@
         }
         
         &:first-child { margin-top: 0 }
-        
         &:last-child { margin-bottom: 0 }
         
         &-icon {
@@ -41,11 +39,11 @@
         
         &-content {
             border: 7px solid transparent;
+            margin-left: 60px;
             padding: 1em;
             position: relative;
-            margin-left: 60px;
             
-            &:before {
+            &::before {
                 border: 7px solid transparent;
                 border-left-color: transparent;
                 content: "";
@@ -67,17 +65,16 @@
 
 @media only screen and (min-width: 1170px) {
     .timeline {
-        margin-top: 3rem 0;
+        margin-top: 3em;
         
-        &:before { left: 50%; margin-left: -2px;  }
-    
+        &:before { left: 50% }
+
         &-block {
             margin: 4em 0;
 
             &:first-child { margin-top: 0 }
-
             &:last-child { margin-bottom: 0 }
-            
+
             &:nth-child(even) {
                 .timeline-block-content {
                     &:before {
@@ -88,18 +85,18 @@
                     }
                 }
             }
-            
+
             &:nth-child(even) {
                 .timeline-block-content { float: right }
             }
-            
+
             &-icon {
                 height: 60px;
                 left: 50%;
                 width: 60px;
                 margin-left: -30px;
             }
-            
+
             &-content {
                 margin-left: 0;
                 width: 45%;

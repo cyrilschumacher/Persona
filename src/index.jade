@@ -24,7 +24,7 @@ doctype html
 html(lang="fr" prefix="og:http://ogp.me/ns#")
     head
         meta(charset="utf-8")
-        title {{head.title ? head.title + ' - ' : ''}} Persona
+        title(ng-bind="viewTitle ? viewTitle + ' - Persona' : 'Persona'")
         
         meta(name="description" content="{{head.description}}")
         meta(name="keywords" content="{{head.keywords}}")
@@ -35,19 +35,16 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
         meta(property="og:title" content="")
         meta(property="og:type" content="")
         meta(property="og:url" content="")
-        
-        script(src="scripts/vendor/modernizr/modernizr.js")
-
     body
         input#drawer-toggle(type="checkbox" name="drawer-toggle")
         label#drawer-toggle-label.no-selection(for="drawer-toggle")
+
         section.l-main(data-ng-view)
 
         div.loading(data-ng-hide="!isLoading")
             span
                 i.fa.fa-circle-o-notch
             span(data-ng-i18next="loading")
-
 
         nav.l-nav(role="navigation" lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
             div.l-nav-container.vertical-horizontal-center

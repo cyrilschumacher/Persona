@@ -1,6 +1,6 @@
-@import "color/_brandcolors";
-@import "color/_flattastic_pro";
-@import "color/_stream_status";
+@import "color/brandcolors";
+@import "color/flattastic_pro";
+@import "color/stream_status";
 
 // Specific colors.
 $light-primary-color:       #d0d0d0;
@@ -8,5 +8,5 @@ $light-secondary-color:     #fafafa;
 $dark-primary-color:        #252525;
 $dark-secondary-color:      #4d4d4d;
 
-$base-background:  $light-secondary-color  !default;
-$base-color:       $dark-primary-color     !default;
+$base-background:           $light-secondary-color  !default;
+$base-color:                $dark-primary-color     !default;

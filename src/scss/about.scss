@@ -1,5 +1,4 @@
 @import "main";
-@import "base";
 
 .nav-item-about {
     background: $dark-secondary-color;
@@ -13,7 +12,7 @@
 
 .l-section {
     margin: ($margin * 3) auto $margin;
-    width: $desktop-device-max-width;
+    width: 75%;
     z-index: 2;
     
     header {
@@ -32,68 +31,99 @@
     }
 }
 
-.l-section-education {  
+.l-section-education {
     &:before { background: $grapefruit-primary-color }
     
     .timeline-block {
         &:first-child {
-            .timeline-block-icon {
-                background: $grapefruit-primary-color !important;
-                color: #fff;
-            }
-            
             .timeline-block-content {
-                background: $grapefruit-primary-color !important;
+                background: $grapefruit-primary-color;
                 border: none;
                 color: #fff;
+                
+                &:before {
+                    border-left-color: transparent;
+                    border-right-color: $grapefruit-primary-color;
+                }
+            }
+            
+            .timeline-block-icon {
+                background: $grapefruit-primary-color;
+                color: #fff;
+            }
+        }
+        
+        &:nth-child(even) {
+            .timeline-block-content {
+                &:before {
+                    border-left-color: transparent;
+                    border-right-color: $grapefruit-primary-color;
+                    left: auto;
+                    right: 100%;
+                    top: 24px;
+                }
+            }
+        }
 
+        &-content {
+            border: 1px solid $grapefruit-primary-color;
+            color: $grapefruit-primary-color;
+            text-align: left;
+
+            &:before { 
+                border-right-color: $grapefruit-primary-color;
+                border-left-color: transparent;
+            }
+        }
+            
+        &-icon {
+            background: $light-secondary-color;
+            border: 3px solid $grapefruit-primary-color;
+            color: $grapefruit-secondary-color;
+            height: 50px;
+            margin: 15px -25px;
+            width: 50px;
+
+            .icon {
+                font-size: $h4-font-size;
+                height: inherit;
+                
+                time { height: inherit }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1170px) {
+    .timeline-block {
+        &:first-child {
+            .timeline-block-content {
                 &:before {
                     border-left-color: $grapefruit-primary-color;
                     border-right-color: transparent;
                 }
             }
         }
-        
+
         &:nth-child(even) {
             .timeline-block-content {
                 margin: 0 ($base-margin * -2);
                 
                 &:before {
-                    border-right-color: $grapefruit-primary-color;
-                    left: auto;
-                    right: 100%;
-                    top: 24px;
-                }
-                
-                &:hover {
-                    &:before {
-                        border-left-color: transparent; 
-                        border-right-color: $grapefruit-primary-color;
-                    }
+                    border-left-color: transparent !important;
+                    border-right-color: $grapefruit-primary-color !important;
                 }
             }
         }
     }
-        
-    .timeline-block-icon {
-        background: $light-secondary-color;
-        border: 3px solid $grapefruit-primary-color;
-        color: $grapefruit-secondary-color;
-        height: 50px;
-        margin: 15px -25px;
-        width: 50px;
-
-        .icon { font-size: $h4-font-size }
-    }
 
     .timeline-block-content {
-        border: 1px solid $grapefruit-primary-color;
-        color: $grapefruit-primary-color;
-        margin: 0 ($base-margin * -1);
-        padding: $base-margin;
-        text-align: left;
+        margin: -15px;
 
-        &:before { border-left-color: $grapefruit-primary-color }
+        &:before {
+            border-left-color: $grapefruit-primary-color !important;
+            border-right-color: transparent !important;
+        }
     }
 }
 

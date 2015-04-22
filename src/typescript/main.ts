@@ -30,6 +30,7 @@ require.config({
         // Vendors.
         angular:                'vendor/angular/angular',
         angularAnimate:         'vendor/angular-animate/angular-animate',
+        angularjsViewhead:      'vendor/angularjs-viewhead/angularjs-viewhead',
         angularRoute:           'vendor/angular-route/angular-route',
         angularRouteStyles:     'vendor/angular-route-styles/route-styles',
         angularUiRouter:        'vendor/angular-ui-router/release/angular-ui-router',
@@ -47,6 +48,7 @@ require.config({
     
     shim: {
         // Vendors.
+        angularjsViewhead:  ['angular'],
         angularRoute:       ['angular'],
         angularRouteStyles: ['angular'],
         bootstrap:          ['jquery'],
@@ -56,7 +58,7 @@ require.config({
         ngI18next:          ['angular', 'i18next'],
         
         // Loader.
-        loader:             ['angularRoute', 'angularRouteStyles']
+        loader:             ['angularjsViewhead', 'angularRoute', 'angularRouteStyles']
     }
 });
 

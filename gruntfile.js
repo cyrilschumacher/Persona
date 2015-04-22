@@ -44,10 +44,12 @@ module.exports = function (grunt) {
                     },
                     {
                         cwd: 'bower_components/',
+                        filter: 'isFile',
                         expand: true,
                         src: [
                             'angular/**/*.js', 
                             'angular-animate/**/*.js',
+                            'angularjs-viewhead/*.js',
                             'angular-route/**/*.js',
                             'angular-route-styles/route-styles.js',
                             'angular-ui-router/release/**/*.js',

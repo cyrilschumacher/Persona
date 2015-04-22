@@ -1,5 +1,4 @@
 @import "main";
-@import "base";
 
 .nav-item-home {
     background: $dark-secondary-color;
@@ -7,8 +6,12 @@
 
 .l-header-background { 
     background: #6F4A21 url(/content/image/home.jpg);
+    height:100%;
+    overflow: hidden;
+    position:absolute;
+    width:100%;
     
-    video { height: auto; width: 100% }
+    video { min-height: 100%; min-width: 100% }
 }
 
 .l-header-wrapper {
@@ -20,7 +23,7 @@
         color: #fff;
         margin: 0 0 $margin;
         padding: 0 ($margin * 5);
-        @include transition(all 250ms);
+        @include transition(all $timing-slow);
     }
 
     .description {

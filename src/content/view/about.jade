@@ -23,7 +23,7 @@
 header.l-header.no-selection(data-ng-init="init()")
     div.l-header-wrapper(data-ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
         div.container
-            h1(data-ng-i18next="about.about")
+            h1(data-view-title data-ng-i18next="about.about")
             p.description(data-ng-i18next="about.find_who_am_i")
 
 article.l-article
@@ -43,9 +43,9 @@ article.l-article
         p.subtitle(data-ng-i18next="about.education.subtitle")
     section.l-section.l-section-education.timeline(data-ng-hide="!schools")
         div.timeline-block(data-ng-repeat="school in schools")
-            div.timeline-block-icon.vertical-horizontal-center(itemscope itemtype="http://schema.org/School")
+            div.timeline-block-icon(itemscope itemtype="http://schema.org/School")
                 div.icon
-                    time(datetime="{{school.period.start}}") {{school.period.start | date:'yyyy'}}
+                    time.vertical-horizontal-center(datetime="{{school.period.start}}") {{school.period.start | date:'yyyy'}}
             div.timeline-block-content
                 h3(itemprop="name") {{school.name}}
                 ul.formation-degrees(itemprop="description")
