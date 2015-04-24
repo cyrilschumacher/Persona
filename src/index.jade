@@ -24,7 +24,7 @@ doctype html
 html(lang="fr" prefix="og:http://ogp.me/ns#")
     head
         meta(charset="utf-8")
-        title(ng-bind="viewTitle ? viewTitle + ' - Persona' : 'Persona'")
+        title(data-ng-bind="viewTitle ? viewTitle + ' - Persona' : 'Persona'")
         
         meta(name="description" content="{{head.description}}")
         meta(name="keywords" content="{{head.keywords}}")
@@ -78,11 +78,11 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                             li
                                 a(href="/" data-ng-i18next="common.nav.home")
                             li
-                                a(href="#about" ng-i18next="common.nav.about")
+                                a(href="#about" data-ng-i18next="common.nav.about")
                             li
-                                a(href="#works" ng-i18next="common.nav.works")
+                                a(href="#works" data-ng-i18next="common.nav.works")
                             li
-                                a(href="#contact" ng-i18next="common.nav.contact")
+                                a(href="#contact" data-ng-i18next="common.nav.contact")
                                 
                     p.copyright © 
                         span(itemprop="copyrightYear") 2015 

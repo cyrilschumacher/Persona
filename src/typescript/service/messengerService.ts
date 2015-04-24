@@ -46,8 +46,20 @@ class MessengerService {
      */
     private _messages: { [id: string] : Object };
     
+    /**
+     * @summary Class instance.
+     * @private
+     * @static
+     * @type {MessengerService}
+     */
     private static _instance: MessengerService;
     
+    /**
+     * @summary Get instance of class.
+     * @public
+     * @static
+     * @return {MessengerService} Class instance.
+     */
     public static getInstance = (): Object => {
         if (!MessengerService._instance) {
             MessengerService._instance = new MessengerService();
