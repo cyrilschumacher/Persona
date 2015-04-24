@@ -27,13 +27,17 @@
         "find_who_am_i": "Découvrez qui je suis",
         "presentation": "Présentation",
         "let_me_introduce_myself": "Laissez-moi me présenter",
-        "skills": {
-            "title": "Compétences techniques",
-            "subtitle": "Des connaissances qui me sont acquises"
-        },
         "education": {
             "title": "Formations",
             "subtitle": "Les écoles que j'ai intégré"
+        },
+        "experience": {
+            "title": "Expériences professionnelles",
+            "subtitle": "Mes expériences passées en entreprise"
+        },
+        "skills": {
+            "title": "Compétences techniques",
+            "subtitle": "Des connaissances qui me sont acquises"
         }
     },
     

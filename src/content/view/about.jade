@@ -53,8 +53,8 @@ article.l-article
 
 article.l-article
     header
-        h2 Expériences Professionnelles
-        p.subtitle Mes expériences passées en entreprise
+        h2(data-ng-i18next="about.experience.title")
+        p.subtitle(data-ng-i18next="about.experience.subtitle")
     section.l-section.l-section-experience(data-ng-hide="!companies")
         div.company(data-ng-repeat="company in companies")
             div.company-details
