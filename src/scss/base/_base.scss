@@ -45,6 +45,11 @@
     html { font-size: $mobile-base-font-size !important } 
 }
 
+@include keyframes(loading-animation) {
+    from { @include transform(rotate(0deg)) }
+    to { @include transform(rotate(359deg)) }
+}
+
 html { font-size: $base-font-size }
 
 html, body {
@@ -100,9 +105,8 @@ a {
     }
 }
 
-@include keyframes(loading-animation) {
-    from { @include transform(rotate(0deg)) }
-    to { @include transform(rotate(359deg)) }
+[ng-click], [data-ng-click] {
+    cursor: pointer;
 }
 
 .loading {

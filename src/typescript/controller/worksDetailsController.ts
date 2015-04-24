@@ -42,7 +42,7 @@ class WorksDetailsController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['messengerService', '$scope', '$rootScope', '$routeParams'];
+    public static $inject: Array<String> = ['messengerService', '$scope', '$rootScope', '$routeParams', '$location'];
     
     /**
      * @summary Constructor.
@@ -51,10 +51,14 @@ class WorksDetailsController extends controllerBase {
      * @param $scope        {IScope}            Scope.
      * @param $rootScope    {IRootScopeService} Root scope.
      */
-    public constructor(private messengerService: messengerService, $scope: ng.IScope, $rootScope: ng.IRootScopeService, $routeParams: any) {
+    public constructor(private messengerService: messengerService, $scope: ng.IScope, $rootScope: ng.IRootScopeService, $routeParams: any, $location: any) {
         super($scope, $rootScope)
         
-        var works = this.messengerService.getAndRemove($routeParams.id);
+        if (!$routeParams.id || !this.messengerService.exists($routeParams.id)) {
+            $location.path('/');
+        }
+
+        $scope['works'] = this.messengerService.get($routeParams.id);
     }
 }
 

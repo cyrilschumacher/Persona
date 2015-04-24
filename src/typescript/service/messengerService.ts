@@ -34,6 +34,7 @@ class MessengerService {
     /**
      * @summary Dependencies injection.
      * @public
+     * @static
      * @type {Array<string>}
      */
     public static $inject: Array<string> = [];
@@ -61,7 +62,7 @@ class MessengerService {
      */
     private getDirectiveInformation = (): Object => {
         this.messages = {};
-        return { add: this.add, get: this.get };
+        return { add: this.add, exists: this.exists, get: this.get, getAndRemove: this.getAndRemove };
     }
 
     /**
@@ -72,6 +73,16 @@ class MessengerService {
      */
     public add = (message: Object, key: string): void => {
         this.messages[key] = message;
+    }
+    
+    /**
+     * @summary Determines whether a message exists.
+     * @public
+     * @type {string} key A key.
+     * @return {boolean} True if the message exists, otherwise, False.
+     */
+    public exists = (key: string): boolean => {
+        return !!this.messages[key];   
     }
     
     /**

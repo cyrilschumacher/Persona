@@ -82,9 +82,11 @@ class WorksController extends controllerBase {
     }
     
     /**
-     * 
+     * @summary Redirect to works details page.
+     * @private
+     * @param works {Object} Works information.
      */
-    private _seeWorksDetails = (works): void => {
+    private _seeWorksDetails = (works: Object): void => {
         this.messengerService.add(works, works.id);
         this.$location.path("/works/" + works.id);
     }
