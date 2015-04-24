@@ -21,6 +21,7 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
@@ -44,23 +45,28 @@ class WorksController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$i18next', '$location', 'worksService', 'messengerService', '$rootScope', '$scope'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next', '$location', 'worksService', 'messengerService'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param $i18next          {any}               i18next.
-     * @param $location         {any}               Location.
-     * @param worksService      {WorksService}      Service.
      * @param $scope            {IScope}            Scope.
+     * @param $i18next          {any}               i18next.
+     * @param $location         {ILocationProvider} Location.
+     * @param worksService      {WorksService}      Service.
      * @param $rootScope        {IRootScopeService} Root scope.
      */
-    public constructor(private $i18next: any, private $location: any, private worksService: worksService, private messengerService: messengerService, $rootScope: ng.IRootScopeService, $scope: ng.IScope) {
+    public constructor(public $scope: ng.IScope,
+                       public $rootScope: ng.IRootScopeService,
+                       private $i18next: any,
+                       private $location: ng.ILocationService,
+                       private worksService: worksService,
+                       private messengerService: messengerService) {
         super($scope, $rootScope);
         
-        $scope['init'] = this._initialize;
-        $scope['seeDetails'] = this._seeWorksDetails;
+        this.$scope['init'] = this._initialize;
+        this.$scope['seeDetails'] = this._seeWorksDetails;
     }
     
     /**
@@ -87,8 +93,8 @@ class WorksController extends controllerBase {
      * @param works {Object} Works information.
      */
     private _seeWorksDetails = (works: Object): void => {
-        this.messengerService.add(works, works.id);
-        this.$location.path("/works/" + works.id);
+        this.messengerService.add(works, works['id']);
+        this.$location.path("/works/" + works['id']);
     }
 }
 

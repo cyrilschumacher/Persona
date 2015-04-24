@@ -33,7 +33,7 @@ class ControllerBase {
      * @summary Constructor.
      * @constructor
      * @public
-     * @param $scope        {IScope}        Model.
+     * @param $scope        {IScope}            Model.
      * @param $rootScope    {IRootScopeService} Root scope.
      */
     public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService) {

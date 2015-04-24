@@ -21,6 +21,7 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="directive/fullHeightWindowDirective"/>
@@ -42,23 +43,38 @@ class WorksDetailsController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['messengerService', '$scope', '$rootScope', '$routeParams', '$location'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$location', 'messengerService'];
     
     /**
      * @summary Constructor.
      * @constructor
      * @public
-     * @param $scope        {IScope}            Scope.
-     * @param $rootScope    {IRootScopeService} Root scope.
+     * @param $scope             {IScope}              Scope.
+     * @param $rootScope         {IRootScopeService}   Root scope.
+     * @param messengerService   {MessengerService}    Messenging service.
+     * @param $routeParams       {IRouteParamsService} Route parameters.
+     * @param $location          {ILocationProvider}   Location service.
      */
-    public constructor(private messengerService: messengerService, $scope: ng.IScope, $rootScope: ng.IRootScopeService, $routeParams: any, $location: any) {
-        super($scope, $rootScope)
+    public constructor(public $scope: ng.IScope,
+                       public $rootScope: ng.IRootScopeService,
+                       private $routeParams: angular.route.IRouteParamsService,
+                       private $location: ng.ILocationService,
+                       private messengerService: messengerService) {
+        super($scope, $rootScope);
         
-        if (!$routeParams.id || !this.messengerService.exists($routeParams.id)) {
-            $location.path('/');
+        this.$scope['init'] = this._initialize;
+    }
+    
+    /**
+     * @summary Initialize controller.
+     * @private
+     */
+    private _initialize = (): void => {
+        if (!this.$routeParams['id'] || !this.messengerService.exists(this.$routeParams['id'])) {
+            this.$location.path('/');
         }
 
-        $scope['works'] = this.messengerService.get($routeParams.id);
+        this.$scope['works'] = this.messengerService.get(this.$routeParams['id']);
     }
 }
 

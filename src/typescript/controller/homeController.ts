@@ -39,7 +39,7 @@ class HomeController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$rootScope'];
+    public static $inject: Array<string> = ['$scope', '$rootScope'];
     
     /**
      * @summary Constructor.

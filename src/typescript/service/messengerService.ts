@@ -44,7 +44,17 @@ class MessengerService {
      * @private
      * @type {Object}
      */
-    private messages: { [id: string] : Object };
+    private _messages: { [id: string] : Object };
+    
+    private static _instance: MessengerService;
+    
+    public static getInstance = (): Object => {
+        if (!MessengerService._instance) {
+            MessengerService._instance = new MessengerService();
+        }
+        
+        return MessengerService._instance;
+    }
     
     /**
      * @summary Constructor.
@@ -52,17 +62,7 @@ class MessengerService {
      * @public
      */
     constructor() {
-        return this.getDirectiveInformation();
-    }
-
-    /**
-     * @summary Get directive information.
-     * @private
-     * @return {Object} The directive information.
-     */
-    private getDirectiveInformation = (): Object => {
-        this.messages = {};
-        return { add: this.add, exists: this.exists, get: this.get, getAndRemove: this.getAndRemove };
+        this._messages = {};
     }
 
     /**
@@ -72,7 +72,7 @@ class MessengerService {
      * @type {string} key   A key.
      */
     public add = (message: Object, key: string): void => {
-        this.messages[key] = message;
+        this._messages[key] = message;
     }
     
     /**
@@ -82,7 +82,7 @@ class MessengerService {
      * @return {boolean} True if the message exists, otherwise, False.
      */
     public exists = (key: string): boolean => {
-        return !!this.messages[key];   
+        return !!this._messages[key];   
     }
     
     /**
@@ -91,8 +91,8 @@ class MessengerService {
      * @type {string} key A key.
      * @return {Object} The message.
      */
-    private get = (key: string): Object => {
-        return this.messages[key];
+    public get = (key: string): Object => {
+        return this._messages[key];
     }
     
     /**
@@ -101,13 +101,13 @@ class MessengerService {
      * @type {string} key A key.
      * @return {Object} The message.
      */
-    private getAndRemove = (key: string): void => {
+    public getAndRemove = (key: string): Object => {
         var value: Object = this.get(key);
-        delete this.messages[key];
+        delete this._messages[key];
         
         return value;
     }
 }
 
 export = MessengerService;
-app.instance.module['register'].factory('messengerService', MessengerService);
+app.instance.module['register'].factory('messengerService', MessengerService.getInstance);

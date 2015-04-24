@@ -45,7 +45,7 @@ class AboutController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$i18next', 'profileService', 'resumeService', '$scope', '$rootScope'];
+    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'profileService', 'resumeService'];
     
     /**
      * @summary Constructor.
@@ -54,13 +54,17 @@ class AboutController extends controllerBase {
      * @param $scope            {IScope}            Scope.
      * @param $rootScope        {IRootScopeService} Root scope.
      * @param $i18next          {any}               i18next.
-     * @param profileService    {profileService}    Profile service.
+     * @param profileService    {ProfileService}    Profile service.
      * @param resumeService     {ResumeService}     Resume service.
      */
-    public constructor(private $i18next: any, private profileService: profileService, private resumeService: resumeService, $scope: ng.IScope, $rootScope: ng.IRootScopeService) {
+    public constructor(public $scope: ng.IScope,
+                       public $rootScope: ng.IRootScopeService,
+                       private $i18next: any,
+                       private profileService: profileService,
+                       private resumeService: resumeService) {
         super($scope, $rootScope);
         
-        $scope['init'] = this._initialize;
+        this.$scope['init'] = this._initialize;
     }
     
     /**

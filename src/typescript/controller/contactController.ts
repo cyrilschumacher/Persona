@@ -47,18 +47,21 @@ class ContactController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$i18next', 'profileService', '$scope', '$rootScope'];
+    public static $inject: Array<string> = ['$i18next', 'profileService', '$scope', '$rootScope'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param $i18next          {any}               Localization.
-     * @param profileService    {any}               Profile service.
      * @param $scope            {IScope}            Model.
      * @param $rootScope        {IRootScopeService} Root scope.
+     * @param $i18next          {any}               Localization.
+     * @param profileService    {ProfileService}    Profile service.
      */
-    public constructor(private $i18next: any, private profileService, $scope: ng.IScope, $rootScope: ng.IRootScopeService) {
+    public constructor(public $scope: ng.IScope, 
+                       public $rootScope: ng.IRootScopeService,
+                       private $i18next: any, 
+                       private profileService) {
         super($scope, $rootScope);
         
         $scope['init'] = this._initialize;
