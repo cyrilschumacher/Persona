@@ -22,9 +22,13 @@
 
 @import "main";
 
+/* Navigation bar */
+
 .nav-item-works {
     background: $dark-secondary-color;
 }
+
+/* Header */
 
 .l-header-wrapper {
     background: $lavander-primary-color;
@@ -32,9 +36,13 @@
     z-index: 1;
 }
 
+/* Section */
+
 .l-section {
     margin: ($margin * 3) auto $margin;
 }
+
+/* Section content */
 
 .l-article-works {
     ul {

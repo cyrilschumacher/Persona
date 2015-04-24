@@ -22,7 +22,8 @@
 
 @import "main";
 
-/* Media Queries. */
+/* Media Queries */
+
 @media only screen and (min-width: 1170px) {
     .timeline-block {
         &:nth-child(even) {
@@ -47,21 +48,30 @@
     }
 }
 
-/* Keyframes. */
+/* Keyframes */
+
 @include keyframes(animation-progress-background) {
     from { width: 0 }
     to { width: inherit }
 }
 
+/* Classes */
+
+/* Navigation bar */
+
 .nav-item-about {
     background: $dark-secondary-color;
 }
+
+/* Header */
 
 .l-header-wrapper {
     background: $grapefruit-primary-color;
     color: #fff;
     z-index: 1;
 }
+
+/* Section */
 
 .l-section {
     margin: ($margin * 3) auto $margin;
@@ -70,6 +80,61 @@
     
     header {
         h2 { text-transform: uppercase }
+    }
+}
+
+.l-section-education {
+    &:before { background: $grapefruit-primary-color }
+}
+
+.l-section-experience {
+    h3 { color: $grapefruit-primary-color }
+}
+
+.l-section-skills {
+    ul { text-align: left }
+}
+
+/* Section content */
+
+.company {
+    padding: 4rem 0 1rem;
+    @include display-flex;
+    @include flex-direction(row);
+
+    &-details {
+        width: 25%;
+
+        &-properties {
+            border: 1px solid $light-primary-color;
+            @include display-flex;
+            @include flex-direction(row);
+            margin: 0 0 .5rem;
+            padding: .8rem;
+
+            > .information, > .icon { text-align: left }
+            > .information {
+                color: $grapefruit-primary-color;
+                @include justify-content(flex-start);
+
+                > .separator { margin: 0 ($margin / 2) }
+            }
+
+            > .icon {
+                background: $grapefruit-primary-color;
+                height: 3rem;
+                margin: 0 1rem 0 0;
+                width: 3rem;
+
+                .fa { color: #fff }
+            }
+        }
+    }
+
+    &-information {
+        padding: 0 0 0 $margin;
+        text-align: left;
+        width: 75%;
     }
 }
 
@@ -90,9 +155,10 @@
         width: 75%;
         
         p {
+            border-top: 5px solid $light-primary-color;
+            border-bottom: 5px solid $light-primary-color;
             font-size: $h3-font-size;
             margin: 0 $margin;
-            text-align: left;
             
             &:before, &:after { font-size: $h3-font-size; font-weight: 900 }
             &:before { content: '\201C' }
@@ -101,159 +167,107 @@
     }
 }
 
-.l-section-education {
-    &:before { background: $grapefruit-primary-color }
-    
-    .timeline-block {
-        &:first-child {
-            .timeline-block-content {
-                background: $grapefruit-primary-color;
-                border: none;
-                color: #fff;
-                
-                &:before {
-                    border-left-color: transparent;
-                    border-right-color: $grapefruit-primary-color;
-                }
-            }
-            
-            .timeline-block-icon {
-                background: $grapefruit-primary-color;
-                color: #fff;
-            }
-        }
-        
-        &:nth-child(even) {
-            .timeline-block-content {
-                &:before {
-                    border-left-color: transparent;
-                    border-right-color: $grapefruit-primary-color;
-                    left: auto;
-                    right: 100%;
-                    top: 24px;
-                }
-            }
-        }
+.progress {
+    border: 1px solid $grapefruit-primary-color;
+    height: 3rem;
+    position: relative;
+    width: 100%;
+    word-wrap: break-word;
 
-        &-content {
-            border: 1px solid $grapefruit-primary-color;
-            color: $grapefruit-primary-color;
-            text-align: left;
+    &-background {
+        background: $grapefruit-secondary-color;
+        left: 0;
+        height: 100%;
+        position: absolute;
+        right: 0;
 
-            &:before { 
-                border-right-color: $grapefruit-primary-color;
-                border-left-color: transparent;
-            }
-        }
-            
-        &-icon {
-            background: $light-secondary-color;
-            border: 3px solid $grapefruit-primary-color;
-            color: $grapefruit-secondary-color;
-            height: 50px;
-            margin: 15px -25px;
-            width: 50px;
-
-            .icon {
-                font-size: $h4-font-size;
-                height: inherit;
-                
-                time { height: inherit }
-            }
-        }
+        @include animation(5s animation-progress-background ease-out);
     }
-}
 
-.l-section-experience {
-    h3 { color: $grapefruit-primary-color }
-    
-    .company {
-        padding: 4rem 0 1rem;
-        @include display-flex;
-        @include flex-direction(row);
-        
-        &-details {
-            width: 25%;
-            
-            &-properties {
-                border: 1px solid $light-primary-color;
-                @include display-flex;
-                @include flex-direction(row);
-                margin: 0 0 .5rem;
-                padding: .8rem;
-
-                > .information, > .icon { text-align: left }
-                > .information {
-                    color: $grapefruit-primary-color;
-                    @include justify-content(flex-start);
-                    
-                    > .separator { margin: 0 ($margin / 2) }
-                }
-                
-                > .icon {
-                    background: $grapefruit-primary-color;
-                    height: 3rem;
-                    margin: 0 1rem 0 0;
-                    width: 3rem;
-
-                    .fa { color: #fff }
-                }
-            }
-        }
-        
-        &-information {
-            padding: 0 0 0 $margin;
-            text-align: left;
-            width: 75%;
-        }
-    }
-}
-
-.l-section-skills {
-    ul { text-align: left }
-    
-    .skill {
-        display: inline-block;
-        margin: $margin;
-        vertical-align: top;
-        width: 30%;
-    }
-    
-    .progress {
-        background: $grapefruit-primary-color;
-        @include border-radius(0);
-        @include box-shadow(none);
-        height: 3rem;
-        position: relative;
+    &-content {
+        height: inherit;
+        overflow: hidden;
+        position: absolute;
         width: 100%;
-        word-wrap: break-word;
-        
-        &-background {
-            background: $grapefruit-secondary-color;
-            border-right: 5px solid #fff;
-            left: 0;
-            height: 100%;
+
+        &-name, &-value { 
+            padding: 0 ($margin / 2);
             position: absolute;
-            right: 0;
-            
-            @include animation(5s animation-progress-background ease-out);
+            transform: translate(0, -50%);
         }
-        
-        &-content {
+
+        &-name {
             color: #fff;
-            height: inherit;
-            overflow: hidden;
-            position: absolute;
-            width: 100%;
-            
-            &-name, &-value { 
-                padding: 0 ($margin / 2);
-                position: absolute;
-                transform: translate(0, -50%);
+            font-family: $bebas-neue-font;
+            left: $margin;
+        }
+
+        &-value { color: $grapefruit-primary-color; right: $margin }
+    }
+}
+
+.skill {
+    display: inline-block;
+    margin: $margin;
+    vertical-align: top;
+    width: 30%;
+}
+    
+.timeline-block {
+    &:first-child {
+        .timeline-block-content {
+            background: $grapefruit-primary-color;
+            border: none;
+            color: #fff;
+
+            &:before {
+                border-left-color: transparent;
+                border-right-color: $grapefruit-primary-color;
             }
-            
-            &-name { font-weight: 900; left: $margin }
-            &-value { right: $margin; }
+        }
+
+        .timeline-block-icon {
+            background: $grapefruit-primary-color;
+            color: #fff;
+        }
+    }
+
+    &:nth-child(even) {
+        .timeline-block-content {
+            &:before {
+                border-left-color: transparent;
+                border-right-color: $grapefruit-primary-color;
+                left: auto;
+                right: 100%;
+                top: 24px;
+            }
+        }
+    }
+
+    &-content {
+        border: 3px dashed $grapefruit-primary-color;
+        color: $grapefruit-primary-color;
+        text-align: left;
+
+        &:before { 
+            border-right-color: $grapefruit-primary-color;
+            border-left-color: transparent;
+        }
+    }
+
+    &-icon {
+        background: $light-secondary-color;
+        border: 3px solid $grapefruit-primary-color;
+        color: $grapefruit-secondary-color;
+        height: 50px;
+        margin: 15px -25px;
+        width: 50px;
+
+        .icon {
+            font-size: $h4-font-size;
+            height: inherit;
+
+            time { height: inherit }
         }
     }
 }

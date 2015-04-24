@@ -20,6 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+/* Animation */
+
 @include keyframes(navbar-closing) {
     from { right: 0 }
     to { right: -50rem }
@@ -37,6 +39,12 @@
     to { right: -100% }
 }
 
+/* Stack order elements */
+
+.l-nav, #drawer-toggle-label { z-index: 3 }
+
+/* Classes */
+
 .l-nav {
     @include animation(500ms navbar-closing forwards cubic-bezier(0.165, 0.840, 0.440, 1.000));
     background: $dark-primary-color;
@@ -45,7 +53,6 @@
     right: -25rem;
 	top: 0;
 	width: 25rem;
-    z-index: 3;
     
     &-container { height: 100%; width: 100% }
     
@@ -88,13 +95,16 @@
     }
 }
 
+/* Id's */
+
 #drawer-toggle {
     display: none;
     
     &:checked ~ #drawer-toggle-label {
-        height: 95%;
+        height: 100%;
         left: 0;
         opacity: 0;
+        position: fixed;
         top: 0;
         width: 100%;
     }
@@ -108,29 +118,28 @@
             li { @include animation(navbar-item-opening 250ms forwards ease-out); right: -100% }
         }
     }
-}
-
-#drawer-toggle-label {
-    background: rgba(255, 255, 255, 0);
-	display: block;
-	height: 4rem;
-    left: 10%;
-    right: 10%;
-    position: absolute;
-    top: 5rem;
-	width: 80%;
-	z-index: 2;
-
-    &:before {
-        background: #fff;
-        @include box-shadow(0 .8rem 0 #fff, 0 1.6rem 0 #fff);
-        content: '';
+    
+    &-label {
+        background: rgba(255, 255, 255, 0);
         display: block;
-        height: .3rem;
+        height: 4rem;
+        left: 10%;
+        right: 10%;
         position: absolute;
-        right: 0;
-        top: 0;
-        @include transition($timing-fast transform);
-        width: 24px;
+        top: 5rem;
+        width: 80%;
+
+        &:before {
+            background: #fff;
+            @include box-shadow(0 .8rem 0 #fff, 0 1.6rem 0 #fff);
+            content: '';
+            display: block;
+            height: .3rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+            @include transition($timing-fast transform);
+            width: 24px;
+        }
     }
 }

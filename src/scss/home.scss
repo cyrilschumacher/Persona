@@ -22,9 +22,13 @@
 
 @import "main";
 
+/* Navigation bar */
+
 .nav-item-home {
     background: $dark-secondary-color;
 }
+
+/* Header */
 
 .l-header-background { 
     background: #6F4A21 url(/content/image/home.jpg);
@@ -53,6 +57,8 @@
         margin: 0 0 ($margin * 3);
     }
 }
+
+/* Footer */
 
 .l-footer {
     bottom: 0;

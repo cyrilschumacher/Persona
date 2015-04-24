@@ -36,7 +36,7 @@ article.l-article
                 p
                     img(alt="{{profile.photo.title}}" src="{{profile.photo.url}}")
             div.presentation-description
-                p {{profile.description}}
+                p.text-justify {{profile.description}}
 
 article.l-article
     header
@@ -84,7 +84,7 @@ article.l-article
                                 time(datetime="{{company.period.end}}") {{company.period.end | date:'MMMM yyyy'}}
             div.company-information
                 h3 {{company.name}}
-                p.summary {{company.summary}}
+                p.summary.text-justify {{company.summary}}
 
 article.l-article
     header
