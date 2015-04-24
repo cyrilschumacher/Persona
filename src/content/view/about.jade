@@ -31,11 +31,12 @@ article.l-article
         h2(data-ng-i18next="about.presentation")
         p.subtitle(data-ng-i18next="about.let_me_introduce_myself")
     section.l-section.l-section-presentation
-        p
-            img(alt="Cyril Schumacher" src="/content/image/me.jpg")
-        div.resume
-            h3.my-name Je suis Cyril Schumacher
-            p Passionné des technologies Microsoft depuis l'âge de 14 ans, je suis également Microsoft Student Partner depuis le début de ma scolarité. Je suis une personne autodidacte, depuis mes années au collège, qui ne cesse de repousser ces connaissances. Actuellement étudiant à l'exia.cesi de Nancy pour apprendre et découvrir avec passion, de nouvelles technologies à tout moment.
+        div.presentation
+            div.presentation-photo
+                p
+                    img(alt="{{profile.photo.title}}" src="{{profile.photo.url}}")
+            div.presentation-description
+                p {{profile.description}}
 
 article.l-article
     header

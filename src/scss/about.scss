@@ -73,14 +73,31 @@
     }
 }
 
-.l-section-presentation {
-    .my-name { color: $grapefruit-primary-color }
-    .resume { line-height: ($body-font-size * 1.5) }
+.presentation {
+    @include display-flex;
+    @include flex-direction(row);
     
-    img { border: .5rem solid $light-primary-color; height: 25rem; margin: 0 0 2rem; }
-    ul {
-        list-style: square;
-        margin: $margin 0 0 ($margin * 3);
+    &-photo {
+        width: 25%;
+        
+        img { 
+            border: $margin solid $light-primary-color; 
+            width: 80%;
+        }
+    }
+    
+    &-description {
+        width: 75%;
+        
+        p {
+            font-size: $h3-font-size;
+            margin: 0 $margin;
+            text-align: left;
+            
+            &:before, &:after { font-size: $h3-font-size; font-weight: 900 }
+            &:before { content: '\201C' }
+            &:after { content: '\201D' }
+        }
     }
 }
 
