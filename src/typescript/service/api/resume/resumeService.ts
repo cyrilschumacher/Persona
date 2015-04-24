@@ -21,26 +21,24 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 import app = require('app');
 import httpServiceBase = require('service/httpServiceBase');
 
 /**
- * @summary Profile service.
+ * @summary Resume service.
  * @author  Cyril Schumacher
  * @class
  */
-class ProfileService extends httpServiceBase {
-    'use strict';
-
+class ResumeService extends httpServiceBase {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
     public static $inject: Array<String> = ['$http', 'appConfig'];
-    
+
     /**
      * @summary Constructor.
      * @constructs
@@ -51,17 +49,37 @@ class ProfileService extends httpServiceBase {
     public constructor(private $http: ng.IHttpService, private appConfig: Object) {
         super();
     }
-    
+
     /**
-     * @summary Returns a profile.
+     * @summary Returns a list of schools.
      * @public
-     * @returns {IPromise} The profile.
+     * @returns {IPromise} List of schools.
      */
-    public getProfile = (): ng.IPromise<Object> => {
-        var url: string = this.appConfig['restServer'].concat('profile');
+    public getEducation = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('resume/education');
+        return this.$http.get(url).then(this.getDataComplete);
+    }
+
+    /**
+     * @summary Returns a list of company.
+     * @public
+     * @returns {IPromise} List of company.
+     */
+    public getExperience = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('resume/experience');
+        return this.$http.get(url).then(this.getDataComplete);
+    }
+
+    /**
+     * @summary Returns a list of skill.
+     * @public
+     * @returns {IPromise} List of skill.
+     */
+    public getSkills = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('resume/skills');
         return this.$http.get(url).then(this.getDataComplete);
     }
 }
 
-export = ProfileService;
-app.instance.module['register'].service('profileService', ProfileService);
+export = ResumeService;
+app.instance.module['register'].service('resumeService', ResumeService);

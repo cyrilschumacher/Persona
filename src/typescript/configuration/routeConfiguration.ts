@@ -55,10 +55,10 @@ class RouteConfiguration {
     /**
      * Adds route.
      * @private
-     * @param   {string}            viewName               View name.
-     * @param   {string}            controllerName         Controller name. Optional.
-     * @param   {string|string[]}   stylesheetName         Stylesheet name. Optional.
-     * @return  {IRoute}            A route definition.
+     * @param   {string}            viewName        View name.
+     * @param   {string}            controllerName  Controller name. Optional.
+     * @param   {string|string[]}   stylesheetName  Stylesheet name. Optional.
+     * @return  {IRoute}                            A route definition.
      */
      private _addRoute = (viewName: string, controllerName?: string, stylesheetName?: string|Array<string>): ng.route.IRoute => {
         controllerName = controllerName ? controllerName : viewName;
@@ -75,7 +75,7 @@ class RouteConfiguration {
             resolve:        this._resolve(controllerFile),
             templateUrl:    templateFile
         };
-    }
+     }
      
     /**
      * @summary Format CSS file.
@@ -88,7 +88,7 @@ class RouteConfiguration {
     /**
      * @summary Gets the CSS files.
      * @param   {string|string[]} stylesheetName Stylesheet name.
-     * @return  {string[]}        CSS files.
+     * @return  {string[]}                       CSS files.
      */
     private _getCSSFiles = (stylesheetName: string|Array<string>): Array<string> => {
         var cssFiles: Array<string> = new Array<string>();
@@ -129,7 +129,7 @@ class RouteConfiguration {
      * @param   {IQService}         $q           Q service.
      * @param   {IRootScopeService} $rootScope   Root scope service.
      * @param   {Array<string>}     dependencies Dependencies.
-     * @return  {IPromise<any>}     Promise.  
+     * @return  {IPromise<any>}                  Promise.  
      */
     private _resolveDependencies = ($q: ng.IQService, $rootScope: ng.IRootScopeService, dependencies: Array<string>): ng.IPromise<any> => {
         var defer = $q.defer();

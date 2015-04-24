@@ -26,12 +26,12 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="service/messengerService"/>
-/// <amd-dependency path="service/worksService"/>
+/// <amd-dependency path="service/api/worksService"/>
 
 import app = require('app');
 import controllerBase = require('controller/controllerBase');
 import messengerService = require('service/messengerService');
-import worksService = require('service/worksService');
+import worksService = require('service/api/worksService');
 
 /**
  * @summary Works controller.

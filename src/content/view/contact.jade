@@ -41,18 +41,6 @@ article.l-article
             form(name="contactForm" data-ng-submit="submit()")
                 p(data-ng-i18next="contact.form.description")
                 fieldset
-                    div.row
-                        div.col-xs-6
-                            label(data-ng-i18next="contact.form.firstname")
-                            p
-                                input(data-ng-model="form.firstname" type="text" size="36")
-                                span.field-information 3 à 40 caractères maximum.
-                        div.col-xs-6
-                            label(data-ng-i18next="contact.form.lastname")
-                            p
-                                input(data-ng-model="form.lastname" type="text" size="36")
-                                span.field-information 3 à 40 caractères maximum.
-
                     label(data-ng-i18next="contact.form.email")
                     span.input-required *
                     p  

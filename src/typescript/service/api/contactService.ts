@@ -27,11 +27,11 @@ import app = require('app');
 import httpServiceBase = require('service/httpServiceBase');
 
 /**
- * @summary Resume service.
+ * @summary Works service.
  * @author  Cyril Schumacher
  * @class
  */
-class ResumeService extends httpServiceBase {
+class ContactService extends httpServiceBase {
     /**
      * @summary Dependencies injection.
      * @public
@@ -51,35 +51,31 @@ class ResumeService extends httpServiceBase {
     }
     
     /**
-     * @summary Returns a list of schools.
+     * @summary Gets a captcha.
      * @public
-     * @returns {IPromise} List of schools.
+     * @returns {IPromise} The captcha.
      */
-    public getEducation = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('resume/education');
+    public getCaptcha = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('contact/captcha/');
         return this.$http.get(url).then(this.getDataComplete);
     }
-
+    
     /**
-     * @summary Returns a list of company.
+     * @summary Sends a mail.
      * @public
-     * @returns {IPromise} List of company.
+     * @param   {string}    code     A captcha code.
+     * @param   {string}    mail     A mail address.
+     * @param   {string}    subject  A subject.
+     * @param   {string}    message  A message.
+     * @returns {IPromise}           The result.
      */
-    public getExperience = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('resume/experience');
-        return this.$http.get(url).then(this.getDataComplete);
-    }
-
-    /**
-     * @summary Returns a list of skill.
-     * @public
-     * @returns {IPromise} List of skill.
-     */
-    public getSkills = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('resume/skills');
-        return this.$http.get(url).then(this.getDataComplete);
+    public send = (code: string, mail: string, subject: string, message: string): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('contact/send/');
+        var data: string = $.param({code: code, mail: mail, subject: subject, message: message});
+        
+        return this.$http.post(url, data).then(this.getDataComplete);
     }
 }
 
-export = ResumeService;
-app.instance.module['register'].service('resumeService', ResumeService);
+export = ContactService;
+app.instance.module['register'].service('contactService', ContactService);

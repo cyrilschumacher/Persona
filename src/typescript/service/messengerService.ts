@@ -90,8 +90,8 @@ class MessengerService {
     /**
      * @summary Determines whether a message exists.
      * @public
-     * @type {string} key A key.
-     * @return {boolean} True if the message exists, otherwise, False.
+     * @type    {string} key    A key.
+     * @return  {boolean}       True if the message exists, otherwise, False.
      */
     public exists = (key: string): boolean => {
         return !!this._messages[key];   
@@ -100,8 +100,8 @@ class MessengerService {
     /**
      * @summary Get the message by a key.
      * @public
-     * @type {string} key A key.
-     * @return {Object} The message.
+     * @type    {string}   key  A key.
+     * @return  {Object}        The message.
      */
     public get = (key: string): Object => {
         return this._messages[key];
@@ -110,8 +110,8 @@ class MessengerService {
     /**
      * @summary Get the message by a key and delete it.
      * @public
-     * @type {string} key A key.
-     * @return {Object} The message.
+     * @type    {string}    key A key.
+     * @return  {Object}        The message.
      */
     public getAndRemove = (key: string): Object => {
         var value: Object = this.get(key);

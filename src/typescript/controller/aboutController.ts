@@ -25,13 +25,13 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
-/// <amd-dependency path="service/resume/profileService"/>
-/// <amd-dependency path="service/resume/resumeService"/>
+/// <amd-dependency path="service/api/resume/profileService"/>
+/// <amd-dependency path="service/api/resume/resumeService"/>
 
 import app = require('app');
 import controllerBase = require('controller/controllerBase');
-import profileService = require('service/resume/profileService');
-import resumeService = require('service/resume/resumeService');
+import profileService = require('service/api/resume/profileService');
+import resumeService = require('service/api/resume/resumeService');
 
 /**
  * @summary About controller.

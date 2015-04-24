@@ -21,45 +21,45 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <amd-dependency path="jqueryFadebyscroll"/>
+/// <reference path="../../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 import app = require('app');
+import httpServiceBase = require('service/httpServiceBase');
 
 /**
- * @summary Directive for scroll to an element by its identifier.
+ * @summary Works service.
  * @author  Cyril Schumacher
  * @class
  */
-class FadeByScrollDirective implements ng.IDirective {
+class WorksService extends httpServiceBase {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = [];
-
-    /**
-     * @summary Restrict option.
-     * @public
-     * @type {string}
-     */
-    public restrict: string = 'A';
+    public static $inject: Array<String> = ['$http', 'appConfig'];
     
     /**
-     * @summary Manipulates the DOM of the current page.
+     * @summary Constructor.
+     * @constructs
      * @public
-     * @param {IScope}      scope   Angular scope object.
-     * @param {JQuery}      element jqLite-wrapped element that this directive matches.
-     * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
+     * @param {IHttpService}    $http       HTTP service.
+     * @param {Object}          appConfig   Application configuration.
      */
-    public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        if ($.fn.fadeByScroll) {
-            var percentage: number = attrs['percentage'];
-            $(element).fadeByScroll(percentage, {element: $(attrs['element'])});
-        }
+    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
+        super();
+    }
+    
+    /**
+     * @summary Returns a list of works.
+     * @public
+     * @returns {IPromise} The list of works.
+     */
+    public getWorks = (): ng.IPromise<Array<Object>> => {
+        var url: string = this.appConfig['restServer'].concat('works');
+        return this.$http.get(url).then(this.getDataComplete);
     }
 }
 
-export = FadeByScrollDirective;
-app.instance.module['register'].directive('ngFadeByScroll', () => new FadeByScrollDirective());
+export = WorksService;
+app.instance.module['register'].service('worksService', WorksService);

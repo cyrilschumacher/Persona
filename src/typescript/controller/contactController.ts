@@ -28,11 +28,14 @@
 /// <amd-dependency path="directive/bingMapsDirective"/>
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="jqueryAutosize"/>
-/// <amd-dependency path="service/resume/profileService"/>
+/// <amd-dependency path="service/api/contactService"/>
+/// <amd-dependency path="service/api/resume/profileService"/>
 /// <amd-dependency path="velocity"/>
 
 import app = require('app');
 import controllerBase = require('controller/controllerBase');
+import contactService = require('service/api/contactService');
+import profileService = require('service/api/resume/profileService');
 import contactFormModel = require('model/contactFormModel');
 
 /**
@@ -47,7 +50,7 @@ class ContactController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$i18next', 'profileService', '$scope', '$rootScope'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next', 'contactService', 'profileService'];
     
     /**
      * @summary Constructor.
@@ -61,7 +64,8 @@ class ContactController extends controllerBase {
     public constructor(public $scope: ng.IScope, 
                        public $rootScope: ng.IRootScopeService,
                        private $i18next: any, 
-                       private profileService) {
+                       private contactService: contactService,
+                       private profileService: profileService) {
         super($scope, $rootScope);
         
         $scope['init'] = this._initialize;
@@ -97,7 +101,7 @@ class ContactController extends controllerBase {
         };
         
         var location: any = this.profileService.getProfile().then(profile => {
-            var pinLocation: Microsoft.Maps.Location = new Microsoft.Maps.Location(profile.coordinates.latitude, profile.coordinates.longitude)
+            var pinLocation: Microsoft.Maps.Location = new Microsoft.Maps.Location(profile['coordinates']['latitude'], profile['coordinates']['longitude']);
             var pin: Microsoft.Maps.Pushpin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'content/image/pin.svg', height: 60, width: 80});
 
             this.$scope['pushpins'] = [pin];

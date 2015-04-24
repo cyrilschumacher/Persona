@@ -36,7 +36,7 @@ class ScrollToDirective implements ng.IDirective {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = [];
+    public static $inject: Array<string> = [];
 
     /**
      * @summary Restrict option.

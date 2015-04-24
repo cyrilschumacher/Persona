@@ -21,17 +21,17 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 import app = require('app');
 import httpServiceBase = require('service/httpServiceBase');
 
 /**
- * @summary Works service.
+ * @summary Profile service.
  * @author  Cyril Schumacher
  * @class
  */
-class WorksService extends httpServiceBase {
+class ProfileService extends httpServiceBase {
     /**
      * @summary Dependencies injection.
      * @public
@@ -51,15 +51,15 @@ class WorksService extends httpServiceBase {
     }
     
     /**
-     * @summary Returns a list of works.
+     * @summary Returns a profile.
      * @public
-     * @returns {IPromise} The list of works.
+     * @returns {IPromise} The profile.
      */
-    public getWorks = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('works');
+    public getProfile = (): ng.IPromise<Object> => {
+        var url: string = this.appConfig['restServer'].concat('profile');
         return this.$http.get(url).then(this.getDataComplete);
     }
 }
 
-export = WorksService;
-app.instance.module['register'].service('worksService', WorksService);
+export = ProfileService;
+app.instance.module['register'].service('profileService', ProfileService);
