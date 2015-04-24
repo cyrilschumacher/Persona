@@ -68,7 +68,7 @@ class AboutController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
-        this.initializeHead(this.$i18next('about.head.description'), this.$i18next('about.head.keywords'), this.$i18next('about.head.title'));
+        this.initializeHead(this.$i18next('about.head.description'), this.$i18next('about.head.keywords'));
         
         this._initializeEducation();
         this._initializeExperience();

@@ -45,14 +45,12 @@ class ControllerBase {
      * @protected
      * @param description   {string} Description.
      * @param keywords      {string} Keywords.
-     * @param title         {string} Title.
      */
-    protected initializeHead = (description?: string, keywords?: string, title?: string) => {
+    protected initializeHead = (description?: string, keywords?: string) => {
         var head: headModel = this.$rootScope['head'];
         
         head.description = description;
         head.keywords = keywords;
-        head.title = title;
     }
 }
 

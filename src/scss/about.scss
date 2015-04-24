@@ -141,7 +141,7 @@
                     color: $grapefruit-primary-color;
                     @include justify-content(flex-start);
                     
-                    > .separator { margin: 0 ($margin / 2) 0 0 }
+                    > .separator { margin: 0 ($margin / 2) }
                 }
                 
                 > .icon {

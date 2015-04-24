@@ -40,13 +40,6 @@ class HtmlHeadModel {
      * @public
      */
     public keywords: string;
-    
-    /**
-     * @summary Title of the HTML page.
-     * @member {string}
-     * @public
-     */
-    public title: string;
 }
 
 export = HtmlHeadModel;

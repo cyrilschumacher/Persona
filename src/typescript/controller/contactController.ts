@@ -69,7 +69,7 @@ class ContactController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
-        this.initializeHead(this.$i18next('contact.head.description'), this.$i18next('contact.head.keywords'), this.$i18next('contact.head.title'));
+        this.initializeHead(this.$i18next('contact.head.description'), this.$i18next('contact.head.keywords'));
         
         this._initializeScope();
         this._initializeElements();

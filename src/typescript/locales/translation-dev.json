@@ -21,8 +21,7 @@
     "about": {
         "head": {
             "description": "Découvrez mes compétences que j'ai acquises durant mes formations et stages, mes expériences professionnelles que j'ai effectuées ainsi que mes formations que j'ai passées.",
-            "keywords": "a propos,formation,présentation,expériences,loisirs,cv,curriculum vitae,écoles,stage,entreprise,compétence",
-            "title": "A propos"  
+            "keywords": "a propos,formation,présentation,expériences,loisirs,cv,curriculum vitae,écoles,stage,entreprise,compétence"
         },
         "about": "A propos",
         "find_who_am_i": "Découvrez qui je suis",
@@ -41,8 +40,7 @@
     "contact": {
         "head": {
             "description": "Contactez-moi pour une demande d'information, une observation, une suggestion, un autre motif.",
-            "keywords": "contact,mail,sujet,formulaire,nom,prénom,message,e-mail,demande,observation,suggestion",
-            "title": "Contact"  
+            "keywords": "contact,mail,sujet,formulaire,nom,prénom,message,e-mail,demande,observation,suggestion"
         },
         "contact_me": "Contacter moi",
         "you_have_questions": "Avez-vous des questions ?",
