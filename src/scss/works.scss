@@ -52,11 +52,11 @@
         li {
             display: inline-block;
             margin: $margin;
-            float: left;
             text-align: left;
+            vertical-align: top;
             width: 30rem;
             
-            img {border: 1px solid $light-primary-color }
+            img { border: 1px solid $light-primary-color }
         }
     }
 }

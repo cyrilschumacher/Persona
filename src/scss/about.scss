@@ -181,7 +181,7 @@
         position: absolute;
         right: 0;
 
-        @include animation(5s animation-progress-background ease-out);
+        @include animation(2.5s animation-progress-background ease-out);
     }
 
     &-content {
@@ -202,7 +202,11 @@
             left: $margin;
         }
 
-        &-value { color: $grapefruit-primary-color; right: $margin }
+        &-value {
+            color: $grapefruit-primary-color;
+            right: $margin;
+            z-index: -1;
+        }
     }
 }
 
