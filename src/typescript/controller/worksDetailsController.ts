@@ -21,45 +21,42 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <amd-dependency path="directive/fadeByScrollDirective"/>
+/// <amd-dependency path="directive/fullHeightWindowDirective"/>
+/// <amd-dependency path="service/messengerService"/>
 
 import app = require('app');
-import httpServiceBase = require('service/httpServiceBase');
+import controllerBase = require('controller/controllerBase');
+import messengerService = require('service/messengerService');
 
 /**
- * @summary Works service.
+ * @summary Works details controller.
  * @author  Cyril Schumacher
  * @class
+ * @extends ControllerBase
  */
-class WorksService extends httpServiceBase {
+class WorksDetailsController extends controllerBase {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$http', 'appConfig'];
+    public static $inject: Array<String> = ['messengerService', '$scope', '$rootScope', '$routeParams'];
     
     /**
      * @summary Constructor.
-     * @constructs
+     * @constructor
      * @public
-     * @param {IHttpService}    $http       HTTP service.
-     * @param {Object}          appConfig   Application configuration.
+     * @param $scope        {IScope}            Scope.
+     * @param $rootScope    {IRootScopeService} Root scope.
      */
-    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
-        super();
-    }
-    
-    /**
-     * @summary Returns a list of works.
-     * @public
-     * @returns {IPromise} The list of works.
-     */
-    public getWorks = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('works');
-        return this.$http.get(url).then(this.getDataComplete);
+    public constructor(private messengerService: messengerService, $scope: ng.IScope, $rootScope: ng.IRootScopeService, $routeParams: any) {
+        super($scope, $rootScope)
+        
+        var works = this.messengerService.getAndRemove($routeParams.id);
     }
 }
 
-export = WorksService;
-app.instance.module['register'].service('worksService', WorksService);
+export = WorksDetailsController;
+app.instance.module['register'].controller('worksDetailsController', WorksDetailsController);

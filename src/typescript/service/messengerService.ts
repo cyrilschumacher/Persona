@@ -24,42 +24,79 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 
 import app = require('app');
-import httpServiceBase = require('service/httpServiceBase');
 
 /**
- * @summary Works service.
+ * @summary Messenger pattern.
  * @author  Cyril Schumacher
  * @class
  */
-class WorksService extends httpServiceBase {
+class MessengerService {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$http', 'appConfig'];
+    public static $inject: Array<string> = [];
+    
+    /**
+     * @summary Messages.
+     * @private
+     * @type {Object}
+     */
+    private messages: { [id: string] : Object };
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param {IHttpService}    $http       HTTP service.
-     * @param {Object}          appConfig   Application configuration.
      */
-    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
-        super();
+    constructor() {
+        return this.getDirectiveInformation();
+    }
+
+    /**
+     * @summary Get directive information.
+     * @private
+     * @return {Object} The directive information.
+     */
+    private getDirectiveInformation = (): Object => {
+        this.messages = {};
+        return { add: this.add, get: this.get };
+    }
+
+    /**
+     * @summary Add a message.
+     * @public
+     * @type {Object} value A message.
+     * @type {string} key   A key.
+     */
+    public add = (message: Object, key: string): void => {
+        this.messages[key] = message;
     }
     
     /**
-     * @summary Returns a list of works.
+     * @summary Get the message by a key.
      * @public
-     * @returns {IPromise} The list of works.
+     * @type {string} key A key.
+     * @return {Object} The message.
      */
-    public getWorks = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('works');
-        return this.$http.get(url).then(this.getDataComplete);
+    private get = (key: string): Object => {
+        return this.messages[key];
+    }
+    
+    /**
+     * @summary Get the message by a key and delete it.
+     * @public
+     * @type {string} key A key.
+     * @return {Object} The message.
+     */
+    private getAndRemove = (key: string): void => {
+        var value: Object = this.get(key);
+        delete this.messages[key];
+        
+        return value;
     }
 }
 
-export = WorksService;
-app.instance.module['register'].service('worksService', WorksService);
+export = MessengerService;
+app.instance.module['register'].factory('messengerService', MessengerService);

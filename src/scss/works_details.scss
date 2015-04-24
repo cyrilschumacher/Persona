@@ -20,21 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-header.l-header.no-selection(data-ng-init="init()")
-    div.l-header-wrapper(ng-fade-by-scroll percentage="25" element=".l-header-wrapper .container")
-        div.container
-            h1(data-view-title ng-i18next="works.my_works")
-            p.description(ng-i18next="works.discover_my_works")
-            
-article.l-article.l-article-works
-    header
-        h2(ng-i18next="about.presentation")
-        p.subtitle(ng-i18next="about.let_me_introduce_myself")
-    section.l-section
-        ul
-            li(data-ng-repeat="work in works")
-                p
-                    a(data-ng-click="seeDetails(work)")
-                        img(alt="{{work.name}}" src="{{work.images[0]}}")
-                h3 {{work.name}}
-                p.text-justify {{work.description}}
+@import "main";
+
+/* Navigation bar */
+
+.nav-item-works {
+    background: $dark-secondary-color;
+}
+
+/* Header */
+
+.l-header-wrapper {
+    background: $lavander-primary-color;
+    color: #fff;
+    z-index: 1;
+}

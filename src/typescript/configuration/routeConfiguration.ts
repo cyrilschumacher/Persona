@@ -47,6 +47,7 @@ class RouteConfiguration {
         $routeProvider.when('/', this._addRoute('home'))
                       .when('/about', this._addRoute('about'))
                       .when('/works', this._addRoute('works'))
+                      .when('/works/:id', this._addRoute('works_details', 'worksDetails'))
                       .when('/contact', this._addRoute('contact'))
                       .otherwise({redirectTo: '/'});
     }

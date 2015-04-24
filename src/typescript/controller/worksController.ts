@@ -24,10 +24,12 @@
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <reference path="../../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
+/// <amd-dependency path="service/messengerService"/>
 /// <amd-dependency path="service/worksService"/>
 
 import app = require('app');
 import controllerBase = require('controller/controllerBase');
+import messengerService = require('service/messengerService');
 import worksService = require('service/worksService');
 
 /**
@@ -42,21 +44,23 @@ class WorksController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$i18next', 'worksService', '$scope', '$rootScope'];
+    public static $inject: Array<string> = ['$i18next', '$location', 'worksService', 'messengerService', '$rootScope', '$scope'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
      * @param $i18next          {any}               i18next.
+     * @param $location         {any}               Location.
      * @param worksService      {WorksService}      Service.
      * @param $scope            {IScope}            Scope.
      * @param $rootScope        {IRootScopeService} Root scope.
      */
-    public constructor(private $i18next: any, private worksService: worksService, $scope: ng.IScope, $rootScope: ng.IRootScopeService) {
+    public constructor(private $i18next: any, private $location: any, private worksService: worksService, private messengerService: messengerService, $rootScope: ng.IRootScopeService, $scope: ng.IScope) {
         super($scope, $rootScope);
         
         $scope['init'] = this._initialize;
+        $scope['seeDetails'] = this._seeWorksDetails;
     }
     
     /**
@@ -64,7 +68,6 @@ class WorksController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
-        this.initializeHead(null, null, this.$i18next('works.my_works'));
         this._initializeWorks();
     }
 
@@ -72,10 +75,18 @@ class WorksController extends controllerBase {
      * @summary Initialize works.
      * @private
      */
-    private _initializeWorks() {
+    private _initializeWorks = (): void => {
         this.worksService.getWorks().then(works => {
             this.$scope['works'] = works;
         });
+    }
+    
+    /**
+     * 
+     */
+    private _seeWorksDetails = (works): void => {
+        this.messengerService.add(works, works.id);
+        this.$location.path("/works/" + works.id);
     }
 }
 
