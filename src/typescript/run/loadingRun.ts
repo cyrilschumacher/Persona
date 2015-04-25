@@ -61,9 +61,15 @@ class LoadingRun {
      * @private
      */
     private _success = (): void => {
-        this.$timeout(() => {
-            this.$rootScope['isLoading'] = false;
-        }, 1000);
+        this.$timeout(this._successTimeout, 1000);
+    }
+    
+    /**
+     * @summary Occurs when the delay is finished. 
+     * @private
+     */
+    private _successTimeout = (): void => {
+        this.$rootScope['isLoading'] = false;
     }
 }
 

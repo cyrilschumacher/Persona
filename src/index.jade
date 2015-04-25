@@ -25,23 +25,26 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
     head
         meta(charset="utf-8")
         title(data-ng-bind="viewTitle ? viewTitle + ' - Persona' : 'Persona'")
-        
+
         meta(name="description" content="{{head.description}}")
         meta(name="keywords" content="{{head.keywords}}")
         meta(name="robots" content="")
+        meta(name="fragment" content="!")
         meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
         meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
-        
+
         meta(property="og:title" content="")
         meta(property="og:type" content="")
         meta(property="og:url" content="")
+        
+        base(href="/")
     body
         input#drawer-toggle(type="checkbox" name="drawer-toggle")
         label#drawer-toggle-label.no-selection(for="drawer-toggle")
 
         section.l-main(data-ng-view)
 
-        div.loading(data-ng-hide="!isLoading")
+        div.route-loading(data-ng-hide="!isLoading")
             span
                 i.fa.fa-circle-o-notch
             span(data-ng-i18next="loading")
@@ -50,22 +53,22 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
             div.l-nav-container.vertical-horizontal-center
                 ul
                     li 
-                        a.nav-item-home(href="#/")
+                        a.nav-item-home(href="/#!/")
                             span.icon
                                 i.iconicfill-home
                             span(data-ng-i18next="common.nav.home") 
                     li
-                        a.nav-item-about(href="#/about")
+                        a.nav-item-about(href="/#!/about")
                             span.icon
                                 i.iconicfill-folder-fill
                             span(data-ng-i18next="common.nav.about") 
                     li
-                        a.nav-item-works(href="#/works")
+                        a.nav-item-works(href="/#!/works")
                             span.icon
                                 i.iconicfill-paperclip
                             span(data-ng-i18next="common.nav.works") 
                     li
-                        a.nav-item-contact(href="#/contact")
+                        a.nav-item-contact(href="/#!/contact")
                             span.icon
                                 i.iconicfill-map-pin-alt
                             span(data-ng-i18next="common.nav.contact")
@@ -76,13 +79,13 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                     div.links
                         ul
                             li
-                                a(href="/" data-ng-i18next="common.nav.home")
+                                a(href="/#!/" data-ng-i18next="common.nav.home")
                             li
-                                a(href="#about" data-ng-i18next="common.nav.about")
+                                a(href="/#!/about" data-ng-i18next="common.nav.about")
                             li
-                                a(href="#works" data-ng-i18next="common.nav.works")
+                                a(href="/#!/works" data-ng-i18next="common.nav.works")
                             li
-                                a(href="#contact" data-ng-i18next="common.nav.contact")
+                                a(href="/#!/contact" data-ng-i18next="common.nav.contact")
                                 
                     p.copyright © 
                         span(itemprop="copyrightYear") 2015 

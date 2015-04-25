@@ -25,31 +25,6 @@
     initial-scale: 1;
 }
 
-@media screen {
-    html { $font-size: $base-font-size }
-}
-
-@media screen and (max-width: $desktop-device-max-width) {
-    html { font-size: $desktop-base-font-size !important } 
-}
-
-@media screen and (max-width: $tablets-device-max-width) {
-    html { font-size: $tablets-base-font-size !important } 
-}
-
-@media screen and (max-width: $small-tablets-device-max-width) {
-    html { font-size: $small-tablets-base-font-size !important } 
-}
-
-@media screen and (max-width: $mobile-device-max-width) {
-    html { font-size: $mobile-base-font-size !important } 
-}
-
-@include keyframes(loading-animation) {
-    from { @include transform(rotate(0deg)) }
-    to { @include transform(rotate(359deg)) }
-}
-
 html { font-size: $base-font-size }
 
 html, body {
@@ -97,26 +72,12 @@ h6 {
     font-weight: $h6-font-weight;
 }
 
-a {
+a, [ng-click], [data-ng-click] {
+    cursor: pointer;
+
     &:link, &:visited, &:focus, &:hover {
         font-weight: $link-font-weight;
         outline: 0;
         text-decoration: none;
     }
-}
-
-[ng-click], [data-ng-click] {
-    cursor: pointer;
-}
-
-.loading {
-    background: $base-background;
-    bottom: 2%;
-    padding: $base-margin;
-    position: fixed;
-    right: 2%;
-    z-index: 5;
-    
-    span { color: $base-color; margin: 0 ($base-margin / 2) }
-    .fa { @include animation(loading-animation 2s infinite linear) }
 }

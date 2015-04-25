@@ -56,7 +56,9 @@ class WorksService extends httpServiceBase {
      * @returns {IPromise} The list of works.
      */
     public getWorks = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('works');
+        const RESOURCE_URI = 'works';
+        var url: string = this.appConfig['restServer'].concat(RESOURCE_URI);
+
         return this.$http.get(url).then(this.getDataComplete);
     }
 }

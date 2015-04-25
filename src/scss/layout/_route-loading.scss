@@ -20,24 +20,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-form {
-    fieldset { margin: 2rem 0 }
-    label { font-weight: 600 }
+/* Animation */
 
-    button, input, textarea {
-        border: 1px solid $medium-gray-primary-color;
-        font-size: 1.8rem;
-        padding: 1rem 2rem;
-        outline: none;
-        
-        &:hover { border-color: $medium-gray-secondary-color }
-    }
+@include keyframes(animation-route-animation) {
+    from { @include transform(rotate(0deg)) }
+    to { @include transform(rotate(359deg)) }
+}
+
+/* Classes */
+
+.route-loading {
+    background: $base-background;
+    bottom: 2%;
+    padding: $base-margin;
+    position: fixed;
+    right: 2%;
+    z-index: 5;
     
-    button[type="submit"], input[type="submit"] {
-        border: none;
-        font-size: 1.4rem;
-        font-weight: 600;
-        text-align: center;
-        text-transform: uppercase;
-    }
+    span { color: $base-color; margin: 0 ($base-margin / 2) }
+    .fa { @include animation(animation-route-animation 2s infinite linear) }
 }

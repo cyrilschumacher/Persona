@@ -56,7 +56,9 @@ class ResumeService extends httpServiceBase {
      * @returns {IPromise} List of schools.
      */
     public getEducation = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('resume/education');
+        const RESOURCE_URI = 'resume/education';
+        var url: string = this.appConfig['restServer'].concat(RESOURCE_URI);
+        
         return this.$http.get(url).then(this.getDataComplete);
     }
 
@@ -66,7 +68,9 @@ class ResumeService extends httpServiceBase {
      * @returns {IPromise} List of company.
      */
     public getExperience = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('resume/experience');
+        const RESOURCE_URI = 'resume/experience';
+        var url: string = this.appConfig['restServer'].concat(RESOURCE_URI);
+        
         return this.$http.get(url).then(this.getDataComplete);
     }
 
@@ -76,7 +80,9 @@ class ResumeService extends httpServiceBase {
      * @returns {IPromise} List of skill.
      */
     public getSkills = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('resume/skills');
+        const RESOURCE_URI = 'resume/skills';
+        var url: string = this.appConfig['restServer'].concat(RESOURCE_URI);
+        
         return this.$http.get(url).then(this.getDataComplete);
     }
 }

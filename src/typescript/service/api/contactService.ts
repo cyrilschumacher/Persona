@@ -56,7 +56,9 @@ class ContactService extends httpServiceBase {
      * @returns {IPromise} The captcha.
      */
     public getCaptcha = (): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('contact/captcha/');
+        const RESOURCE_URI = 'contact/captcha/';
+        var url: string = this.appConfig['restServer'].concat(RESOURCE_URI);
+        
         return this.$http.get(url).then(this.getDataComplete);
     }
     
@@ -70,7 +72,8 @@ class ContactService extends httpServiceBase {
      * @returns {IPromise}           The result.
      */
     public send = (code: string, mail: string, subject: string, message: string): ng.IPromise<Array<Object>> => {
-        var url: string = this.appConfig['restServer'].concat('contact/send/');
+        const RESOURCE_URI = 'contact/send/';
+        var url: string = this.appConfig['restServer'].concat(RESOURCE_URI);
         var data: string = $.param({code: code, mail: mail, subject: subject, message: message});
         
         return this.$http.post(url, data).then(this.getDataComplete);

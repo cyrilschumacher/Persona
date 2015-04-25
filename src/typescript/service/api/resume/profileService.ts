@@ -56,7 +56,9 @@ class ProfileService extends httpServiceBase {
      * @returns {IPromise} The profile.
      */
     public getProfile = (): ng.IPromise<Object> => {
-        var url: string = this.appConfig['restServer'].concat('profile');
+        const RESOURCE_URI = 'profile';
+        var url: string = this.appConfig['restServer'].concat(RESOURCE_URI);
+        
         return this.$http.get(url).then(this.getDataComplete);
     }
 }

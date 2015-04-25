@@ -48,7 +48,8 @@ class ConfigurationProviderService {
         var settings: JQueryAjaxSettings = {type: 'GET', url: this.url, cache: false, async: false, contentType: 'application/json', dataType: 'json'};
         var q: JQueryXHR = jQuery.ajax(settings);
         
-        if (q.status === 200) {
+        const HTTP_OK = 200;
+        if (q.status === HTTP_OK) {
             angular.extend(this.module, angular.fromJson(q.responseText));
         }
         

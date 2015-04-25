@@ -27,6 +27,7 @@
 
 import configurationProviderService = require('service/configurationProviderService');
 import i18nextConfiguration = require('configuration/i18nextConfiguration');
+import locationConfiguration = require('configuration/locationConfiguration');
 import routeConfiguration = require('configuration/routeConfiguration');
 import loadingRun = require('run/loadingRun');
 
@@ -101,7 +102,8 @@ class Application {
     private _initializeConfigurations = (): void => {
         this._module.config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', this._register])
                     .config(i18nextConfiguration)
-                    .config(routeConfiguration);
+                    .config(routeConfiguration)
+                    .config(locationConfiguration);
     }
     
     /**
@@ -140,7 +142,8 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        this._module = angular.module('app', ['ngRoute', 'routeStyles', 'jm.i18next', 'viewhead']);
+        const MODULE_NAME = 'persona';
+        this._module = angular.module(MODULE_NAME, ['ngRoute', 'routeStyles', 'jm.i18next', 'viewhead']);
     }
 
     /**

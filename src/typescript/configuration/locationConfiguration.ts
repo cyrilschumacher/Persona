@@ -21,35 +21,31 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+
 /**
- * @summary Persona internationalization configuration block.
+ * @summary Persona location configuration block.
  * @author  Cyril Schumacher
  * @class
  */
-class i18nextConfiguration {
+class LocationConfiguration {
     /**
      * @summary Dependencies injection.
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$i18nextProvider'];
+    public static $inject: Array<String> = ['$locationProvider'];
 
     /**
      * @summary Constructor.
      * @public
      * @constructs
-     * @param {any} $i18nextProvider i18next provider.
+     * @param {ILocationService} $locationProvider Location provider.
      */
-    public constructor($i18nextProvider: any) {
-        $i18nextProvider.options = {
-            debug: true,
-            fallbackLng: 'dev',
-            lng: 'dev',
-            resGetPath: '/scripts/locales/__ns__-__lng__.json',
-            useCookie: false,
-            useLocalStorage: false
-        };
+    public constructor($locationProvider: ng.ILocationProvider) {
+        $locationProvider.html5Mode(true)
+                         .hashPrefix('!');
     }
 }
 
-export = i18nextConfiguration;
+export = LocationConfiguration;

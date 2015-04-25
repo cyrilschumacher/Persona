@@ -22,42 +22,45 @@
 
 @charset "utf-8";
 
-/* Compass. */
+/* Compass */
 @import "compass/css3";
 @import "compass/reset";
 
-/* Tools. */
+/* Tools */
 @import "tools/color";
 @import "tools/font";
 @import "tools/mixin";
 @import "tools/variable";
 
-/* Base. */
+/* Base */
 @import "base/base";
 @import "base/form";
 
-/* Layout. */
+/* Layout */
 @import "layout/article";
 @import "layout/footer";
 @import "layout/header";
 @import "layout/main";
 @import "layout/nav";
+@import "layout/route_loading";
 @import "layout/section";
 
-/* Modules. */
-@import "modules/alignment/flex-container-column";
-@import "modules/alignment/vertical-horizontal-center";
-@import "modules/animation/animation-fade-fast";
-@import "modules/animation/animation-fade-slow";
-@import "modules/form/button";
-@import "modules/form/input-required";
-@import "modules/text/text-center";
-@import "modules/text/text-justify";
-@import "modules/text/text-lowercase";
-@import "modules/text/text-uppercase";
+/* Module */
+@import "module/alignment/flex-container-column";
+@import "module/alignment/vertical-horizontal-center";
+@import "module/animation/animation-fade-fast";
+@import "module/animation/animation-fade-slow";
+@import "module/form/button";
+@import "module/form/input-required";
+@import "module/text/text-center";
+@import "module/text/text-justify";
+@import "module/text/text-lowercase";
+@import "module/text/text-uppercase";
+@import "module/full-background-fixed";
+@import "module/no-selection";
+@import "module/round-icon";
+@import "module/subtitle";
+@import "module/timeline";
 
-@import "modules/full-background-fixed";
-@import "modules/no-selection";
-@import "modules/round-icon";
-@import "modules/subtitle";
-@import "modules/timeline";
+/* State */
+@import "state/base";
