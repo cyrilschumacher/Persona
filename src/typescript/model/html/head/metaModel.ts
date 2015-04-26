@@ -28,18 +28,25 @@
  */
 class MetaModel {
     /**
-     * @summary Description of the HTML page.
+     * @summary Description that describes the page.
      * @member {string}
      * @public
      */
     public description: string;
     
     /**
-     * @summary Keywords of the HTML page.
+     * @summary Keywords relevant to the page.
      * @member {string}
      * @public
      */
     public keywords: string;
+    
+    /**
+     * @summary Robots.
+     * @member {string}
+     * @public
+     */
+    public robots: string;
 }
 
 export = MetaModel;

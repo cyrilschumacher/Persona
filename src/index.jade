@@ -26,9 +26,9 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
         meta(charset="utf-8")
         title(data-ng-bind="viewTitle ? viewTitle + ' - Persona' : 'Persona'")
 
-        meta(name="description" content="{{head.description}}")
-        meta(name="keywords" content="{{head.keywords}}")
-        meta(name="robots" content="")
+        meta(name="description" content="{{head.meta.description}}")
+        meta(name="keywords" content="{{head.meta.keywords}}")
+        meta(name="robots" content="{{head.meta.robots}}")
         
         meta(name="fragment" content="!")
         

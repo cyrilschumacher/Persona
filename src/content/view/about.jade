@@ -36,7 +36,7 @@ article.l-article
                 p
                     img(alt="{{profile.photo.title}}" src="{{profile.photo.url}}")
             div.presentation-description
-                p.text-justify {{profile.description}}
+                p.text-justify(data-ng-bind="profile.description")
 
 article.l-article
     header
@@ -48,9 +48,9 @@ article.l-article
                 div.icon
                     time.vertical-horizontal-center(datetime="{{school.period.start}}") {{school.period.start | date:'yyyy'}}
             div.timeline-block-content
-                h3(itemprop="name") {{school.name}}
+                h3(itemprop="name" data-ng-bind="school.name")
                 ul.formation-degrees(itemprop="description")
-                    li(data-ng-repeat="degree in school.degrees") {{degree}}
+                    li(data-ng-repeat="degree in school.degrees" data-ng-bind="degree")
 
 article.l-article
     header
@@ -65,15 +65,15 @@ article.l-article
                             div.icon.vertical-horizontal-center
                                 i.fa.fa-building-o
                             div.information.vertical-horizontal-center
-                                span(itemprop="name") {{company.company.name}}
+                                span(itemprop="name" data-ng-bind="company.name")
                     li
                         div.company-details-properties
                             div.icon.vertical-horizontal-center
                                     i.fa.fa-location-arrow
                             div.information.vertical-horizontal-center
                                 div(itemprop="address")
-                                    span(itemprop="addressLocality") {{company.company.location.address.city}}, 
-                                    span(itemprop="addressRegion") {{company.company.location.address.countryRegion}}
+                                    span(itemprop="addressLocality") {{company.location.address.city}}, 
+                                    span(itemprop="addressRegion") {{company.location.address.countryRegion}}
                     li
                         div.company-details-properties
                             div.icon.vertical-horizontal-center
@@ -92,11 +92,11 @@ article.l-article
         p.subtitle(data-ng-i18next="about.skills.subtitle")
     section.l-section.l-section-skills(data-ng-hide="!skills")
         div(data-ng-repeat="category in skills")
-            h3 {{category.name}}
+            h3(data-ng-bind="category.name")
             ul
                 li.skill(data-ng-repeat="skill in category.items")
                     div.progress
                         div.progress-background(ng-style="{'width': skill.score + '%'}")
                         div.progress-content.vertical-horizontal-center
-                            div.progress-content-name {{skill.name}}
+                            div.progress-content-name(data-ng-bind="skill.name")
                             div.progress-content-value {{skill.score}}%
