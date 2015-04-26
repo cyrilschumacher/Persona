@@ -21,25 +21,29 @@
  * SOFTWARE.
  */
 
+import metaModel = require('model/html/head/metaModel');
+
 /**
  * @summary Model for the head of HTML page.
  * @author  Cyril Schumacher
  * @class
  */
-class HtmlHeadModel {
+class HeadModel {
     /**
      * @summary Description of the HTML page.
      * @member {string}
      * @public
      */
-    public description: string;
+    public meta: metaModel;
     
     /**
-     * @summary Keywords of the HTML page.
-     * @member {string}
+     * @summary Constructor.
      * @public
+     * @constructs
      */
-    public keywords: string;
+    public constructor() {
+        this.meta = new metaModel();
+    }
 }
 
-export = HtmlHeadModel;
+export = HeadModel;

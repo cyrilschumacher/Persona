@@ -21,37 +21,25 @@
  * SOFTWARE.
  */
 
-import headModel = require('model/html/headModel');
-
 /**
- * @summary Controller base.
+ * @summary Model for meta's head of HTML page.
  * @author  Cyril Schumacher
  * @class
  */
-class ControllerBase {
+class MetaModel {
     /**
-     * @summary Constructor.
-     * @constructor
+     * @summary Description of the HTML page.
+     * @member {string}
      * @public
-     * @param $scope        {IScope}            Model.
-     * @param $rootScope    {IRootScopeService} Root scope.
      */
-    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService) {
-        $rootScope['head'] = new headModel();
-    }
+    public description: string;
     
     /**
-     * @summary Initialize head information.
-     * @protected
-     * @param description   {string} Description.
-     * @param keywords      {string} Keywords.
+     * @summary Keywords of the HTML page.
+     * @member {string}
+     * @public
      */
-    protected initializeHead = (description?: string, keywords?: string) => {
-        var head: headModel = this.$rootScope['head'];
-        
-        head.meta.description = description;
-        head.meta.keywords = keywords;
-    }
+    public keywords: string;
 }
 
-export = ControllerBase;
+export = MetaModel;

@@ -136,9 +136,11 @@ module.exports = function (grunt) {
                 outDir: 'dist/scripts/',
                 options: {
                     declaration: false,
-                    target: 'es5',
+                    failOnTypeErrors: false,
+                    module: 'amd',
                     removeComments: false,
-                    sourceMap: false
+                    sourceMap: false,
+                    target: 'es5'
                 }
             }
         },
