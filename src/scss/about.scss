@@ -109,8 +109,8 @@
             border: 1px solid $light-primary-color;
             @include display-flex;
             @include flex-direction(row);
-            margin: 0 0 .5rem;
-            padding: .8rem;
+            margin: 0 0 $margin;
+            padding: ($margin / 2);
 
             > .information, > .icon { text-align: left }
             > .information {
@@ -132,7 +132,7 @@
     }
 
     &-information {
-        padding: 0 0 0 $margin;
+        padding-left: $margin;
         text-align: left;
         width: 75%;
     }

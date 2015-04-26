@@ -111,7 +111,7 @@ class Application {
      * @private
      */
     private _initializeRun = (): void => {
-        this._module.run(loadingRun);   
+        this._module.run(loadingRun);
     }
         
     /**
@@ -129,9 +129,9 @@ class Application {
      */
     private _initializeConstants = (): void => {      
         var appConfigRoute: Object = { 
-            'controllerPath': 'scripts/controller/', 
-            'cssPath': 'css/', 
-            'viewPath': 'content/view/' 
+            'controllerPath':   'scripts/controller/', 
+            'cssPath':          'css/', 
+            'viewPath':         'content/view/' 
         }; 
 
         this._module.constant('appConfigRoute', appConfigRoute);

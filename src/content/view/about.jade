@@ -72,7 +72,7 @@ article.l-article
                                     i.fa.fa-location-arrow
                             div.information.vertical-horizontal-center
                                 div(itemprop="address")
-                                    span(itemprop="addressLocality") {{company.company.location.address.city}},
+                                    span(itemprop="addressLocality") {{company.company.location.address.city}}, 
                                     span(itemprop="addressRegion") {{company.company.location.address.countryRegion}}
                     li
                         div.company-details-properties
@@ -91,10 +91,12 @@ article.l-article
         h2(data-ng-i18next="about.skills.title")
         p.subtitle(data-ng-i18next="about.skills.subtitle")
     section.l-section.l-section-skills(data-ng-hide="!skills")
-        ul
-            li.skill(data-ng-repeat="skill in skills")
-                div.progress
-                    div.progress-background(ng-style="{'width': skill.score + '%'}")
-                    div.progress-content.vertical-horizontal-center
-                        div.progress-content-name {{skill.name}}
-                        div.progress-content-value {{skill.score}}%
+        div(data-ng-repeat="category in skills")
+            h3 {{category.name}}
+            ul
+                li.skill(data-ng-repeat="skill in category.items")
+                    div.progress
+                        div.progress-background(ng-style="{'width': skill.score + '%'}")
+                        div.progress-content.vertical-horizontal-center
+                            div.progress-content-name {{skill.name}}
+                            div.progress-content-value {{skill.score}}%
