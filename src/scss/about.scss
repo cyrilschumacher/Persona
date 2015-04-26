@@ -98,44 +98,56 @@
 /* Section content */
 
 .company {
+    width: 25%;
+    
+    &-properties {
+        border: 1px solid $light-primary-color;
+        @include display-flex;
+        @include flex-direction(row);
+        margin: 0 0 $margin;
+        padding: ($margin / 2);
+
+        &-information, &-icon { text-align: left }
+        &-information {
+            color: $grapefruit-primary-color;
+            @include justify-content(flex-start);
+
+            > .separator { margin: 0 ($margin / 2) }
+        }
+
+        &-icon {
+            background: $grapefruit-primary-color;
+            height: 3rem;
+            margin: 0 1rem 0 0;
+            width: 3rem;
+
+            .fa { color: #fff }
+        }
+    }
+}
+
+.experience {
     padding: 4rem 0 1rem;
     @include display-flex;
     @include flex-direction(row);
-
-    &-details {
-        width: 25%;
-
-        &-properties {
-            border: 1px solid $light-primary-color;
-            @include display-flex;
-            @include flex-direction(row);
-            margin: 0 0 $margin;
-            padding: ($margin / 2);
-
-            > .information, > .icon { text-align: left }
-            > .information {
-                color: $grapefruit-primary-color;
-                @include justify-content(flex-start);
-
-                > .separator { margin: 0 ($margin / 2) }
-            }
-
-            > .icon {
-                background: $grapefruit-primary-color;
-                height: 3rem;
-                margin: 0 1rem 0 0;
-                width: 3rem;
-
-                .fa { color: #fff }
-            }
-        }
-    }
 
     &-information {
         padding-left: $margin;
         text-align: left;
         width: 75%;
+        
+        .keyword {
+            background: $light-primary-color;
+            color: $base-color;
+            display: inline-block;
+            margin: $margin $margin 0 0;
+            padding: ($margin / 2) $margin;
+        }
     }
+}
+
+.keywords {
+    margin: 0 0 $margin;   
 }
 
 .presentation {

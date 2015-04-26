@@ -43,7 +43,7 @@ article.l-article
         h2(data-ng-i18next="about.education.title")
         p.subtitle(data-ng-i18next="about.education.subtitle")
     section.l-section.l-section-education.timeline(data-ng-hide="!schools")
-        div.timeline-block(data-ng-repeat="school in schools")
+        div.timeline-block(data-ng-repeat="school in schools | orderBy:'period.start': true")
             div.timeline-block-icon(itemscope itemtype="http://schema.org/School")
                 div.icon
                     time.vertical-horizontal-center(datetime="{{school.period.start}}") {{school.period.start | date:'yyyy'}}
@@ -56,35 +56,38 @@ article.l-article
     header
         h2(data-ng-i18next="about.experience.title")
         p.subtitle(data-ng-i18next="about.experience.subtitle")
-    section.l-section.l-section-experience(data-ng-hide="!companies")
-        div.company(data-ng-repeat="company in companies")
-            div.company-details
+    section.l-section.l-section-experience(data-ng-hide="!experiences")
+        div.experience(data-ng-repeat="experience in experiences | orderBy:'period.end': true")
+            div.company
                 ul(itemscope itemtype="http://schema.org/Corporation")
                     li
-                        div.company-details-properties
-                            div.icon.vertical-horizontal-center
+                        div.company-properties
+                            div.company-properties-icon.vertical-horizontal-center
                                 i.fa.fa-building-o
-                            div.information.vertical-horizontal-center
-                                span(itemprop="name" data-ng-bind="company.name")
+                            div.company-properties-information.vertical-horizontal-center
+                                span(itemprop="name" data-ng-bind="experience.name")
                     li
-                        div.company-details-properties
-                            div.icon.vertical-horizontal-center
+                        div.company-properties
+                            div.company-properties-icon.vertical-horizontal-center
                                     i.fa.fa-location-arrow
-                            div.information.vertical-horizontal-center
+                            div.company-properties-information.vertical-horizontal-center
                                 div(itemprop="address")
-                                    span(itemprop="addressLocality") {{company.location.address.city}}, 
-                                    span(itemprop="addressRegion") {{company.location.address.countryRegion}}
+                                    span(itemprop="addressLocality") {{experience.company.location.address.city}}, 
+                                    span(itemprop="addressRegion") {{experience.company.location.address.countryRegion}}
                     li
-                        div.company-details-properties
-                            div.icon.vertical-horizontal-center
+                        div.company-properties
+                            div.company-properties-icon.vertical-horizontal-center
                                 i.fa.fa-calendar
-                            div.information.vertical-horizontal-center
-                                time(datetime="{{company.period.start}}") {{company.period.start | date:'MMMM yyyy'}}
+                            div.company-properties-information.vertical-horizontal-center
+                                time(datetime="{{experience.period.start}}") {{experience.period.start | date:'MMMM yyyy'}}
                                 span.separator -
-                                time(datetime="{{company.period.end}}") {{company.period.end | date:'MMMM yyyy'}}
-            div.company-information
-                h3 {{company.name}}
-                p.summary.text-justify {{company.summary}}
+                                time(datetime="{{experience.period.end}}") {{experience.period.end | date:'MMMM yyyy'}}
+            div.experience-information
+                h3 {{experience.job}}
+                ul.keywords
+                    li.keyword(data-ng-repeat="keyword in experience.keywords") {{keyword}}
+                    
+                p.summary.text-justify {{experience.summary}}
 
 article.l-article
     header

@@ -97,8 +97,8 @@ class AboutController extends controllerBase {
      * @private
      */
     private _initializeExperience = (): void => {
-        this.resumeService.getExperience().then(companies => {
-            this.$scope['companies'] = companies;
+        this.resumeService.getExperience().then(experiences => {
+            this.$scope['experiences'] = experiences;
         });
     }
     
