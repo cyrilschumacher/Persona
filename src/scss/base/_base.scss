@@ -36,39 +36,40 @@ html, body {
 body {
     background: $base-background;
     color: $base-color;
-    font: $body-font-size $base-font-family;
+    @include rem2px(font-size, $body-font-size);
+    font-family: $base-font-family;
     font-weight: $base-font-weight;
 }
 
 h1, h2, h3, h4, h5, h6 { font-family: $bebas-neue-font }
 
 h1 {
-    font-size: $h1-font-size;
+    @include rem2px(font-size, $h1-font-size);
     font-weight: $h1-font-weight;
 }
 
 h2 {
-    font-size: $h2-font-size;
+    @include rem2px(font-size, $h2-font-size);
     font-weight: $h2-font-weight;
 }
 
 h3 {
-    font-size: $h3-font-size;
+    @include rem2px(font-size, $h3-font-size);
     font-weight: $h3-font-weight;
 }
 
 h4 {
-    font-size: $h4-font-size;
+    @include rem2px(font-size, $h4-font-size);
     font-weight: $h4-font-weight;
 }
 
 h5 {
-    font-size: $h5-font-size;
+    @include rem2px(font-size, $h5-font-size);
     font-weight: $h5-font-weight;
 }
 
 h6 {
-    font-size: $h6-font-size;
+    @include rem2px(font-size, $h6-font-size);
     font-weight: $h6-font-weight;
 }
 

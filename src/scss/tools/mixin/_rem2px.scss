@@ -20,50 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import "main";
-
-/* Navigation bar */
-
-.nav-item-home {
-    background: $dark-secondary-color;
-}
-
-/* Header */
-
-.l-header-background { 
-    background: #6F4A21 url(/content/image/home.jpg);
-    height:100%;
-    overflow: hidden;
-    position:absolute;
-    width:100%;
-    
-    video { min-height: 100%; min-width: 100% }
-}
-
-.l-header-wrapper {
-    background: url(/content/image/grid.png);
-    color: #fff;
-
-    h1 {
-        border: $border-larger solid #fff;
-        color: #fff;
-        margin: 0 0 $margin;
-        padding: $margin ($margin * 5);
-        @include transition(all $timing-slow);
-    }
-
-    .description {
-        @include animation-delay(1.5s);
-        margin: 0 0 ($margin * 3);
-    }
-}
-
-/* Footer */
-
-.l-footer {
-    bottom: 0;
-    background: none !important;   
-    color: $base-background;
-    left: 0;
-    position: absolute;
+@mixin rem2px($property, $sizeValue) {
+  #{$property}: ($sizeValue * 10);
+  #{$property}: $sizeValue + rem;
 }

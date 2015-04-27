@@ -35,6 +35,6 @@ article.l-article.l-article-works
             li(data-ng-repeat="work in works")
                 p
                     a(data-ng-click="seeDetails(work)")
-                        img(alt="{{work.name}}" src="{{work.images[0]}}")
+                        img(alt="{{work.name}}" src="{{work.thumbnail}}")
                 h3 {{work.name}}
-                p.text-justify {{work.description}}
+                p.text-justify {{work.summary.short}}

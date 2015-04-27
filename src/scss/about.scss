@@ -28,7 +28,7 @@
     .timeline-block {
         &:nth-child(even) {
             .timeline-block-content {
-                margin: 0 ($base-margin * -2);
+                margin: 0 ($margin * -2);
                 
                 &:before {
                     border-left-color: transparent !important;
@@ -169,10 +169,10 @@
         p {
             border-top: 5px solid $light-primary-color;
             border-bottom: 5px solid $light-primary-color;
-            font-size: $h3-font-size;
+            @include rem2px(font-size, 3);
             margin: 0 $margin;
             
-            &:before, &:after { font-size: $h3-font-size; font-weight: 900 }
+            &:before, &:after { @include rem2px(font-size, 5); font-weight: 900 }
             &:before { content: '\201C' }
             &:after { content: '\201D' }
         }

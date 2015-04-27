@@ -20,11 +20,6 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-// Custom width size.
-$base-border:  2px  !default;
-$base-margin:  10px !default;
-$base-padding: 10px !default;
-
 // Specific max-width device.
 $mobile-device-max-width:           320px;
 $small-tablets-device-max-width:    640px;
@@ -32,8 +27,14 @@ $tablets-device-max-width:          768px;
 $desktop-device-max-width:          1024px;
 
 // Timing.
-$timing-fast: 150ms;
-$timing-slow: 300ms;
+$timing-fast:   150ms;
+$timing-slow:   300ms;
 
 // Margin/Padding.
-$margin: 1.2rem;
+$margin:        1.2rem !default;
+
+// Border.
+$base-border:    1rem;
+$border-larger: .8rem;
+$border-medium: .6rem;
+$border-small:  .2rem;

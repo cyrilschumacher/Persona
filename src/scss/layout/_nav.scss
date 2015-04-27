@@ -24,10 +24,10 @@
 
 @include keyframes(navbar-closing) {
     from { right: 0 }
-    to { right: -50rem }
+    to { right: -30% }
 }
 @include keyframes(navbar-opening) {
-    from { right: -50rem }
+    from { right: -30% }
     to { right: 0 }
 }
 @include keyframes(navbar-item-opening) {
@@ -50,9 +50,9 @@
     background: $dark-primary-color;
 	height: 100%;
 	position: fixed;
-    right: -25rem;
+    right: -30%;
 	top: 0;
-	width: 25rem;
+	width: 30%;
     
     &-container { height: 100%; width: 100% }
     
@@ -131,10 +131,10 @@
 
         &:before {
             background: #fff;
-            @include box-shadow(0 .8rem 0 #fff, 0 1.6rem 0 #fff);
+            @include box-shadow(0 8px 0 #fff, 0 16px 0 #fff);
             content: '';
             display: block;
-            height: .3rem;
+            height: 3px;
             position: absolute;
             right: 0;
             top: 0;

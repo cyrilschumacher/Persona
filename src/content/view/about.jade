@@ -85,7 +85,7 @@ article.l-article
             div.experience-information
                 h3 {{experience.job}}
                 ul.keywords
-                    li.keyword(data-ng-repeat="keyword in experience.keywords") {{keyword}}
+                    li.keyword(data-ng-repeat="keyword in experience.keywords" data-ng-bind="keyword")
                     
                 p.summary.text-justify {{experience.summary}}
 
