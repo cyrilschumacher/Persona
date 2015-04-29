@@ -21,6 +21,6 @@
 // SOFTWARE.
 
 @mixin rem2px($property, $sizeValue) {
-  #{$property}: ($sizeValue * 10);
+  #{$property}: ($sizeValue * 10) + px;
   #{$property}: $sizeValue + rem;
 }

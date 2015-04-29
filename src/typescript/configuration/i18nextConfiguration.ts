@@ -32,7 +32,7 @@ class i18nextConfiguration {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$i18nextProvider'];
+    public static $inject: Array<string> = ['$i18nextProvider'];
 
     /**
      * @summary Constructor.

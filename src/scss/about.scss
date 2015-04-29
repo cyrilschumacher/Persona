@@ -171,6 +171,7 @@
             border-bottom: 5px solid $light-primary-color;
             @include rem2px(font-size, 3);
             margin: 0 $margin;
+            padding: $margin 0;
             
             &:before, &:after { @include rem2px(font-size, 5); font-weight: 900 }
             &:before { content: '\201C' }

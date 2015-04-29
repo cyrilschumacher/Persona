@@ -40,13 +40,17 @@ class ControllerBase {
         $rootScope['head'] = new headModel();
     }
     
+    private _initializeStatus = (): void => {
+        this.$rootScope['status'] = 'ready';
+    }
+    
     /**
      * @summary Initialize head information.
      * @protected
      * @param description   {string} Description.
      * @param keywords      {string} Keywords.
      */
-    protected initializeHead = (description?: string, keywords?: string, robots?: string) => {
+    protected initializeHead = (description?: string, keywords?: string, robots?: string): void => {
         var head: headModel = this.$rootScope['head'];
         
         head.meta.description = description;
