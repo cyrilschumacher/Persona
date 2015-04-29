@@ -54,7 +54,32 @@
 	top: 0;
 	width: 30%;
     
-    &-container { height: 100%; width: 100% }
+    &__content {
+        height: 100%;
+        width: 100%;
+        
+        &__item {
+            display: inline-block;
+            opacity: .2;
+            text-transform: uppercase;
+            @include transition($timing-fast background, opacity);
+            width: 100%;
+
+            &:hover { background: $dark-secondary-color; opacity: 1 }
+            
+            &__icon {
+                display: inline-block;
+                margin: 0 1rem 0 0; 
+                vertical-align: middle;
+
+                i {
+                    border: ($base-border / 3) solid #fff;
+                    @include rem2px(height, 3);
+                    @include rem2px(width, 3);
+                }
+            }
+        }
+    }
     
     h2, a { color: #fff; padding: 2rem }
     
@@ -65,32 +90,6 @@
             @include animation(navbar-item-closing 500ms forwards ease-out);
             position: relative;
             width: inherit;
-
-            a {
-                display: inline-block;
-                font-size: 1.5rem;
-                opacity: .2;
-                text-transform: uppercase;
-                @include transition($timing-fast background, opacity);
-                width: 100%;
-
-                .icon {
-                    display: inline-block;
-                    margin: 0 1rem 0 0; 
-                    vertical-align: middle;
-
-                    i {
-                        @extend .vertical-horizontal-center;
-
-                        border: 1px solid #fff;
-                        display: inline-block;
-                        height: 3rem;
-                        width: 3rem;
-                    }
-                }
-
-                &:hover { background: $dark-secondary-color; opacity: 1 }
-            }
         }
     }
 }

@@ -28,7 +28,7 @@
     .timeline-block {
         &:nth-child(even) {
             .timeline-block-content {
-                margin: 0 ($margin * -2);
+                margin: 0 ($base-margin * -2);
                 
                 &:before {
                     border-left-color: transparent !important;
@@ -65,7 +65,7 @@
 
 /* Header */
 
-.l-header-wrapper {
+.l-header__content {
     background: $grapefruit-primary-color;
     color: #fff;
     z-index: 1;
@@ -74,7 +74,6 @@
 /* Section */
 
 .l-section {
-    margin: ($margin * 3) auto $margin;
     width: 75%;
     z-index: 2;
     
@@ -104,15 +103,15 @@
         border: 1px solid $light-primary-color;
         @include display-flex;
         @include flex-direction(row);
-        margin: 0 0 $margin;
-        padding: ($margin / 2);
+        margin: 0 0 $base-margin;
+        padding: ($base-margin / 2);
 
         &-information, &-icon { text-align: left }
         &-information {
             color: $grapefruit-primary-color;
             @include justify-content(flex-start);
 
-            > .separator { margin: 0 ($margin / 2) }
+            > .separator { margin: 0 ($base-margin / 2) }
         }
 
         &-icon {
@@ -132,7 +131,7 @@
     @include flex-direction(row);
 
     &-information {
-        padding-left: $margin;
+        padding-left: $base-margin;
         text-align: left;
         width: 75%;
         
@@ -140,14 +139,14 @@
             background: $light-primary-color;
             color: $base-color;
             display: inline-block;
-            margin: $margin $margin 0 0;
-            padding: ($margin / 2) $margin;
+            margin: $base-margin $base-margin 0 0;
+            padding: ($base-margin / 2) $base-margin;
         }
     }
 }
 
 .keywords {
-    margin: 0 0 $margin;   
+    margin: 0 0 $base-margin;   
 }
 
 .presentation {
@@ -158,7 +157,7 @@
         width: 25%;
         
         img { 
-            border: $margin solid $light-primary-color; 
+            border: $base-margin solid $light-primary-color; 
             width: 80%;
         }
     }
@@ -170,8 +169,8 @@
             border-top: 5px solid $light-primary-color;
             border-bottom: 5px solid $light-primary-color;
             @include rem2px(font-size, 3);
-            margin: 0 $margin;
-            padding: $margin 0;
+            margin: 0 $base-margin;
+            padding: $base-margin 0;
             
             &:before, &:after { @include rem2px(font-size, 5); font-weight: 900 }
             &:before { content: '\201C' }
@@ -204,7 +203,7 @@
         width: 100%;
 
         &-name, &-value { 
-            padding: 0 ($margin / 2);
+            padding: 0 ($base-margin / 2);
             position: absolute;
             transform: translate(0, -50%);
         }
@@ -212,12 +211,12 @@
         &-name {
             color: #fff;
             font-family: $bebas-neue-font;
-            left: $margin;
+            left: $base-margin;
         }
 
         &-value {
             color: $grapefruit-primary-color;
-            right: $margin;
+            right: $base-margin;
             z-index: -1;
         }
     }
@@ -225,7 +224,7 @@
 
 .skill {
     display: inline-block;
-    margin: $margin;
+    margin: $base-margin;
     vertical-align: top;
     width: 30%;
 }

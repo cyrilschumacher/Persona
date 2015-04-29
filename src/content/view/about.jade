@@ -21,15 +21,15 @@
 // SOFTWARE.
 
 header.l-header.no-selection(data-ng-init="init()")
-    div.l-header-wrapper(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header-wrapper .container")
-        div.container
+    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header-wrapper .container")
+        div.l-header__content--center
             h1(data-view-title data-ng-i18next="about.about")
-            p.description(data-ng-i18next="about.find_who_am_i")
+            p(data-ng-i18next="about.find_who_am_i")
 
 article.l-article
     header
         h2(data-ng-i18next="about.presentation")
-        p.subtitle(data-ng-i18next="about.let_me_introduce_myself")
+        p.l-article__header__subtitle(data-ng-i18next="about.let_me_introduce_myself")
     section.l-section.l-section-presentation
         div.presentation
             div.presentation-photo
@@ -41,7 +41,7 @@ article.l-article
 article.l-article
     header
         h2(data-ng-i18next="about.education.title")
-        p.subtitle(data-ng-i18next="about.education.subtitle")
+        p.l-article__header__subtitle(data-ng-i18next="about.education.subtitle")
     section.l-section.l-section-education.timeline(data-ng-hide="!schools")
         div.timeline-block(data-ng-repeat="school in schools | orderBy:'period.start': true")
             div.timeline-block-icon(itemscope itemtype="http://schema.org/School")
@@ -55,7 +55,7 @@ article.l-article
 article.l-article
     header
         h2(data-ng-i18next="about.experience.title")
-        p.subtitle(data-ng-i18next="about.experience.subtitle")
+        p.l-article__header__subtitle(data-ng-i18next="about.experience.subtitle")
     section.l-section.l-section-experience(data-ng-hide="!experiences")
         div.experience(data-ng-repeat="experience in experiences | orderBy:'period.end': true")
             div.company
@@ -92,7 +92,7 @@ article.l-article
 article.l-article
     header
         h2(data-ng-i18next="about.skills.title")
-        p.subtitle(data-ng-i18next="about.skills.subtitle")
+        p.l-article__header__subtitle(data-ng-i18next="about.skills.subtitle")
     section.l-section.l-section-skills(data-ng-hide="!skills")
         div(data-ng-repeat="category in skills")
             h3(data-ng-bind="category.name")

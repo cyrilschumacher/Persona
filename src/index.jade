@@ -40,6 +40,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
         meta(property="og:url" content="")
         
         base(href="/")
+
     body(data-status="{{status}}")
         input#drawer-toggle(type="checkbox" name="drawer-toggle")
         label#drawer-toggle-label.no-selection(for="drawer-toggle")
@@ -52,34 +53,34 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
             span(data-ng-i18next="loading")
 
         nav.l-nav(role="navigation" lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
-            div.l-nav-container.vertical-horizontal-center
+            div.l-nav__content.vertical-horizontal-center
                 ul
                     li
                         h2 Menu
                     li 
-                        a.nav-item-home(href="/#!/")
-                            span.icon
-                                i.iconicfill-home
+                        a.l-nav__content__item.nav-item-home(href="/#!/")
+                            span.l-nav__content__item__icon
+                                i.vertical-horizontal-center.iconicfill-home
                             span(data-ng-i18next="common.nav.home") 
                     li
-                        a.nav-item-about(href="/#!/about")
-                            span.icon
-                                i.iconicfill-folder-fill
+                        a.l-nav__content__item.nav-item-about(href="/#!/about")
+                            span.l-nav__content__item__icon
+                                i.vertical-horizontal-center.iconicfill-folder-fill
                             span(data-ng-i18next="common.nav.about") 
                     li
-                        a.nav-item-works(href="/#!/works")
-                            span.icon
-                                i.iconicfill-paperclip
+                        a.l-nav__content__item.nav-item-works(href="/#!/works")
+                            span.l-nav__content__item__icon
+                                i.vertical-horizontal-center.iconicfill-paperclip
                             span(data-ng-i18next="common.nav.works") 
                     li
-                        a.nav-item-contact(href="/#!/contact")
-                            span.icon
-                                i.iconicfill-map-pin-alt
+                        a.l-nav__content__item.nav-item-contact(href="/#!/contact")
+                            span.l-nav__content__item__icon
+                                i.vertical-horizontal-center.iconicfill-map-pin-alt
                             span(data-ng-i18next="common.nav.contact")
 
         footer.l-footer.no-selection(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
-            div.l-footer-container
-                section.l-footer-container-copyright
+            div.l-footer__container
+                section.l-footer__container__copyright
                     div.links
                         ul
                             li
@@ -96,7 +97,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                         span(itemprop="copyrightHolder") Cyril Schumacher. 
                         span(data-ng-i18next="common.footer.all_right_reserved")
 
-                section.l-footer-container-links
+                section.l-footer__container__links
                     ul.social-icons
                         li.social-icon
                             a.github.button(rel="external" href="https://github.com/cyrilschumacher" data-ng-i18next="[title]common.footer.go_to_github")

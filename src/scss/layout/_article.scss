@@ -34,3 +34,5 @@
         border-bottom: 1px solid #eee;
     }
 }
+
+.l-article__header__subtitle { @include rem2px(font-size, 4) }   

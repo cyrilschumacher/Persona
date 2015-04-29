@@ -30,7 +30,7 @@
 
 /* Header */
 
-.l-header-wrapper {
+.l-header__content {
     background: $lavander-primary-color;
     color: #fff;
     z-index: 1;
@@ -38,25 +38,19 @@
 
 /* Section */
 
-.l-section {
-    margin: ($margin * 3) auto $margin;
-}
-
 /* Section content */
 
-.l-article-works {
-    ul {
+.works {
+    display: inline-block;
+    margin: 0 auto;
+    
+    &__item {
         display: inline-block;
-        margin: 0 auto;
-        
-        li {
-            display: inline-block;
-            margin: $margin;
-            text-align: left;
-            vertical-align: top;
-            width: 30rem;
-            
-            img { border: 1px solid $light-primary-color }
-        }
+        margin: $base-margin;
+        text-align: left;
+        vertical-align: top;
+        width: 30rem;
+
+        img { border: 1px solid $light-primary-color }
     }
 }

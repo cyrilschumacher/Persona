@@ -25,13 +25,13 @@
     width: inherit;
     z-index: 1;
     
-    &-wrapper {
+    &__content {
         display: table;
         height: inherit;
         position: fixed;
         width: 100%;
 
-        .container {
+        &--center {
             height: auto;
             display: table-cell;
             text-align: center;
@@ -39,11 +39,7 @@
             width: 50%;
 
             h1 { display: inline-block }
-
-            .description {
-                @include rem2px(font-size, $h4-font-size);
-                font-weight: 300;
-            }
+            p { @include rem2px(font-size, $h3-font-size); font-weight: 300 }
         }
     }
 }

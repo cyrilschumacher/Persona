@@ -32,11 +32,11 @@
 .route-loading {
     background: $base-background;
     bottom: 2%;
-    padding: $margin;
+    padding: $base-margin;
     position: fixed;
     right: 2%;
     z-index: 5;
     
-    span { color: $base-color; margin: 0 ($margin / 2) }
+    span { color: $base-color; margin: 0 ($base-margin / 2) }
     .fa { @include animation(animation-route-animation 2s infinite linear) }
 }

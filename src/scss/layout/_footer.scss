@@ -29,23 +29,23 @@
     width: inherit;
     z-index: 2;
     
-    &-container {
+    &__container {
         clear: both;
         margin: 0 auto;
         height: 50%;
         width: 80%;
                             
-        &-copyright,
-        &-links {
+        &__copyright,
+        &__links {
             display: table;
-            height: 5rem;
-            
+            @include rem2px(height, 5);
+
             a {
                 &:link, &:visited { color: inherit }
             }
         }
         
-        &-copyright {
+        &__copyright {
             float: left;
             
             .links {
@@ -62,7 +62,7 @@
             }
         }
 
-        &-links {
+        &__links {
             float: right;
             
             .social-icons {
@@ -120,8 +120,8 @@
 
 @media screen and (max-width: $small-tablets-device-max-width) {
     .l-footer {
-        &-container {
-            &-copyright, &-links {
+        &__container {
+            &__copyright, &__links {
                 float: none;
                 margin: 1rem auto;
                 text-align: center;
