@@ -27,12 +27,7 @@
     z-index: 2;
     
     &:nth-child(even) { background: inherit }
-    
-    &:nth-child(odd) {
-        background: #f3f3f3;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-    }
+    &:nth-child(odd) { background: #f3f3f3 }
 }
 
 .l-article__header__subtitle { @include rem2px(font-size, 4) }   

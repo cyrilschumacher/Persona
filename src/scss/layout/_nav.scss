@@ -65,7 +65,7 @@
             @include transition($timing-fast background, opacity);
             width: 100%;
 
-            &:hover { background: $dark-secondary-color; opacity: 1 }
+            &:hover, &:focus { background: $dark-secondary-color; opacity: 1 }
             
             &__icon {
                 display: inline-block;
@@ -81,7 +81,7 @@
         }
     }
     
-    h2, a { color: #fff; padding: 2rem }
+    h2, a { color: #fff; @include rem2px(padding, 2) }
     
     ul {
         width: inherit;
@@ -113,7 +113,7 @@
         right: 0;
 
         ul {
-            @include animation-delay-child(4, 75ms, 'li');
+            @include animation-delay-child(5, 75ms, 'li');
             li { @include animation(navbar-item-opening 250ms forwards ease-out); right: -100% }
         }
     }
