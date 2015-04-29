@@ -21,53 +21,40 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <amd-dependency path="directive/fullHeightWindowDirective"/>
+
+import app = require('app');
+import controllerBase = require('controller/controllerBase');
 /**
- * @summary Model for contact form.
+ * @summary Mail sent controller.
  * @author  Cyril Schumacher
  * @class
+ * @extends ControllerBase
  */
-class ContactFormModel {
+class MailSentController extends controllerBase {
     /**
-     * @summary Captcha.
-     * @member {string}
+     * @summary Dependencies injection.
      * @public
+     * @type {Array<string>}
      */
-    public captcha: string;
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next'];
     
     /**
-     * @summary Email address.
-     * @member {string}
+     * @summary Constructor.
+     * @constructor
      * @public
+     * @param $scope        {IScope}            Scope.
+     * @param $rootScope    {IRootScopeService} Root scope.
+     * @param $i18next      {any}               i18next.
      */
-    public emailAddress: string;
-    
-    /**
-     * @summary Firstname.
-     * @member {string}
-     * @public
-     */
-    public firstname: string;
+    public constructor($scope: ng.IScope, $rootScope: ng.IRootScopeService, $i18next: any) {
+        super($scope, $rootScope);
 
-    /**
-     * @summary Lastname.
-     * @member {string}
-     * @public
-     */
-    public lastname: string
-    
-    /**
-     * @summary Subject.
-     * @member {string}
-     * @public
-     */
-    public subject: string;
-
-    /**
-     * @summary Message.
-     * @member {string}
-     * @public
-     */
-    public message: string;
+        // Initialize header.
+        this.initializeHead();
+    }
 }
 
-export = ContactFormModel;
+export = MailSentController;
+app.instance.module['register'].controller('mailSentController', MailSentController);

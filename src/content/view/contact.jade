@@ -20,55 +20,56 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+include mixins/img-base64
+
 header.l-header.no-selection(data-ng-init="init()")
     div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content--center")
         div.l-header__content--center
             h1(data-view-title data-ng-i18next="contact.contact_me")
             p(data-ng-i18next="contact.you_have_questions")
 
-article.l-article.map-section
-    header
-        h2(data-ng-i18next="contact.find_me")
-        p.subtitle Découvrez où je réside actuellement
-    section.l-section
+article.l-article
+    section.l-section.l-section__map
         div(data-ng-bing-maps map-options="mapOptions" view-options="viewOptions" pushpins="pushpins")
 article.l-article
-    div.form-section
-        header
-            h2(data-ng-i18next="contact.form.title")
-            p.subtitle Compléter les champs ci-dessous
-        section.l-section.form-content
-            form(name="contactForm" data-ng-submit="submit()")
-                p(data-ng-i18next="contact.form.description")
-                fieldset
-                    label(data-ng-i18next="contact.form.email")
-                    span.input-required *
-                    p  
-                        input(required data-ng-model="form.emailAddress" type="email" size="64" aria_required="true")
-                        span.field-information 255 caractères maximum. Exemple: email@example.com
+    header
+        h2(data-ng-i18next="contact.form.title")
+        p.l-article__header__subtitle(data-ng-i18next="contact.form.subtitle")
+    section.l-section.l-section__form
+        form.contact-form(name="contactForm" data-ng-submit="submit()")
+            p(data-ng-i18next="contact.form.description")
+            fieldset
+                div.flex-row
+                    div.contact-form__name
+                        label(data-ng-i18next="contact.form.firstname")
+                        p
+                            input(data-ng-model="form.firstname" type="text" maxlength="40")
+                            span.field-information 3 à 40 caractères maximum.
+                    div.contact-form__name
+                        label(data-ng-i18next="contact.form.lastname")
+                        p
+                            input(data-ng-model="form.lastname" type="text" maxlength="40")
+                            span.field-information 3 à 40 caractères maximum.
 
-                fieldset
-                    label(data-ng-i18next="contact.form.subject")
-                    span.input-required *
+                label.required-label(data-ng-i18next="contact.form.email")
+                p  
+                    input(required data-ng-model="form.emailAddress" type="email" size="64" aria_required="true")
+                    span.field-information 255 caractères maximum. Exemple: email@example.com
+            fieldset
+                label.required-label(data-ng-i18next="contact.form.subject")
+                p
+                    input(required data-ng-model="form.subject" type="text" size="64" aria_required="true")
+                    span.field-information 255 caractères maximum.
+
+                label.required-label(data-ng-i18next="contact.form.message")
+                p
+                    textarea#message(required data-ng-autosize data-ng-model="form.message" rows="1" maxlength="5000")
+            fieldset.flex-row.captcha
+                img.captcha__image(data-ng-click="refreshCaptcha()" src="{{captcha}}")
+                div.captcha__input
+                    label.required-label Captcha
                     p
-                        input(required data-ng-model="form.subject" type="text" size="64" aria_required="true")
-                        span.field-information 255 caractères maximum.
+                        input(required data-ng-model="form.captcha" type="text" aria_required="true")
 
-                    label(data-ng-i18next="contact.form.message")
-                    span.input-required *
-                    p
-                        textarea#message(required data-ng-autosize data-ng-model="form.message" rows="1" maxlength="5000")
-
-                fieldset
-                    button(type="submit" data-ng-i18next="contact.form.send_my_message" data-ng-disabled="contactForm.$invalid")
-div.alert
-    div.alert-content
-        header
-            p
-                i.fa.fa-check-circle
-            h2(data-ng-i18next="thanks")
-        section
-            p(data-ng-i18next="contact.form.your_message_has_been_sent")
-            p
-                a.button(data-ng-click="reset()")
-                    span.button-text.text-uppercase(ng-i18next="close")
+            fieldset
+                button(type="submit" data-ng-i18next="contact.form.send_my_message" data-ng-disabled="contactForm.$invalid")

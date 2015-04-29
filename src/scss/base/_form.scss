@@ -26,13 +26,14 @@ form {
 
     button, input, textarea {
         border: 1px solid $medium-gray-primary-color;
+        font-family: $base-font-family;
         font-size: 1.8rem;
         padding: 1rem 2rem;
         outline: none;
         
         &:hover { border-color: $medium-gray-secondary-color }
     }
-    
+
     button[type="submit"], input[type="submit"] {
         border: none;
         font-size: 1.4rem;

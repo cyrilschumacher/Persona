@@ -48,18 +48,24 @@
         },
         "contact_me": "Contacter moi",
         "you_have_questions": "Avez-vous des questions ?",
-        "find_me": "Trouvez-moi",
         "form": {
             "title": "Formulaire de contact",
+            "subtitle": "Compléter les champs ci-dessous",
             "description": "Un projet en tête ? Vous souhaitez travailler avec moi ? Vous avez un autre sujet que vous aimeriez discuter avec moi ? N'hésitez pas à me contacter, je vous répondrai avec plaisir.",
-            "download_my_vcard": "Télécharger ma vCard",
             "firstname": "Prénom",
             "lastname": "Nom",
             "email": "Adresse e-mail",
             "subject": "Sujet",
             "message": "Message",
-            "send_my_message": "Envoyer mon message",
-            "your_message_has_been_sent": "Votre message a bien été envoyé et sera lu dès que possible."
+            "send_my_message": "Envoyer mon message"
+        },
+        "success": {
+            "title": "Merci !",   
+            "subtitle": "Votre message a bien été envoyé et sera lu dès que possible."
+        },
+        "failure": {
+            "title": "Aïe !",
+            "subtitle": "Une erreur inconnue est survenue lors de l'envoi."
         }
     },
     

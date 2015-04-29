@@ -20,47 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@charset "utf-8";
+@import "main";
 
-/* Compass */
-@import "compass/css3";
-@import "compass/reset";
+/* Header */
 
-/* Tools */
-@import "tools/color";
-@import "tools/font";
-@import "tools/mixin";
-@import "tools/variable";
+.l-header { background: $error-color; color: #fff }
 
-/* Base */
-@import "base/base";
-@import "base/form";
+/* Footer */
 
-/* Layout */
-@import "layout/article";
-@import "layout/footer";
-@import "layout/header";
-@import "layout/main";
-@import "layout/nav";
-@import "layout/route-loading";
-@import "layout/section";
-
-/* Module */
-@import "module/alignment/flex-container-column";
-@import "module/alignment/flex-row";
-@import "module/alignment/vertical-horizontal-center";
-@import "module/animation/animation-fade-fast";
-@import "module/animation/animation-fade-slow";
-@import "module/form/button";
-@import "module/form/input-required";
-@import "module/text/text-center";
-@import "module/text/text-justify";
-@import "module/text/text-lowercase";
-@import "module/text/text-uppercase";
-@import "module/full-background-fixed";
-@import "module/no-selection";
-@import "module/round-icon";
-@import "module/timeline";
-
-/* State */
-@import "state/base";
+.l-footer {
+    bottom: 0;
+    background: none !important;   
+    color: $base-background;
+    left: 0;
+    position: absolute;
+}

@@ -44,11 +44,13 @@ class RouteConfiguration {
      * @param {Object}         appConfig     Application configuration.
      */
     public constructor(private $routeProvider: ng.route.IRouteProvider, private appConfigRoute: Object) {
-        $routeProvider.when('/', this._addRoute('home'))
-                      .when('/about', this._addRoute('about'))
-                      .when('/works', this._addRoute('works'))
-                      .when('/works/:id', this._addRoute('works_details', 'worksDetails'))
-                      .when('/contact', this._addRoute('contact'))
+        $routeProvider.when('/',                this._addRoute('home'))
+                      .when('/about',           this._addRoute('about'))
+                      .when('/works',           this._addRoute('works'))
+                      .when('/works/:id',       this._addRoute('works/details', 'worksDetails', 'works_details'))
+                      .when('/contact',         this._addRoute('contact'))
+                      .when('/contact/failure', this._addRoute('contact/failure', 'mailSent', 'contact_failure'))
+                      .when('/contact/success', this._addRoute('contact/success', 'mailSent', 'contact_success'))
                       .otherwise({redirectTo: '/'});
     }
 

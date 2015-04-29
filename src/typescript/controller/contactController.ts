@@ -76,11 +76,17 @@ class ContactController extends controllerBase {
      * @private
      */
     private _initialize = (): void => {
+        // Initialize header.
         this.initializeHead(this.$i18next('contact.head.description'), this.$i18next('contact.head.keywords'));
         
+        // Initialize data.
         this._initializeScope();
         this._initializeElements();
         this._initializeEvents();
+        this._initializeLocation();
+        
+        // Refresh captcha.
+        this._refreshCaptcha();
     }
     
     /**
@@ -99,8 +105,24 @@ class ContactController extends controllerBase {
             showScalebar: false,
             zoom: 12
         };
-        
-        var location: any = this.profileService.getProfile().then(profile => {
+    }
+
+    /**
+     * @summary Initializes events.
+     * @private
+     */
+    private _initializeEvents = (): void => {
+        this.$scope['submit'] = this._submit;
+        this.$scope['refreshCaptcha'] = this._refreshCaptcha;
+        this.$scope['reset'] = this._reset;
+    }
+    
+    /**
+     * @summary Initialize location data.
+     * @private
+     */
+    private _initializeLocation = (): void => {
+        this.profileService.getProfile().then(profile => {
             var pinLocation: Microsoft.Maps.Location = new Microsoft.Maps.Location(profile['coordinates']['latitude'], profile['coordinates']['longitude']);
             var pin: Microsoft.Maps.Pushpin = new Microsoft.Maps.Pushpin(pinLocation, {icon: 'content/image/pin.svg', height: 60, width: 80});
 
@@ -110,14 +132,13 @@ class ContactController extends controllerBase {
             };
         });
     }
-
+    
     /**
-     * @summary Initializes events.
+     * @summary Initialize location data.
      * @private
      */
-    private _initializeEvents = (): void => {
-        this.$scope['submit'] = this._submit;
-        this.$scope['reset'] = this._reset;
+    private _refreshCaptcha = (): void => {
+        this.$scope['captcha'] = 'http://lorempixel.com/250/100/abstract/?' + new Date().getTime();
     }
 
     /**

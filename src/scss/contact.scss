@@ -38,45 +38,48 @@
 
 /* Section */
 
-.l-section {
-    z-index: 2;
-    
-    header {
-        h2 { text-transform: uppercase }
-    }
-}
-
-.map-section {
+.l-section__map {
     height: 75rem;
     padding-left: 0;
     padding-right: 0;
 }
 
-.form-section {
+.l-section__form {
+    z-index: 2;
+
     header { margin: 0 0 3rem }
-    
-    form {
+
+    .contact-form {
         margin: 2rem auto;
         max-width: 640px;
         text-align: left;
         width: 100%;
+
+        &__name {
+            width: 50%;
+
+            input { width: 75% !important }
+        }
         
+        .required-label {
+            &:after {
+                color: red;
+                content: '*';   
+                margin: 0 0 0 ($base-margin / 2);
+            }
+        }
+
         p { text-align: center }
-        
-        .input-required { color: $grass-primary-color }
-        
+
         input, textarea {
             background: none;
             display: block;
-            margin: .5rem auto;
+            margin: .5rem 0;
             width: 100%;
                 
-            &:active, &:focus {
-                border-color: $grass-primary-color;
-                background: #f0f0f0;
-            }
+            &:active, &:focus { border-color: $grass-primary-color; background: #f0f0f0 }
         }
-        
+
         button[type="submit"] {
             border: 1px solid transparent;
             @include transition(background, border, color 250ms);
@@ -139,60 +142,9 @@
     }
 }
 
-.alert {
-    background: rgba(0, 0, 0, .75);
-    display: none;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
-    
-    &-content {
-        background: #fff;
-        border: 1px solid #222;
-        bottom: 0;
-        @include box-shadow(0px 5px 30px 10px rgba(0, 0, 0, .5));
-        height: 37rem;
-        left: 0;
-        margin: auto;
-        padding: 2rem;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 40rem;
-        
-        header, section {
-            text-align: center;
-        }
-        
-        .fa {
-            color: $running-color;
-            font-size: 15rem;   
-        }
-        
-        .button {
-            background: $running-color;
-            color: #fff;
-            display: inline-block;
-            text-align: right;
-            margin: 3rem auto 0;
-            @include transition(background, color 250ms);
-            
-            &-text {
-                display: block;
-                margin: 0 5rem;
-            }
-            
-            &:hover {
-                background: transparent;
-                border-color: $running-color;
-                color: $running-color;
-                font-weight: inherit;
-            }
-        }
-    }
+.captcha {
+    &__image { border: 1px solid $medium-gray-primary-color }
+    &__input { margin: 0 $base-margin }
 }
     
 #map {
