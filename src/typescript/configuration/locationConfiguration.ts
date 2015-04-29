@@ -34,7 +34,7 @@ class LocationConfiguration {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$locationProvider'];
+    public static $inject: Array<string> = ['$locationProvider'];
 
     /**
      * @summary Constructor.
@@ -43,8 +43,7 @@ class LocationConfiguration {
      * @param {ILocationService} $locationProvider Location provider.
      */
     public constructor($locationProvider: ng.ILocationProvider) {
-        $locationProvider.html5Mode(true)
-                         .hashPrefix('!');
+        $locationProvider.html5Mode(true).hashPrefix('!');
     }
 }
 

@@ -39,7 +39,7 @@ class HomeController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$scope', '$rootScope'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next'];
     
     /**
      * @summary Constructor.
@@ -47,9 +47,13 @@ class HomeController extends controllerBase {
      * @public
      * @param $scope        {IScope}            Scope.
      * @param $rootScope    {IRootScopeService} Root scope.
+     * @param $i18next      {any}               i18next.
      */
-    public constructor($scope: ng.IScope, $rootScope: ng.IRootScopeService) {
+    public constructor($scope: ng.IScope, $rootScope: ng.IRootScopeService, $i18next: any) {
         super($scope, $rootScope);
+
+        // Initialize header.
+        this.initializeHead($i18next('home.head.description'), $i18next('home.head.keywords'));
     }
 }
 

@@ -40,6 +40,10 @@ class ControllerBase {
         $rootScope['head'] = new headModel();
     }
     
+    /**
+     * @summary Initialize status.
+     * @private
+     */
     private _initializeStatus = (): void => {
         this.$rootScope['status'] = 'ready';
     }
@@ -55,7 +59,7 @@ class ControllerBase {
         
         head.meta.description = description;
         head.meta.keywords = keywords;
-        head.meta.robots = robots;
+        head.meta.robots = robots ? robots : 'noindex, nofollow';
     }
 }
 

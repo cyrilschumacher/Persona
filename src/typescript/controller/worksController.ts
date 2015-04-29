@@ -54,7 +54,7 @@ class WorksController extends controllerBase {
      * @param $scope            {IScope}            Scope.
      * @param $i18next          {any}               i18next.
      * @param $location         {ILocationProvider} Location.
-     * @param worksService      {WorksService}      Service.
+     * @param worksService      {WorksService}      Works service.
      * @param $rootScope        {IRootScopeService} Root scope.
      */
     public constructor(public $scope: ng.IScope,

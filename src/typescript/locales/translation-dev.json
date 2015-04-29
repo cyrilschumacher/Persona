@@ -64,6 +64,10 @@
     },
     
     "home": {
+        "head": {
+            "description": "Je suis Cyril Schumacher, étudiant en quatrième année logiciel à l'exia.cesi de nancy et passionné des technologies Microsoft.",
+            "keywords": "cyril,schumacher,cyril schumacher,étudiant,exia,cesi,nancy,logiciel,microsoft,développeur,cv,portfolio"
+        },
         "header": {
             "subtitle": "Étudiant en 4ème année logiciel à Exia.Cesi de Nancy"
         }

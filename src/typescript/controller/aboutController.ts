@@ -45,7 +45,7 @@ class AboutController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<String> = ['$scope', '$rootScope', '$i18next', 'profileService', 'resumeService'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next', 'profileService', 'resumeService'];
     
     /**
      * @summary Constructor.

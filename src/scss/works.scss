@@ -49,8 +49,8 @@
         margin: $base-margin;
         text-align: left;
         vertical-align: top;
-        width: 30rem;
+        width: 20%;
 
-        img { border: 1px solid $light-primary-color }
+        img { border: 1px solid $light-primary-color; width: 100% }
     }
 }

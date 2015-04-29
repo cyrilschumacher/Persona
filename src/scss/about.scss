@@ -99,28 +99,32 @@
 .company {
     width: 25%;
     
-    &-properties {
+    &__properties {
         border: 1px solid $light-primary-color;
         @include display-flex;
         @include flex-direction(row);
         margin: 0 0 $base-margin;
         padding: ($base-margin / 2);
+        
+        &__left {
+            margin: 0 1rem 0 0;
+            width: 3rem;
+            
+            &__icon {
+                background: $grapefruit-primary-color;
+                height: 3rem;
+                width: 3rem;
 
-        &-information, &-icon { text-align: left }
-        &-information {
+                .fa { color: #fff }
+            }
+        }
+        
+        &__information, &__left__icon { text-align: left }
+        &__information {
             color: $grapefruit-primary-color;
             @include justify-content(flex-start);
 
             > .separator { margin: 0 ($base-margin / 2) }
-        }
-
-        &-icon {
-            background: $grapefruit-primary-color;
-            height: 3rem;
-            margin: 0 1rem 0 0;
-            width: 3rem;
-
-            .fa { color: #fff }
         }
     }
 }

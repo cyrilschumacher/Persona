@@ -26,10 +26,12 @@
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="directive/fullHeightWindowDirective"/>
 /// <amd-dependency path="service/messengerService"/>
+/// <amd-dependency path="service/api/worksService"/>
 
 import app = require('app');
 import controllerBase = require('controller/controllerBase');
 import messengerService = require('service/messengerService');
+import worksService = require('service/api/worksService');
 
 /**
  * @summary Works details controller.
@@ -43,7 +45,7 @@ class WorksDetailsController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$location', 'messengerService'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$location', 'worksService', 'messengerService'];
     
     /**
      * @summary Constructor.
@@ -51,30 +53,65 @@ class WorksDetailsController extends controllerBase {
      * @public
      * @param $scope             {IScope}              Scope.
      * @param $rootScope         {IRootScopeService}   Root scope.
-     * @param messengerService   {MessengerService}    Messenging service.
      * @param $routeParams       {IRouteParamsService} Route parameters.
      * @param $location          {ILocationProvider}   Location service.
+     * @param worksService       {WorksService}        Works service.
+     * @param messengerService   {MessengerService}    Messenging service.
      */
     public constructor(public $scope: ng.IScope,
                        public $rootScope: ng.IRootScopeService,
                        private $routeParams: angular.route.IRouteParamsService,
                        private $location: ng.ILocationService,
+                       private worksService: worksService,
                        private messengerService: messengerService) {
         super($scope, $rootScope);
         
         this.$scope['init'] = this._initialize;
     }
-    
+
     /**
      * @summary Initialize controller.
      * @private
      */
     private _initialize = (): void => {
-        if (!this.$routeParams['id'] || !this.messengerService.exists(this.$routeParams['id'])) {
-            this.$location.path('/');
+        var id: string = this.$routeParams['id'];
+        
+        // Checks if the work identifier exists and
+        // if the work object exists in the messenger service.
+        if (id && this.messengerService.exists(id)) {
+            this.$scope['work'] = this.messengerService.get(id);
+        } else if(id) {
+            // Otherwise, it download the work object.
+            this._initializeWorks(id); 
+        } else {
+            this._redirect();
         }
+    }
 
-        this.$scope['works'] = this.messengerService.get(this.$routeParams['id']);
+    /**
+     * @summary Initialize works.
+     * @private
+     * @param id {string} Work identifier.
+     */
+    private _initializeWorks = (id: string): void => {
+        this.worksService.getWorks().then(works => {
+            // It obtain, only, the work object by its identifier.
+            var result: Array<Object> = $.grep(works, (e) => e['id'] == id);
+
+            if (result.length > 0) {
+                this.$scope['work'] = result[0];
+            } else {
+                this._redirect();
+            }
+        });
+    }
+
+    /**
+     * @summary Redirect the user to the home page.
+     * @private
+     */
+    private _redirect = (): void => {
+        this.$location.path('/');
     }
 }
 

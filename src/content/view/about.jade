@@ -21,7 +21,7 @@
 // SOFTWARE.
 
 header.l-header.no-selection(data-ng-init="init()")
-    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header-wrapper .container")
+    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content--center")
         div.l-header__content--center
             h1(data-view-title data-ng-i18next="about.about")
             p(data-ng-i18next="about.find_who_am_i")
@@ -61,24 +61,27 @@ article.l-article
             div.company
                 ul(itemscope itemtype="http://schema.org/Corporation")
                     li
-                        div.company-properties
-                            div.company-properties-icon.vertical-horizontal-center
-                                i.fa.fa-building-o
-                            div.company-properties-information.vertical-horizontal-center
+                        div.company__properties
+                            div.company__properties__left
+                                div.company__properties__left__icon.vertical-horizontal-center
+                                    i.fa.fa-building-o
+                            div.company__properties__information.vertical-horizontal-center
                                 span(itemprop="name" data-ng-bind="experience.name")
                     li
-                        div.company-properties
-                            div.company-properties-icon.vertical-horizontal-center
+                        div.company__properties
+                            div.company__properties__left
+                                div.company__properties__left__icon.vertical-horizontal-center
                                     i.fa.fa-location-arrow
-                            div.company-properties-information.vertical-horizontal-center
+                            div.company__properties__information.vertical-horizontal-center
                                 div(itemprop="address")
                                     span(itemprop="addressLocality") {{experience.company.location.address.city}}, 
                                     span(itemprop="addressRegion") {{experience.company.location.address.countryRegion}}
                     li
-                        div.company-properties
-                            div.company-properties-icon.vertical-horizontal-center
-                                i.fa.fa-calendar
-                            div.company-properties-information.vertical-horizontal-center
+                        div.company__properties
+                            div.company__properties__left
+                                div.company__properties__left__icon.vertical-horizontal-center
+                                    i.fa.fa-calendar
+                            div.company__properties__information.vertical-horizontal-center
                                 time(datetime="{{experience.period.start}}") {{experience.period.start | date:'MMMM yyyy'}}
                                 span.separator -
                                 time(datetime="{{experience.period.end}}") {{experience.period.end | date:'MMMM yyyy'}}
