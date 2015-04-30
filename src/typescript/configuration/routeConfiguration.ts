@@ -118,11 +118,7 @@ class RouteConfiguration {
     private _resolve = (controllerFile: string|Array<string>): any => {
         var dependencies: Array<string> = (typeof controllerFile === 'string') ? [controllerFile] : controllerFile;
         
-        return {
-            load: ['$q', '$rootScope', ($q, $rootScope) => {
-                return this._resolveDependencies($q, $rootScope, dependencies);
-            }]
-        };
+        return { load: ['$q', '$rootScope', ($q, $rootScope) => this._resolveDependencies($q, $rootScope, dependencies)] };
     }
 
     /**

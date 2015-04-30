@@ -35,8 +35,8 @@
         height: 50%;
         width: 80%;
                             
-        &__copyright,
-        &__links {
+        &__left,
+        &__right {
             display: table;
             @include rem2px(height, 5);
 
@@ -45,32 +45,30 @@
             }
         }
         
-        &__copyright {
+        &__left {
             float: left;
             
-            .links {
-                li {
-                    display: inline-block;
-                    
-                    &:after {  content: ' | '; padding: 0 2rem }
-                    &:last-child:after { content: '' }
-                    
-                    a {
-                        &:hover, &:active { color: $light-primary-color }
-                    }
+            &__link {
+                display: inline-block;
+
+                &:after {  content: ' | '; padding: 0 2rem }
+                &:last-child:after { content: '' }
+
+                a {
+                    &:hover, &:active { color: $light-primary-color }
                 }
             }
         }
-
-        &__links {
+            
+        &__right {
             float: right;
             
-            .social-icons {
+            &__social-icons {
                 display: table-cell;
                 float: right;
                 vertical-align: middle;
-                
-                .social-icon {
+
+                &__item {
                     display: inline-block;
                     padding: 0 .5rem;
                     position: relative;
@@ -81,7 +79,7 @@
                             .fa, .name { color: #fff }
                             .name { width: 60px !important }
                         }
-                        
+
                         .fa { padding: 0 .6rem }
 
                         .name {
@@ -91,26 +89,17 @@
                             width: 0 !important;
                         }
                     }
-                    
+
                     .twitter {
-                        &:hover, &:focus {
-                            background: $bc-twitter;
-                            border-color: $bc-twitter;
-                        }
+                        &:hover, &:focus { background: $bc-twitter; border-color: $bc-twitter }
                     }
 
                     .linkedin {
-                        &:hover, &:focus {
-                            background: $bc-linkedin;
-                            border-color: $bc-linkedin;
-                        }
+                        &:hover, &:focus { background: $bc-linkedin; border-color: $bc-linkedin }
                     }
 
                     .github {
-                        &:hover, &:focus {
-                            background: $bc-github;
-                            border-color: $bc-github;
-                        }
+                        &:hover, &:focus { background: $bc-github; border-color: $bc-github }
                     }
                 }
             }

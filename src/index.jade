@@ -80,34 +80,33 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
 
         footer.l-footer.no-selection(role="contentinfo" itemscope itemtype="http://schema.org/WPFooter")
             div.l-footer__container
-                section.l-footer__container__copyright
-                    div.links
-                        ul
-                            li
-                                a(href="/#!/" data-ng-i18next="common.nav.home")
-                            li
-                                a(href="/#!/about" data-ng-i18next="common.nav.about")
-                            li
-                                a(href="/#!/works" data-ng-i18next="common.nav.works")
-                            li
-                                a(href="/#!/contact" data-ng-i18next="common.nav.contact")
+                section.l-footer__container__left
+                    ul
+                        li.l-footer__container__left__link
+                            a(href="/#!/" data-ng-i18next="common.nav.home")
+                        li.l-footer__container__left__link
+                            a(href="/#!/about" data-ng-i18next="common.nav.about")
+                        li.l-footer__container__left__link
+                            a(href="/#!/works" data-ng-i18next="common.nav.works")
+                        li.l-footer__container__left__link
+                            a(href="/#!/contact" data-ng-i18next="common.nav.contact")
                                 
-                    p.copyright © 
+                    p © 
                         span(itemprop="copyrightYear") 2015 
                         span(itemprop="copyrightHolder") Cyril Schumacher. 
                         span(data-ng-i18next="common.footer.all_right_reserved")
 
-                section.l-footer__container__links
-                    ul.social-icons
-                        li.social-icon
+                section.l-footer__container__right
+                    ul.l-footer__container__right__social-icons
+                        li.l-footer__container__right__social-icons__item
                             a.github.button(rel="external" href="https://github.com/cyrilschumacher" data-ng-i18next="[title]common.footer.go_to_github")
                                 i.button-text.fa.fa-github
                                 span.button-text.name GitHub
-                        li.social-icon
+                        li.l-footer__container__right__social-icons__item
                             a.linkedin.button(rel="external" href="http://www.linkedin.com/in/cyrilschumacher" data-ng-i18next="[title]common.footer.go_to_linkedin")
                                 i.button-text.fa.fa-linkedin
                                 span.button-text.name Linkedin
-                        li.social-icon
+                        li.l-footer__container__right__social-icons__item
                             a.twitter.button(rel="external" href="http://www.twitter.com/CyrilSchumacher" data-ng-i18next="[title]common.footer.go_to_twitter")
                                 i.button-text.fa.fa-twitter
                                 span.button-text.name Twitter
