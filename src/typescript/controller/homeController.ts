@@ -21,7 +21,6 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="directive/fullHeightWindowDirective"/>
 

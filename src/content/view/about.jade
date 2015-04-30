@@ -21,8 +21,11 @@
 // SOFTWARE.
 
 header.l-header.no-selection(data-ng-init="init()")
-    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content--center")
-        div.l-header__content--center
+    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content--center, .l-header__content__sprite")
+        div.l-header__content__sprite
+            img.l-header__content__sprite__balloon2(src="/content/image/Balloon2.png")
+            img.l-header__content__sprite__balloon1(src="/content/image/Balloon1.png")
+        div.l-header__content__title
             h1(data-view-title data-ng-i18next="about.about")
             p(data-ng-i18next="about.find_who_am_i")
 

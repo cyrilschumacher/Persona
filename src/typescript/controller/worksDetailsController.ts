@@ -22,7 +22,6 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="directive/fullHeightWindowDirective"/>
 /// <amd-dependency path="service/messengerService"/>

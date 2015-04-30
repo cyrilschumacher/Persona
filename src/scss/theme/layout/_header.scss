@@ -31,12 +31,12 @@
         position: fixed;
         width: 100%;
 
-        &--center {
+        &--center, &__title {
             height: auto;
             display: table-cell;
             text-align: center;
             vertical-align: middle;
-            width: 50%;
+            width: inherit;
 
             h1 { display: inline-block }
             p { @include rem2px(font-size, $h3-font-size); font-weight: 300 }

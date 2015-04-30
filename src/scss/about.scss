@@ -55,6 +55,16 @@
     to { width: inherit }
 }
 
+@include keyframes(animation-balloon1) {
+    from { left: -20% }
+    to { left: 100% }
+}
+
+@include keyframes(animation-balloon2) {
+    from { right: -20% }
+    to { right: 100% }
+}
+
 /* Classes */
 
 /* Navigation bar */
@@ -66,9 +76,22 @@
 /* Header */
 
 .l-header__content {
-    background: $grapefruit-primary-color;
+    background: #90CFD4 url(/content/image/Cloud.png) bottom left repeat-x;
     color: #fff;
+    height: inherit;
+    width: inherit;
     z-index: 1;
+    
+    &__sprite {
+        height: inherit;
+        position: absolute;
+        width: inherit;
+        z-index: 0;
+        
+        &__balloon1, &__balloon2 { position: absolute }
+        &__balloon1 { @include animation(30s animation-balloon1 linear infinite alternate); top: 5% }
+        &__balloon2 { @include animation(60s animation-balloon2 linear infinite alternate); bottom: 10%; width: 5% }
+    }
 }
 
 /* Section */

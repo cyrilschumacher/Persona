@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular-route.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
 /// <amd-dependency path="directive/fullHeightWindowDirective"/>
 
 import app = require('app');
@@ -52,7 +52,7 @@ class MailSentController extends controllerBase {
         super($scope, $rootScope);
 
         // Initialize header.
-        this.initializeHead(this.$i18next('contact.head.description'), this.$i18next('contact.head.keywords'));
+        this.initializeHead($i18next('contact.head.description'), $i18next('contact.head.keywords'));
     }
 }
 
