@@ -20,18 +20,11 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import "theme";
-
-/* Header */
-
-.l-header { background: $error-color; color: #fff }
-
-/* Footer */
-
-.l-footer {
-    bottom: 0;
-    background: none !important;   
-    color: $base-background;
-    left: 0;
-    position: absolute;
-}
+/* Layout */
+@import "layout/article";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/main";
+@import "layout/nav";
+@import "layout/route-loading";
+@import "layout/section";

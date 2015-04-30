@@ -20,18 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import "theme";
-
-/* Header */
-
-.l-header { background: $error-color; color: #fff }
-
-/* Footer */
-
-.l-footer {
-    bottom: 0;
-    background: none !important;   
-    color: $base-background;
-    left: 0;
-    position: absolute;
-}
+/* Tools */
+@import "tools/color";
+@import "tools/font";
+@import "tools/mixin";
+@import "tools/variable";

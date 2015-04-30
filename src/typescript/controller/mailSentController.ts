@@ -52,7 +52,7 @@ class MailSentController extends controllerBase {
         super($scope, $rootScope);
 
         // Initialize header.
-        this.initializeHead();
+        this.initializeHead(this.$i18next('contact.head.description'), this.$i18next('contact.head.keywords'));
     }
 }
 

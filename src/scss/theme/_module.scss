@@ -20,18 +20,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import "theme";
-
-/* Header */
-
-.l-header { background: $error-color; color: #fff }
-
-/* Footer */
-
-.l-footer {
-    bottom: 0;
-    background: none !important;   
-    color: $base-background;
-    left: 0;
-    position: absolute;
-}
+/* Module */
+@import "module/alignment/flex-container-column";
+@import "module/alignment/flex-row";
+@import "module/alignment/vertical-horizontal-center";
+@import "module/animation/animation-fade-fast";
+@import "module/animation/animation-fade-slow";
+@import "module/form/button";
+@import "module/form/input-required";
+@import "module/text/text-center";
+@import "module/text/text-justify";
+@import "module/text/text-lowercase";
+@import "module/text/text-uppercase";
+@import "module/full-background-fixed";
+@import "module/no-selection";
+@import "module/round-icon";
+@import "module/timeline";
