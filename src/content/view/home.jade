@@ -27,7 +27,7 @@ header.l-header.no-selection(data-ng-full-height-window data-ng-init="init()")
         video(autoplay muted loop)
             mixin source("content/video/wipe")
     div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content--center")
-        div.l-header__content--center(itemscope itemtype="http://schema.org/Person")
+        div.l-header__content__title(itemscope itemtype="http://schema.org/Person")
             h1.animation-fade-slow
                 span.text-uppercase(itemprop="name") Cyril Schumacher
             p.animation-fade-fast.text-lowercase(itemprop="description" data-ng-i18next="home.header.subtitle")

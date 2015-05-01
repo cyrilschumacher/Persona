@@ -35,10 +35,9 @@ article.l-article
         p.l-article__header__subtitle(data-ng-i18next="about.let_me_introduce_myself")
     section.l-section.l-section-presentation
         div.presentation
-            div.presentation-photo
-                p
-                    img(alt="{{profile.photo.title}}" src="{{profile.photo.url}}")
-            div.presentation-description
+            p.presentation__photo
+                img(alt="{{profile.photo.title}}" src="{{profile.photo.url}}")
+            div.presentation__description
                 p.text-justify(data-ng-bind="profile.description")
 
 article.l-article
