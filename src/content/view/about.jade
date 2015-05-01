@@ -67,14 +67,14 @@ article.l-article
                             div.company__properties__left
                                 div.company__properties__left__icon.vertical-horizontal-center
                                     i.fa.fa-building-o
-                            div.company__properties__information.vertical-horizontal-center
+                            div.company__properties__information
                                 span(itemprop="name" data-ng-bind="experience.name")
                     li
                         div.company__properties
                             div.company__properties__left
                                 div.company__properties__left__icon.vertical-horizontal-center
                                     i.fa.fa-location-arrow
-                            div.company__properties__information.vertical-horizontal-center
+                            div.company__properties__information
                                 div(itemprop="address")
                                     span(itemprop="addressLocality") {{experience.company.location.address.city}}, 
                                     span(itemprop="addressRegion") {{experience.company.location.address.countryRegion}}
@@ -83,7 +83,7 @@ article.l-article
                             div.company__properties__left
                                 div.company__properties__left__icon.vertical-horizontal-center
                                     i.fa.fa-calendar
-                            div.company__properties__information.vertical-horizontal-center
+                            div.company__properties__information
                                 time(datetime="{{experience.period.start}}") {{experience.period.start | date:'MMMM yyyy'}}
                                 span.separator -
                                 time(datetime="{{experience.period.end}}") {{experience.period.end | date:'MMMM yyyy'}}
@@ -105,6 +105,6 @@ article.l-article
                 li.skill(data-ng-repeat="skill in category.items")
                     div.progress
                         div.progress-background(ng-style="{'width': skill.score + '%'}")
-                        div.progress-content.vertical-horizontal-center
+                        div.progress-content
                             div.progress-content-name(data-ng-bind="skill.name")
                             div.progress-content-value {{skill.score}}%

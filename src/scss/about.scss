@@ -145,6 +145,7 @@
         &__information, &__left__icon { text-align: left }
         &__information {
             color: $grapefruit-primary-color;
+            display: block;
             @include justify-content(flex-start);
 
             > .separator { margin: 0 ($base-margin / 2) }
@@ -224,12 +225,14 @@
         height: inherit;
         overflow: hidden;
         position: absolute;
-        width: 100%;
+        width: inherit;
 
-        &-name, &-value { 
+        &-name, &-value {
+            bottom: 25%;
             padding: 0 ($base-margin / 2);
             position: absolute;
-            transform: translate(0, -50%);
+            top: 25%;
+            width: 100%;
         }
 
         &-name {
