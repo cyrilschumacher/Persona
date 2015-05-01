@@ -22,12 +22,7 @@
 
 @import 'family/bebas_neue';
 @import 'family/iconicfill';
-
-// Source Sans Pro.
-@import url("//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900");
-
-// Typography.
-$source-sans-pro-font:      'Source Sans Pro';
+@import 'family/source_sans_pro';
 
 // Families sets.
 $font-family-sans-serif:    $source-sans-pro-font, sans-serif   !default;

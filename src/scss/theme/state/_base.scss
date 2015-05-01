@@ -24,6 +24,9 @@
     html { font-size: $desktop-base-font-size !important } 
 }
 
+@media screen and (max-width: $wide-desktop-device-max-width) {
+    html { font-size: $wide-desktop-base-font-size !important } 
+}
 
 @media screen and (max-width: $tablets-device-max-width) {
     html { font-size: $tablets-base-font-size !important } 

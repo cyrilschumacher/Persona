@@ -1,7 +1,7 @@
 // Bebas Neue.
 $bebas-neue-font: 'Bebas Neue';
 @font-face {
-    font-family: 'Bebas Neue';
+    font-family: $bebas-neue-font;
     src: url('/content/font/bebas_neue/BebasNeue.eot');
     src: url('/content/font/bebas_neue/BebasNeue.eot?#iefix') format('embedded-opentype'),
          url('/content/font/bebas_neue/BebasNeue.woff2') format('woff2'),

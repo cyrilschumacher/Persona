@@ -83,7 +83,7 @@
         
         &__sun, &__asteroid1, &__asteroid2, &__earth, &__satellit { position: absolute }
         &__sun { left: 4%; top: 3%; width: 20% }
-        &__satellit { @include animation(20s animation-satellit linear infinite alternate); width: 10% }
+        &__satellit { @include animation(20s animation-satellit linear infinite alternate); width: 8% }
         &__asteroid1 { @include animation(30s animation-asteroid1 linear infinite) }
         &__asteroid2 { @include animation(20s animation-asteroid2 linear infinite) }
         &__earth { bottom: 20%; right: 10%; width: 5% }
