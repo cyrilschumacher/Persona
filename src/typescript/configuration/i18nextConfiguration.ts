@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/ng-i18next/ng-i18next.d.ts" />
+
 /**
  * @summary Persona internationalization configuration block.
  * @author  Cyril Schumacher
@@ -40,7 +42,7 @@ class i18nextConfiguration {
      * @constructs
      * @param {any} $i18nextProvider i18next provider.
      */
-    public constructor($i18nextProvider: any) {
+    public constructor($i18nextProvider: angular.i18next.I18nextProvider) {
         $i18nextProvider.options = {
             debug: true,
             fallbackLng: 'dev',

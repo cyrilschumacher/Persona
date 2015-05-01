@@ -23,8 +23,14 @@
 include mixins/img-base64
 
 header.l-header.no-selection(data-ng-init="init()")
-    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content--center")
-        div.l-header__content--center
+    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content > *")
+        div.l-header__content__sprite
+            img.l-header__content__sprite__sun(src="/content/image/sprite/sun.png")
+            img.l-header__content__sprite__earth(src="/content/image/sprite/earth.png")
+            img.l-header__content__sprite__asteroid1(src="/content/image/sprite/asteroid1.png")
+            img.l-header__content__sprite__asteroid2(src="/content/image/sprite/asteroid2.png")
+            img.l-header__content__sprite__satellit(src="/content/image/sprite/satellit.png")
+        div.l-header__content__title
             h1(data-view-title data-ng-i18next="contact.contact_me")
             p(data-ng-i18next="contact.you_have_questions")
 

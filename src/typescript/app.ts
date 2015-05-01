@@ -158,10 +158,10 @@ class Application {
     private _register = ($routeProvider: ng.route.IRouteProvider, $controllerProvider: ng.IControllerProvider, $compileProvider: ng.ICompileProvider, $filterProvider: ng.IFilterProvider, $provide: any) => {
         this._module['register'] = { 
             controller: $controllerProvider.register, 
-            directive: $compileProvider.directive, 
-            filter: $filterProvider.register, 
-            factory: $provide.factory, 
-            service: $provide.service
+            directive:  $compileProvider.directive, 
+            filter:     $filterProvider.register, 
+            factory:    $provide.factory, 
+            service:    $provide.service
         };
     }
 }

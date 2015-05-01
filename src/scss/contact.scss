@@ -22,18 +22,72 @@
 
 @import "theme";
 
+/* Keyframes */
+
+@include keyframes(animation-satellit) {
+    0% { right: 3%; bottom: 5% }
+    25% { right: 5%; bottom: 7% }
+    50% { right: 4% }
+    75% { right: 2%; bottom: 4% }
+    100% { right: 3%; bottom: 5% }
+}
+
+@include keyframes(animation-asteroid1) {
+    from {
+        bottom: 0;
+        left: -10%;
+        @include transform(rotate(0deg));
+    }
+    to {
+        bottom: 100%;
+        left: 100%;
+        @include transform(rotate(360deg));
+    }
+}
+
+
+@include keyframes(animation-asteroid2) {
+    from {
+        top: -20%;
+        right: 0;
+        @include transform(rotate(0deg));
+        width: 3%;
+    }
+    
+    to {
+        top: 100%;
+        right: 30%;
+        @include transform(rotate(360deg));
+        width: 1%;
+    }
+}
+
 /* Navigation bar */
 
-.nav-item-contact {
-    background: $dark-secondary-color;
-}
+.nav-item-contact { background: $dark-secondary-color }
 
 /* Header */
 
 .l-header__content {
-    background: $grass-primary-color;
+    background: #002241 url(/content/image/sprite/star.png);
     color: #fff;
+    height: inherit;
+    width: inherit;
     z-index: 1;
+    
+    &__sprite {
+        height: inherit;
+        position: absolute;
+        width: inherit;
+        z-index: 0;
+        
+        &__sun, &__asteroid1, &__asteroid2, &__earth, &__satellit { position: absolute }
+        &__sun { left: 4%; top: 3% }
+        &__satellit { @include animation(20s animation-satellit linear infinite alternate) }
+        &__asteroid1 { @include animation(30s animation-asteroid1 linear infinite) }
+        &__asteroid2 { @include animation(20s animation-asteroid2 linear infinite) }
+        &__earth { bottom: 20%; right: 10%; width: 5% }
+    }
 }
 
 /* Section */
