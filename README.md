@@ -1,5 +1,5 @@
-# ![Persona](https://raw.githubusercontent.com/cyrilschumacher/Persona/master/icon.png) Persona
-[![Build Status](https://travis-ci.org/cyrilschumacher/Persona.svg)](https://travis-ci.org/cyrilschumacher/Persona) for Travis CI passing
+# Persona
+[![Build Status](https://travis-ci.org/cyrilschumacher/Persona.svg)](https://travis-ci.org/cyrilschumacher/Persona)
 
 Persona is my portfolio website which is available at: [www.cyrilschumacher.fr](http://www.cyrilschumacher.fr/).
 
