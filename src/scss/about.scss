@@ -114,6 +114,7 @@
 }
 
 .l-section-skills {
+    h3 { color: $grapefruit-primary-color }
     ul { text-align: left }
 }
 
@@ -147,8 +148,8 @@
             color: $grapefruit-primary-color;
             display: block;
             @include justify-content(flex-start);
-
-            > .separator { margin: 0 ($base-margin / 2) }
+            
+            > * { display: block }
         }
     }
 }

@@ -85,13 +85,11 @@ article.l-article
                                     i.fa.fa-calendar
                             div.company__properties__information
                                 time(datetime="{{experience.period.start}}") {{experience.period.start | date:'MMMM yyyy'}}
-                                span.separator -
                                 time(datetime="{{experience.period.end}}") {{experience.period.end | date:'MMMM yyyy'}}
             div.experience-information
                 h3 {{experience.job}}
                 ul.keywords
                     li.keyword(data-ng-repeat="keyword in experience.keywords" data-ng-bind="keyword")
-                    
                 p.summary.text-justify {{experience.summary}}
 
 article.l-article
