@@ -10,6 +10,7 @@
 *.markdown      text 
 *.sass          text
 *.scss          text
+*.ts            linguist-language=TypeScript
 
 *.bmp          binary
 *.gif          binary
