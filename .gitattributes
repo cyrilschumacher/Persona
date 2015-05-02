@@ -2,8 +2,8 @@
 .gitattributes  text
 .gitignore      text
 *.css           text
-*.html          text        diff=html
-*.jade          text
+*.html          text diff=html
+*.jade          linguist-language=Jade
 *.js            text
 *.json          text
 *.md            text 
