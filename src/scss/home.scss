@@ -31,16 +31,6 @@
 /* Header */
 
 .l-header {
-    &__background {
-        background: #000;
-        height: 100%;
-        overflow: hidden;
-        position: absolute;
-        width: 100%;
-
-        video { min-height: 100%; min-width: 100% }
-    }
-
     &__content {
         background: url(/content/image/grid.png);
         color: #fff;

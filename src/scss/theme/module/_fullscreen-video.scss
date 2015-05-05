@@ -20,15 +20,4 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-.full-background-fixed {
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-    @include background-size(cover);
-    height: inherit;
-    left: 0;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    width: inherit;
-}
+.fullscreen-video { min-height: 100%; min-width: 100% }

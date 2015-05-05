@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 // 
-// Copyright (c) 2014 Cyril Schumacher.fr
+// Copyright (c) 2015 Cyril Schumacher.fr
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -20,14 +20,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-include mixins/video-source
-
-header.l-header.no-selection(data-ng-full-height-window data-ng-init="init()")
-    div.fullscreen-element
-        video.fullscreen-video(autoplay muted loop)
-            mixin source("content/video/wipe")
-    div.l-header__content(data-ng-fade-by-scroll data-percentage="25" data-element=".l-header__content--center")
-        div.l-header__content__title(itemscope itemtype="http://schema.org/Person")
-            h1.animation-fade-slow
-                span.text-uppercase(itemprop="name") Cyril Schumacher
-            p.animation-fade-fast.text-lowercase(itemprop="description" data-ng-i18next="home.header.subtitle")
+.fixed-background {
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @include background-size(cover);
+}
