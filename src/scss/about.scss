@@ -278,6 +278,8 @@
 
     &:nth-child(even) {
         .timeline-block-content {
+            text-align: left !important;
+
             &:before {
                 border-left-color: transparent;
                 border-right-color: $grapefruit-primary-color;
@@ -291,7 +293,7 @@
     &-content {
         border: 3px dashed $grapefruit-primary-color;
         color: $grapefruit-primary-color;
-        text-align: left;
+        text-align: right;
 
         &:before { 
             border-right-color: $grapefruit-primary-color;
