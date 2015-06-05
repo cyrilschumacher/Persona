@@ -35,10 +35,6 @@ header.l-header.no-selection(data-ng-init="init()")
             p(data-ng-i18next="contact.you_have_questions")
 
 article.l-article
-    section.l-section.l-section__map
-        div(data-ng-bing-maps map-options="mapOptions" view-options="viewOptions" pushpins="pushpins")
-
-article.l-article
     header
         h2(data-ng-i18next="contact.form.title")
         p.l-article__header__subtitle(data-ng-i18next="contact.form.subtitle")
@@ -52,6 +48,7 @@ article.l-article
                         p
                             input(data-ng-model="form.firstname" type="text" maxlength="40")
                             span.field-information 3 à 40 caractères maximum.
+                    div.separator
                     div.contact-form__name
                         label(data-ng-i18next="contact.form.lastname")
                         p

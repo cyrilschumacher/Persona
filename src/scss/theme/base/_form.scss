@@ -26,6 +26,7 @@ form {
 
     button, input, textarea {
         border: 1px solid $medium-gray-primary-color;
+        @include box-sizing(border-box);
         font-family: $base-font-family;
         font-size: 1.8rem;
         padding: 1rem 2rem;

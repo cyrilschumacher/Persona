@@ -92,12 +92,6 @@
 
 /* Section */
 
-.l-section__map {
-    height: 75rem;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .l-section__form {
     z-index: 2;
 
@@ -112,15 +106,7 @@
         &__name {
             width: 50%;
 
-            input { width: 75% !important }
-        }
-        
-        .required-label {
-            &:after {
-                color: red;
-                content: '*';   
-                margin: 0 0 0 ($base-margin / 2);
-            }
+            input { width: 100% !important }
         }
 
         p { text-align: center }
@@ -200,11 +186,13 @@
     &__image { border: 1px solid $medium-gray-primary-color }
     &__input { margin: 0 $base-margin }
 }
-    
-#map {
-    border: 1px solid $light-primary-color;
-    height: 50rem;
-    margin: 2rem auto;
-    position: relative;
-    width: 100%;
+
+.required-label {
+    &:after {
+        color: red;
+        content: '*';   
+        margin: 0 0 0 ($base-margin / 2);
+    }
 }
+
+.separator { width: 5% }
