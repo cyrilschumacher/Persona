@@ -38,7 +38,7 @@ class MailSentController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$rootScope', '$i18next'];
     
     /**
      * @summary Constructor.
