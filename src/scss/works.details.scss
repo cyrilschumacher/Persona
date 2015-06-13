@@ -20,17 +20,18 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@charset "utf-8";
+@import "global";
 
-/* Compass */
+/* Navigation bar */
 
-@import "compass/css3";
-@import "compass/reset";
+.nav-item-works {
+    background: $dark-secondary-color;
+}
 
-/* SMACSS structure */
+/* Header */
 
-@import "theme/tools";
-@import "theme/base";
-@import "theme/layout";
-@import "theme/module";
-@import "theme/state";
+.l-header__content {
+    background: $lavander-primary-color;
+    color: #fff;
+    z-index: 1;
+}

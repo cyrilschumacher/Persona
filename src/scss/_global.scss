@@ -20,21 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-/* Module */
-@import "module/alignment/flex-container-column";
-@import "module/alignment/flex-row";
-@import "module/alignment/vertical-horizontal-center";
-@import "module/animation/animation-fade-fast";
-@import "module/animation/animation-fade-slow";
-@import "module/background/fixed-background";
-@import "module/form/button";
-@import "module/form/input-required";
-@import "module/text/text-center";
-@import "module/text/text-justify";
-@import "module/text/text-lowercase";
-@import "module/text/text-uppercase";
-@import "module/fullscreen-element";
-@import "module/fullscreen-video";
-@import "module/no-selection";
-@import "module/round-icon";
-@import "module/timeline";
+@charset "utf-8";
+
+/* Compass */
+
+@import "compass/css3";
+@import "compass/reset";
+
+/* SMACSS structure */
+
+@import "tools";
+@import "base";
+@import "layout";
+@import "module";
+@import "state";

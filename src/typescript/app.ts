@@ -119,7 +119,7 @@ class Application {
      * @private
      */
     private _initializeProvider = (): void => {
-        var provide = new configurationProviderService(this._module, '/scripts/configuration.json');
+        var provide = new configurationProviderService(this._module, 'scripts/configuration.json');
         this._module.provider('appConfig', provide);
     }
         
@@ -131,7 +131,7 @@ class Application {
         var appConfigRoute: Object = { 
             'controllerPath':   'scripts/controller/', 
             'cssPath':          'css/', 
-            'viewPath':         'content/view/' 
+            'viewPath':         'content/view/'
         }; 
 
         this._module.constant('appConfigRoute', appConfigRoute);

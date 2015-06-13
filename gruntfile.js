@@ -1,3 +1,5 @@
+modRewrite  = require('connect-modrewrite');
+
 /*global module*/
 module.exports = function (grunt) {
     'use strict';
@@ -10,7 +12,10 @@ module.exports = function (grunt) {
             },
             options: {
                 server: {
-                    baseDir: 'dist/'
+                    baseDir: 'dist/',
+                    middleware: [
+                        modRewrite(['^[^\\.]*$ /index.html [L]'])
+                    ]
                 }
             }
         },

@@ -47,10 +47,10 @@ class RouteConfiguration {
         $routeProvider.when('/',                this._addRoute('home'))
                       .when('/about',           this._addRoute('about'))
                       .when('/works',           this._addRoute('works'))
-                      .when('/works/:id',       this._addRoute('works/details', 'worksDetails', 'works_details'))
+                      .when('/works/:id',       this._addRoute('works/details', 'worksDetails', 'works.details'))
                       .when('/contact',         this._addRoute('contact'))
-                      .when('/contact/failure', this._addRoute('contact/failure', 'mailSent', 'contact_failure'))
-                      .when('/contact/success', this._addRoute('contact/success', 'mailSent', 'contact_success'))
+                      .when('/contact/failure', this._addRoute('contact/failure', 'mailSent', 'contact.failure'))
+                      .when('/contact/success', this._addRoute('contact/success', 'mailSent', 'contact.success'))
                       .otherwise({redirectTo: '/'});
     }
 

@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import "theme";
+@import "global";
 
 /* Media Queries */
 
@@ -316,4 +316,8 @@
             time { height: inherit }
         }
     }
+}
+
+.typing-indicator {
+    margin: 5% auto;   
 }

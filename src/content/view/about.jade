@@ -33,12 +33,17 @@ article.l-article
     header
         h2(data-ng-i18next="about.presentation")
         p.l-article__header__subtitle(data-ng-i18next="about.let_me_introduce_myself")
-    section.l-section.l-section-presentation
+    section.l-section.l-section-presentation(data-ng-hide="!profile")
         div.presentation
             p.presentation__photo
                 img(alt="{{profile.photo.title}}" src="{{profile.photo.url}}")
             div.presentation__description
                 p.text-justify(data-ng-bind="profile.description")
+    section.l-section.l-section-presentation(data-ng-hide="profile")
+        div.typing-indicator
+            span
+            span
+            span
 
 article.l-article
     header
@@ -53,6 +58,11 @@ article.l-article
                 h3(itemprop="name" data-ng-bind="school.name")
                 ul.formation-degrees(itemprop="description")
                     li(data-ng-repeat="degree in school.degrees" data-ng-bind="degree")
+    section.l-section.l-section-education(data-ng-hide="schools")
+        div.typing-indicator
+            span
+            span
+            span
 
 article.l-article
     header
@@ -91,6 +101,11 @@ article.l-article
                 ul.keywords
                     li.keyword(data-ng-repeat="keyword in experience.keywords" data-ng-bind="keyword")
                 p.summary.text-justify {{experience.summary}}
+    section.l-section.l-section-experience(data-ng-hide="experiences")
+        div.typing-indicator
+            span
+            span
+            span
 
 article.l-article
     header
@@ -106,3 +121,8 @@ article.l-article
                         div.progress-content
                             div.progress-content-name(data-ng-bind="skill.name")
                             div.progress-content-value {{skill.score}}%
+    section.l-section.l-section-skills(data-ng-hide="skills")
+        div.typing-indicator
+            span
+            span
+            span

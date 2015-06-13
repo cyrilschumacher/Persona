@@ -34,10 +34,10 @@ class ConfigurationProviderService {
      * @summary Constructor.
      * @constructs
      * @public
-     * @param module    {IModule} Module.
-     * @param url       {string}  URL address to JSON configuration file.
+     * @param _module   {IModule} Module.
+     * @param _url      {string}  URL address to JSON configuration file.
      */
-    public constructor(private module: ng.IModule, private url: string) {
+    public constructor(private _module: ng.IModule, private _url: string) {
     }
     
     /**
@@ -45,15 +45,15 @@ class ConfigurationProviderService {
      * @public
      */
     public $get = () => {
-        var settings: JQueryAjaxSettings = {type: 'GET', url: this.url, cache: false, async: false, contentType: 'application/json', dataType: 'json'};
+        var settings: JQueryAjaxSettings = {type: 'GET', url: this._url, cache: false, async: false, contentType: 'application/json', dataType: 'json'};
         var q: JQueryXHR = jQuery.ajax(settings);
         
         const HTTP_OK = 200;
         if (q.status === HTTP_OK) {
-            angular.extend(this.module, angular.fromJson(q.responseText));
+            angular.extend(this._module, angular.fromJson(q.responseText));
         }
         
-        return this.module;
+        return this._module;
     }
 }
 
