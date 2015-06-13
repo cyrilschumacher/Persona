@@ -31,27 +31,45 @@
  */
 class ConfigurationProviderService {
     /**
+     * AJAX settings.
+     * @private
+     * @type {JQueryAjaxSettings}
+     */
+    private _settings: JQueryAjaxSettings;
+    
+    /**
      * @summary Constructor.
      * @constructs
      * @public
      * @param _module   {IModule} Module.
-     * @param _url      {string}  URL address to JSON configuration file.
+     * @param url       {string}  URL address to JSON configuration file.
      */
-    public constructor(private _module: ng.IModule, private _url: string) {
+    public constructor(private _module: ng.IModule, url: string) {
+        this._settings = {async: false, cache: false, contentType: 'application/json', dataType: 'json', type: 'GET', url: url};
+    }
+    
+    /**
+     * @summary Reads the content of the HTTP response.
+     * @private
+     * @param q   {JQueryXHR} HTTP response.
+     */
+    private _readResponse = (q: JQueryXHR): void => {
+        const HTTP_OK = 200;
+        if (q.status === HTTP_OK) {
+            angular.extend(this._module, angular.fromJson(q.responseText));
+        }
     }
     
     /**
      * @summary Shortcut method to perform GET request.
      * @public
      */
-    public $get = () => {
-        var settings: JQueryAjaxSettings = {type: 'GET', url: this._url, cache: false, async: false, contentType: 'application/json', dataType: 'json'};
-        var q: JQueryXHR = jQuery.ajax(settings);
+    public $get = (): void => {
+        // Creates a HTTP request and send it.
+        var q: JQueryXHR = jQuery.ajax(this._settings);
         
-        const HTTP_OK = 200;
-        if (q.status === HTTP_OK) {
-            angular.extend(this._module, angular.fromJson(q.responseText));
-        }
+        // Reads the HTTP response.
+        this._readResponse(q);
         
         return this._module;
     }

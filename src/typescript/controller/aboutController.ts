@@ -62,6 +62,7 @@ class AboutController extends controllerBase {
                        private resumeService: resumeService) {
         super($scope, $rootScope);
         
+        // Initialize initialize method scope.
         this.$scope['init'] = this._initialize;
     }
     

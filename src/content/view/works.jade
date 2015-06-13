@@ -36,7 +36,7 @@ article.l-article
     header
         h2(ng-i18next="about.presentation")
         p.l-article__header__subtitle(ng-i18next="about.let_me_introduce_myself")
-    section.l-section
+    section.l-section(data-ng-hide="!works")
         ul.works
             li.works__item(data-ng-repeat="work in works")
                 p
@@ -44,3 +44,8 @@ article.l-article
                         img(alt="{{work.name}}" src="{{work.thumbnail}}")
                 h3 {{work.name}}
                 p.text-justify {{work.summary.short}}
+    section.l-section(data-ng-hide="works")
+        div.typing-indicator
+            span
+            span
+            span
