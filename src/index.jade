@@ -34,10 +34,6 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
         
         meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
         meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
-
-        meta(property="og:title" content="")
-        meta(property="og:type" content="")
-        meta(property="og:url" content="")
         
         base(href="/")
 
@@ -58,22 +54,22 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                     li
                         h2 Menu
                     li 
-                        a.l-nav__content__item.nav-item-home(href="/#!/")
+                        a.l-nav__content__item.nav-item-home(href="/{{language}}/")
                             span.l-nav__content__item__icon
                                 i.vertical-horizontal-center.iconicfill-home
                             span(data-ng-i18next="common.nav.home") 
                     li
-                        a.l-nav__content__item.nav-item-about(href="/#!/about")
+                        a.l-nav__content__item.nav-item-about(href="/{{language}}/about")
                             span.l-nav__content__item__icon
                                 i.vertical-horizontal-center.iconicfill-folder-fill
                             span(data-ng-i18next="common.nav.about") 
                     li
-                        a.l-nav__content__item.nav-item-works(href="/#!/works")
+                        a.l-nav__content__item.nav-item-works(href="/{{language}}/works")
                             span.l-nav__content__item__icon
                                 i.vertical-horizontal-center.iconicfill-paperclip
                             span(data-ng-i18next="common.nav.works") 
                     li
-                        a.l-nav__content__item.nav-item-contact(href="/#!/contact")
+                        a.l-nav__content__item.nav-item-contact(href="/{{language}}/contact")
                             span.l-nav__content__item__icon
                                 i.vertical-horizontal-center.iconicfill-map-pin-alt
                             span(data-ng-i18next="common.nav.contact")
@@ -83,13 +79,13 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
                 section.l-footer__container__left
                     ul
                         li.l-footer__container__left__link
-                            a(href="/#!/" data-ng-i18next="common.nav.home")
+                            a(href="/{{language}}/" data-ng-i18next="common.nav.home")
                         li.l-footer__container__left__link
-                            a(href="/#!/about" data-ng-i18next="common.nav.about")
+                            a(href="/{{language}}/about" data-ng-i18next="common.nav.about")
                         li.l-footer__container__left__link
-                            a(href="/#!/works" data-ng-i18next="common.nav.works")
+                            a(href="/{{language}}/works" data-ng-i18next="common.nav.works")
                         li.l-footer__container__left__link
-                            a(href="/#!/contact" data-ng-i18next="common.nav.contact")
+                            a(href="/{{language}}/contact" data-ng-i18next="common.nav.contact")
                                 
                     p © 
                         span(itemprop="copyrightYear") 2015 

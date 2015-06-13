@@ -33,23 +33,18 @@ class ControllerBase {
      * @summary Constructor.
      * @constructor
      * @public
-     * @param $scope        {IScope}            Model.
-     * @param $rootScope    {IRootScopeService} Root scope.
+     * @param $scope            {IScope}                Model.
+     * @param $rootScope        {IRootScopeService}     Root scope
+     * @param $routeParams      {IRouteParamsService}   Route parameters.
+     * @param $i18next          {I18nextProvider}       i18next provider.
      */
-    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService) {
-        $rootScope['head'] = new headModel();
+    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $i18next: angular.i18next.I18nextProvider) {
+        this.$rootScope['head'] = new headModel();
+        this.$scope.$on('$viewContentLoaded', this._onViewContentLoaded);
     }
     
     /**
-     * @summary Initialize status.
-     * @private
-     */
-    private _initializeStatus = (): void => {
-        this.$rootScope['status'] = 'ready';
-    }
-    
-    /**
-     * @summary Initialize head information.
+     * @summary Initializes head information.
      * @protected
      * @param description   {string} Description.
      * @param keywords      {string} Keywords.
@@ -60,6 +55,34 @@ class ControllerBase {
         head.meta.description = description;
         head.meta.keywords = keywords;
         head.meta.robots = robots ? robots : 'noindex, nofollow';
+    }
+
+    /**
+     * @summary Initializes controller.
+     * @private
+     */
+    private _onViewContentLoaded = (): void => {
+        this._initializeLocalization();
+        this._initializeStatus();
+    }
+    
+    /**
+     * @summary Initializes localization.
+     * @private
+     */
+    private _initializeLocalization = (): void => {
+        var language: string = this.$routeParams['language'];
+        
+        this.$rootScope['language'] = language;
+        this.$i18next.options.lng = language;
+    }
+    
+    /**
+     * @summary Initializes status.
+     * @private
+     */
+    private _initializeStatus = (): void => {
+        this.$rootScope['status'] = 'ready';
     }
 }
 

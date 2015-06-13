@@ -63,8 +63,9 @@ class ConfigurationProviderService {
     /**
      * @summary Shortcut method to perform GET request.
      * @public
+     * @return {ng.IModule} Module.
      */
-    public $get = (): void => {
+    public $get = (): ng.IModule => {
         // Creates a HTTP request and send it.
         var q: JQueryXHR = jQuery.ajax(this._settings);
         

@@ -22,6 +22,7 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/ng-i18next/ng-i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="service/api/resume/profileService"/>
 /// <amd-dependency path="service/api/resume/resumeService"/>
@@ -43,24 +44,26 @@ class AboutController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next', 'profileService', 'resumeService'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$i18next', 'profileService', 'resumeService'];
     
     /**
      * @summary Constructor.
      * @public
      * @constructs
-     * @param $scope            {IScope}            Scope.
-     * @param $rootScope        {IRootScopeService} Root scope.
-     * @param $i18next          {any}               i18next.
-     * @param profileService    {ProfileService}    Profile service.
-     * @param resumeService     {ResumeService}     Resume service.
+     * @param $scope            {IScope}                Model.
+     * @param $rootScope        {IRootScopeService}     Root scope
+     * @param $routeParams      {IRouteParamsService}   Route parameters.
+     * @param $i18next          {I18nextProvider}       i18next provider.
+     * @param profileService    {ProfileService}        Profile service.
+     * @param resumeService     {ResumeService}         Resume service.
      */
     public constructor(public $scope: ng.IScope,
                        public $rootScope: ng.IRootScopeService,
-                       private $i18next: any,
+                       public $routeParams: angular.route.IRouteParamsService,
+                       public $i18next: angular.i18next.I18nextProvider,
                        private profileService: profileService,
                        private resumeService: resumeService) {
-        super($scope, $rootScope);
+        super($scope, $rootScope, $routeParams, $i18next);
         
         // Initialize initialize method scope.
         this.$scope['init'] = this._initialize;
@@ -72,7 +75,7 @@ class AboutController extends controllerBase {
      */
     private _initialize = (): void => {
         // Initialize header.
-        this.initializeHead(this.$i18next('about.head.description'), this.$i18next('about.head.keywords'));
+        this.initializeHead(this.$i18next('about.head.description').toString(), this.$i18next('about.head.keywords').toString());
         
         // Initialize data.
         this._initializeEducation();

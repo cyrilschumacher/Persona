@@ -101,8 +101,8 @@ class Application {
      */
     private _initializeConfigurations = (): void => {
         this._module.config(['$routeProvider', '$controllerProvider', '$compileProvider', '$filterProvider', '$provide', this._register])
-                    .config(i18nextConfiguration)
                     .config(routeConfiguration)
+                    .config(i18nextConfiguration)
                     .config(locationConfiguration);
     }
     

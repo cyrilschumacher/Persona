@@ -21,6 +21,7 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../bower_components/DefinitelyTyped/ng-i18next/ng-i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="directive/fullHeightWindowDirective"/>
 
@@ -38,19 +39,23 @@ class HomeController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$i18next'];
     
     /**
      * @summary Constructor.
      * @constructor
      * @public
-     * @param $scope        {IScope}            Scope.
-     * @param $rootScope    {IRootScopeService} Root scope.
-     * @param $i18next      {any}               i18next.
+     * @param $scope            {IScope}                Scope.
+     * @param $rootScope        {IRootScopeService}     Root scope.
+     * @param $routeParams      {IRouteParamsService}   Route parameters.
+     * @param $i18next          {I18nextProvider}       i18next provider.
      */
-    public constructor($scope: ng.IScope, $rootScope: ng.IRootScopeService, $i18next: any) {
-        super($scope, $rootScope);
-
+    public constructor(public $scope: ng.IScope,
+                       public $rootScope: ng.IRootScopeService,
+                       public $routeParams: angular.route.IRouteParamsService,
+                       public $i18next: angular.i18next.I18nextProvider) {
+        super($scope, $rootScope, $routeParams, $i18next);
+        
         // Initialize header.
         this.initializeHead($i18next('home.head.description'), $i18next('home.head.keywords'));
     }

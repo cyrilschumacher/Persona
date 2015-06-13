@@ -22,6 +22,7 @@
  */
 
 /// <reference path="../../../bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
+/// <reference path="../../../bower_components/DefinitelyTyped/ng-i18next/ng-i18next.d.ts" />
 /// <amd-dependency path="directive/fadeByScrollDirective"/>
 /// <amd-dependency path="service/messengerService"/>
 /// <amd-dependency path="service/api/worksService"/>
@@ -43,25 +44,28 @@ class WorksController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$scope', '$rootScope', '$i18next', '$location', 'worksService', 'messengerService'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$i18next', '$location', 'worksService', 'messengerService'];
     
     /**
      * @summary Constructor.
      * @constructs
      * @public
-     * @param $scope            {IScope}            Scope.
-     * @param $i18next          {any}               i18next.
+     * @param $scope            {IScope}                Scope.
+     * @param $rootScope        {IRootScopeService}     Root scope.
+     * @param $routeParams      {IRouteParamsService}   Route parameters.
+     * @param $i18nextProvider  {I18nextProvider}       i18next provider.
      * @param $location         {ILocationProvider} Location.
      * @param worksService      {WorksService}      Works service.
      * @param $rootScope        {IRootScopeService} Root scope.
      */
     public constructor(public $scope: ng.IScope,
                        public $rootScope: ng.IRootScopeService,
-                       private $i18next: any,
+                       public $routeParams: angular.route.IRouteParamsService,
+                       public $i18next: angular.i18next.I18nextProvider,
                        private $location: ng.ILocationService,
                        private worksService: worksService,
                        private messengerService: messengerService) {
-        super($scope, $rootScope);
+        super($scope, $rootScope, $routeParams, $i18next);
         
         this.$scope['init'] = this._initialize;
         this.$scope['seeDetails'] = this._seeWorksDetails;

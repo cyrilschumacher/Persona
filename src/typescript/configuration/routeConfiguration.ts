@@ -44,13 +44,14 @@ class RouteConfiguration {
      * @param {Object}         appConfig     Application configuration.
      */
     public constructor(private $routeProvider: ng.route.IRouteProvider, private appConfigRoute: Object) {
-        $routeProvider.when('/',                this._addRoute('home'))
-                      .when('/about',           this._addRoute('about'))
-                      .when('/works',           this._addRoute('works'))
-                      .when('/works/:id',       this._addRoute('works/details', 'worksDetails', 'works.details'))
-                      .when('/contact',         this._addRoute('contact'))
-                      .when('/contact/failure', this._addRoute('contact/failure', 'mailSent', 'contact.failure'))
-                      .when('/contact/success', this._addRoute('contact/success', 'mailSent', 'contact.success'))
+        $routeProvider.when('/',                {redirectTo: '/fr'})
+                      .when('/:language',       this._addRoute('home'))
+                      .when('/:language/about',           this._addRoute('about'))
+                      .when('/:language/works',           this._addRoute('works'))
+                      .when('/:language/works/:id',       this._addRoute('works/details', 'worksDetails', 'works.details'))
+                      .when('/:language/contact',         this._addRoute('contact'))
+                      .when('/:language/contact/failure', this._addRoute('contact/failure', 'mailSent', 'contact.failure'))
+                      .when('/:language/contact/success', this._addRoute('contact/success', 'mailSent', 'contact.success'))
                       .otherwise({redirectTo: '/'});
     }
 

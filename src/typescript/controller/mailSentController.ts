@@ -44,12 +44,16 @@ class MailSentController extends controllerBase {
      * @summary Constructor.
      * @constructor
      * @public
-     * @param $scope        {IScope}            Scope.
-     * @param $rootScope    {IRootScopeService} Root scope.
-     * @param $i18next      {any}               i18next.
+     * @param $scope            {IScope}                Scope.
+     * @param $rootScope        {IRootScopeService}     Root scope.
+     * @param $routeParams      {IRouteParamsService}   Route parameters.
+     * @param $i18nextProvider  {I18nextProvider}       i18next provider.
      */
-    public constructor($scope: ng.IScope, $rootScope: ng.IRootScopeService, $i18next: any) {
-        super($scope, $rootScope);
+    public constructor(public $scope: ng.IScope,
+                       public $rootScope: ng.IRootScopeService,
+                       public $routeParams: angular.route.IRouteParamsService,
+                       public $i18next: angular.i18next.I18nextProvider) {
+        super($scope, $rootScope, $routeParams, $i18next);
 
         // Initialize header.
         this.initializeHead($i18next('contact.head.description'), $i18next('contact.head.keywords'));

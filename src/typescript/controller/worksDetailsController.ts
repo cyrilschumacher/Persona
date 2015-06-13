@@ -44,26 +44,28 @@ class WorksDetailsController extends controllerBase {
      * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$location', 'worksService', 'messengerService'];
+    public static $inject: Array<string> = ['$scope', '$rootScope', '$routeParams', '$i18next', '$location', 'worksService', 'messengerService'];
     
     /**
      * @summary Constructor.
      * @constructor
      * @public
-     * @param $scope             {IScope}              Scope.
-     * @param $rootScope         {IRootScopeService}   Root scope.
-     * @param $routeParams       {IRouteParamsService} Route parameters.
-     * @param $location          {ILocationProvider}   Location service.
-     * @param worksService       {WorksService}        Works service.
-     * @param messengerService   {MessengerService}    Messenging service.
+     * @param $scope            {IScope}                Scope.
+     * @param $rootScope        {IRootScopeService}     Root scope.
+     * @param $routeParams      {IRouteParamsService}   Route parameters.
+     * @param $i18next          {I18nextProvider}       i18next provider.
+     * @param $location         {ILocationProvider}   Location service.
+     * @param worksService      {WorksService}        Works service.
+     * @param messengerService  {MessengerService}    Messenging service.
      */
     public constructor(public $scope: ng.IScope,
                        public $rootScope: ng.IRootScopeService,
-                       private $routeParams: angular.route.IRouteParamsService,
+                       public $routeParams: angular.route.IRouteParamsService,
+                       public $i18next: angular.i18next.I18nextProvider,
                        private $location: ng.ILocationService,
                        private worksService: worksService,
                        private messengerService: messengerService) {
-        super($scope, $rootScope);
+        super($scope, $rootScope, $routeParams, $i18next);
         
         this.$scope['init'] = this._initialize;
     }
