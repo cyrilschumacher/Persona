@@ -66,3 +66,9 @@ bower_components
 
 ### TypeScript ###
 .baseDir.ts
+
+### JavaScript ###
+src/typescript/**/*.js
+
+### OS X ###
+.DS_Store

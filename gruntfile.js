@@ -52,13 +52,7 @@ module.exports = function (grunt) {
                         filter: 'isFile',
                         expand: true,
                         src: [
-                            'angular/**/*.js', 
-                            'angular-animate/**/*.js',
-                            'angularjs-viewhead/*.js',
-                            'angular-route/**/*.js',
-                            'angular-route-styles/route-styles.js',
-                            'angular-ui-router/release/**/*.js',
-                            'bootstrap/dist/**/*.js',
+                            'angular/**/*.js',
                             'i18next/**/*.js',
                             'jquery/dist/**/*.js',
                             'jquery-autosize/*.js',
@@ -66,7 +60,6 @@ module.exports = function (grunt) {
                             'jquery-viewport-checker/src/*.js',
                             'jquery-ui/*.js',
                             'ng-i18next/dist/*.js',
-                            'requirejs/*.js',
                             'velocity/*.js'
                         ],
                         dest: 'dist/scripts/vendor/'
@@ -75,8 +68,7 @@ module.exports = function (grunt) {
                         cwd: 'bower_components/',
                         expand: true,
                         src: [
-                            'animate.css/*.css',
-                            'bootstrap/dist/**/*.css'
+                            'animate.css/*.css'
                         ],
                         dest: 'dist/css/vendor/',
                         filter: 'isFile'
