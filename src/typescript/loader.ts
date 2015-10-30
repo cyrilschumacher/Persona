@@ -24,9 +24,10 @@
 /// <reference path="typing/angularjs/angular.d.ts" />
 /// <reference path="app.ts" />
 
+import app = require("./app");
+
 // Initialize application.
-var app = new Application();
-app.instance.initialize();
+app.initialize();
 
 // Start angular application.
-angular.bootstrap(document, [Application.NAME]);
+angular.bootstrap(document, ["persona"]);

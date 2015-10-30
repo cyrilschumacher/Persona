@@ -1,0 +1,159 @@
+.l-footer {
+    background: $material_design_black;
+    color: $material_design_white;
+    padding: 1rem 0;
+    text-align: center;
+    z-index: 2;
+
+    &--home {
+        background: none;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+    }
+
+    &__under {
+        &__copyright {
+            font-family: "Mohave";
+        }
+    }
+
+    &__on {
+        &__social_network {
+            text-align: center;
+
+            &__item {
+                display: inline-block;
+                padding: 0 1rem .5rem;
+
+                &__link {
+                    @include align-items(center);
+                    @include display-flex;
+                    color: $material_design_white;
+                    justify-content: center;
+                    text-decoration: none;
+
+                    &__icon {
+                        @include transition(background, border, color .3s);
+                        font-size: 2rem;
+                        display: table;
+                        height: 3rem;
+                        margin: .5rem auto;
+                        vertical-align: middle;
+                        width: 3rem;
+
+                        &--github {
+                            border: 1px solid $material_design_gray;
+                            color: $material_design_gray;
+
+                            &:hover, &:focus {
+                                border-color: $bc-github;
+                                color: $bc-github;
+                            }
+
+                            &:active {
+                                background: $bc-github;
+                                color: $material_design_white;
+                            }
+                        }
+
+                        &--linkedin {
+                            border: 1px solid $material_design_gray;
+                            color: $material_design_gray;
+
+                            &:hover, &:focus {
+                                border-color: $bc-linkedin;
+                                color: $bc-linkedin;
+                            }
+
+                            &:active {
+                                background: $bc-linkedin;
+                                color: $material_design_white;
+                            }
+                        }
+
+                        &--twitter {
+                            border: 1px solid $material_design_gray;
+                            color: $material_design_gray;
+
+                            &:hover, &:focus {
+                                border-color: $bc-twitter;
+                                color: $bc-twitter;
+                            }
+
+                            &:active {
+                                background: $bc-twitter;
+                                color: $material_design_white;
+                            }
+                        }
+
+                        span {
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    &__title {
+                        display: none;
+                        font-size: 1rem;
+                        margin: 0 0 0 1rem;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ($smaller-smartphone-min-width-breakpoint) {
+}
+
+@media only screen and ($smartphone-min-width-breakpoint) {
+    .l-footer {
+        &__on {
+            &__social_network {
+                &__item {
+                    &__link {
+                        &__icon {
+                            font-size: 2.5rem;
+                            height: 4rem;
+                            width: 4rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ($tablet-min-width-breakpoint) {
+    .l-footer {
+        padding: 2rem 0;
+    }
+}
+
+@media only screen and ($desktop-min-width-breakpoint) {
+    .l-footer {
+        padding: 3rem 0;
+
+        &__on {
+            &__social_network {
+                &__item {
+                    &__link {
+                        &__title {
+                            display: block;
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ($wide-screens-min-width-breakpoint) {
+    .l-footer {
+        padding: 4rem 0;
+    }
+}

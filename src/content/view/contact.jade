@@ -1,0 +1,33 @@
+mixin manami-text-input-effect(id, i18next, type)
+    - text = text || "text"
+    span.input.input--manami
+        input.input__field.input__field--manami(type=type id=id)
+        label.input__label.input__label--manami(for=id)
+            span.input__label-content.input__label-content--manami(data-ng-i18next=i18next)
+
+header.l-header.l-header--contact
+    h1 Plusieurs itinéraires, une destination
+section.l-section.l-section--contact
+    header.l-section__header.l-section--contact__header
+        h2(data-ng-i18next="view.contact.online")
+    section
+        form
+            p
+                +manami-text-input-effect("firstname", "view.contact.firstname")
+                +manami-text-input-effect("lastname", "view.contact.lastname")
+            p
+                +manami-text-input-effect("email", "view.contact.email_address", "email")
+            p
+                +manami-text-input-effect("subject", "view.contact.subject")
+            br
+            p
+                span.input.input--manami
+                    textarea.input__field.input__field--manami#message(data-autosize)
+                    label.input__label.input__label--manami(for="message")
+                        span.input__label-content.input__label-content--manami(data-ng-i18next="view.contact.message")
+                        
+                label(for="message") Message
+                textarea#message(data-autosize name="message" placeholder="Message")
+                span.field-tip Le champs est requis.
+            p
+                input(type="submit" value="Envoyer mon message")

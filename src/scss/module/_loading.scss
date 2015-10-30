@@ -1,0 +1,23 @@
+[ng\:cloak].loading, [ng-cloak].loading, [data-ng-cloak].loading { display: block !important }
+
+.loading {
+    background: #fff;
+    display: none;
+    height: inherit;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: inherit;
+    z-index: 10;
+
+    &__wrapper {
+        bottom: 0;
+        height: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 0;
+    }
+}

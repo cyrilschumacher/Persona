@@ -1,0 +1,49 @@
+header.l-header.l-header--about
+    .l-header__wrapper.l-header--about__wrapper
+        .l-header__wrapper__background.l-header--about__wrapper__background
+        .l-header__wrapper__content.l-header--about__wrapper__content
+            h1(data-ng-i18next="view.about.get_know_me")
+            p.l-header__wrapper__content__subtitle.l-header--about__wrapper__content__subtitle(data-ng-i18next="view.about.through_various_information")
+
+section.l-section.l-section--about
+    header.l-section__header.l-section--about__header
+        h2(data-ng-i18next="view.about.education")
+    section
+        div#cd-timeline.cd-container
+            div.cd-timeline-block.cd-timeline-block--current
+                div.cd-timeline-img
+                    span 2015
+                div.cd-timeline-content
+                    h3 Exia.Cesi
+                    ul
+                        li Titre certifié niveau II, Responsable en Ingénierie des Logiciels
+                        li Titre certifié niveau III, Analyse-Programmeur
+                    div.post-tag
+                        span depuis
+                        time(datetime="2011-09-04") septembre 2011
+            div.cd-timeline-block
+                div.cd-timeline-img
+                    span 2011
+                div.cd-timeline-content
+                    h3 Lycée La Briquerie
+                    ul
+                        li Baccalauréat Professionnel Système électroniques numériques, Spécialité Audiovisuel
+                        li BEP Systèmes électroniques et industriels
+                    div.post-tag
+                        span de
+                        time(datetime="2006-09-04") septembre 2006
+                        span à
+                        time(datetime="2011-06-29") juin 2011
+
+section.l-section.l-section--about
+    header.l-section__header.l-section--about__header
+        h2(data-ng-i18next="view.about.experience")
+    section
+
+section.l-section.l-section--about
+    header.l-section__header.l-section--about__header
+        h2(data-ng-i18next="view.about.skills")
+    section
+        div.skills
+            canvas.chart.chart-doughnut(data-chart-data="[300, 500, 100]" data-chart-labels="['A', 'B', 'C']" data-chart-colours="['#ffffff', '#34c6ff']")
+            h4 C

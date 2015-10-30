@@ -1,0 +1,35 @@
+/* Mohave Regular, SemiBold and Bold */
+@include font-face(
+    "Mohave",
+    font-files(
+        "/content/font/mohave/Mohave.woff",
+        "/content/font/mohave/Mohave.woff2",
+        "/content/font/mohave/Mohave.ttf",
+        "/content/font/mohave/Mohave.svg"
+    ),
+    "/content/font/mohave/Mohave.otf",
+    normal
+);
+@include font-face(
+    "Mohave SemiBold",
+    font-files(
+        "/content/font/mohave/Mohave-SemiBold.woff",
+        "/content/font/mohave/Mohave-SemiBold.woff2",
+        "/content/font/mohave/Mohave-SemiBold.ttf",
+        "/content/font/mohave/Mohave-SemiBold.svg"
+    ),
+    "/content/font/mohave/Mohave-SemiBold.otf",
+    bold
+);
+
+@include font-face(
+    "Mohave Bold",
+    font-files(
+        "/content/font/mohave/Mohave-Bold.woff",
+        "/content/font/mohave/Mohave-Bold.woff2",
+        "/content/font/mohave/Mohave-Bold.ttf",
+        "/content/font/mohave/Mohave-Bold.svg"
+    ),
+    "/content/font/mohave/Mohave-Bold.otf",
+    bolder
+);

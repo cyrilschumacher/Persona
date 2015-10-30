@@ -1,84 +1,71 @@
-// The MIT License (MIT)
-// 
-// Copyright (c) 2015 Cyril Schumacher.fr
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-// 
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
-@viewport { 
-    width: device-width; 
-    initial-scale: 1;
-}
-
-html { font-size: $base-font-size }
+@include global-reset;
 
 html, body {
     height: 100%;
     min-height: 100%;
+    overflow-x: hidden;
     width: 100%;
 }
-	
-body {
-    background: $base-background;
-    color: $base-color;
-    @include rem2px(font-size, $body-font-size);
-    font-family: $base-font-family;
-    font-weight: $base-font-weight;
+
+html {
+    font-size: 62.5%;
+
+    body {
+        background: $material_design_white;
+        font: 1.5rem "Roboto Thin";
+
+        h1, h2, h3 { font-family: "Mohave Bold" }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bolder;
+        }
+
+        h2 { font-size: 2rem }
+        h3 { font-size: 1.5rem }
+    }
 }
 
-h1, h2, h3, h4, h5, h6 { font-family: $bebas-neue-font }
 
-h1 {
-    @include rem2px(font-size, $h1-font-size);
-    font-weight: $h1-font-weight;
+@media only screen and ($smaller-smartphone-min-width-breakpoint) {
 }
 
-h2 {
-    @include rem2px(font-size, $h2-font-size);
-    font-weight: $h2-font-weight;
+@media only screen and ($smartphone-min-width-breakpoint) {
+    html {
+        body {
+            h1 { font-size: 4rem }
+            h2 { font-size: 3rem }
+            h3 { font-size: 2rem }
+        }
+    }
 }
 
-h3 {
-    @include rem2px(font-size, $h3-font-size);
-    font-weight: $h3-font-weight;
+@media only screen and ($tablet-min-width-breakpoint) {
+    html {
+        body {
+            h1 { font-size: 4.5rem }
+            h2 { font-size: 3.5rem }
+            h3 { font-size: 2.5rem }
+        }
+    }
 }
 
-h4 {
-    @include rem2px(font-size, $h4-font-size);
-    font-weight: $h4-font-weight;
+@media only screen and ($desktop-min-width-breakpoint) {
+    html {
+        body {
+            h1 { font-size: 5rem }
+            h2 { font-size: 4rem }
+            h3 { font-size: 3rem }
+        }
+    }
 }
 
-h5 {
-    @include rem2px(font-size, $h5-font-size);
-    font-weight: $h5-font-weight;
-}
-
-h6 {
-    @include rem2px(font-size, $h6-font-size);
-    font-weight: $h6-font-weight;
-}
-
-a, [ng-click], [data-ng-click] {
-    cursor: pointer;
-
-    &:link, &:visited, &:focus, &:hover {
-        font-weight: $link-font-weight;
-        outline: 0;
-        text-decoration: none;
+@media only screen and ($wide-screens-min-width-breakpoint) {
+    html {
+        body {
+            h1 { font-size: 6rem }
+            h2 { font-size: 5rem }
+            h3 { font-size: 4rem }
+        }
     }
 }

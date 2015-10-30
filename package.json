@@ -1,21 +1,16 @@
 {
   "name": "Persona",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "private": true,
   "devDependencies": {
-    "bower": "*",
-    "compass": "*",
     "connect-modrewrite": "*",
     "grunt": "*",
+    "grunt-bower": "*",
     "grunt-browser-sync": "*",
-    "grunt-contrib-clean": "*",
     "grunt-contrib-compass": "*",
-    "grunt-contrib-concat": "*",
     "grunt-contrib-copy": "*",
-    "grunt-contrib-jade": "*",
     "grunt-contrib-watch": "*",
     "grunt-ts": "*",
-    "jade": "*",
-    "typescript": "*"
+    "typescript": "^1.8.0-dev.20151030"
   }
 }

@@ -1,0 +1,239 @@
+// The MIT License (MIT)
+//
+// Copyright (c) 2015 Cyril Schumacher.fr
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+@include keyframes(more-animation) {
+    0% { left: 0 }
+    100% { left: .5rem }
+}
+
+.l-header {
+    height: inherit;
+    text-align: center;
+    width: inherit;
+    z-index: 1;
+
+    &__wrapper {
+        &__background {
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        &__content {
+            &__subtitle {
+                font: 1.5rem "Roboto Thin";
+            }
+        }
+    }
+
+    &--about, &--works, &--contact {
+        position: relative;
+
+        &__wrapper {
+            &__background { z-index: -1 }
+
+            &__content {
+                padding: 10rem 5rem;
+
+                h1 { color: #fff }
+                &__subtitle { color: #fff }
+            }
+        }
+    }
+
+    &--home {
+        background: url(/content/image/ocean.jpg);
+        height: inherit;
+        width: inherit;
+
+        &__wrapper {
+            @include display-flex;
+            @include align-items(center);
+            height: 100%;
+            position: relative;
+            width: 100%;
+
+            &__content {
+                color: $material_design_white;
+                margin: 0 auto;
+                text-align: center;
+                z-index: 1;
+
+                &__me {
+                    @include border-radius(50%);
+                    height: 10rem;
+                    margin: 0 0 1rem;
+                }
+
+                &__discover-skills {
+                    background: none;
+                    border: 1px solid $material_design_white;
+                    color: $material_design_white;
+                    display: inline-block;
+                    font-size: 1rem;
+                    margin: 1rem auto 0;
+                    padding: 1rem 2rem;
+
+                    $parent: &;
+                    &:hover, &:focus {
+                        span { color: $material_design_black }
+                        #{$parent}__icon {
+                            @include animation-play-state(paused);
+                        }
+                    }
+
+                    &__icon {
+                        @include animation(more-animation 750ms infinite alternate linear);
+                        position: relative;
+                    }
+
+                    span {
+                        margin: 0 .5rem;
+                        text-transform: uppercase;
+                    }
+                }
+
+                &__subtitle {
+                    font: 1.5rem "Roboto Thin";
+                }
+            }
+        }
+    }
+
+    &--about {
+        &__wrapper {
+            &__background {
+                background: url(/content/image/cuadros.png);
+            }
+
+            &__content {
+                background: rgba(255, 255, 255, .5);
+
+                h1 { color: $material_design_blue }
+                p { color: $material_design_blue }
+            }
+        }
+    }
+
+    &--works {
+        background: url(/content/image/kale_salad.jpg) center;
+    }
+
+    &--contact {
+        background: url(/content/image/isometropolis.jpg) center;
+    }
+}
+
+@media only screen and ($smaller-smartphone-min-width-breakpoint) {
+    .l-header {
+        &__wrapper {
+            &__content {
+                &__subtitle { font-size: 1.8rem; margin: -.5rem 0 0 }
+            }
+        }
+
+        &--home {
+            &__wrapper {
+                &__content {
+                    &__me { height: 15rem }
+                    &__discover-skills { font-size: 1.2rem }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ($smartphone-min-width-breakpoint) {
+    .l-header {
+        &__wrapper {
+            &__content {
+                &__subtitle { font-size: 2rem; margin: -1rem 0 0 }
+            }
+        }
+
+        &--home {
+            &__wrapper {
+                &__content {
+                    &__me { height: 20rem }
+                    &__discover-skills { font-size: 1.5rem; margin-top: 1.5rem }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ($tablet-min-width-breakpoint) {
+    .l-header {
+        &__wrapper {
+            &__content {
+                &__subtitle { font-size: 2.2rem; margin: -1.5rem 0 0 }
+            }
+        }
+
+        &--home {
+            &__wrapper {
+                &__content {
+                    &__discover-skills { margin-top: 2rem }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ($desktop-min-width-breakpoint) {
+    .l-header {
+        &__wrapper {
+            &__content {
+                &__subtitle { font-size: 2.5rem }
+            }
+        }
+
+        &--home {
+            &__wrapper {
+                &__content {
+                    &__discover-skills { margin-top: 2.5rem }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and ($wide-screens-min-width-breakpoint) {
+    .l-header {
+        &__wrapper {
+            &__content {
+                &__subtitle { font-size: 3rem }
+            }
+        }
+
+        &--home {
+            &__wrapper {
+                &__content {
+                    &__discover-skills { margin-top: 3rem }
+                }
+            }
+        }
+    }
+}

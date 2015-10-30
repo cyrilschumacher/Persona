@@ -1,0 +1,145 @@
+// The MIT License (MIT)
+//
+// Copyright (c) 2015 Cyril Schumacher.fr
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+
+.l-section {
+    width: inherit;
+
+    &__header {
+        padding: 5rem 0;
+        text-align: center;
+    }
+
+    &--about {
+        &__header {
+            background: $material_design_blue;
+            color: $material_design_white;
+        }
+
+        .cd-timeline {
+            &-content {
+                @include box-shadow(1rem 1rem 0 #ddd);
+                background: $material_design_gray;
+                color: $material_design_white;
+                margin-top: -5rem;
+                text-align: left;
+
+                &::before { border-right-color: $material_design_gray !important }
+            }
+
+            &-img {
+                @include box-shadow(none !important);
+                @include box-sizing(border-box);
+                background: $material_design_white;
+                border: .5rem solid $material_design_gray !important;
+                height: 6rem !important;
+                margin: 0 0 0 -1rem;
+                position: relative;
+                text-align: center;
+                width: 6rem !important;
+
+                span {
+                    display: block;
+                    color: $material_design_gray;
+                    font: 1.5rem "Roboto Bold";
+                    line-height: 5rem;
+                }
+            }
+
+            &-block {
+                h3 { text-transform: uppercase }
+
+                &--current {
+                    .cd-timeline-content {
+                        background: $material_design_blue;
+                        color: $material_design_white;
+
+                        &::before { border-right-color: $material_design_blue !important }
+                    }
+
+                    .cd-timeline-img {
+                        border: .5rem solid $material_design_blue !important;
+
+                        span { color: $material_design_blue }
+                    }
+
+                    .post-tag {
+                        background: $material_design_white !important;
+                        color: $material_design_blue !important;
+
+                        &::before { background: $material_design_blue !important }
+                        &:after { border-color: transparent $material_design_white transparent transparent !important }
+                    }
+                }
+
+                .post-tag {
+                    background: $material_design_white;
+                    color: $material_design_black;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+
+                    &::before { background: $material_design_gray }
+                    &:after { border-color: transparent $material_design_white transparent transparent }
+
+                    span, time {
+                        font-family: "Roboto Bold";
+                        line-height: 2.4rem;
+                        margin: 0 0 0 .3rem !important;
+                    }
+                }
+            }
+        }
+    }
+
+    &--works {
+    }
+
+    &--contact {
+        background: $material_design_orange;
+        color: $material_design_white;
+
+        form {
+            .input {
+                display: block;
+                margin: 0 auto;
+                max-width: none;
+                width: 75%;
+
+                &__label {
+                    color: $material_design_white !important;
+
+                    &::before {
+                        background: $material_design_white;
+                    }
+
+                    &::after {
+                        background: $material_design_white;
+                        height: 1px;
+                    }
+                }
+
+                .input__field--manami:focus + .input__label--manami .input__label-content--manami, .input--filled .input__label--manami .input__label-content--manami {
+                    color: $material_design_white !important;
+                }
+            }
+        }
+    }
+}

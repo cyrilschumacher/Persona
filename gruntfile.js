@@ -1,14 +1,54 @@
-modRewrite  = require('connect-modrewrite');
-
-/*global module*/
-module.exports = function (grunt) {
-    'use strict';
-
-    /* Grunt configuration. */
+var modRewrite = require("connect-modrewrite");
+module.exports = function(grunt) {
     grunt.initConfig({
+        bower: {
+            default: {
+                dest: "dist/",
+                js_dest: "dist/javascript/vendor/",
+                css_dest: "dist/css/vendor/",
+                fonts_dest: "dist/css/fonts/",
+                options: {
+                    keepExpandedHierarchy: false,
+                    packageSpecific: {
+                        "angular-chart.js": {
+                            files: [
+                                "dist/*.css",
+                                "dist/*.js"
+                            ]
+                        },
+                        "autosize": {
+                            files: [
+                                "dist/*.js"
+                            ]
+                        },
+                        "css-spinners": {
+                            files: [
+                                "css/*.css"
+                            ]
+                        },
+                        "Ionicons": {
+                            files: [
+                                "css/*.css",
+                                "fonts/*.*"
+                            ]
+                        },
+                        "jquery": {
+                            files: [
+                                "dist/*.js"
+                            ]
+                        },
+                        "ng-i18next": {
+                            files: [
+                                "dist/*.js"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
         browserSync: {
             bsFiles: {
-                src: 'dist/**/*.*'
+                src: "dist/**/*.*"
             },
             options: {
                 server: {
@@ -19,165 +59,91 @@ module.exports = function (grunt) {
                 }
             }
         },
-        clean: {
-            locales: ['src/locales/'],
-            reset: ['debug']
-        },
         compass: {
             default: {
                 options: {
-                    cacheDir: 'dist/.sass-cache/',
-                    cssDir: 'dist/css/',
-                    debugInfo: true,
-                    environment: 'development',
-                    noLineComments: false,
-                    sassDir: 'src/scss/',
-                    sourcemap: true,
-                    trace: true
+                    cacheDir: "dist/.sass-cache/",
+                    cssDir: "dist/css/",
+                    debugInfo: false,
+                    environment: "development",
+                    noLineComments: true,
+                    sassDir: "src/scss/",
+                    sourcemap: false,
+                    trace: false
                 }
             }
         },
         copy: {
-            dependencies: {
-                files: [
-                    {
-                        cwd: 'src/typescript/',
-                        expand: true,
-                        src: 'locales/**/*',
-                        dest: 'dist/scripts/',
-                        filter: 'isFile'
-                    },
-                    {
-                        cwd: 'bower_components/',
-                        filter: 'isFile',
-                        expand: true,
-                        src: [
-                            'angular/**/*.js',
-                            'i18next/**/*.js',
-                            'jquery/dist/**/*.js',
-                            'jquery-autosize/*.js',
-                            'jquery.fadebyscroll/dist/*.js',
-                            'jquery-viewport-checker/src/*.js',
-                            'jquery-ui/*.js',
-                            'ng-i18next/dist/*.js',
-                            'velocity/*.js'
-                        ],
-                        dest: 'dist/scripts/vendor/'
-                    },
-                    {
-                        cwd: 'bower_components/',
-                        expand: true,
-                        src: [
-                            'animate.css/*.css'
-                        ],
-                        dest: 'dist/css/vendor/',
-                        filter: 'isFile'
-                    }
-                ]
-            },
-            configuration: {
-                files: [
-                    {
-                        cwd: 'src/typescript/',
-                        expand: true,
-                        src: 'configuration.json',
-                        dest: 'dist/scripts/'
-                    }
-                ]
-            },
             content: {
-                files: [
-                    {
-                        cwd: 'src/',
-                        expand: true,
-                        src: 'content/**/*',
-                        dest: 'dist/',
-                        filter: 'isFile'
-                    }
-                ]
+                expand: true,
+                cwd: "src/content/",
+                src: ['**/*', '!**/Thumbs.db'],
+                dest: "dist/content/"
             },
-            locales: {
-                files: [
-                    {
-                        cwd: 'src/typescript/',
-                        expand: true,
-                        src: 'locales/**/*',
-                        dest: 'dist/scripts/',
-                        filter: 'isFile'
-                    }
-                ]
+            javascript: {
+                expand: true,
+                cwd: "src/javascript/",
+                src: ['**/*', '!**/Thumbs.db'],
+                dest: "dist/javascript/"
             }
         },
         jade: {
-            default: {
-                options: {
-                    data: {
-                        data: {
-                            debug: true
-                        },
-                        pretty: true
-                    }
-                },
+            compile: {
                 files: [{
-                    cwd: 'src/',
-                    dest: 'dist/',
+                    cwd: "src/",
+                    dest: "dist/",
                     expand: true,
-                    ext: '.html',
-                    src: '**/*.jade'
+                    ext: ".html",
+                    src: "**/*.jade"
                 }]
             }
         },
         ts: {
-            default: {
-                src: ['src/typescript/**/*.ts'],
-                outDir: 'dist/scripts/',
+            build: {
+                src: ["src/typescript/**/*.ts", "!src/typescript/typing/**/*.ts"],
+                outDir: "dist/javascript/",
                 options: {
                     declaration: false,
                     failOnTypeErrors: false,
-                    module: 'amd',
+                    module: "amd",
                     removeComments: false,
                     sourceMap: false,
-                    target: 'es5'
+                    target: "es5"
                 }
             }
         },
         watch: {
-            configuration: {
-                files: 'src/typescript/configuration.json',
-                tasks: ['copy:configuration']
+            content: {
+                files: ["src/content/**/*.*", "!src/content/**/*.jade"],
+                tasks: ["copy:content"]
             },
-            contents: {
-                files: 'src/content/**/*.*',
-                tasks: ['copy:content']
+            javascript: {
+                files: "src/javascript/**/*.*",
+                tasks: ["copy:javascript"]
             },
-            locales: {
-                files: 'src/typescript/locales/*.json',
-                tasks: ['clean:locales', 'copy:locales']
+            jade: {
+                files: "src/**/*.jade",
+                tasks: ["jade"]
             },
-            scripts: {
-                files: 'src/typescript/**/*.ts',
-                tasks: ['ts']
+            scss: {
+                files: "src/**/*.scss",
+                tasks: ["compass"]
             },
-            styles: {
-                files: 'src/scss/**/*.scss',
-                tasks: ['compass']
-            },
-            views: {
-                files: ['src/**/*.jade'],
-                tasks: ['jade']
+            typescript: {
+                files: "src/**/*.ts",
+                tasks: ["ts"]
             }
         }
     });
 
-    /* Dependencies. */
-    grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks("grunt-bower");
+    grunt.loadNpmTasks("grunt-browser-sync");
     grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-jade');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-ts');
+    grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-contrib-jade");
+    grunt.loadNpmTasks("grunt-contrib-watch");
+    grunt.loadNpmTasks("grunt-ts");
 
-    /* Tasks. */
-    grunt.registerTask('default', ['jade', 'compass', 'ts', 'copy:content', 'copy:configuration', 'copy:dependencies']);
+    grunt.registerTask("default", ["compass", "jade", "ts", "copy:javascript", "copy:content", "bower"]);
+    grunt.registerTask("server", ["browserSync"]);
 };

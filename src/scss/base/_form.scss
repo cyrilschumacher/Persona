@@ -1,45 +1,50 @@
-// The MIT License (MIT)
-// 
-// Copyright (c) 2015 Cyril Schumacher.fr
-// 
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-// 
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
-// 
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+input:focus {
+    outline: 0;
+}
 
-form {
-    fieldset { margin: 2rem 0 }
-    label { font-weight: 600 }
+input,
+textarea {
+    @include box-shadow(content-box)
+}
 
-    button, input, textarea {
-        border: 1px solid $medium-gray-primary-color;
-        @include box-sizing(border-box);
-        font-family: $base-font-family;
-        font-size: 1.8rem;
-        padding: 1rem 2rem;
-        outline: none;
-        
-        &:hover { border-color: $medium-gray-secondary-color }
-    }
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select {
+    @include box-shadow(border-box)
+}
 
-    button[type="submit"], input[type="submit"] {
-        border: none;
-        font-size: 1.4rem;
-        font-weight: 600;
-        text-align: center;
-        text-transform: uppercase;
-    }
+input[type=search] {
+    @include appearance(textfield);
+    @include box-sizing(content-box);
+}
+
+::-webkit-search-decoration {
+    display: none;
+}
+
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"] {
+    overflow: visible;
+    width: auto;
+}
+
+::-webkit-file-upload-button {
+    background: none;
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+select[multiple] {
+    vertical-align: top;
 }

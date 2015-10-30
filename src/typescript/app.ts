@@ -21,11 +21,11 @@
  * SOFTWARE.
  */
 
-/// <reference path="./typing/angularjs/angular.d.ts" />
-/// <reference path="./configuration/i18nextConfiguration.ts"/>
-/// <reference path="./configuration/locationConfiguration.ts"/>
-/// <reference path="./run/loadingRun.ts"/>
-/// <reference path="./service/configurationProviderService.ts"/>
+import configurationProvider = require("./service/configuration");
+import i18nextConfiguration = require("./configuration/i18next");
+import routeConfiguration = require("./configuration/route");
+import locationConfiguration = require("./configuration/location");
+import templateCacheRun = require("./run/templateCache");
 
 /**
  * @summary Application.
@@ -33,11 +33,6 @@
  * @class
  */
 class Application {
-    /**
-     * Application name.
-     */
-    public static NAME: string = 'persona';
-
     /**
      * @summary Instance.
      * @private
@@ -90,8 +85,10 @@ class Application {
      */
     public initialize = (): void => {
         // Initialize constants, configuration and run blocks.
+        this._initializeConstants();
         this._initializeProvider();
         this._initializeConfigurations();
+        this._initializeRun();
     }
 
     /**
@@ -99,9 +96,18 @@ class Application {
      * @private
      */
     private _initializeConfigurations = (): void => {
-        this._module.config(this._register)
+        this._module.config(["$routeProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", this._register])
                     .config(i18nextConfiguration)
-                    .config(LocationConfiguration);
+                    .config(locationConfiguration)
+                    .config(routeConfiguration);
+    }
+
+    /**
+     * @summary Initialize run blocks.
+     * @private
+     */
+    private _initializeRun = (): void => {
+        this._module.run(templateCacheRun);
     }
 
     /**
@@ -109,8 +115,22 @@ class Application {
      * @private
      */
     private _initializeProvider = (): void => {
-        var provide = new ConfigurationProviderService(this._module, 'scripts/configuration.json');
-        this._module.provider('appConfig', provide);
+        var provider = new configurationProvider(this._module, "scripts/configuration.json");
+        this._module.provider("appConfig", provider);
+    }
+
+    /**
+     * @summary Initialize constants.
+     * @private
+     */
+    private _initializeConstants = (): void => {
+        var appConfigRoute: Object = {
+            "controllerPath":   "javascript/controller/",
+            "cssPath":          "css/",
+            "viewPath":         "content/view/"
+        };
+
+        this._module.constant("appConfigRoute", appConfigRoute);
     }
 
     /**
@@ -118,19 +138,21 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        this._module = angular.module(Application.NAME, ['jm.i18next']);
+        const MODULE_NAME = "persona";
+        this._module = angular.module(MODULE_NAME, ["ngRoute", "jm.i18next", "chart.js"]);
     }
 
     /**
      * @summary Register providers.
      * @private
+     * @param {IRouteProvider}      $routeProvider      Route provider.
      * @param {IControllerProvider} $controllerProvider Controller provider.
      * @param {ICompileProvider}    $compileProvider    Compile provider.
      * @param {IFilterProvider}     $filterProvider     Filter provider.
      * @param {any}                 $provide            Provide.
      */
-    private _register = ($controllerProvider: ng.IControllerProvider, $compileProvider: ng.ICompileProvider, $filterProvider: ng.IFilterProvider, $provide: any) => {
-        this._module['register'] = {
+    private _register = ($routeProvider: ng.route.IRouteProvider, $controllerProvider: ng.IControllerProvider, $compileProvider: ng.ICompileProvider, $filterProvider: ng.IFilterProvider, $provide: any) => {
+        this._module["register"] = {
             controller: $controllerProvider.register,
             directive:  $compileProvider.directive,
             filter:     $filterProvider.register,
@@ -139,3 +161,5 @@ class Application {
         };
     }
 }
+
+export = Application.instance;

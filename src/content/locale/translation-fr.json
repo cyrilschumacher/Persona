@@ -1,0 +1,28 @@
+{
+    "navigation": {
+        "home": "Accueil",
+        "about": "A propos",
+        "works": "Réalisations",
+        "contact": "Contact"
+    },
+    "view": {
+        "home": {
+            "discover_skills": "Découvrez mes compétences"
+        },
+        "about": {
+            "education": "Mes formations",
+            "experience": "Mes expériences",
+            "get_know_me": "Apprenez à me connaître",
+            "skills": "Mes compétences",
+            "through_various_information": "A travers diverses informations tel que mes formations, mes expériences ou mes compétences."
+        },
+        "contact": {
+            "online": "En ligne",
+            "firstname": "Prénom",
+            "lastname": "Nom",
+            "email_address": "Adresse e-mail",
+            "message": "Message",
+            "subject": "Sujet"
+        }
+    }
+}

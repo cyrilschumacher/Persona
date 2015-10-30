@@ -1,0 +1,36 @@
+/* Roboto Regular, Thin and Bold */
+@include font-face(
+    "Roboto",
+    font-files(
+        "/content/font/roboto/Roboto.woff",
+        "/content/font/roboto/Roboto.woff2",
+        "/content/font/roboto/Roboto.ttf",
+        "/content/font/roboto/Roboto.svg"
+    ),
+    "/content/font/roboto/Roboto.otf",
+    normal
+);
+
+@include font-face(
+    "Roboto Thin",
+    font-files(
+        "/content/font/roboto/Roboto-Thin.woff",
+        "/content/font/roboto/Roboto-Thin.woff2",
+        "/content/font/roboto/Roboto-Thin.ttf",
+        "/content/font/roboto/Roboto-Thin.svg"
+    ),
+    "/content/font/roboto/Roboto-Thin.otf",
+    lighter
+);
+
+@include font-face(
+    "Roboto Bold",
+    font-files(
+        "/content/font/roboto/Roboto-Bold.woff",
+        "/content/font/roboto/Roboto-Bold.woff2",
+        "/content/font/roboto/Roboto-Bold.ttf",
+        "/content/font/roboto/Roboto-Bold.svg"
+    ),
+    "/content/font/roboto/Roboto-Bold.otf",
+    bold
+);
