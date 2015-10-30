@@ -39,6 +39,13 @@ build/Release
 node_modules
 
 
+### Bower ###
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+
+
 ### Windows ###
 # Windows image file caches
 Thumbs.db

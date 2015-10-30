@@ -24,7 +24,6 @@
 /// <amd-dependency path="directive/canvasParticlesWaves"/>
 /// <amd-dependency path="directive/canvasLineSphere"/>
 /// <amd-dependency path="directive/fullHeightWindow"/>
-/// <amd-dependency path="directive/scrollFadeOut"/>
 
 import app = require("app");
 import baseController = require("controller/base");

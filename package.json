@@ -9,6 +9,7 @@
     "grunt-browser-sync": "*",
     "grunt-contrib-compass": "*",
     "grunt-contrib-copy": "*",
+    "grunt-contrib-jade": "^0.15.0",
     "grunt-contrib-watch": "*",
     "grunt-ts": "*",
     "typescript": "^1.8.0-dev.20151030"
