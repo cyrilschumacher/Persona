@@ -26,6 +26,7 @@
 /// <amd-dependency path="jquery"/>
 
 /// <reference path="../typing/angularjs/angular.d.ts" />
+/// <reference path="../typing/threejs/three-canvasrenderer.d.ts"/>
 /// <reference path="../typing/threejs/detector.d.ts"/>
 /// <reference path="../typing/threejs/three.d.ts" />
 

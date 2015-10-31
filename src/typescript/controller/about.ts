@@ -46,7 +46,7 @@ class AboutController extends baseController {
       * @param {I18nextProvider}        $i18next        The i18next provider.
       */
     public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
-        super("about", $scope, $rootScope, $routeParams, $i18next);
+        super("about", $scope, $rootScope, $routeParams, $location, $i18next);
         this.$scope["initialize"] = this._initialize;
     };
 

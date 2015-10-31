@@ -46,7 +46,7 @@ class WorksController extends baseController {
       * @param {I18nextProvider}        $i18next        The i18next provider.
       */
     public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
-        super("works", $scope, $rootScope, $routeParams, $i18next);
+        super("contact", $scope, $rootScope, $routeParams, $location, $i18next);
     };
 }
 

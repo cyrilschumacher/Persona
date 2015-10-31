@@ -45,7 +45,7 @@ class AutosizeDirective implements ng.IDirective {
      * @summary Restrict option.
      * @type {string}
      */
-    public restrict: string = 'A';
+    public restrict: string = "A";
 
     /**
      * @summary Manipulates the DOM of the current page.
