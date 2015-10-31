@@ -200,6 +200,17 @@
                     padding: 1rem 2rem;
                     width: 100%;
 
+                    &:disabled {
+                        @include box-shadow(none);
+                        background: $material_design_primary_gray;
+                        color:  $material_design_dark_primary_gray;
+
+                        &:hover, &:active {
+                            @include box-shadow(none);
+                            top: 0;
+                        }
+                    }
+
         			&:hover {
                         @include box-shadow(0 8px $material_design_gray);
         				top: -2px;
@@ -223,31 +234,4 @@
 .input__field--manami:focus + .input__label--manami .input__label-content--manami, .input--filled .input__label--manami .input__label-content--manami {
     color: $material_design_white !important;
     font-size: 2rem;
-}
-
-.Infobox {
-    @include border-radius(.8rem);
-    background: $material_design_white;
-    border-color: #ddd;
-}
-
-.infobox {
-    &-close {
-        @include border-radius(0 .8rem 0 0);
-        font-size: 2rem !important;
-        height: 18px !important;
-        padding: .8rem .5rem;
-        right: -1px !important;
-        top: 0 !important;
-        width: 20px !important;
-    }
-
-    &-title {
-        @include border-radius(.8rem 0 0 0);
-    }
-
-    &-close, &-title {
-        background: $material_design_primary_red;
-        color: $material_design_white !important;
-    }
 }

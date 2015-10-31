@@ -55,6 +55,7 @@ class BingMapsConfiguration {
     this.angularBingMapsProvider.setDefaultMapOptions(
         {
             credentials: "AiscBCv-CUb6kGw_scA6Voo8U8cO6XKiOQpNppd9lJAv_0ohATT3Vhwd2lx_RgJ_",
+            disableZooming: true,
             enableClickableLogo: false,
             enableSearchLogo: false,
             mapTypeId: Microsoft.Maps.MapTypeId.road,

@@ -1,7 +1,7 @@
 mixin manami-text-input-effect(id, i18next, type, model)
     - text = text || "text"
     span.input.input--manami(data-is-filled data-css-class-filled="input--filled" data-input-id=id)
-        input.input__field.input__field--manami(data-ng-model=model id=id name=id type=type)
+        input.input__field.input__field--manami(data-ng-model=model id=id name=id type=type required)
         label.input__label.input__label--manami(for=id)
             span.input__label-content.input__label-content--manami(data-ng-i18next=i18next)
 
@@ -15,6 +15,7 @@ header.l-header.l-header--contact(role="banner" itemscope itemtype="http://schem
 section.l-section.l-section--contact
     header.l-section__header.l-section--contact__header
         h2(data-ng-i18next="view.contact.postal_address")
+        p(data-ng-i18next="view.contact.meet_me")
     section.l-section.l-section--contact__postal_address
         div.l-section.l-section--contact__postal_address__map
             bing-map(options="mapOptions.options" center="mapOptions.center" zoom="mapOptions.zoom")
@@ -24,15 +25,16 @@ section.l-section.l-section--contact
 section.l-section.l-section--contact
     header.l-section__header.l-section--contact__header
         h2(data-ng-i18next="view.contact.online")
+        p(data-ng-i18next="view.contact.start_link")
     section.l-section--contact__online
-        form
+        form(name="contactForm")
             p
-                +manami-text-input-effect("email", "view.contact.email_address", "email", "model.form.email_address")
+                +manami-text-input-effect("email_address", "view.contact.email_address", "email", "model.form.email_address")
             p
                 +manami-text-input-effect("subject", "view.contact.subject", "text", "model.form.subject")
             br
             p
                 label(for="message") Message
-                textarea#message(data-autosize data-is-filled data-css-class-filled="message-filled" data-input-id="message" data-ng-model="model.form.message" name="message")
+                textarea#message(data-autosize data-is-filled data-css-class-filled="message-filled" data-input-id="message" data-ng-model="model.form.message" name="message" required)
             p
-                input.btn(type="submit" value="Envoyer mon message")
+                input.btn(data-ng-disabled="!contactForm.$valid" type="submit" value="Envoyer mon message")

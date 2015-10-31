@@ -1,9 +1,9 @@
 {
     "navigation": {
-        "home": "Accueil",
         "about": "A propos",
-        "works": "Réalisations",
-        "contact": "Contact"
+        "contact": "Contact",
+        "home": "Accueil",
+        "works": "Réalisations"
     },
     "view": {
         "about": {
@@ -14,13 +14,15 @@
             "through_various_information": "A travers diverses informations tel que mes formations, mes expériences ou mes compétences."
         },
         "contact": {
-            "postal_address": "Coordonnées postales",
-            "online": "En ligne",
             "email_address": "Adresse e-mail",
-            "message": "Message",
-            "subject": "Sujet",
             "for_questions": "Pour toutes questions, n'hésitez pas à me contacter au moyen du formulaire ou mes coordonnées postales.",
-            "many_routes": "Plusieurs itinéraires,<br/>une destination"
+            "many_routes": "Plusieurs itinéraires,<br/>une destination",
+            "meet_me": "Retrouvez-moi à divers endroits au moyen de la carte interactive.",
+            "message": "Message",
+            "online": "En ligne",
+            "postal_address": "Coordonnées postales",
+            "start_link": "Commencez un début de liaison avec ce formulaire.",
+            "subject": "Sujet"
         },
         "home": {
             "discover_skills": "Découvrez mes compétences"

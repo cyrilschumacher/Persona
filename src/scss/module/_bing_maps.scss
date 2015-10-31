@@ -1,0 +1,23 @@
+.Infobox {
+    border: none !important;
+    border-top: 1rem solid $material_design_dark_primary_red !important;
+}
+
+.infobox {
+    &-close {
+        font-size: 2rem !important;
+        height: 18px !important;
+        padding: .8rem;
+        right: 0 !important;
+        top: 0 !important;
+        width: 12px !important;
+    }
+
+    &-title {
+    }
+
+    &-close, &-title {
+        background: $material_design_primary_red !important;
+        color: $material_design_white !important;
+    }
+}
