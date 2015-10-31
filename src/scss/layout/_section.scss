@@ -128,6 +128,8 @@
 
                 &__label {
                     color: $material_design_white !important;
+                    font-size: 1.5rem;
+                    padding: 1.3rem 0;
 
                     &::before {
                         background: $material_design_white;
@@ -141,6 +143,8 @@
 
                 &__field {
                     color: $material_design_orange;
+                    margin: 0 0 2rem;
+                    padding: 2rem;
                 }
             }
 
@@ -152,6 +156,7 @@
                 @include box-sizing(border-box);
                 background: none;
                 border: 1px solid $material_design_white;
+                color: $material_design_white;
                 font-family: "Roboto";
                 height: auto;
                 padding: 1rem 2rem;
@@ -184,9 +189,10 @@
 
 .message-filled {
     background: $material_design_white !important;
-    color: $material_design_orange;
+    color: $material_design_orange !important;
 }
 
 .input__field--manami:focus + .input__label--manami .input__label-content--manami, .input--filled .input__label--manami .input__label-content--manami {
     color: $material_design_white !important;
+    font-size: 2rem;
 }
