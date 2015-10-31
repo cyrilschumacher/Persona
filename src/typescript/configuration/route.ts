@@ -31,17 +31,15 @@
 class RouteConfiguration {
     /**
      * @summary Dependencies injection.
-     * @public
      * @type {Array<string>}
      */
     public static $inject: Array<string> = ["$routeProvider", "appConfigRoute"];
 
     /**
      * @summary Constructor.
-     * @public
      * @constructs
      * @param {IRouteProvider} $routeProvier Route provider.
-     * @param {Object}         appConfig     Application configuration.
+     * @param {Object}         appConfig     The application configuration.
      */
     public constructor(private $routeProvider: ng.route.IRouteProvider, private appConfigRoute: Object) {
         $routeProvider.when("/",                          this._addRoute("home"))

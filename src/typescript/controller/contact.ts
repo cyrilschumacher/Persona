@@ -52,6 +52,26 @@ class ContactController extends baseController {
       */
     public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
         super("contact", $scope, $rootScope, $routeParams, $location, $i18next);
+
+        this.$scope["mapOptions"] = {};
+        this.$scope["mapOptions"].center = {latitude: 48.683420, longitude: 6.175711};
+        this.$scope["mapOptions"].zoom = 8;
+
+        this.$scope["pushpin"] = {};
+        this.$scope["pushpin"].location = {latitude: 48.683420, longitude: 6.175711};
+        this.$scope["pushpin"].events = {
+            click: function() {
+                $scope["infobox"].visible = !$scope["infobox"].visible;
+            }
+        };
+
+        this.$scope["infobox"] = {};
+        this.$scope["infobox"].options = {
+            description: "12, rue Victor Prouvé<br/>54000, Nancy",
+            offset: new Microsoft.Maps.Point(0,25),
+        };
+        this.$scope["infobox"].title = "Appartement";
+        this.$scope["infobox"].visible = false;
     };
 }
 

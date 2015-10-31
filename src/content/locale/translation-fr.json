@@ -6,9 +6,6 @@
         "contact": "Contact"
     },
     "view": {
-        "home": {
-            "discover_skills": "Découvrez mes compétences"
-        },
         "about": {
             "education": "Mes formations",
             "experience": "Mes expériences",
@@ -23,7 +20,14 @@
             "message": "Message",
             "subject": "Sujet",
             "for_questions": "Pour toutes questions, n'hésitez pas à me contacter au moyen du formulaire ou mes coordonnées postales.",
-            "many_routes": "Plusieurs itinéraires, une destination"
+            "many_routes": "Plusieurs itinéraires,<br/>une destination"
+        },
+        "home": {
+            "discover_skills": "Découvrez mes compétences"
+        },
+        "works": {
+            "discover_works": "Découvrez mes travaux",
+            "works_carried": "Des travaux réalisés à l'école, en entreprise ou pendant mon temps libre."
         }
     }
 }

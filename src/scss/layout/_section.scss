@@ -126,13 +126,23 @@
             color: $material_design_white;
         }
 
-        &--online {
+        &__postal_address {
+            height: 50rem;
+
+            &__map {
+                height: inherit;
+                position: relative;
+                width: inherit;
+            }
+        }
+
+        &__online {
             background: $material_design_primary_red;
             color: $material_design_white;
+            padding: 2rem 0;
 
             form {
                 margin: 0 auto;
-                padding: 2rem 0;
                 width: 75%;
 
                 .input {
@@ -171,7 +181,8 @@
                     @include box-sizing(border-box);
                     @include transition(background .5s);
                     background: transparent;
-                    border: 1px solid $material_design_white;
+                    border: none;
+                    border-bottom: 1px solid $material_design_white;
                     color: $material_design_white;
                     font-family: "Roboto";
                     height: auto;
@@ -212,4 +223,31 @@
 .input__field--manami:focus + .input__label--manami .input__label-content--manami, .input--filled .input__label--manami .input__label-content--manami {
     color: $material_design_white !important;
     font-size: 2rem;
+}
+
+.Infobox {
+    @include border-radius(.8rem);
+    background: $material_design_white;
+    border-color: #ddd;
+}
+
+.infobox {
+    &-close {
+        @include border-radius(0 .8rem 0 0);
+        font-size: 2rem !important;
+        height: 18px !important;
+        padding: .8rem .5rem;
+        right: -1px !important;
+        top: 0 !important;
+        width: 20px !important;
+    }
+
+    &-title {
+        @include border-radius(.8rem 0 0 0);
+    }
+
+    &-close, &-title {
+        background: $material_design_primary_red;
+        color: $material_design_white !important;
+    }
 }

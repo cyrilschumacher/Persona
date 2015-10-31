@@ -21,11 +21,12 @@
  * SOFTWARE.
  */
 
-import configurationProvider = require("./service/configuration");
+import ConfigurationProvider = require("./provider/configuration");
+import BingMapsConfiguration = require("./configuration/bingmaps");
 import i18nextConfiguration = require("./configuration/i18next");
-import routeConfiguration = require("./configuration/route");
-import locationConfiguration = require("./configuration/location");
-import templateCacheRun = require("./run/templateCache");
+import RouteConfiguration = require("./configuration/route");
+import LocationConfiguration = require("./configuration/location");
+import TemplateCacheRun = require("./run/templateCache");
 
 /**
  * @summary Application.
@@ -49,7 +50,6 @@ class Application {
 
     /**
      * @summary Gets the angular module.
-     * @public
      * @returns {IModule} Module.
      */
     public get module(): ng.IModule {
@@ -58,7 +58,6 @@ class Application {
 
     /**
      * @summary Gets the instance of class.
-     * @public
      * @returns {Application} Instance of class.
      */
     public static get instance(): Application {
@@ -85,8 +84,8 @@ class Application {
      */
     public initialize = (): void => {
         // Initialize constants, configuration and run blocks.
-        this._initializeConstants();
         this._initializeProvider();
+        this._initializeConstants();
         this._initializeConfigurations();
         this._initializeRun();
     }
@@ -97,9 +96,10 @@ class Application {
      */
     private _initializeConfigurations = (): void => {
         this._module.config(["$routeProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", this._register])
+                    .config(BingMapsConfiguration)
                     .config(i18nextConfiguration)
-                    .config(locationConfiguration)
-                    .config(routeConfiguration);
+                    .config(LocationConfiguration)
+                    .config(RouteConfiguration);
     }
 
     /**
@@ -107,7 +107,7 @@ class Application {
      * @private
      */
     private _initializeRun = (): void => {
-        this._module.run(templateCacheRun);
+        this._module.run(TemplateCacheRun);
     }
 
     /**
@@ -115,7 +115,7 @@ class Application {
      * @private
      */
     private _initializeProvider = (): void => {
-        var provider = new configurationProvider(this._module, "scripts/configuration.json");
+        var provider = new ConfigurationProvider(this._module, "scripts/configuration.json");
         this._module.provider("appConfig", provider);
     }
 
