@@ -55,6 +55,7 @@
             &__background { z-index: -1 }
 
             &__content {
+                background: rgba(20, 20, 20, .5);
                 padding: 10rem 5rem;
 
                 h1 { color: #fff }
@@ -126,13 +127,6 @@
         &__wrapper {
             &__background {
                 background: url(/content/image/cuadros.png);
-            }
-
-            &__content {
-                background: rgba(255, 255, 255, .5);
-
-                h1 { color: $material_design_blue }
-                p { color: $material_design_blue }
             }
         }
     }

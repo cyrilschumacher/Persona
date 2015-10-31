@@ -9,17 +9,18 @@
 
     &__field {
         @include appearance(none);
-        position: relative;
+        @include box-sizing(border-box);
+        @include border-radius(0);
+        background: #f0f0f0;
+        border: none;
+        color: #aaa;
         display: block;
+        font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 400;
         float: right;
         padding: 0.8em;
+        position: relative;
         width: 60%;
-        border: none;
-        border-radius: 0;
-        background: #f0f0f0;
-        color: #aaa;
-        font-weight: 400;
-        font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
         &:focus {
             outline: none;
@@ -33,14 +34,6 @@
 			color: #f9f7f6;
 			z-index: 100;
 			opacity: 0;
-		}
-
-		&--ruri {
-			width: 100%;
-			background: transparent;
-			padding: 0.5em 0;
-			margin-bottom: 2em;
-			color: #fff;
 		}
     }
 
@@ -104,27 +97,6 @@
 				background: #A8A8A8;
 				height: 2px;
 				top: 100%;
-			}
-		}
-
-		&--ruri {
-			font-size: 1em;
-			padding: 10px 0 5px;
-			pointer-events: none;
-			position: absolute;
-			text-align: left;
-			width: 100%;
-
-			&::after {
-				@include transform-origin(50%, 100%, 0);
-				@include transition(transform 0.3s, background-color 0.3s);
-				background: #B7C3AC;
-				content: '';
-				height: 7px;
-				left: 0;
-				position: absolute;
-				top: 100%;
-				width: 100%;
 			}
 		}
     }

@@ -1,10 +1,14 @@
+label {
+    display: block;
+}
+
 input:focus {
     outline: 0;
 }
 
 input,
 textarea {
-    @include box-shadow(content-box)
+    @include box-sizing(content-box)
 }
 
 button,
@@ -14,7 +18,7 @@ input[type=submit],
 input[type=checkbox],
 input[type=radio],
 select {
-    @include box-shadow(border-box)
+    @include box-sizing(border-box)
 }
 
 input[type=search] {

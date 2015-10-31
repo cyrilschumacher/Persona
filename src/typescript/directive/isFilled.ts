@@ -23,10 +23,8 @@
 
 /// <reference path="../typing/angularjs/angular.d.ts" />
 /// <reference path="../typing/jquery/jquery.d.ts" />
-/// <reference path="../typing/jquery.autosize/jquery.autosize.d.ts" />
 
 import app = require("../app");
-import autosize = require("autosize");
 
 /**
  * Directive for increase the height of the element based on the text.
@@ -34,7 +32,7 @@ import autosize = require("autosize");
  * @author  Cyril Schumacher
  * @class
  */
-class AutosizeDirective implements ng.IDirective {
+class IsFilledDirective implements ng.IDirective {
     /**
      * @summary Dependencies injection.
      * @type {Array<string>}
@@ -45,7 +43,29 @@ class AutosizeDirective implements ng.IDirective {
      * @summary Restrict option.
      * @type {string}
      */
-    public restrict: string = 'A';
+    public restrict: string = "A";
+    /**
+     * @summary Scope.
+     * @type {Object}
+     */
+    public scope: Object = {
+        cssClassFilled: "@",
+        inputId: "@"
+    };
+
+    /**
+     * @summary jqLite-wrapped element that this directive matches.
+     * @private
+     * @type {JQuery}
+     */
+    private _element: JQuery;
+
+    /**
+     * @summary Angular scope object.
+     * @private
+     * @type {ng.IScope}
+     */
+    private _scope: ng.IScope;
 
     /**
      * @summary Manipulates the DOM of the current page.
@@ -54,12 +74,17 @@ class AutosizeDirective implements ng.IDirective {
      * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        if (autosize instanceof Function) {
-            autosize(element);
-        }
+        var input = angular.element("#" + scope["inputId"]);
+        input.change(e => {
+            if (input.val() !== "") {
+                element.addClass(scope["cssClassFilled"]);
+            } else {
+                element.removeClass(scope["cssClassFilled"]);
+            }
+        });
     }
 }
 
 
-export = AutosizeDirective;
-app.module["register"].directive("autosize", () => new AutosizeDirective());
+export = IsFilledDirective;
+app.module["register"].directive("isFilled", () => new IsFilledDirective());

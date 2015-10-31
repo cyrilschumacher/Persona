@@ -1,15 +1,19 @@
 mixin manami-text-input-effect(id, i18next, type)
     - text = text || "text"
-    span.input.input--manami
+    span.input.input--manami(data-is-filled data-css-class-filled="input--filled" data-input-id=id)
         input.input__field.input__field--manami(type=type id=id)
         label.input__label.input__label--manami(for=id)
             span.input__label-content.input__label-content--manami(data-ng-i18next=i18next)
 
 header.l-header.l-header--contact
-    h1 Plusieurs itinéraires, une destination
+    .l-header.__wrapper.l-header.l-header--contact__wrapper
+        .l-header.__wrapper__background.l-header.l-header--contact__wrapper__background
+        .l-header.__wrapper__content.l-header.l-header--contact__wrapper__content
+            h1 Plusieurs itinéraires, une destination
 section.l-section.l-section--contact
     header.l-section__header.l-section--contact__header
         h2(data-ng-i18next="view.contact.online")
+        p Pour toutes questions, n'hésitez pas à me contacter en complètant le formulaire ci-dessous.
     section
         form
             p
@@ -21,13 +25,7 @@ section.l-section.l-section--contact
                 +manami-text-input-effect("subject", "view.contact.subject")
             br
             p
-                span.input.input--manami
-                    textarea.input__field.input__field--manami#message(data-autosize)
-                    label.input__label.input__label--manami(for="message")
-                        span.input__label-content.input__label-content--manami(data-ng-i18next="view.contact.message")
-                        
                 label(for="message") Message
-                textarea#message(data-autosize name="message" placeholder="Message")
-                span.field-tip Le champs est requis.
+                textarea#message(data-autosize name="message" data-is-filled data-css-class-filled="message-filled" data-input-id="message")
             p
-                input(type="submit" value="Envoyer mon message")
+                input.btn(type="submit" value="Envoyer mon message")

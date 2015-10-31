@@ -24,7 +24,7 @@
     width: inherit;
 
     &__header {
-        padding: 5rem 0;
+        padding: 5rem 2.5rem;
         text-align: center;
     }
 
@@ -117,11 +117,14 @@
         color: $material_design_white;
 
         form {
+            margin: 0 auto;
+            width: 75%;
+
             .input {
                 display: block;
-                margin: 0 auto;
+                margin: 1rem 0 0;
                 max-width: none;
-                width: 75%;
+                width: 100%;
 
                 &__label {
                     color: $material_design_white !important;
@@ -136,10 +139,54 @@
                     }
                 }
 
-                .input__field--manami:focus + .input__label--manami .input__label-content--manami, .input--filled .input__label--manami .input__label-content--manami {
-                    color: $material_design_white !important;
+                &__field {
+                    color: $material_design_orange;
                 }
+            }
+
+            label {
+                margin: 0 0 1rem;
+            }
+
+            textarea {
+                @include box-sizing(border-box);
+                background: none;
+                border: 1px solid $material_design_white;
+                font-family: "Roboto";
+                height: auto;
+                padding: 1rem 2rem;
+                width: 100%;
+            }
+
+            input[type="submit"] {
+                @include box-shadow(0 6px $material_design_gray);
+                @include transition(none);
+        		background: $material_design_white;
+        		color: $material_design_orange;
+                font-family: "Roboto";
+                margin: 2rem 0;
+                padding: 1rem 2rem;
+                width: 100%;
+
+    			&:hover {
+                    @include box-shadow(0 8px $material_design_gray);
+    				top: -2px;
+    			}
+
+    			&:active {
+                    @include box-shadow(0 0 $material_design_gray);
+    				top: 6px;
+    			}
             }
         }
     }
+}
+
+.message-filled {
+    background: $material_design_white !important;
+    color: $material_design_orange;
+}
+
+.input__field--manami:focus + .input__label--manami .input__label-content--manami, .input--filled .input__label--manami .input__label-content--manami {
+    color: $material_design_white !important;
 }

@@ -22,6 +22,7 @@
  */
 
 ///<amd-dependency path="directive/autosize"/>
+///<amd-dependency path="directive/isFilled"/>
 
 import app = require("app");
 import baseController = require("controller/base");
