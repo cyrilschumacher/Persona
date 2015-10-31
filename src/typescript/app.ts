@@ -139,7 +139,7 @@ class Application {
      */
     private _initializeModule = (): void => {
         const MODULE_NAME = "persona";
-        this._module = angular.module(MODULE_NAME, ["ngRoute", "jm.i18next", "chart.js"]);
+        this._module = angular.module(MODULE_NAME, ["ngRoute", "jm.i18next", "chart.js", "angularBingMaps"]);
     }
 
     /**

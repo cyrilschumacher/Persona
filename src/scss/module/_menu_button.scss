@@ -12,9 +12,39 @@
     width: 4rem;
     z-index: 10;
 
+    &--about {
+        &:hover, &:focus {
+            span { color: $material_design_dark_primary_blue !important }
+        }
+
+        &:active { background: $material_design_dark_primary_blue !important }
+    }
+
+    &--works {
+        &:hover, &:focus {
+            span { color: $material_design_dark_primary_green !important }
+        }
+
+        &:active { background: $material_design_dark_primary_green !important }
+    }
+
+    &--contact {
+        &:hover, &:focus {
+            span { color: $material_design_dark_primary_red !important }
+        }
+
+        &:active { background: $material_design_dark_primary_red !important }
+    }
+
     &:hover, &:focus {
         background: #fff;
         span { color: $material_design_gray }
+    }
+
+    &:active {
+        border-color: transparent;
+        background: $material_design_gray;
+        span { color: $material_design_white !important }
     }
 
     span {

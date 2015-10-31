@@ -25,7 +25,7 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
     
     base(href="/")
   body
-    #perspective.perspective.effect-rotateleft
+    #perspective.perspective.effect-rotateleft(data-ng-class="{'perspective--about': viewName == 'about', 'perspective--works': viewName == 'works', 'perspective--contact': viewName == 'contact'}")
         nav.l-nav.outer-nav.right.vertical
             a.ion-ios-home(data-ng-i18next="navigation.home" href="/{{language}}/")
             a.ion-ios-person(data-ng-i18next="navigation.about" href="/{{language}}/about")
@@ -33,9 +33,9 @@ html(lang="fr" prefix="og:http://ogp.me/ns#")
             a.ion-ios-paperplane-outline(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
         .container
             .wrapper(data-ng-view)
-            button.menu_button#showMenu
+            button.menu_button#showMenu(data-ng-class="{'menu_button--about': viewName == 'about', 'menu_button--works': viewName == 'works', 'menu_button--contact': viewName == 'contact'}")
                 span.ion-grid
-            footer.l-footer(data-ng-class="{'l-footer--home': viewName == 'home'}")
+            footer.l-footer(data-ng-class="{'l-footer--home': viewName == 'home', 'l-footer--about': viewName == 'about', 'l-footer--works': viewName == 'works', 'l-footer--contact': viewName == 'contact'}")
                 .l-footer__under
                     .l-footer__under__copyright
                         span Copyright © 2015 Cyril Schumacher

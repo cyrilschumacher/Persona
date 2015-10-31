@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+///<amd-dependency path="angular-bing-maps"/>
+///<amd-dependency path="mapcontrol"/>
 ///<amd-dependency path="directive/autosize"/>
 ///<amd-dependency path="directive/isFilled"/>
 

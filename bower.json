@@ -29,6 +29,7 @@
     "css-spinners": "~2.2.0",
     "three.js": "~0.72.0",
     "angular-chart.js": "~0.8.5",
-    "autosize": "jquery-autosize#~3.0.13"
+    "autosize": "jquery-autosize#~3.0.13",
+    "angular-bing-maps": "~0.2.1"
   }
 }

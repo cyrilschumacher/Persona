@@ -10,6 +10,11 @@ module.exports = function(grunt) {
                 options: {
                     keepExpandedHierarchy: false,
                     packageSpecific: {
+                        "angular-bing-maps": {
+                            files: [
+                                "dist/*.js"
+                            ]
+                        },
                         "angular-chart.js": {
                             files: [
                                 "dist/*.css",

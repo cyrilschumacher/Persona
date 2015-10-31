@@ -24,10 +24,9 @@
 /// <reference path="typing/requirejs/require.d.ts" />
 
 require.config({
-    urlArgs: 'v=1.0',
-
     paths: {
         angular:                "vendor/angular",
+        "angular-bing-maps":    "vendor/angular-bing-maps",
         "angular-chart":        "vendor/angular-chart",
         "angular-route":        "vendor/angular-route",
         "angular-sanitize":     "vendor/angular-sanitize",
@@ -36,6 +35,7 @@ require.config({
         "chart":                "vendor/Chart",
         jquery:                 "vendor/jquery",
         i18next:                "vendor/i18next",
+        mapcontrol:             "//ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0",
         "ng-i18next":           "vendor/ng-i18next",
         projector:              "vendor/Projector",
         "three":                "vendor/three.min",
@@ -46,13 +46,14 @@ require.config({
         "angular": {
             exports: "angular"
         },
+        "angular-bing-maps":["angular", "mapcontrol"],
         "angular-chart":    ["chart", "angular"],
         "angular-route":    ["angular"],
         "angular-sanitize": ["angular"],
         "autosize":         ["jquery"],
         canvasRenderer:     ["three"],
         i18next:            ["jquery"],
-        loader:             ["angular-chart", "angular-route", "angular-sanitize", "ng-i18next"],
+        loader:             ["angular-bing-maps", "angular-chart", "angular-route", "angular-sanitize", "ng-i18next"],
         "ng-i18next":       ["angular", "i18next"],
         projector:          ["three"]
     },

@@ -17,12 +17,13 @@
             "through_various_information": "A travers diverses informations tel que mes formations, mes expériences ou mes compétences."
         },
         "contact": {
+            "postal_address": "Coordonnées postales",
             "online": "En ligne",
-            "firstname": "Prénom",
-            "lastname": "Nom",
             "email_address": "Adresse e-mail",
             "message": "Message",
-            "subject": "Sujet"
+            "subject": "Sujet",
+            "for_questions": "Pour toutes questions, n'hésitez pas à me contacter au moyen du formulaire ou mes coordonnées postales.",
+            "many_routes": "Plusieurs itinéraires, une destination"
         }
     }
 }

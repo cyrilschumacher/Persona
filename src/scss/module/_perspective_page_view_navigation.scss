@@ -4,6 +4,18 @@
 	position: relative;
 	width: 100%;
 
+	&--about {
+		background: $material_design_dark_primary_blue !important;
+	}
+
+	&--works {
+		background: $material_design_dark_primary_green !important;
+	}
+
+	&--contact {
+		background: $material_design_dark_primary_red !important;
+	}
+
     .container {
         @include transform(translateZ(0) translateX(0) rotateY(0deg));
     	background: #fff;
