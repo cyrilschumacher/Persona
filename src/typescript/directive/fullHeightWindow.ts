@@ -73,4 +73,4 @@ class FullHeightWindowDirective implements ng.IDirective {
 }
 
 export = FullHeightWindowDirective;
-app.module["register"].directive("fullHeightWindow", () => new FullHeightWindowDirective());
+app.module.directive("fullHeightWindow", () => new FullHeightWindowDirective());

@@ -51,4 +51,4 @@ class WorksController extends baseController {
 }
 
 export = WorksController;
-app.module["register"].controller("worksController", WorksController);
+app.module.controller("worksController", WorksController);

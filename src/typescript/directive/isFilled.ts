@@ -87,4 +87,4 @@ class IsFilledDirective implements ng.IDirective {
 
 
 export = IsFilledDirective;
-app.module["register"].directive("isFilled", () => new IsFilledDirective());
+app.module.directive("isFilled", () => new IsFilledDirective());

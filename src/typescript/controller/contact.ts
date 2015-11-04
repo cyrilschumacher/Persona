@@ -76,4 +76,4 @@ class ContactController extends baseController {
 }
 
 export = ContactController;
-app.module["register"].controller("contactController", ContactController);
+app.module.controller("contactController", ContactController);

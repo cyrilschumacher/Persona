@@ -62,4 +62,4 @@ class AutosizeDirective implements ng.IDirective {
 
 
 export = AutosizeDirective;
-app.module["register"].directive("autosize", () => new AutosizeDirective());
+app.module.directive("autosize", () => new AutosizeDirective());

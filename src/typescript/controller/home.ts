@@ -55,4 +55,4 @@ class HomeController extends baseController {
 }
 
 export = HomeController;
-app.module["register"].controller("homeController", HomeController);
+app.module.controller("homeController", HomeController);
