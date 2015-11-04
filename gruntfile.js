@@ -70,12 +70,19 @@ module.exports = function(grunt) {
                     cacheDir: "dist/.sass-cache/",
                     cssDir: "dist/css/",
                     debugInfo: false,
-                    environment: "development",
                     noLineComments: true,
                     sassDir: "src/scss/",
                     sourcemap: false,
                     trace: false
                 }
+            }
+        },
+        cssmin: {
+            files: {
+                expand: true,
+                cwd: "dist/css/",
+                src: "**/*.css",
+                dest: "dist/css/"
             }
         },
         copy: {
@@ -117,6 +124,14 @@ module.exports = function(grunt) {
                 }
             }
         },
+        uglify: {
+            files: {
+                expand: true,
+                cwd: "dist/javascript/",
+                src: "**/*.js",
+                dest: "dist/javascript/"
+            }
+        },
         watch: {
             content: {
                 files: ["src/content/**/*.*", "!src/content/**/*.jade"],
@@ -145,10 +160,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-browser-sync");
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks("grunt-contrib-cssmin");
     grunt.loadNpmTasks("grunt-contrib-jade");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-contrib-watch");
     grunt.loadNpmTasks("grunt-ts");
 
     grunt.registerTask("default", ["compass", "jade", "ts", "copy:javascript", "copy:content", "bower"]);
+    grunt.registerTask("production", ["default", "cssmin", "uglify"]);
     grunt.registerTask("server", ["browserSync"]);
 };
