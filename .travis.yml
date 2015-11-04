@@ -1,9 +1,18 @@
 language: node_js
 node_js:
+  - "4.1"
+  - "4.0"
+  - "0.12"
+  - "0.11"
   - "0.10"
+  - "0.8"
+  - "0.6"
+  - "iojs"
 before_install: npm install -g grunt-cli
 install:
   - npm install
+  - bower install
   - gem install sass
   - gem install compass
 before_script: grunt
+script: karma start karma.config.js
