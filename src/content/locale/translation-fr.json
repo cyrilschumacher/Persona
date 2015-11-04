@@ -7,6 +7,10 @@
     },
     "view": {
         "about": {
+            "meta": {
+                "description": "Découvrez mes compétences que j'ai acquises durant mes formations et stages, mes expériences professionnelles que j'ai effectuées ainsi que mes formations que j'ai passées.",
+                "title": "A propos"
+            },
             "education": "Mes formations",
             "experience": "Mes expériences",
             "get_know_me": "Apprenez à me connaître",

@@ -7,6 +7,10 @@
     },
     "view": {
         "about": {
+            "meta": {
+                "description": "Discover my skills I acquired during my training and courses, my professional experiences I have done and my training I spent.",
+                "title": "About"
+            },
             "education": "My education",
             "experience": "My experience",
             "get_know_me": "Get to know me",

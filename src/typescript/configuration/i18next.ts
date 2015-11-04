@@ -52,7 +52,6 @@ class i18nextConfiguration {
    */
   private _initializeOptions = (): void => {
     this.$i18nextProvider.options = {
-      debug: true,
       fallbackLng: "fr",
       lng: "fr",
       resGetPath: "/content/locale/__ns__-__lng__.json",

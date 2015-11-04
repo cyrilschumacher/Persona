@@ -1,67 +1,69 @@
 doctype html
 html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
-  head
-    meta(charset="utf-8")
-    title(data-ng-bind="viewTitle ? viewTitle + ' - Cyril Schumacher' : 'Cyril Schumacher'")
+	head
+		meta(charset="utf-8")
+		title(data-ng-bind="viewTitle ? viewTitle + ' | Cyril Schumacher' : 'Cyril Schumacher'")
 
-    meta(name="description" content="{{viewDescription}}")
-    meta(property="og:title" content="")
-    meta(property="og:type" content="")
-    meta(property="og:url" content="")
-    meta(property="og:image" content="")
-    meta(name="viewport" content="width=device-width, user-scalable=no")
-    meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
-    meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
+		meta(name="description" content="{{viewDescription}}")
+		meta(property="og:title" content="")
+		meta(property="og:type" content="")
+		meta(property="og:url" content="")
+		meta(property="og:image" content="")
+		meta(name="viewport" content="width=device-width, user-scalable=no")
+		meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
+		meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
 
-    link(rel="stylesheet" href="/css/vendor/ionicons.min.css")
-    link(rel="stylesheet" href="/css/vendor/spinners.css")
-    link(rel="stylesheet" href="/css/base.css")
-    link(rel="shortcut icon" href="/favicon.ico")
-    
-    base(href="/")
-  body(data-status="{{status}}")
-    #perspective.perspective.effect-rotateleft(data-ng-class="{'perspective--about': viewName == 'about', 'perspective--works': viewName == 'works', 'perspective--contact': viewName == 'contact'}")
-        nav.l-nav.outer-nav.right.vertical(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
-            a.ion-ios-home(data-ng-i18next="navigation.home" href="/{{language}}/")
-            a.ion-ios-person(data-ng-i18next="navigation.about" href="/{{language}}/about")
-            a.ion-erlenmeyer-flask(data-ng-i18next="navigation.works" href="/{{language}}/works")
-            a.ion-ios-paperplane-outline(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
+		link(href="/content/image/favicon.ico" rel="shortcut icon")
+		link(rel="stylesheet" href="/css/vendor/ionicons.min.css")
+		link(rel="stylesheet" href="/css/vendor/spinners.css")
+		link(rel="stylesheet" href="/css/base.css")
+		link(rel="shortcut icon" href="/favicon.ico")
 
-        .container
-            .wrapper(data-ng-view)
+		base(href="/")
 
-            button.menu_button#showMenu(data-ng-class="{'menu_button--about': viewName == 'about', 'menu_button--works': viewName == 'works', 'menu_button--contact': viewName == 'contact'}")
-                span.ion-grid
+	body(data-status="{{status}}")
+		#perspective.perspective.effect-rotateleft(data-ng-class="{'perspective--about': viewName == 'about', 'perspective--works': viewName == 'works', 'perspective--contact': viewName == 'contact'}")
+			nav.l-nav.outer-nav.right.vertical(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
+				a.ion-ios-home(data-ng-i18next="navigation.home" href="/{{language}}/")
+				a.ion-ios-person(data-ng-i18next="navigation.about" href="/{{language}}/about")
+				a.ion-erlenmeyer-flask(data-ng-i18next="navigation.works" href="/{{language}}/works")
+				a.ion-ios-paperplane-outline(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
 
-            footer.l-footer(data-ng-class="{'l-footer--home': viewName == 'home', 'l-footer--about': viewName == 'about', 'l-footer--works': viewName == 'works', 'l-footer--contact': viewName == 'contact'}" itemscope itemtype="http://schema.org/WPFooter")
-                .l-footer__under
-                    .l-footer__under__copyright
-                        span Copyright © 2015 Cyril Schumacher
-                .l-footer__on
-                    ul.l-footer__on__social_network
-                        li.l-footer__on__social_network__item
-                            a.l-footer__on__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
-                                .l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--github
-                                    span.ion-social-github-outline
-                                span.l-footer__on__social_network__item__link__title GitHub
+			.container
+				.wrapper(data-ng-view)
 
-                        li.l-footer__on__social_network__item
-                            a.l-footer__on__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
-                                div.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--linkedin
-                                    span.ion-social-linkedin-outline
-                                span.l-footer__on__social_network__item__link__title Linkedin
+				button.menu_button#showMenu(data-ng-class="{'menu_button--about': viewName == 'about', 'menu_button--works': viewName == 'works', 'menu_button--contact': viewName == 'contact'}")
+					span.ion-grid
 
-                        li.l-footer__on__social_network__item
-                            a.l-footer__on__social_network__item__link(href="http://www.twitter.com/CyrilSchumacher")
-                                .l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--twitter
-                                    span.ion-social-twitter-outline
-                                span.l-footer__on__social_network__item__link__title Twitter
+				footer.l-footer(data-ng-class="{'l-footer--home': viewName == 'home', 'l-footer--about': viewName == 'about', 'l-footer--works': viewName == 'works', 'l-footer--contact': viewName == 'contact'}" itemscope itemtype="http://schema.org/WPFooter")
+					.l-footer__under
+						.l-footer__under__copyright
+							span Copyright © 2015 Cyril Schumacher
+					.l-footer__on
+						ul.l-footer__on__social_network
+							li.l-footer__on__social_network__item
+								a.l-footer__on__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
+									.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--github
+										span.ion-social-github-outline
+									span.l-footer__on__social_network__item__link__title GitHub
 
-    .loading(data-ng-cloak)
-        .loading__wrapper
-            .gauge-loader
+							li.l-footer__on__social_network__item
+								a.l-footer__on__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
+									div.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--linkedin
+										span.ion-social-linkedin-outline
+									span.l-footer__on__social_network__item__link__title Linkedin
 
-    script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
-    script(type="text/javascript" src="/javascript/vendor/classie.js")
-    script(type="text/javascript" src="/javascript/vendor/menu.js")
-    script(data-main="/javascript/main.js" src="/javascript/vendor/require.js")
+							li.l-footer__on__social_network__item
+								a.l-footer__on__social_network__item__link(href="http://www.twitter.com/CyrilSchumacher")
+									.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--twitter
+										span.ion-social-twitter-outline
+									span.l-footer__on__social_network__item__link__title Twitter
+
+		.loading(data-ng-cloak)
+			.loading__wrapper
+				.gauge-loader
+
+		script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
+		script(type="text/javascript" src="/javascript/vendor/classie.js")
+		script(type="text/javascript" src="/javascript/vendor/menu.js")
+		script(data-main="/javascript/main.js" src="/javascript/vendor/require.js")
