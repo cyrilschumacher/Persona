@@ -25,7 +25,11 @@
             "subject": "Sujet"
         },
         "home": {
-            "discover_skills": "Découvrez mes compétences"
+            "meta": {
+                "description": "Je suis Cyril Schumacher, étudiant en cinquième année logiciel à l'exia.cesi de nancy et passionné des technologies Microsoft."
+            },
+            "discover_skills": "Découvrez mes compétences",
+            "student": "Étudiant en cinquième année logiciel à l'exia.cesi de Nancy"
         },
         "works": {
             "discover_works": "Découvrez mes travaux",

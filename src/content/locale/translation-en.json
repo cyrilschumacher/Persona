@@ -1,0 +1,39 @@
+{
+    "navigation": {
+        "about": "About",
+        "contact": "Contact",
+        "home": "Home",
+        "works": "Works"
+    },
+    "view": {
+        "about": {
+            "education": "My education",
+            "experience": "My experience",
+            "get_know_me": "Get to know me",
+            "skills": "My skills",
+            "through_various_information": "Through various information such as my training, my experiences and my skills."
+        },
+        "contact": {
+            "email_address": "Email address",
+            "for_questions": "For any questions, do not hesitate to contact me using the form or my postal address.",
+            "many_routes": "Many routes,<br/>one destination",
+            "meet_me": "Meet me at various locations using the interactive map.",
+            "message": "Message",
+            "online": "Online",
+            "postal_address": "Postal addresses",
+            "start_link": "Start a link beginning with this form",
+            "subject": "Subject"
+        },
+        "home": {
+            "meta": {
+                "description": "I am Cyril Schumacher, fifth-year software student in exia.cesi Nancy and passionate about Microsoft technologies."
+            },
+            "discover_skills": "Discover my skills",
+            "student": "Fifth-year software student in exia.cesi Nancy"
+        },
+        "works": {
+            "discover_works": "Discover my works",
+            "works_carried": "Work completed in school, in business or in my free time."
+        }
+    }
+}

@@ -39,6 +39,33 @@ import app = require("../app");
  */
 class CanvasParticlesWavesDirective implements ng.IDirective {
     /**
+     * @summary Gets the screen height.
+     * @private
+     * @return {number} The screen height.
+     */
+    private get SCREEN_HEIGHT(): number {
+        return window.innerHeight;
+    }
+
+    /**
+     * @summary Gets the screen width.
+     * @private
+     * @return {number} The screen width.
+     */
+    private get SCREEN_WIDTH(): number {
+        return window.innerWidth;
+    }
+
+    /**
+     * @summary Gets the separation.
+     * @private
+     * @return {number} The separation.
+     */
+    private get SEPARATION(): number {
+        return 100;
+    }
+
+    /**
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
@@ -149,6 +176,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
      */
     private _destroy = (): void => {
         cancelAnimationFrame(this._idRenderer);
+        this._idRenderer = -1;
     }
 
     /**
@@ -156,10 +184,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
      * @private
      */
     private _initialize = (container: HTMLDivElement): void => {
-        var SCREEN_WIDTH = window.innerWidth,
-            SCREEN_HEIGHT = window.innerHeight,
-            SEPARATION = 100;
-
+        this._idRenderer = -1;
         this._mouseX = 0;
         this._mouseY = 0;
         this._amountX = 50;
@@ -168,7 +193,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         this._windowHalfX = window.innerWidth / 2;
         this._windowHalfY = window.innerHeight / 2;
 
-        this._camera = new THREE.PerspectiveCamera(100, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000);
+        this._camera = new THREE.PerspectiveCamera(100, (this.SCREEN_WIDTH / this.SCREEN_HEIGHT), 1, 10000);
         this._camera.position.z = 500;
 
         this._scene = new THREE.Scene();
@@ -188,8 +213,8 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         for (var ix = 0; ix < this._amountX; ix++) {
             for (var iy = 0; iy < this._amountY; iy++) {
                 var particle = this._particles[i++] = new THREE.Sprite(material);
-                particle.position.x = (ix * SEPARATION) - ((this._amountX * SEPARATION) / 2);
-                particle.position.z = (iy * SEPARATION) - ((this._amountY * SEPARATION) / 2);
+                particle.position.x = (ix * this.SEPARATION) - ((this._amountX * this.SEPARATION) / 2);
+                particle.position.z = (iy * this.SEPARATION) - ((this._amountY * this.SEPARATION) / 2);
 
                 this._scene.add(particle);
             }
@@ -199,6 +224,22 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         this._renderer.setPixelRatio(window.devicePixelRatio);
         this._renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(this._renderer.domElement);
+    }
+
+    /**
+     * @summary Determines if the WebGL is supported.
+     * @private
+     * @return {boolean} True if the WebGL is supported, otherwise, False.
+     */
+    private _isWebGLSupported = (): boolean => {
+        return (() => {
+            try {
+                return !!window["WebGLRenderingContext"] && !!document.createElement("canvas").getContext("experimental-webgl");
+            }
+            catch(e) {
+                return false;
+            }
+        })();
     }
 
     /**
@@ -279,8 +320,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
      * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        var supportsWebGL = ( function () { try { return !! window["WebGLRenderingContext"] && !! document.createElement( 'canvas' ).getContext( 'experimental-webgl' ); } catch( e ) { return false; } } )();
-        if (supportsWebGL) {
+        if (this._isWebGLSupported()) {
             this._initialize(<HTMLDivElement>element[0]);
             this._animate();
 

@@ -30,4 +30,4 @@ import app = require("./app");
 app.initialize();
 
 // Start angular application.
-angular.bootstrap(document, ["persona"]);
+angular.bootstrap(document, [app.name]);

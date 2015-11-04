@@ -38,19 +38,12 @@ abstract class ControllerBase {
      * @param {I18nextProvider}        $i18next        The i18next provider.
      */
     public constructor(public viewName: string, public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
+        /* Function */
         this.$rootScope["viewName"] = viewName;
         this.$rootScope["navigateTo"] = this._navigateTo;
 
+        /* Event */
         this.$scope.$on("$viewContentLoaded", this._onViewContentLoaded);
-    }
-
-    /**
-     * @summary Initializes controller.
-     * @private
-     */
-    private _onViewContentLoaded = (): void => {
-        this._initializeLocalization();
-        this._initializeStatus();
     }
 
     /**
@@ -69,6 +62,14 @@ abstract class ControllerBase {
     }
 
     /**
+     * @summary Initializes status.
+     * @private
+     */
+    private _initializeStatus = (): void => {
+        this.$rootScope["status"] = "ready";
+    }
+
+    /**
      * @summary Navigates to page.
      * @param {string} path The path.
      */
@@ -77,11 +78,12 @@ abstract class ControllerBase {
     }
 
     /**
-     * @summary Initializes status.
+     * @summary Initializes controller.
      * @private
      */
-    private _initializeStatus = (): void => {
-        this.$rootScope["status"] = "ready";
+    private _onViewContentLoaded = (): void => {
+        this._initializeLocalization();
+        this._initializeStatus();
     }
 }
 

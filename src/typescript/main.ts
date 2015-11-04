@@ -25,19 +25,20 @@
 
 require.config({
     paths: {
-        angular:                "vendor/angular",
+        "angular":              "vendor/angular",
         "angular-bing-maps":    "vendor/angular-bing-maps",
         "angular-chart":        "vendor/angular-chart",
         "angular-route":        "vendor/angular-route",
         "angular-sanitize":     "vendor/angular-sanitize",
+        "angularjs-viewhead":   "vendor/angularjs-viewhead",
         "autosize":             "vendor/autosize.min",
-        canvasRenderer:         "vendor/CanvasRenderer",
+        "canvasRenderer":       "vendor/CanvasRenderer",
         "chart":                "vendor/Chart",
-        jquery:                 "vendor/jquery",
-        i18next:                "vendor/i18next",
-        mapcontrol:             "//ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0",
+        "jquery":               "vendor/jquery",
+        "i18next":              "vendor/i18next",
+        "mapcontrol":           "//ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0",
         "ng-i18next":           "vendor/ng-i18next",
-        projector:              "vendor/Projector",
+        "projector":            "vendor/Projector",
         "three":                "vendor/three.min",
 
         loader:                 "loader"
@@ -46,16 +47,17 @@ require.config({
         "angular": {
             exports: "angular"
         },
-        "angular-bing-maps":["angular", "mapcontrol"],
-        "angular-chart":    ["chart", "angular"],
-        "angular-route":    ["angular"],
-        "angular-sanitize": ["angular"],
-        "autosize":         ["jquery"],
-        canvasRenderer:     ["three"],
-        i18next:            ["jquery"],
-        loader:             ["angular-bing-maps", "angular-chart", "angular-route", "angular-sanitize", "ng-i18next"],
-        "ng-i18next":       ["angular", "i18next"],
-        projector:          ["three"]
+        "angular-bing-maps":    ["angular", "mapcontrol"],
+        "angular-chart":        ["chart", "angular"],
+        "angular-route":        ["angular"],
+        "angular-sanitize":     ["angular"],
+        "angularjs-viewhead":   ["angular"],
+        "autosize":             ["jquery"],
+        "canvasRenderer":       ["three"],
+        "i18next":              ["jquery"],
+        "loader":               ["angular-bing-maps", "angular-chart", "angular-route", "angular-sanitize", "angularjs-viewhead", "ng-i18next"],
+        "ng-i18next":           ["angular", "i18next"],
+        "projector":            ["three"]
     },
     deps: ["loader"]
 });

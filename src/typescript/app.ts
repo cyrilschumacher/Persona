@@ -50,10 +50,18 @@ class Application {
 
     /**
      * @summary Gets the angular module.
-     * @returns {IModule} Module.
+     * @returns {IModule} The module.
      */
     public get module(): ng.IModule {
         return this._module;
+    }
+
+    /**
+     * @summary Gets the application name.
+     * @returns {string} The application name.
+     */
+    public get name(): string {
+        return "persona";
     }
 
     /**
@@ -138,8 +146,7 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        const MODULE_NAME = "persona";
-        this._module = angular.module(MODULE_NAME, ["ngRoute", "jm.i18next", "chart.js", "angularBingMaps"]);
+        this._module = angular.module(this.name, ["angularBingMaps", "chart.js", "jm.i18next", "ngRoute", "viewhead"]);
     }
 
     /**

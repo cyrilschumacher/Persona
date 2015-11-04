@@ -1,30 +1,25 @@
 doctype html
-html(lang="fr" prefix="og:http://ogp.me/ns#")
+html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
   head
     meta(charset="utf-8")
-    title Blue Dragonfly
+    title(data-ng-bind="viewTitle ? viewTitle + ' - Cyril Schumacher' : 'Cyril Schumacher'")
 
-    meta(name="description" content="")
-    meta(name="keywords" content="")
-    meta(name="robots" content="")
-    
+    meta(name="description" content="{{viewDescription}}")
     meta(property="og:title" content="")
     meta(property="og:type" content="")
     meta(property="og:url" content="")
     meta(property="og:image" content="")
-    
     meta(name="viewport" content="width=device-width, user-scalable=no")
-    
     meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
     meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
-    
+
     link(rel="stylesheet" href="/css/vendor/ionicons.min.css")
     link(rel="stylesheet" href="/css/vendor/spinners.css")
     link(rel="stylesheet" href="/css/base.css")
     link(rel="shortcut icon" href="/favicon.ico")
     
     base(href="/")
-  body
+  body(data-status="{{status}}")
     #perspective.perspective.effect-rotateleft(data-ng-class="{'perspective--about': viewName == 'about', 'perspective--works': viewName == 'works', 'perspective--contact': viewName == 'contact'}")
         nav.l-nav.outer-nav.right.vertical(role="navigation" lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
             a.ion-ios-home(data-ng-i18next="navigation.home" href="/{{language}}/")
