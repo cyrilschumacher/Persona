@@ -339,4 +339,4 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
 }
 
 export = CanvasParticlesWavesDirective;
-app.module["register"].directive("canvasParticlesWaves", () => new CanvasParticlesWavesDirective());
+app.module.directive("canvasParticlesWaves", () => new CanvasParticlesWavesDirective());

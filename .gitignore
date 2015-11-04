@@ -107,4 +107,4 @@ Temporary Items
 # Typescript
 .tscache
 .baseDir.ts
-src/**/*.js
+src/typescript/**/*.js

@@ -55,8 +55,9 @@ class AboutController extends baseController {
      * @private
      */
     private _initialize = (): void => {
+        //todo: Add service usage.
     };
 }
 
 export = AboutController;
-app.module["register"].controller("aboutController", AboutController);
+app.module.controller("aboutController", AboutController);

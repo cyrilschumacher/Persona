@@ -96,19 +96,18 @@ class Application {
         this._initializeConstants();
         this._initializeConfigurations();
         this._initializeRun();
-    }
+    };
 
     /**
      * @summary Initialize configuration blocks.
      * @private
      */
     private _initializeConfigurations = (): void => {
-        this._module.config(["$routeProvider", "$controllerProvider", "$compileProvider", "$filterProvider", "$provide", this._register])
-                    .config(BingMapsConfiguration)
+        this._module.config(BingMapsConfiguration)
                     .config(i18nextConfiguration)
                     .config(LocationConfiguration)
                     .config(RouteConfiguration);
-    }
+    };
 
     /**
      * @summary Initialize run blocks.
@@ -116,7 +115,7 @@ class Application {
      */
     private _initializeRun = (): void => {
         this._module.run(TemplateCacheRun);
-    }
+    };
 
     /**
      * @summary Initialize providers.
@@ -125,7 +124,7 @@ class Application {
     private _initializeProvider = (): void => {
         var provider = new ConfigurationProvider(this._module, "scripts/configuration.json");
         this._module.provider("appConfig", provider);
-    }
+    };
 
     /**
      * @summary Initialize constants.
@@ -139,7 +138,7 @@ class Application {
         };
 
         this._module.constant("appConfigRoute", appConfigRoute);
-    }
+    };
 
     /**
      * @summary Initialize module.
@@ -147,26 +146,7 @@ class Application {
      */
     private _initializeModule = (): void => {
         this._module = angular.module(this.name, ["angularBingMaps", "chart.js", "jm.i18next", "ngRoute", "viewhead"]);
-    }
-
-    /**
-     * @summary Register providers.
-     * @private
-     * @param {IRouteProvider}      $routeProvider      Route provider.
-     * @param {IControllerProvider} $controllerProvider Controller provider.
-     * @param {ICompileProvider}    $compileProvider    Compile provider.
-     * @param {IFilterProvider}     $filterProvider     Filter provider.
-     * @param {any}                 $provide            Provide.
-     */
-    private _register = ($routeProvider: ng.route.IRouteProvider, $controllerProvider: ng.IControllerProvider, $compileProvider: ng.ICompileProvider, $filterProvider: ng.IFilterProvider, $provide: any) => {
-        this._module["register"] = {
-            controller: $controllerProvider.register,
-            directive:  $compileProvider.directive,
-            filter:     $filterProvider.register,
-            factory:    $provide.factory,
-            service:    $provide.service
-        };
-    }
+    };
 }
 
 export = Application.instance;

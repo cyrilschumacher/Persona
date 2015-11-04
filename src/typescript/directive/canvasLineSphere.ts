@@ -234,4 +234,4 @@ class CanvasLineSphereDirective implements ng.IDirective {
 }
 
 export = CanvasLineSphereDirective;
-app.module["register"].directive("canvasLineSphere", () => new CanvasLineSphereDirective());
+app.module.directive("canvasLineSphere", () => new CanvasLineSphereDirective());
