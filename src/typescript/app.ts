@@ -24,6 +24,7 @@
 import ConfigurationProvider = require("./provider/configuration");
 import BingMapsConfiguration = require("./configuration/bingmaps");
 import i18nextConfiguration = require("./configuration/i18next");
+import RegisterConfiguration = require("./configuration/register");
 import RouteConfiguration = require("./configuration/route");
 import LocationConfiguration = require("./configuration/location");
 import TemplateCacheRun = require("./run/templateCache");
@@ -106,6 +107,7 @@ class Application {
         this._module.config(BingMapsConfiguration)
                     .config(i18nextConfiguration)
                     .config(LocationConfiguration)
+                    .config(RegisterConfiguration)
                     .config(RouteConfiguration);
     };
 
