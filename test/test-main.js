@@ -32,8 +32,7 @@ require.config({
       'mapcontrol':         '//ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0',
       'ng-i18next':         'vendor/ng-i18next',
       'projector':          'vendor/Projector',
-      'three':              'vendor/three.min',
-      'home':               'controller/home'
+      'three':              'vendor/three.min'
   },
   shim: {
       'angular': {
