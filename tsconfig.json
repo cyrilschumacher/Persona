@@ -17,6 +17,7 @@
         "./src/typescript/configuration/bingmaps.ts",
         "./src/typescript/configuration/i18next.ts",
         "./src/typescript/configuration/location.ts",
+        "./src/typescript/configuration/register.ts",
         "./src/typescript/configuration/route.ts",
         "./src/typescript/controller/about.ts",
         "./src/typescript/controller/base.ts",
