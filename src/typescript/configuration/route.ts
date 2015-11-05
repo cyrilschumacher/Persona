@@ -66,7 +66,7 @@ class RouteConfiguration {
 
         var controllerNameWithPrefix    = controllerName.concat('Controller');
         var templateFile                = this.appConfigRoute["viewPath"].concat(viewName, ".html");
-        var controllerFile              = this.appConfigRoute["controllerPath"].concat(controllerName, ".js");
+        var controllerFile              = this.appConfigRoute["controllerPath"].concat(controllerName);
 
         return {
             controller:     controllerNameWithPrefix,

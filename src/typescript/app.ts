@@ -134,7 +134,7 @@ class Application {
      */
     private _initializeConstants = (): void => {
         var appConfigRoute: Object = {
-            "controllerPath":   "javascript/controller/",
+            "controllerPath":   "controller/",
             "cssPath":          "css/",
             "viewPath":         "content/view/"
         };
