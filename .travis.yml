@@ -8,7 +8,9 @@ node_js:
   - "0.8"
   - "0.6"
   - "iojs"
-before_install: npm install -g grunt-cli
+before_install:
+  - npm install -g grunt-cli
+  - npm install -g karma-cli
 install:
   - npm install
   - bower install

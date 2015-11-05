@@ -33,6 +33,7 @@ require.config({
       'ng-i18next':         'vendor/ng-i18next',
       'projector':          'vendor/Projector',
       'three':              'vendor/three.min',
+      'home':               'controller/home'
   },
   shim: {
       'angular': {
@@ -46,7 +47,7 @@ require.config({
       'autosize':           ['jquery'],
       'canvasRenderer':     ['three'],
       'i18next':            ['jquery'],
-      'loader':             ['angular-bing-maps', 'angular-chart', 'angular-route', 'angular-sanitize', 'angularjs-viewhead', 'ng-i18next'],
+      'app':                ['angular-bing-maps', 'angular-chart', 'angular-route', 'angular-sanitize', 'angularjs-viewhead', 'ng-i18next'],
       'ng-i18next':         ['angular', 'i18next'],
       'projector':          ['three']
   }
