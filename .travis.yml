@@ -9,6 +9,7 @@ node_js:
   - "0.6"
   - "iojs"
 before_install:
+  - npm install -g bower
   - npm install -g grunt-cli
   - npm install -g karma-cli
 install:
