@@ -11,4 +11,4 @@ install:
   - gem install sass
   - gem install compass
 before_script: grunt
-script: karma start karma.config.js
+script: karma start karma.config.js --single-run
