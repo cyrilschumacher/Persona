@@ -31,7 +31,7 @@ require.config({
         "angular-route":        "vendor/angular-route",
         "angular-sanitize":     "vendor/angular-sanitize",
         "angularjs-viewhead":   "vendor/angularjs-viewhead",
-        "autosize":             "vendor/autosize.min",
+        "autosize":             "vendor/autosize",
         "canvasRenderer":       "vendor/CanvasRenderer",
         "chart":                "vendor/Chart",
         "jquery":               "vendor/jquery",
@@ -39,7 +39,7 @@ require.config({
         "mapcontrol":           "//ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0",
         "ng-i18next":           "vendor/ng-i18next",
         "projector":            "vendor/Projector",
-        "three":                "vendor/three.min",
+        "three":                "vendor/three",
 
         loader:                 "loader"
     },

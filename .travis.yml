@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "4.1"
 before_install:
-  - npm install -g bower
+  - npm install -g gulp
   - npm install -g grunt-cli
   - npm install -g karma-cli
 install:
@@ -10,5 +10,5 @@ install:
   - bower install
   - gem install sass
   - gem install compass
-before_script: grunt
+before_script: gulp
 script: karma start karma.config.js --single-run
