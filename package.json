@@ -10,6 +10,7 @@
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
     "gulp-typescript": "^2.9.2",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "karma": "^0.13.15",
     "karma-jasmine": "^0.3.6",

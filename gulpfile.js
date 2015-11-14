@@ -1,5 +1,7 @@
 var gulp = require('gulp'),
-    browserSync = require('browser-sync'),
+    gutil = require('gulp-util');
+
+var browserSync = require('browser-sync'),
     compass = require('gulp-compass'),
     jade = require('gulp-jade'),
     modRewrite = require("connect-modrewrite"),
@@ -13,10 +15,9 @@ var base = {
     source: path.join(__dirname, 'src/'),
     destination: path.join(__dirname, 'dist/')
 };
-
 var paths = {
     copy: {
-        content: [base.source + 'content/**/*.*'],
+        content: [base.source + 'content/**/*.*', '!' + base.source + 'content/**/Thumbs.db'],
         javascript: [base.source + 'javascript/vendor/**/*.js'],
         bower: {
             css: [
@@ -48,6 +49,7 @@ var paths = {
         destination: base.destination
     },
     scss: {
+        pattern: base.source + 'scss/**/*.scss',
         source: base.source + 'scss/',
         destination: base.destination + 'css/'
     },
@@ -56,8 +58,9 @@ var paths = {
         destination: base.destination + 'javascript/'
     }
 };
+var reload = browserSync.reload;
 
-gulp.task('browser-sync', function() {
+function exec_browser_sync() {
     browserSync.create();
     browserSync.init({
         server: {
@@ -67,22 +70,27 @@ gulp.task('browser-sync', function() {
             ]
         }
     });
-});
+}
 
-gulp.task('compass', function() {
+function exec_compass() {
+    gutil.log('Start the Compass task...');
+
     var options = {
         config_file: './compass.rb',
         css: paths.scss.destination,
         sass: paths.scss.source
     };
 
-    gulp.src(paths.scss.source)
+    return gulp.src(paths.scss.source)
         .pipe(plumber())
         .pipe(compass(options))
-        .pipe(gulp.dest(paths.scss.destination));
-});
+        .pipe(gulp.dest(paths.scss.destination))
+        .pipe(reload({stream: true}));
+}
 
-gulp.task('copy', function() {
+function exec_copy() {
+    gutil.log('Copy files...');
+
     gulp.src(paths.copy.bower.font)
         .pipe(gulp.dest(base.destination + 'css/fonts/'));
     gulp.src(paths.copy.content)
@@ -93,15 +101,21 @@ gulp.task('copy', function() {
         .pipe(gulp.dest(base.destination + 'javascript/vendor/'));
     gulp.src(paths.copy.bower.css)
         .pipe(gulp.dest(base.destination + 'css/vendor/'));
-});
+}
 
-gulp.task('jade', function() {
-    gulp.src(paths.jade.source)
+function exec_jade() {
+    gutil.log('Start the Jade task...');
+
+    return gulp.src(paths.jade.source)
+        .pipe(plumber())
         .pipe(jade({}))
         .pipe(gulp.dest(paths.jade.destination))
-});
+        .pipe(reload({stream: true}));
+}
 
-gulp.task('typescript', function() {
+function exec_typescript() {
+    gutil.log('Start the TypeScript task...');
+
     var options = {
         declaration: false,
         failOnTypeErrors: false,
@@ -114,19 +128,25 @@ gulp.task('typescript', function() {
     return gulp.src(paths.typescript.source)
         .pipe(plumber())
         .pipe(ts(options))
-        .pipe(gulp.dest(paths.typescript.destination));
-});
+        .pipe(gulp.dest(paths.typescript.destination))
+        .pipe(reload({stream: true}));
+}
 
-gulp.task('watch', function(cb) {
-    watch(paths.scss, function() {
-        gulp.task('compass');
-    });
-    watch(paths.typescript, function() {
-        gulp.task('typescript');
-    });
-    watch(paths.jade, function() {
-        gulp.task('jade');
-    });
+gulp.task('browser-sync', exec_browser_sync);
+
+gulp.task('compass', exec_compass);
+
+gulp.task('copy', exec_copy);
+
+gulp.task('jade', exec_jade);
+
+gulp.task('typescript', exec_typescript);
+
+gulp.task('watch', function() {
+    watch(paths.jade.source, exec_jade);
+    watch(paths.scss.pattern, exec_compass);
+    watch(paths.typescript.source, exec_typescript);
+    watch(paths.copy.content, exec_copy);
 });
 
 gulp.task('default', ['jade', 'typescript', 'compass', 'copy']);

@@ -22,48 +22,49 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		base(href="/")
 
 	body(data-status="{{status}}")
-		#perspective.perspective.effect-rotateleft(data-ng-class="{'perspective--about': viewName == 'about', 'perspective--works': viewName == 'works', 'perspective--contact': viewName == 'contact'}")
-			nav.l-nav.outer-nav.right.vertical(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
-				a.ion-ios-home(data-ng-i18next="navigation.home" href="/{{language}}/")
-				a.ion-ios-person(data-ng-i18next="navigation.about" href="/{{language}}/about")
-				a.ion-erlenmeyer-flask(data-ng-i18next="navigation.works" href="/{{language}}/works")
-				a.ion-ios-paperplane-outline(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
+		.container
+			.wrapper(data-ng-view)
 
-			.container
-				.wrapper(data-ng-view)
+			footer.l-footer(itemscope itemtype="http://schema.org/WPFooter")
+				ul.l-footer__social_network
+					li.l-footer__social_network__item
+						a.l-footer__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
+							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--github
+								span.ion-social-github-outline
 
-				button.menu_button#showMenu(data-ng-class="{'menu_button--about': viewName == 'about', 'menu_button--works': viewName == 'works', 'menu_button--contact': viewName == 'contact'}")
-					span.ion-grid
+					li.l-footer__social_network__item
+						a.l-footer__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
+							div.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--linkedin
+								span.ion-social-linkedin-outline
 
-				footer.l-footer(data-ng-class="{'l-footer--home': viewName == 'home', 'l-footer--about': viewName == 'about', 'l-footer--works': viewName == 'works', 'l-footer--contact': viewName == 'contact'}" itemscope itemtype="http://schema.org/WPFooter")
-					.l-footer__under
-						.l-footer__under__copyright
-							span Copyright © 2015 Cyril Schumacher
-					.l-footer__on
-						ul.l-footer__on__social_network
-							li.l-footer__on__social_network__item
-								a.l-footer__on__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
-									.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--github
-										span.ion-social-github-outline
-									span.l-footer__on__social_network__item__link__title GitHub
+					li.l-footer__social_network__item
+						a.l-footer__social_network__item__link(href="http://www.twitter.com/CyrilSchumacher")
+							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--twitter
+								span.ion-social-twitter-outline
 
-							li.l-footer__on__social_network__item
-								a.l-footer__on__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
-									div.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--linkedin
-										span.ion-social-linkedin-outline
-									span.l-footer__on__social_network__item__link__title Linkedin
+				p.l-footer__copyright Copyright © 2015 Cyril Schumacher
+				p.l-footer__scroll-up
+					a.l-footer__scroll-up__link
+						span.l-footer__scroll-up__link__icon.ion-chevron-up
 
-							li.l-footer__on__social_network__item
-								a.l-footer__on__social_network__item__link(href="http://www.twitter.com/CyrilSchumacher")
-									.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--twitter
-										span.ion-social-twitter-outline
-									span.l-footer__on__social_network__item__link__title Twitter
+			nav#bt-menu.bt-menu(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
+				a.bt-menu-trigger(href="#")
+					span Menu
+				ul
+					li
+						a(data-ng-i18next="navigation.home" href="/{{language}}/")
+					li
+						a(data-ng-i18next="navigation.about" href="/{{language}}/about")
+					li
+						a(data-ng-i18next="navigation.works" href="/{{language}}/works")
+					li
+						a(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
 
 		.loading(data-ng-cloak)
 			.loading__wrapper
 				.gauge-loader
 
 		script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
+		script(type="text/javascript" src="/javascript/vendor/borderMenu.js")
 		script(type="text/javascript" src="/javascript/vendor/classie.js")
-		script(type="text/javascript" src="/javascript/vendor/menu.js")
 		script(data-main="/javascript/main.js" src="/javascript/vendor/require.js")
