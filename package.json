@@ -5,6 +5,7 @@
   "devDependencies": {
     "browser-sync": "^2.10.0",
     "connect-modrewrite": "*",
+    "critical": "^0.6.0",
     "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
     "gulp-jade": "^1.1.0",

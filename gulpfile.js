@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 
 var browserSync = require('browser-sync').create(),
     compass = require('gulp-compass'),
+    critical = require('critical'),
     jade = require('gulp-jade'),
     modRewrite = require("connect-modrewrite"),
     path = require('path'),
@@ -84,7 +85,8 @@ function exec_compass() {
     return gulp.src(paths.scss.source)
         .pipe(plumber())
         .pipe(compass(options))
-        .pipe(gulp.dest(paths.scss.destination));
+        .pipe(gulp.dest(paths.scss.destination))
+        .on('end', exec_critical);
 }
 
 function exec_copy() {
@@ -102,13 +104,39 @@ function exec_copy() {
         .pipe(gulp.dest(base.destination + 'css/vendor/'));
 }
 
+function exec_critical() {
+    gutil.log('Start the Critical task...');
+
+    critical.generateInline({
+        base: base.destination,
+        src: 'index.html',
+        css: [base.destination + 'css/base.css'],
+        dest: base.destination + 'index.html',
+        minify: true,
+        dimensions: [{
+            width: 320,
+            height: 480
+        }, {
+            width: 768,
+            height: 1024
+        }, {
+            width: 1280,
+            height: 960
+        }, {
+            width: 1920,
+            height: 1080
+        }],
+    });
+}
+
 function exec_jade() {
     gutil.log('Start the Jade task...');
 
     return gulp.src(paths.jade.source)
         .pipe(plumber())
         .pipe(jade({}))
-        .pipe(gulp.dest(paths.jade.destination));
+        .pipe(gulp.dest(paths.jade.destination))
+        .on('end', exec_critical);
 }
 
 function exec_typescript() {
@@ -134,6 +162,8 @@ gulp.task('browser-sync', exec_browser_sync);
 gulp.task('compass', exec_compass);
 
 gulp.task('copy', exec_copy);
+
+gulp.task('critical', exec_critical);
 
 gulp.task('jade', exec_jade);
 
