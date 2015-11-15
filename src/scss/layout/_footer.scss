@@ -22,97 +22,112 @@
 
 .l-footer {
     background: $material_design_black;
-    color: $material_design_white;
+    color: $material_design_gray;
     padding: 1rem 0;
     text-align: center;
     z-index: 2;
 
-    &__under {
-        &__copyright {
-            font-family: "Mohave";
+    &__copyright, &__sitemap, &__social_network {
+        font-size: 1.2rem;
+        padding: .5rem 0;
+    }
+
+    &__sitemap {
+        &__items {
+            li {
+                display: inline-block;
+
+                &:last-child {
+                    &:after {
+                        content: '';
+                    }
+                }
+
+                &:after {
+                    padding: 0 .5rem;
+                    content: '|';
+                }
+
+                a {
+                    font-family: "Roboto Bold";
+                    text-transform: uppercase;
+
+                    &:link, &:active, &:visited {
+                        text-decoration: none;
+                        color: inherit;
+                    }
+                }
+            }
         }
     }
 
-    &__on {
-        &__social_network {
-            text-align: center;
+    &__social_network {
+        text-align: center;
 
-            &__item {
-                display: inline-block;
-                padding: 0 1rem .5rem;
+        &__item {
+            display: inline-block;
+            padding: 0 1rem .5rem;
 
-                &__link {
-                    @include align-items(center);
-                    @include display-flex;
-                    color: $material_design_white;
-                    justify-content: center;
-                    text-decoration: none;
+            &__link {
+                color: $material_design_gray;
+                text-decoration: none;
 
-                    &__icon {
-                        @include transition(background, border, color .3s);
-                        font-size: 2rem;
-                        display: table;
-                        height: 3rem;
-                        margin: .5rem auto;
-                        vertical-align: middle;
-                        width: 3rem;
+                &__icon {
+                    @include border-radius(50%);
+                    @include transition(background, border, color .3s);
+                    background: $material_design_gray;
+                    border: 1px solid $material_design_gray;
+                    color: $material_design_black;
+                    font-size: 2rem;
+                    display: table;
+                    height: 4rem;
+                    margin: .5rem auto;
+                    vertical-align: middle;
+                    width: 4rem;
 
-                        &--github {
-                            border: 1px solid $material_design_gray;
-                            color: $material_design_gray;
+                    &:hover, &:focus {
+                        background: none;
+                    }
 
-                            &:hover, &:focus {
-                                border-color: $bc-github;
-                                color: $bc-github;
-                            }
-
-                            &:active {
-                                background: $bc-github;
-                                color: $material_design_white;
-                            }
+                    &--github {
+                        &:hover, &:focus {
+                            border-color: $bc-github;
+                            color: $bc-github;
                         }
 
-                        &--linkedin {
-                            border: 1px solid $material_design_gray;
-                            color: $material_design_gray;
-
-                            &:hover, &:focus {
-                                border-color: $bc-linkedin;
-                                color: $bc-linkedin;
-                            }
-
-                            &:active {
-                                background: $bc-linkedin;
-                                color: $material_design_white;
-                            }
-                        }
-
-                        &--twitter {
-                            border: 1px solid $material_design_gray;
-                            color: $material_design_gray;
-
-                            &:hover, &:focus {
-                                border-color: $bc-twitter;
-                                color: $bc-twitter;
-                            }
-
-                            &:active {
-                                background: $bc-twitter;
-                                color: $material_design_white;
-                            }
-                        }
-
-                        span {
-                            display: table-cell;
-                            vertical-align: middle;
+                        &:active {
+                            background: $bc-github;
+                            color: $material_design_white;
                         }
                     }
 
-                    &__title {
-                        display: none;
-                        font-size: 1rem;
-                        margin: 0 0 0 1rem;
-                        text-align: left;
+                    &--linkedin {
+                        &:hover, &:focus {
+                            border-color: $bc-linkedin;
+                            color: $bc-linkedin;
+                        }
+
+                        &:active {
+                            background: $bc-linkedin;
+                            color: $material_design_white;
+                        }
+                    }
+
+                    &--twitter {
+                        &:hover, &:focus {
+                            border-color: $bc-twitter;
+                            color: $bc-twitter;
+                        }
+
+                        &:active {
+                            background: $bc-twitter;
+                            color: $material_design_white;
+                        }
+                    }
+
+                    span {
+                        display: table-cell;
+                        vertical-align: middle;
                     }
                 }
             }
@@ -121,19 +136,26 @@
 }
 
 @media only screen and ($smaller-smartphone-min-width-breakpoint) {
+    .l-footer {
+        padding: 1.5rem 0;
+    }
 }
 
 @media only screen and ($smartphone-min-width-breakpoint) {
     .l-footer {
-        &__on {
-            &__social_network {
-                &__item {
-                    &__link {
-                        &__icon {
-                            font-size: 2.5rem;
-                            height: 4rem;
-                            width: 4rem;
-                        }
+        padding: 1.5rem 0;
+
+        &__copyright, &__sitemap, &__social_network {
+            padding: .8rem 0;
+        }
+
+        &__social_network {
+            &__item {
+                &__link {
+                    &__icon {
+                        font-size: 2.5rem;
+                        height: 4rem;
+                        width: 4rem;
                     }
                 }
             }
@@ -143,31 +165,30 @@
 
 @media only screen and ($tablet-min-width-breakpoint) {
     .l-footer {
-        padding: 2rem 0;
+        &__copyright, &__sitemap, &__social_network {
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
     }
 }
 
 @media only screen and ($desktop-min-width-breakpoint) {
     .l-footer {
-        padding: 3rem 0;
+        padding: 2rem 0;
 
-        &__on {
-            &__social_network {
-                &__item {
-                    &__link {
-                        &__title {
-                            display: block;
-                            font-size: 1.2rem;
-                        }
+        &__copyright, &__sitemap, &__social_network {
+            padding: 1rem 0;
+        }
+
+        &__social_network {
+            &__item {
+                &__link {
+                    &__title {
+                        display: block;
+                        font-size: 1.2rem;
                     }
                 }
             }
         }
-    }
-}
-
-@media only screen and ($wide-screens-min-width-breakpoint) {
-    .l-footer {
-        padding: 4rem 0;
     }
 }
