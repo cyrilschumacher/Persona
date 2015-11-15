@@ -22,7 +22,6 @@
  */
 
 /// <amd-dependency path="directive/canvasParticlesWaves"/>
-/// <amd-dependency path="directive/canvasLineSphere"/>
 /// <amd-dependency path="directive/fullHeightWindow"/>
 
 import app = require("app");

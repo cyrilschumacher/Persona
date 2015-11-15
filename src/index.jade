@@ -26,6 +26,20 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 			.wrapper(data-ng-view)
 
 			footer.l-footer(itemscope itemtype="http://schema.org/WPFooter")
+				.l-footer__copyright
+					span © 2015 Cyril Schumacher
+
+				.l-footer__sitemap
+					ul.l-footer__sitemap__items
+						li
+							a(data-ng-i18next="navigation.home" href="/{{language}}/")
+						li
+							a(data-ng-i18next="navigation.about" href="/{{language}}/about")
+						li
+							a(data-ng-i18next="navigation.works" href="/{{language}}/works")
+						li
+							a(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
+			
 				ul.l-footer__social_network
 					li.l-footer__social_network__item
 						a.l-footer__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
@@ -44,20 +58,6 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--twitter
 								span.ion-social-twitter
 							span.l-footer__social_network__item__link__title Twitter
-			
-				.l-footer__sitemap
-					ul.l-footer__sitemap__items
-						li
-							a(data-ng-i18next="navigation.home" href="/{{language}}/")
-						li
-							a(data-ng-i18next="navigation.about" href="/{{language}}/about")
-						li
-							a(data-ng-i18next="navigation.works" href="/{{language}}/works")
-						li
-							a(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
-
-				.l-footer__copyright
-					span © 2015 Cyril Schumacher
 
 			nav#bt-menu.bt-menu(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
 				a.bt-menu-trigger(href="#")
