@@ -201,12 +201,13 @@
                     width: 100%;
 
                     &:disabled {
-                        @include box-shadow(none);
-                        background: $material_design_primary_gray;
-                        color:  $material_design_dark_primary_gray;
+                        @include box-shadow(0 6px $material_design_dark_primary_red);
+                        background: none;
+                        border: 1px solid $material_design_dark_primary_red;
+                        color:  $material_design_dark_primary_red;
 
                         &:hover, &:active {
-                            @include box-shadow(none);
+                            @include box-shadow(0 6px $material_design_dark_primary_red);
                             top: 0;
                         }
                     }

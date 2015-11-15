@@ -22,7 +22,6 @@
  */
 
 import ConfigurationProvider = require("./provider/configuration");
-import BingMapsConfiguration = require("./configuration/bingmaps");
 import i18nextConfiguration = require("./configuration/i18next");
 import RegisterConfiguration = require("./configuration/register");
 import RouteConfiguration = require("./configuration/route");
@@ -104,8 +103,7 @@ class Application {
      * @private
      */
     private _initializeConfigurations = (): void => {
-        this._module.config(BingMapsConfiguration)
-                    .config(i18nextConfiguration)
+        this._module.config(i18nextConfiguration)
                     .config(LocationConfiguration)
                     .config(RegisterConfiguration)
                     .config(RouteConfiguration);
@@ -147,7 +145,7 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        this._module = angular.module(this.name, ["angularBingMaps", "chart.js", "jm.i18next", "ngRoute", "viewhead"]);
+        this._module = angular.module(this.name, ["chart.js", "jm.i18next", "ngRoute", "viewhead"]);
     };
 }
 

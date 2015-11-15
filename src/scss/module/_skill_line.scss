@@ -1,0 +1,34 @@
+.skill-bar {
+    width: 20%;
+
+    .determinate {
+        background: none;
+    }
+
+    .progress {
+        background-color: $material_design_gray;
+        height: 3px;
+        overflow: visible;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+
+    span {
+        margin-bottom: 10px;
+    }
+
+    .determinate {
+        background: $material_design_primary_blue;
+        height: 3px;
+        position: relative;
+
+        .ion-record {
+            color: $material_design_primary_blue;
+            font-size: 1.5rem;
+            margin-left: 50%;
+            margin-top: -.8rem;
+            position: absolute;
+            right: 0;
+        }
+    }
+}
