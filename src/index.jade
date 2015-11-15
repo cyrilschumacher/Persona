@@ -26,26 +26,28 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 			.wrapper(data-ng-view)
 
 			footer.l-footer(itemscope itemtype="http://schema.org/WPFooter")
-				ul.l-footer__social_network
-					li.l-footer__social_network__item
-						a.l-footer__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
-							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--github
-								span.ion-social-github-outline
+				.l-footer__under
+					.l-footer__under__copyright
+						span Copyright © 2015 Cyril Schumacher
+				.l-footer__on
+					ul.l-footer__on__social_network
+						li.l-footer__on__social_network__item
+							a.l-footer__on__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
+								.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--github
+									span.ion-social-github-outline
+								span.l-footer__on__social_network__item__link__title GitHub
 
-					li.l-footer__social_network__item
-						a.l-footer__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
-							div.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--linkedin
-								span.ion-social-linkedin-outline
+						li.l-footer__on__social_network__item
+							a.l-footer__on__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
+								div.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--linkedin
+									span.ion-social-linkedin-outline
+								span.l-footer__on__social_network__item__link__title Linkedin
 
-					li.l-footer__social_network__item
-						a.l-footer__social_network__item__link(href="http://www.twitter.com/CyrilSchumacher")
-							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--twitter
-								span.ion-social-twitter-outline
-
-				p.l-footer__copyright Copyright © 2015 Cyril Schumacher
-				p.l-footer__scroll-up
-					a.l-footer__scroll-up__link
-						span.l-footer__scroll-up__link__icon.ion-chevron-up
+						li.l-footer__on__social_network__item
+							a.l-footer__on__social_network__item__link(href="http://www.twitter.com/CyrilSchumacher")
+								.l-footer__on__social_network__item__link__icon.l-footer__on__social_network__item__link__icon--twitter
+									span.ion-social-twitter-outline
+								span.l-footer__on__social_network__item__link__title Twitter
 
 			nav#bt-menu.bt-menu(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
 				a.bt-menu-trigger(href="#")

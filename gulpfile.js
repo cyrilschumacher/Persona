@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util');
 
-var browserSync = require('browser-sync'),
+var browserSync = require('browser-sync').create(),
     compass = require('gulp-compass'),
     jade = require('gulp-jade'),
     modRewrite = require("connect-modrewrite"),
@@ -58,10 +58,8 @@ var paths = {
         destination: base.destination + 'javascript/'
     }
 };
-var reload = browserSync.reload;
 
 function exec_browser_sync() {
-    browserSync.create();
     browserSync.init({
         server: {
             baseDir: base.destination,
@@ -70,6 +68,8 @@ function exec_browser_sync() {
             ]
         }
     });
+
+    gulp.watch("dist/**/*.*").on("change", browserSync.reload);
 }
 
 function exec_compass() {
@@ -84,8 +84,7 @@ function exec_compass() {
     return gulp.src(paths.scss.source)
         .pipe(plumber())
         .pipe(compass(options))
-        .pipe(gulp.dest(paths.scss.destination))
-        .pipe(reload({stream: true}));
+        .pipe(gulp.dest(paths.scss.destination));
 }
 
 function exec_copy() {
@@ -109,8 +108,7 @@ function exec_jade() {
     return gulp.src(paths.jade.source)
         .pipe(plumber())
         .pipe(jade({}))
-        .pipe(gulp.dest(paths.jade.destination))
-        .pipe(reload({stream: true}));
+        .pipe(gulp.dest(paths.jade.destination));
 }
 
 function exec_typescript() {
@@ -128,8 +126,7 @@ function exec_typescript() {
     return gulp.src(paths.typescript.source)
         .pipe(plumber())
         .pipe(ts(options))
-        .pipe(gulp.dest(paths.typescript.destination))
-        .pipe(reload({stream: true}));
+        .pipe(gulp.dest(paths.typescript.destination));
 }
 
 gulp.task('browser-sync', exec_browser_sync);
