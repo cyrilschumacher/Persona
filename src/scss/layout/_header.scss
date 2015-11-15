@@ -52,14 +52,20 @@
         position: relative;
 
         &__wrapper {
-            &__background { z-index: -1 }
+            &__background {
+                z-index: -1;
+            }
 
             &__content {
-                background: rgba(20, 20, 20, .5);
-                padding: 10rem 5rem;
+                padding: 20rem 5rem;
 
-                h1 { color: #fff }
-                &__subtitle { color: #fff }
+                h1 {
+                    color: #fff;
+                }
+
+                &__subtitle {
+                    color: #fff;
+                }
             }
         }
     }
@@ -99,7 +105,10 @@
 
                     $parent: &;
                     &:hover, &:focus {
-                        span { color: $material_design_black }
+                        span {
+                            color: $material_design_black;
+                        }
+
                         #{$parent}__icon {
                             @include animation-play-state(paused);
                         }
@@ -126,17 +135,17 @@
     &--about {
         &__wrapper {
             &__background {
-                background: url(/content/image/cuadros.png);
+                background: $material_design_dark_primary_blue;
             }
         }
     }
 
     &--works {
-        background: url(/content/image/kale_salad.jpg) center;
+        background: $material_design_dark_primary_green;
     }
 
     &--contact {
-        background: url(/content/image/isometropolis.jpg) center;
+        background: $material_design_dark_primary_red;
     }
 }
 

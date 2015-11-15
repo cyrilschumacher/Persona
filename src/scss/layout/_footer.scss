@@ -56,6 +56,10 @@
                         text-decoration: none;
                         color: inherit;
                     }
+
+                    &:hover, &:focus {
+                        @include opacity(.5);
+                    }
                 }
             }
         }
@@ -149,6 +153,16 @@
             padding: .8rem 0;
         }
 
+        &__sitemap {
+            &__items {
+                li {
+                    &:after {
+                        padding: 0 1.5rem;
+                    }
+                }
+            }
+        }
+
         &__social_network {
             &__item {
                 &__link {
@@ -168,6 +182,16 @@
         &__copyright, &__sitemap, &__social_network {
             font-size: 1.5rem;
             padding: 1rem 0;
+        }
+
+        &__sitemap {
+            &__items {
+                li {
+                    &:after {
+                        padding: 0 2rem;
+                    }
+                }
+            }
         }
     }
 }
