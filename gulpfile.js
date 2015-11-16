@@ -81,7 +81,7 @@ function exec_cssmin(cb) {
         .pipe(cssmin())
         .pipe(gulp.dest(paths.scss.destination));
 
-    cb();
+    if (cb && typeof cb === 'function') cb();
 }
 
 function exec_compass() {
@@ -139,13 +139,15 @@ function exec_critical() {
     });
 }
 
-function exec_jade() {
+function exec_jade(cb) {
     gutil.log('Start the Jade task...');
 
-    return gulp.src(paths.jade.source)
+    gulp.src(paths.jade.source)
         .pipe(plumber())
         .pipe(jade({}))
         .pipe(gulp.dest(paths.jade.destination));
+
+    if (cb && typeof cb === 'function') cb();
 }
 
 function exec_requirejs(cb) {
@@ -160,7 +162,8 @@ function exec_requirejs(cb) {
             };
         }))
         .pipe(gulp.dest(paths.typescript.destination));
-    cb();
+
+    if (cb && typeof cb === 'function') cb();
 }
 
 function exec_typescript() {
@@ -183,6 +186,7 @@ function exec_typescript() {
 
 function exec_uglify() {
     return gulp.src(paths.typescript.destination + '**/*.js')
+        .pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest(paths.typescript.destination));
 }
@@ -205,5 +209,5 @@ gulp.task('typescript', exec_typescript);
 gulp.task('uglify', exec_uglify);
 gulp.task('watch', exec_watch);
 
-gulp.task('default', ['jade', 'typescript', 'compass', 'copy']);
+gulp.task('default', ['copy', 'typescript', 'jade', 'compass']);
 gulp.task('optimize', ['critical', 'requirejs', 'uglify', 'cssmin']);

@@ -42,6 +42,8 @@
         }
 
         &__content {
+            padding: 10rem 2rem;
+
             &__subtitle {
                 font: 1.5rem "Roboto Thin";
             }
@@ -57,14 +59,12 @@
             }
 
             &__content {
-                padding: 20rem 5rem;
-
                 h1 {
-                    color: #fff;
+                    color: $material_design_white;
                 }
 
                 &__subtitle {
-                    color: #fff;
+                    color: $material_design_white;
                 }
             }
         }
@@ -85,6 +85,7 @@
             &__content {
                 color: $material_design_white;
                 margin: 0 auto;
+                padding: 0;
                 text-align: center;
                 z-index: 1;
 
@@ -191,14 +192,21 @@
     .l-header {
         &__wrapper {
             &__content {
-                &__subtitle { font-size: 2.2rem; margin: -1.5rem 0 0 }
+                padding: 12.5rem 3rem;
+
+                &__subtitle {
+                    font-size: 2.2rem;
+                    margin: -1.5rem 0 0;
+                }
             }
         }
 
         &--home {
             &__wrapper {
                 &__content {
-                    &__discover-skills { margin-top: 2rem }
+                    &__discover-skills {
+                        margin-top: 2rem;
+                    }
                 }
             }
         }
@@ -209,14 +217,20 @@
     .l-header {
         &__wrapper {
             &__content {
-                &__subtitle { font-size: 2.5rem }
+                padding: 15rem 5rem;
+
+                &__subtitle {
+                    font-size: 2.5rem;
+                }
             }
         }
 
         &--home {
             &__wrapper {
                 &__content {
-                    &__discover-skills { margin-top: 2.5rem }
+                    &__discover-skills {
+                        margin-top: 2.5rem;
+                    }
                 }
             }
         }
@@ -227,14 +241,20 @@
     .l-header {
         &__wrapper {
             &__content {
-                &__subtitle { font-size: 3rem }
+                padding: 15rem 10rem;
+
+                &__subtitle {
+                    font-size: 3rem;
+                }
             }
         }
 
         &--home {
             &__wrapper {
                 &__content {
-                    &__discover-skills { margin-top: 3rem }
+                    &__discover-skills {
+                        margin-top: 3rem;
+                    }
                 }
             }
         }
