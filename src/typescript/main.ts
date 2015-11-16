@@ -31,7 +31,6 @@ require.config({
         "angularjs-viewhead":   "vendor/angularjs-viewhead",
         "autosize":             "vendor/autosize",
         "canvasRenderer":       "vendor/CanvasRenderer",
-        "chart":                "vendor/Chart",
         "jquery":               "vendor/jquery",
         "i18next":              "vendor/i18next",
         "ng-i18next":           "vendor/ng-i18next",

@@ -19,34 +19,28 @@ require.config({
 
   paths: {
       'angular':            'vendor/angular',
-      'angular-bing-maps':  'vendor/angular-bing-maps',
-      'angular-chart':      'vendor/angular-chart',
       'angular-route':      'vendor/angular-route',
       'angular-sanitize':   'vendor/angular-sanitize',
       'angularjs-viewhead': 'vendor/angularjs-viewhead',
-      'autosize':           'vendor/autosize.min',
+      'autosize':           'vendor/autosize',
       'canvasRenderer':     'vendor/CanvasRenderer',
-      'chart':              'vendor/Chart',
       'jquery':             'vendor/jquery',
       'i18next':            'vendor/i18next',
-      'mapcontrol':         '//ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0',
       'ng-i18next':         'vendor/ng-i18next',
       'projector':          'vendor/Projector',
-      'three':              'vendor/three.min'
+      'three':              'vendor/three'
   },
   shim: {
       'angular': {
           exports: 'angular'
       },
-      'angular-bing-maps':  ['angular', 'mapcontrol'],
-      'angular-chart':      ['chart', 'angular'],
       'angular-route':      ['angular'],
       'angular-sanitize':   ['angular'],
       'angularjs-viewhead': ['angular'],
       'autosize':           ['jquery'],
       'canvasRenderer':     ['three'],
       'i18next':            ['jquery'],
-      'app':                ['angular-bing-maps', 'angular-chart', 'angular-route', 'angular-sanitize', 'angularjs-viewhead', 'ng-i18next'],
+      'app':                ['angular-route', 'angular-sanitize', 'angularjs-viewhead', 'ng-i18next'],
       'ng-i18next':         ['angular', 'i18next'],
       'projector':          ['three']
   }
