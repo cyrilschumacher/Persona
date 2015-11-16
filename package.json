@@ -2,15 +2,26 @@
   "name": "Persona",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
+  "author": "Cyril Schumacher",
+  "bin": {
+    "karma": "./node_modules/karma/bin/karma"
+  },
+  "scripts": {
+    "test": "karma start karma.config.js --single-run"
+  },
   "devDependencies": {
     "browser-sync": "^2.10.0",
     "connect-modrewrite": "*",
     "critical": "^0.6.0",
     "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
+    "gulp-cssmin": "^0.1.7",
     "gulp-jade": "^1.1.0",
     "gulp-plumber": "^1.0.1",
+    "gulp-requirejs-optimize": "^0.3.0",
     "gulp-typescript": "^2.9.2",
+    "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "karma": "^0.13.15",

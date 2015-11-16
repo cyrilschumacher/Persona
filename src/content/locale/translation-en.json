@@ -30,10 +30,10 @@
         },
         "home": {
             "meta": {
-                "description": "I am Cyril Schumacher, fifth-year software student in exia.cesi Nancy and passionate about Microsoft technologies."
+                "description": "I am Cyril Schumacher, fifth-year student in exia.cesi Nancy and passionate about Microsoft technologies."
             },
             "discover_skills": "Discover my skills",
-            "student": "Fifth-year software student in exia.cesi Nancy"
+            "student": "Fifth-year student in exia.cesi Nancy"
         },
         "works": {
             "discover_works": "Discover my works",

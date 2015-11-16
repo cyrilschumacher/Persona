@@ -145,7 +145,7 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        this._module = angular.module(this.name, ["chart.js", "jm.i18next", "ngRoute", "viewhead"]);
+        this._module = angular.module(this.name, ["jm.i18next", "ngRoute", "viewhead"]);
     };
 }
 

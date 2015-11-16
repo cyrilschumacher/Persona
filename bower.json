@@ -28,7 +28,6 @@
     "requirejs": "~2.1.20",
     "css-spinners": "~2.2.0",
     "three.js": "~0.72.0",
-    "angular-chart.js": "~0.8.5",
     "autosize": "jquery-autosize#~3.0.13",
     "angularjs-viewhead": "~0.0.1"
   },

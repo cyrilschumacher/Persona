@@ -1,14 +1,18 @@
-var gulp = require('gulp'),
-    gutil = require('gulp-util');
+'use strict';
 
-var browserSync = require('browser-sync').create(),
+var gulp = require('gulp'),
+    gutil = require('gulp-util'),
+    browserSync = require('browser-sync').create(),
     compass = require('gulp-compass'),
+    cssmin = require('gulp-cssmin'),
     critical = require('critical'),
     jade = require('gulp-jade'),
     modRewrite = require("connect-modrewrite"),
     path = require('path'),
     plumber = require('gulp-plumber'),
+    requirejsOptimize = require('gulp-requirejs-optimize'),
     ts = require('gulp-typescript'),
+    uglify = require("gulp-uglify"),
     watch = require('gulp-watch');
 
 var base = {
@@ -30,13 +34,10 @@ var paths = {
             ],
             javascript: [
                 base.bower + 'angular/angular.js',
-                base.bower + 'angular-bing-maps/dist/angular-bing-maps.js',
-                base.bower + 'angular-chart.js/dist/angular-chart.js',
                 base.bower + 'angular-route/angular-route.js',
                 base.bower + 'angular-sanitize/angular-sanitize.js',
                 base.bower + 'angularjs-viewhead/angularjs-viewhead.js',
                 base.bower + 'autosize/dist/autosize.js',
-                base.bower + 'Chart.js/Chart.js',
                 base.bower + 'i18next/i18next.js',
                 base.bower + 'jquery/dist/jquery.js',
                 base.bower + 'ng-i18next/dist/ng-i18next.js',
@@ -73,6 +74,15 @@ function exec_browser_sync() {
     gulp.watch("dist/**/*.*").on("change", browserSync.reload);
 }
 
+function exec_cssmin(cb) {
+    gulp.src(paths.scss.destination + '**/*.css')
+        .pipe(plumber())
+        .pipe(cssmin())
+        .pipe(gulp.dest(paths.scss.destination));
+
+    cb();
+}
+
 function exec_compass() {
     gutil.log('Start the Compass task...');
 
@@ -85,8 +95,7 @@ function exec_compass() {
     return gulp.src(paths.scss.source)
         .pipe(plumber())
         .pipe(compass(options))
-        .pipe(gulp.dest(paths.scss.destination))
-        .on('end', exec_critical);
+        .pipe(gulp.dest(paths.scss.destination));
 }
 
 function exec_copy() {
@@ -135,8 +144,22 @@ function exec_jade() {
     return gulp.src(paths.jade.source)
         .pipe(plumber())
         .pipe(jade({}))
-        .pipe(gulp.dest(paths.jade.destination))
-        .on('end', exec_critical);
+        .pipe(gulp.dest(paths.jade.destination));
+}
+
+function exec_requirejs(cb) {
+    gulp.src(paths.typescript.destination + 'main.js')
+        .pipe(plumber())
+        .pipe(requirejsOptimize(function(file) {
+            return {
+                mainConfigFile: './dist/javascript/main.js',
+                optimize: 'uglify',
+                useStrict: true,
+                baseUrl: 'dist/javascript/'
+            };
+        }))
+        .pipe(gulp.dest(paths.typescript.destination));
+    cb();
 }
 
 function exec_typescript() {
@@ -157,23 +180,29 @@ function exec_typescript() {
         .pipe(gulp.dest(paths.typescript.destination));
 }
 
-gulp.task('browser-sync', exec_browser_sync);
+function exec_uglify() {
+    return gulp.src(paths.typescript.destination + '**/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.typescript.destination));
+}
 
-gulp.task('compass', exec_compass);
-
-gulp.task('copy', exec_copy);
-
-gulp.task('critical', exec_critical);
-
-gulp.task('jade', exec_jade);
-
-gulp.task('typescript', exec_typescript);
-
-gulp.task('watch', function() {
+function exec_watch() {
     watch(paths.jade.source, exec_jade);
     watch(paths.scss.pattern, exec_compass);
     watch(paths.typescript.source, exec_typescript);
     watch(paths.copy.content, exec_copy);
-});
+}
 
-gulp.task('default', ['jade', 'typescript', 'compass', 'copy']);
+gulp.task('browser-sync', exec_browser_sync);
+gulp.task('cssmin', exec_cssmin);
+gulp.task('compass', exec_compass);
+gulp.task('copy', exec_copy);
+gulp.task('critical', exec_critical);
+gulp.task('jade', exec_jade);
+gulp.task('requirejs', exec_requirejs);
+gulp.task('typescript', exec_typescript);
+gulp.task('uglify', exec_uglify);
+gulp.task('watch', exec_watch);
+
+gulp.task('default', ['jade', 'typescript', 'compass', 'copy', 'requirejs']);
+gulp.task('optimize', ['critical', 'requirejs', 'uglify', 'cssmin']);

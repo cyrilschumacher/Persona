@@ -11,4 +11,4 @@ install:
   - gem install sass
   - gem install compass
 before_script: gulp
-script: karma start karma.config.js --single-run
+script: npm run-script test

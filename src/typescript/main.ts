@@ -26,7 +26,6 @@
 require.config({
     paths: {
         "angular":              "vendor/angular",
-        "angular-chart":        "vendor/angular-chart",
         "angular-route":        "vendor/angular-route",
         "angular-sanitize":     "vendor/angular-sanitize",
         "angularjs-viewhead":   "vendor/angularjs-viewhead",
@@ -38,25 +37,22 @@ require.config({
         "ng-i18next":           "vendor/ng-i18next",
         "projector":            "vendor/Projector",
         "three":                "vendor/three",
-
-        loader:                 "loader"
+        "loader":               "loader"
     },
     shim: {
         "angular": {
             exports: "angular"
         },
-        "angular-chart":        ["chart", "angular"],
         "angular-route":        ["angular"],
         "angular-sanitize":     ["angular"],
         "angularjs-viewhead":   ["angular"],
         "autosize":             ["jquery"],
         "canvasRenderer":       ["three"],
         "i18next":              ["jquery"],
-        "loader":               ["angular-chart", "angular-route", "angular-sanitize", "angularjs-viewhead", "ng-i18next"],
+        "loader":               ["angular-route", "angular-sanitize", "angularjs-viewhead", "ng-i18next"],
         "ng-i18next":           ["angular", "i18next"],
         "projector":            ["three"]
-    },
-    deps: ["loader"]
+    }
 });
 
-require(['loader']);
+require(["loader"]);
