@@ -9,11 +9,13 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
 
 		link(rel="shortcut icon" href="/content/image/favicon.ico")
+		link(rel="dns-prefetch" href="//www.cyrilschumacher.fr")
+		
 		link(rel="stylesheet" href="/css/vendor/ionicons.css")
 		link(rel="stylesheet" href="/css/vendor/spinners.css")
 		link(rel="stylesheet" href="/css/base.css")
 		link(rel="shortcut icon" href="/favicon.ico")
-
+		
 		base(href="/")
 
 	body(data-status="{{status}}")
@@ -71,7 +73,4 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 			.loading__wrapper
 				.gauge-loader
 
-		script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
-		script(type="text/javascript" src="/javascript/vendor/borderMenu.js")
-		script(type="text/javascript" src="/javascript/vendor/classie.js")
 		script(data-main="/javascript/main.js" src="/javascript/vendor/require.js")

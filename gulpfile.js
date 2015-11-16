@@ -40,6 +40,7 @@ var paths = {
                 base.bower + 'autosize/dist/autosize.js',
                 base.bower + 'i18next/i18next.js',
                 base.bower + 'jquery/dist/jquery.js',
+                base.bower + 'modernizr/modernizr.js',
                 base.bower + 'ng-i18next/dist/ng-i18next.js',
                 base.bower + 'requirejs/require.js',
                 base.bower + 'three.js/three.js'
@@ -204,5 +205,5 @@ gulp.task('typescript', exec_typescript);
 gulp.task('uglify', exec_uglify);
 gulp.task('watch', exec_watch);
 
-gulp.task('default', ['jade', 'typescript', 'compass', 'copy', 'requirejs']);
+gulp.task('default', ['jade', 'typescript', 'compass', 'copy']);
 gulp.task('optimize', ['critical', 'requirejs', 'uglify', 'cssmin']);
