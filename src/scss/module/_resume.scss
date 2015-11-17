@@ -1,0 +1,79 @@
+.resume {
+    padding: 1rem;
+    text-align: center;
+
+    &__experience {
+        margin: 2rem 0;
+
+        &__header {
+            margin: 0 0 1rem;
+
+            &__period {
+                &__time {
+                    background: $material_design_gray;
+                    color: $material_design_white;
+                    display: inline-block;
+                    margin: .25rem;
+                    padding: 1rem 1.5rem;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    &__skill {
+        margin: 0 auto;
+        width: 75%;
+
+        &__progress {
+            background-color: $material_design_gray;
+            height: 3px;
+            overflow: visible;
+            margin-bottom: 30px;
+            margin-top: 10px;
+
+            &__determinate {
+                background: $material_design_primary_blue;
+                height: 3px;
+                position: relative;
+
+                &__icon {
+                    color: $material_design_primary_blue;
+                    font-size: 1.5rem;
+                    margin-left: 50%;
+                    margin-top: -.8rem;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+.separator {
+    margin: 0 .5rem;
+}
+
+@media only screen and ($smaller-smartphone-min-width-breakpoint) {
+    .resume {
+        padding: 2rem;
+    }
+}
+
+@media only screen and ($smartphone-min-width-breakpoint) {
+    .resume {
+        padding: 3rem;
+    }
+}
+
+@media only screen and ($tablet-min-width-breakpoint) {
+    .resume {
+        padding: 4rem;
+    }
+}
+
+@media only screen and ($desktop-min-width-breakpoint) {
+    .resume {
+        padding: 5rem;
+    }
+}
