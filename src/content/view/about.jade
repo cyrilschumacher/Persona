@@ -11,28 +11,28 @@ header.l-header.l-header--about(role="banner" itemscope itemtype="http://schema.
 section.l-section.l-section--about
 	header.l-section__header.l-section--about__header
 		h2(data-ng-i18next="view.about.education")
-	section
-		div#cd-timeline.cd-container
-			div.cd-timeline-block.cd-timeline-block--current
-				div.cd-timeline-img
+	section.resume
+		#cd-timeline.cd-container.resume__education
+			.cd-timeline-block.cd-timeline-block--current
+				.cd-timeline-img
 					span 2015
-				div.cd-timeline-content
+				.cd-timeline-content
 					h3 Exia.Cesi
 					ul
 						li Titre certifié niveau II, Responsable en Ingénierie des Logiciels
 						li Titre certifié niveau III, Analyse-Programmeur
-					div.post-tag
+					.post-tag
 						span depuis
 						time(datetime="2011-09-04") septembre 2011
-			div.cd-timeline-block
-				div.cd-timeline-img
+			.cd-timeline-block
+				.cd-timeline-img
 					span 2011
-				div.cd-timeline-content
+				.cd-timeline-content
 					h3 Lycée La Briquerie
 					ul
 						li Baccalauréat Professionnel Système électroniques numériques, Spécialité Audiovisuel
 						li BEP Systèmes électroniques et industriels
-					div.post-tag
+					.post-tag
 						span de
 						time(datetime="2006-09-04") septembre 2006
 						span à
@@ -68,13 +68,13 @@ section.l-section.l-section--about
 	section.resume
 		header
 			h3 Phasellus
-		section.resume__skill
+		.resume__skill
 			h4 Curabitur
 			.resume__skill__progress
 				.resume__skill__progress__determinate(style="width: 70%;")
 					i.resume__skill__progress__determinate__icon.ion-record
 					
-		section.resume__skill
+		.resume__skill
 			h4 Pulvinar
 			.resume__skill__progress
 				.resume__skill__progress__determinate(style="width: 20%;")
