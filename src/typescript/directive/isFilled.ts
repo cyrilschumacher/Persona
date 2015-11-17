@@ -74,7 +74,7 @@ class IsFilledDirective implements ng.IDirective {
      * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        var input = angular.element("#" + scope["inputId"]);
+        var input = $("#" + scope["inputId"]);
         input.keydown(e => {
             if (input.val() !== "") {
                 element.addClass(scope["cssClassFilled"]);
@@ -82,7 +82,7 @@ class IsFilledDirective implements ng.IDirective {
                 element.removeClass(scope["cssClassFilled"]);
             }
         });
-    }
+    };
 }
 
 

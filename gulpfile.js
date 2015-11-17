@@ -10,7 +10,6 @@ var gulp = require('gulp'),
     modRewrite = require("connect-modrewrite"),
     path = require('path'),
     plumber = require('gulp-plumber'),
-    requirejsOptimize = require('gulp-requirejs-optimize'),
     ts = require('gulp-typescript'),
     uglify = require("gulp-uglify"),
     watch = require('gulp-watch');
@@ -22,8 +21,12 @@ var base = {
 };
 var paths = {
     copy: {
-        content: [base.source + 'content/**/*.*', '!' + base.source + 'content/**/Thumbs.db'],
-        javascript: [base.source + 'javascript/vendor/**/*.js'],
+        content: [
+            base.source + 'content/**/*.*', '!' + base.source + 'content/**/Thumbs.db'
+        ],
+        javascript: [
+            base.source + 'javascript/vendor/**/*.js'
+        ],
         bower: {
             css: [
                 base.bower + 'css-spinners/css/spinners.css',
@@ -144,24 +147,8 @@ function exec_jade(cb) {
 
     gulp.src(paths.jade.source)
         .pipe(plumber())
-        .pipe(jade({}))
+        .pipe(jade())
         .pipe(gulp.dest(paths.jade.destination));
-
-    if (cb && typeof cb === 'function') cb();
-}
-
-function exec_requirejs(cb) {
-    gulp.src(paths.typescript.destination + 'main.js')
-        .pipe(plumber())
-        .pipe(requirejsOptimize(function(file) {
-            return {
-                mainConfigFile: './dist/javascript/main.js',
-                optimize: 'uglify',
-                useStrict: true,
-                baseUrl: 'dist/javascript/'
-            };
-        }))
-        .pipe(gulp.dest(paths.typescript.destination));
 
     if (cb && typeof cb === 'function') cb();
 }
@@ -204,10 +191,9 @@ gulp.task('compass', exec_compass);
 gulp.task('copy', exec_copy);
 gulp.task('critical', exec_critical);
 gulp.task('jade', exec_jade);
-gulp.task('requirejs', exec_requirejs);
 gulp.task('typescript', exec_typescript);
 gulp.task('uglify', exec_uglify);
 gulp.task('watch', exec_watch);
 
 gulp.task('default', ['copy', 'typescript', 'jade', 'compass']);
-gulp.task('optimize', ['critical', 'requirejs', 'uglify', 'cssmin']);
+gulp.task('optimize', ['critical', 'uglify', 'cssmin']);

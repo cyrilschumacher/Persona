@@ -75,7 +75,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
      * @summary Restrict option.
      * @type {string}
      */
-    public restrict: string = "A"
+    public restrict: string = "A";
 
     /**
      * @summary X.
@@ -168,7 +168,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
     private _animate = (): void => {
         this._idRenderer = requestAnimationFrame(this._animate);
         this._render();
-    }
+    };
 
     /**
      * @summary Destroys the directive.
@@ -177,7 +177,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
     private _destroy = (): void => {
         cancelAnimationFrame(this._idRenderer);
         this._idRenderer = -1;
-    }
+    };
 
     /**
      * @summary Initializes the animation.
@@ -201,7 +201,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
 
         var PI2 = Math.PI * 2;
         var material = new THREE.SpriteCanvasMaterial({
-            color: 0xffffff,
+            color: 0xA6ABB2,
             program: (context) => {
                 context.beginPath();
                 context.arc(0, 0, 0.5, 0, PI2, true);
@@ -221,10 +221,11 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         }
 
         this._renderer = new THREE.CanvasRenderer();
+        this._renderer.setClearColor(0x212121);
         this._renderer.setPixelRatio(window.devicePixelRatio);
         this._renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(this._renderer.domElement);
-    }
+    };
 
     /**
      * @summary Determines if the WebGL is supported.
@@ -240,7 +241,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
                 return false;
             }
         })();
-    }
+    };
 
     /**
      * @summary Raises when the window is resized.
@@ -254,7 +255,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         this._camera.updateProjectionMatrix();
 
         this._renderer.setSize(window.innerWidth, window.innerHeight);
-    }
+    };
 
     /**
      * @summary Raises when the mouse pointer is moved over the control.
@@ -263,7 +264,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
     private _onDocumentMouseMove = (event: MouseEvent): void => {
         this._mouseX = event.clientX - this._windowHalfX;
         this._mouseY = event.clientY - this._windowHalfY;
-    }
+    };
 
     /**
      * @summary Raises when the user makes contact with the touch surface and creates a touch point inside the element the event is bound to.
@@ -276,7 +277,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
             this._mouseX = event.touches[0].pageX - this._windowHalfX;
             this._mouseY = event.touches[0].pageY - this._windowHalfY;
         }
-    }
+    };
 
     /**
      * @summary Raises when the user moves the touch point across the touch surface.
@@ -289,7 +290,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
             this._mouseX = event.touches[0].pageX - this._windowHalfX;
             this._mouseY = event.touches[0].pageY - this._windowHalfY;
         }
-    }
+    };
 
     /**
      * @summary Renders the animation.
@@ -311,7 +312,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
 
         this._renderer.render(this._scene, this._camera);
         this._count += 0.1;
-    }
+    };
 
     /**
      * @summary Manipulates the DOM of the current page.
@@ -335,7 +336,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
             // Element events.
             element.on("$destroy", this._destroy);
         }
-    }
+    };
 }
 
 export = CanvasParticlesWavesDirective;

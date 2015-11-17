@@ -50,7 +50,7 @@ class RouteConfiguration {
                       .when("/:language/about",           this._addRoute("about"))
                       .when("/:language/works",           this._addRoute("works"))
                       .when("/:language/contact",         this._addRoute("contact"))
-                      .otherwise({redirectTo: '/'});
+                      .otherwise({redirectTo: "/"});
     }
 
     /**
@@ -64,7 +64,7 @@ class RouteConfiguration {
      private _addRoute = (viewName: string, controllerName?: string, stylesheetName?: string|Array<string>): ng.route.IRoute => {
         controllerName = controllerName ? controllerName : viewName;
 
-        var controllerNameWithPrefix    = controllerName.concat('Controller');
+        var controllerNameWithPrefix    = controllerName.concat("Controller");
         var templateFile                = this.appConfigRoute["viewPath"].concat(viewName, ".html");
         var controllerFile              = this.appConfigRoute["controllerPath"].concat(controllerName);
 
@@ -73,7 +73,7 @@ class RouteConfiguration {
             resolve:        this._resolve(controllerFile),
             templateUrl:    templateFile
         };
-     }
+    };
 
     /**
      * @summary Resolve route.
@@ -84,7 +84,7 @@ class RouteConfiguration {
     private _resolve = (controllerFile: string|Array<string>): any => {
         var dependencies: Array<string> = (typeof controllerFile === "string") ? [controllerFile] : controllerFile;
         return { load: ["$q", "$rootScope", ($q: ng.IQService, $rootScope: ng.IRootScopeService) => this._resolveDependencies($q, $rootScope, dependencies)] };
-    }
+    };
 
     /**
      * @summary Resolve dependencies.
@@ -103,7 +103,7 @@ class RouteConfiguration {
         });
 
         return defer.promise;
-    }
+    };
 }
 
 export = RouteConfiguration;

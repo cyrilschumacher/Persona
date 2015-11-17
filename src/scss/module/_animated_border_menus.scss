@@ -12,6 +12,48 @@
 	top: 0;
 	width: 100%;
     z-index: 1;
+
+    &-trigger {
+        display: block;
+        height: 5rem;
+    	position: absolute;
+        right: 3rem;
+        top: 2rem;
+    	width: 4rem;
+    	z-index: 100;
+
+        span {
+            @include transition(background 0.3s);
+            @include user-select(none);
+        	background: #fff;
+        	display: block;
+        	height: 8%;
+            font-size: 0;
+        	left: 0;
+        	position: absolute;
+        	top: 50%;
+        	width: 100%;
+
+            &:before,
+            &:after {
+                @include transition(transform .3s, background .3s);
+            	background: #fff;
+            	content: '';
+            	height: 100%;
+            	position: absolute;
+            	left: 0;
+            	width: 100%;
+            }
+
+            &:before {
+                @include transform(translateY(-250%));
+            }
+
+            &:after {
+                @include transform(translateY(250%));
+            }
+        }
+    }
 }
 
 .bt-menu.bt-menu-open {
@@ -20,57 +62,15 @@
 	border-width: 30px 30px 90px 30px;
 	height: 100%;
     z-index: 10;
+
+    .bt-overlay {
+    	height: 100%;
+    }
 }
 
 .bt-overlay {
 	position: absolute;
 	width: 100%;
-}
-
-.bt-menu-open .bt-overlay {
-	height: 100%;
-}
-
-.bt-menu-trigger {
-    display: block;
-    height: 5rem;
-	position: absolute;
-    right: 3rem;
-    top: 2rem;
-	width: 4rem;
-	z-index: 100;
-
-    span {
-        @include transition(background 0.3s);
-        @include user-select(none);
-    	background: #fff;
-    	display: block;
-    	height: 8%;
-        font-size: 0;
-    	left: 0;
-    	position: absolute;
-    	top: 50%;
-    	width: 100%;
-
-        &:before,
-        &:after {
-            @include transition(transform .3s, background .3s);
-        	background: #fff;
-        	content: '';
-        	height: 100%;
-        	position: absolute;
-        	left: 0;
-        	width: 100%;
-        }
-
-        &:before {
-            @include transform(translateY(-250%));
-        }
-
-        &:after {
-            @include transform(translateY(250%));
-        }
-    }
 }
 
 .bt-menu-open .bt-menu-trigger span {

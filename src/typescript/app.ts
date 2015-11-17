@@ -122,7 +122,7 @@ class Application {
      * @private
      */
     private _initializeProvider = (): void => {
-        var provider = new ConfigurationProvider(this._module, "scripts/configuration.json");
+        const provider = new ConfigurationProvider(this._module, "scripts/configuration.json");
         this._module.provider("appConfig", provider);
     };
 
@@ -131,7 +131,7 @@ class Application {
      * @private
      */
     private _initializeConstants = (): void => {
-        var appConfigRoute: Object = {
+        const appConfigRoute: Object = {
             "controllerPath":   "controller/",
             "cssPath":          "css/",
             "viewPath":         "content/view/"
@@ -145,7 +145,8 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        this._module = angular.module(this.name, ["jm.i18next", "ngRoute", "viewhead"]);
+        const requires = ["jm.i18next", "ngRoute", "viewhead"];
+        this._module = angular.module(this.name, requires);
     };
 }
 

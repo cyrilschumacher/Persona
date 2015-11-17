@@ -59,7 +59,7 @@ abstract class ControllerBase {
 
         this.$rootScope["language"] = language;
         this.$i18next.options.lng = language;
-    }
+    };
 
     /**
      * @summary Initializes status.
@@ -67,7 +67,7 @@ abstract class ControllerBase {
      */
     private _initializeStatus = (): void => {
         this.$rootScope["status"] = "ready";
-    }
+    };
 
     /**
      * @summary Navigates to page.
@@ -75,7 +75,7 @@ abstract class ControllerBase {
      */
     private _navigateTo = (path: string): void => {
         this.$location.path(path);
-    }
+    };
 
     /**
      * @summary Initializes controller.
@@ -84,7 +84,7 @@ abstract class ControllerBase {
     private _onViewContentLoaded = (): void => {
         this._initializeLocalization();
         this._initializeStatus();
-    }
+    };
 }
 
 export = ControllerBase;

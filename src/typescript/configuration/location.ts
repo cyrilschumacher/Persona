@@ -31,19 +31,17 @@
 class LocationConfiguration {
     /**
      * @summary Dependencies injection.
-     * @public
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ['$locationProvider'];
+    public static $inject: Array<string> = ["$locationProvider"];
 
     /**
      * @summary Constructor.
-     * @public
      * @constructs
      * @param {ILocationService} $locationProvider Location provider.
      */
     public constructor($locationProvider: ng.ILocationProvider) {
-        $locationProvider.html5Mode(true).hashPrefix('!');
+        $locationProvider.html5Mode(true).hashPrefix("!");
     }
 }
 

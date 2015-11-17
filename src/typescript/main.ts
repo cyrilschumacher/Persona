@@ -35,7 +35,6 @@ require.config({
         "canvasRenderer":       "vendor/CanvasRenderer",
         "jquery":               "vendor/jquery",
         "i18next":              "vendor/i18next",
-        "modernizr":            "vendor/modernizr",
         "ng-i18next":           "vendor/ng-i18next",
         "projector":            "vendor/Projector",
         "three":                "vendor/three",
@@ -49,7 +48,7 @@ require.config({
         "angular-sanitize":     ["angular"],
         "angularjs-viewhead":   ["angular"],
         "autosize":             ["jquery"],
-        "borderMenu":           ["modernizr", "classie"],
+        "borderMenu":           ["classie"],
         "canvasRenderer":       ["three"],
         "i18next":              ["jquery"],
         "loader":               ["borderMenu", "angular-route", "angular-sanitize", "angularjs-viewhead", "ng-i18next"],
@@ -58,4 +57,5 @@ require.config({
     }
 });
 
+// Start the application.
 require(["loader"]);

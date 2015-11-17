@@ -17,6 +17,8 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		link(rel="shortcut icon" href="/favicon.ico")
 		
 		base(href="/")
+		
+		script(src="/javascript/vendor/modernizr.js")
 
 	body(data-status="{{status}}")
 		.container
@@ -46,7 +48,7 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 
 					li.l-footer__social_network__item
 						a.l-footer__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
-							div.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--linkedin
+							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--linkedin
 								span.ion-social-linkedin
 							span.l-footer__social_network__item__link__title Linkedin
 

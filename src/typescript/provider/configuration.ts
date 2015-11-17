@@ -45,7 +45,14 @@ class ConfigurationProvider {
      * @param url       {string}  URL address to JSON configuration file.
      */
     public constructor(private _module: ng.IModule, url: string) {
-        this._settings = {async: false, cache: false, contentType: 'application/json', dataType: 'json', type: 'GET', url: url};
+        this._settings = {
+            async: false,
+            cache: false,
+            contentType: "application/json",
+            dataType: "json",
+            type: "GET",
+            url: url
+        };
     }
 
     /**
@@ -58,7 +65,7 @@ class ConfigurationProvider {
         if (q.status === HTTP_OK) {
             angular.extend(this._module, angular.fromJson(q.responseText));
         }
-    }
+    };
 
     /**
      * @summary Shortcut method to perform GET request.
@@ -73,7 +80,7 @@ class ConfigurationProvider {
         this._readResponse(q);
 
         return this._module;
-    }
+    };
 }
 
 export = ConfigurationProvider;
