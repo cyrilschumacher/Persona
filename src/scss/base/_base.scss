@@ -36,71 +36,81 @@ html {
         background: $material_design_white;
         font: 1.5rem "Roboto Thin";
 
-        h1, h2, h3 { font-family: "Mohave Bold" }
+        h1, h2, h3 {
+            font-family: "Mohave Bold";
+        }
 
         h1 {
             font-size: 3rem;
             font-weight: bolder;
+
+            @include respond-to(smaller-smartphone) {
+                font-size: 3.5rem;
+            }
+
+            @include respond-to(smartphone) {
+                font-size: 4rem;
+            }
+
+            @include respond-to(tablet) {
+                font-size: 4.5rem;
+            }
+
+            @include respond-to(desktop) {
+                font-size: 6rem;
+            }
+
+            @include respond-to(wide-screens) {
+                font-size: 8rem;
+            }
         }
 
-        h2 { font-size: 2.5rem }
-        h3 { font-size: 2rem }
+        h2 {
+            font-size: 2.5rem;
+
+            @include respond-to(smaller-smartphone) {
+                font-size: 3rem;
+            }
+
+            @include respond-to(tablet) {
+                font-size: 3.5rem;
+            }
+
+            @include respond-to(desktop) {
+                font-size: 4rem;
+            }
+
+            @include respond-to(wide-screens) {
+                font-size: 6rem;
+            }
+        }
+
+        h3 {
+            font-size: 2rem;
+
+            @include respond-to(smaller-smartphone) {
+                font-size: 2.5rem;
+            }
+
+            @include respond-to(tablet) {
+                font-size: 3rem;
+            }
+
+            @include respond-to(desktop) {
+                font-size: 3.5rem;
+            }
+
+            @include respond-to(wide-screens) {
+                font-size: 4rem;
+            }
+        }
 
         a {
             font-family: "Roboto";
+
             &:link, &:active, &:visited {
                 color: inherit;
             }
-        }
-    }
-}
-
-@media only screen and ($smaller-smartphone-min-width-breakpoint) {
-    html {
-        body {
-            h1 { font-size: 3.5rem }
-            h2 { font-size: 3rem }
-            h3 { font-size: 2.5rem }
-        }
-    }
-}
-
-@media only screen and ($smartphone-min-width-breakpoint) {
-    html {
-        body {
-            h1 { font-size: 4rem }
-            h2 { font-size: 3rem }
-            h3 { font-size: 2rem }
-        }
-    }
-}
-
-@media only screen and ($tablet-min-width-breakpoint) {
-    html {
-        body {
-            h1 { font-size: 4.5rem }
-            h2 { font-size: 3.5rem }
-            h3 { font-size: 2.5rem }
-        }
-    }
-}
-
-@media only screen and ($desktop-min-width-breakpoint) {
-    html {
-        body {
-            h1 { font-size: 5rem }
-            h2 { font-size: 4rem }
-            h3 { font-size: 3rem }
-        }
-    }
-}
-
-@media only screen and ($wide-screens-min-width-breakpoint) {
-    html {
-        body {
-            h1 { font-size: 8rem }
-            h2 { font-size: 6rem }
-            h3 { font-size: 4rem }
         }
     }
 }

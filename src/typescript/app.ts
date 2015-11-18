@@ -129,7 +129,9 @@ class Application {
      * @private
      */
     private _initializeProvider = (): void => {
-        const provider = new ConfigurationProvider(this._module, "scripts/configuration.json");
+        const url = "javascript/configuration.json";
+        const provider = new ConfigurationProvider(this._module, url);
+
         this._module.provider("appConfig", provider);
     };
 

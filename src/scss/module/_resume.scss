@@ -2,6 +2,22 @@
     padding: 1rem;
     text-align: center;
 
+    @include respond-to(smaller-smartphone) {
+        padding: 2rem;
+    }
+
+    @include respond-to(smartphone) {
+        padding: 3rem;
+    }
+
+    @include respond-to(tablet) {
+        padding: 3rem;
+    }
+
+    @include respond-to(desktop) {
+        padding: 3rem;
+    }
+
     &__education {
         &::before {
             background: $material_design_gray !important;
@@ -136,28 +152,4 @@
 
 .separator {
     margin: 0 .5rem;
-}
-
-@media only screen and ($smaller-smartphone-min-width-breakpoint) {
-    .resume {
-        padding: 2rem;
-    }
-}
-
-@media only screen and ($smartphone-min-width-breakpoint) {
-    .resume {
-        padding: 3rem;
-    }
-}
-
-@media only screen and ($tablet-min-width-breakpoint) {
-    .resume {
-        padding: 4rem;
-    }
-}
-
-@media only screen and ($desktop-min-width-breakpoint) {
-    .resume {
-        padding: 5rem;
-    }
 }

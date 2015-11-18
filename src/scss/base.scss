@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+@charset "UTF-8";
+
 /* Compass */
 @import "compass";
 
@@ -35,8 +37,6 @@
 
 /* Module */
 @import "module/animated_border_menus",
-        "module/bing_maps",
-        "module/brandcolors",
         "module/creative_button",
         "module/loading",
         "module/menu_button",

@@ -21,8 +21,12 @@
 // SOFTWARE.
 
 @include keyframes(more-animation) {
-    0% { left: 0 }
-    100% { left: .5rem }
+    0% {
+        left: 0;
+    }
+    100% {
+        left: .5rem;
+    }
 }
 
 .l-header {
@@ -44,8 +48,43 @@
         &__content {
             padding: 10rem 2rem;
 
+            @include respond-to(tablet) {
+                padding: 12.5rem 3rem;
+            }
+
+            @include respond-to(desktop) {
+                padding: 15rem 5rem;
+            }
+
+            @include respond-to(wide-screen) {
+                padding: 15rem 10rem;
+            }
+
             &__subtitle {
                 font: 1.5rem "Roboto Thin";
+
+                @include respond-to(smaller-smartphone) {
+                    font-size: 1.8rem;
+                    margin: -.5rem 0 0;
+                }
+
+                @include respond-to(smartphone) {
+                    font-size: 2rem;
+                    margin: -1rem 0 0;
+                }
+
+                @include respond-to(tablet) {
+                    font-size: 2.2rem;
+                    margin: -1.5rem 0 0;
+                }
+
+                @include respond-to(desktop) {
+                    font-size: 2.5rem;
+                }
+
+                @include respond-to(wide-screen) {
+                    font-size: 3rem;
+                }
             }
         }
     }
@@ -91,8 +130,24 @@
 
                 &__me {
                     @include border-radius(50%);
-                    height: 10rem;
+                    height: 12rem;
                     margin: 0 0 1rem;
+
+                    @include respond-to(smartphone) {
+                        height: 14rem;
+                    }
+
+                    @include respond-to(smartphone) {
+                        height: 16rem;
+                    }
+
+                    @include respond-to(tablet) {
+                        height: 18rem;
+                    }
+
+                    @include respond-to(desktop) {
+                        height: 20rem;
+                    }
                 }
 
                 &__discover-skills {
@@ -101,8 +156,29 @@
                     color: $material_design_white;
                     display: inline-block;
                     font-size: 1rem;
-                    margin: 1rem auto 0;
+                    margin: .5rem auto 0;
                     padding: 1rem 2rem;
+
+                    @include respond-to(smaller-smartphone) {
+                        margin-top: 1rem;
+                    }
+
+                    @include respond-to(smartphone) {
+                        font-size: 1.5rem;
+                        margin-top: 1.5rem;
+                    }
+
+                    @include respond-to(tablet) {
+                        margin-top: 2rem;
+                    }
+
+                    @include respond-to(desktop) {
+                        margin-top: 2.5rem;
+                    }
+
+                    @include respond-to(desktop) {
+                        margin-top: 3rem;
+                    }
 
                     $parent: &;
                     &:hover, &:focus {
@@ -127,7 +203,23 @@
                 }
 
                 &__subtitle {
-                    font: 1.5rem "Roboto Thin";
+                    font: 1.2rem "Roboto Thin";
+
+                    @include respond-to(smaller-smartphone) {
+                        font-size: 1.6rem;
+                    }
+
+                    @include respond-to(smartphone) {
+                        font-size: 2rem;
+                    }
+
+                    @include respond-to(tablet) {
+                        font-size: 2.4rem;
+                    }
+
+                    @include respond-to(desktop) {
+                        font-size: 2.8rem;
+                    }
                 }
             }
         }
@@ -147,116 +239,5 @@
 
     &--contact {
         background: $material_design_dark_primary_red;
-    }
-}
-
-@media only screen and ($smaller-smartphone-min-width-breakpoint) {
-    .l-header {
-        &__wrapper {
-            &__content {
-                &__subtitle { font-size: 1.8rem; margin: -.5rem 0 0 }
-            }
-        }
-
-        &--home {
-            &__wrapper {
-                &__content {
-                    &__me { height: 15rem }
-                    &__discover-skills { font-size: 1.2rem }
-                }
-            }
-        }
-    }
-}
-
-@media only screen and ($smartphone-min-width-breakpoint) {
-    .l-header {
-        &__wrapper {
-            &__content {
-                &__subtitle { font-size: 2rem; margin: -1rem 0 0 }
-            }
-        }
-
-        &--home {
-            &__wrapper {
-                &__content {
-                    &__me { height: 20rem }
-                    &__discover-skills { font-size: 1.5rem; margin-top: 1.5rem }
-                }
-            }
-        }
-    }
-}
-
-@media only screen and ($tablet-min-width-breakpoint) {
-    .l-header {
-        &__wrapper {
-            &__content {
-                padding: 12.5rem 3rem;
-
-                &__subtitle {
-                    font-size: 2.2rem;
-                    margin: -1.5rem 0 0;
-                }
-            }
-        }
-
-        &--home {
-            &__wrapper {
-                &__content {
-                    &__discover-skills {
-                        margin-top: 2rem;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media only screen and ($desktop-min-width-breakpoint) {
-    .l-header {
-        &__wrapper {
-            &__content {
-                padding: 15rem 5rem;
-
-                &__subtitle {
-                    font-size: 2.5rem;
-                }
-            }
-        }
-
-        &--home {
-            &__wrapper {
-                &__content {
-                    &__discover-skills {
-                        margin-top: 2.5rem;
-                    }
-                }
-            }
-        }
-    }
-}
-
-@media only screen and ($wide-screens-min-width-breakpoint) {
-    .l-header {
-        &__wrapper {
-            &__content {
-                padding: 15rem 10rem;
-
-                &__subtitle {
-                    font-size: 3rem;
-                }
-            }
-        }
-
-        &--home {
-            &__wrapper {
-                &__content {
-                    &__discover-skills {
-                        margin-top: 3rem;
-                    }
-                }
-            }
-        }
     }
 }
