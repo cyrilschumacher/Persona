@@ -21,37 +21,27 @@
  * SOFTWARE.
  */
 
-/// <reference path="../typing/angularjs/angular.d.ts" />
+/// <reference path="../typing/angular-google-analytics/angular-google-analytics.d.ts"/>
 
 /**
- * @summary Manages the template cache.
+ * @summary Manages the Google Analytics provider.
  * @author  Cyril Schumacher
  * @class
  */
-class TemplateCacheRun {
+class GoogleAnalyticsRun {
     /**
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ["$rootScope", "$templateCache"];
+    public static $inject: Array<string> = ["Analytics"];
 
     /**
      * @summary Constructor.
      * @constructs
-     * @param {IRootScopeService}       $rootScope      The root scope.
-     * @param {ITemplateCacheService}   $templateCache  The template cache service.
+     * @param {angular.google.analytics} Analytics The Google Analytics provider.
      */
-    public constructor(private $rootScope: ng.IRootScopeService, private $templateCache: ng.ITemplateCacheService) {
-        this.$rootScope.$on("$viewContentLoaded", this._onViewContentLoaded);
+    public constructor(private Analytics: angular.google.analytics.IAnalyticsProvider) {
     }
-
-    /**
-     * @summary Occurs when the view content is loaded with success.
-     * @private
-     */
-    private _onViewContentLoaded = (): void => {
-        this.$templateCache.removeAll();
-    };
 }
 
-export = TemplateCacheRun;
+export = GoogleAnalyticsRun;

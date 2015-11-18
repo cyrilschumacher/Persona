@@ -25,35 +25,37 @@
 
 require.config({
     paths: {
-        "angular":              "vendor/angular",
-        "angular-route":        "vendor/angular-route",
-        "angular-sanitize":     "vendor/angular-sanitize",
-        "angularjs-viewhead":   "vendor/angularjs-viewhead",
-        "autosize":             "vendor/autosize",
-        "classie":              "vendor/classie",
-        "borderMenu":           "vendor/borderMenu",
-        "canvasRenderer":       "vendor/CanvasRenderer",
-        "jquery":               "vendor/jquery",
-        "i18next":              "vendor/i18next",
-        "ng-i18next":           "vendor/ng-i18next",
-        "projector":            "vendor/Projector",
-        "three":                "vendor/three",
-        "loader":               "loader"
+        "angular":                  "vendor/angular",
+        "angular-google-analytics": "vendor/angular-google-analytics",
+        "angular-route":            "vendor/angular-route",
+        "angular-sanitize":         "vendor/angular-sanitize",
+        "angularjs-viewhead":       "vendor/angularjs-viewhead",
+        "autosize":                 "vendor/autosize",
+        "classie":                  "vendor/classie",
+        "borderMenu":               "vendor/borderMenu",
+        "canvasRenderer":           "vendor/CanvasRenderer",
+        "jquery":                   "vendor/jquery",
+        "i18next":                  "vendor/i18next",
+        "ng-i18next":               "vendor/ng-i18next",
+        "projector":                "vendor/Projector",
+        "three":                    "vendor/three",
+        "loader":                   "loader"
     },
     shim: {
         "angular": {
             exports: "angular"
         },
-        "angular-route":        ["angular"],
-        "angular-sanitize":     ["angular"],
-        "angularjs-viewhead":   ["angular"],
-        "autosize":             ["jquery"],
-        "borderMenu":           ["classie"],
-        "canvasRenderer":       ["three"],
-        "i18next":              ["jquery"],
-        "loader":               ["borderMenu", "angular-route", "angular-sanitize", "angularjs-viewhead", "ng-i18next"],
-        "ng-i18next":           ["angular", "i18next"],
-        "projector":            ["three"]
+        "angular-google-analytics": ["angular"],
+        "angular-route":            ["angular"],
+        "angular-sanitize":         ["angular"],
+        "angularjs-viewhead":       ["angular"],
+        "autosize":                 ["jquery"],
+        "borderMenu":               ["classie"],
+        "canvasRenderer":           ["three"],
+        "i18next":                  ["jquery"],
+        "loader":                   ["borderMenu", "angular-google-analytics", "angular-route", "angular-sanitize", "angularjs-viewhead", "ng-i18next"],
+        "ng-i18next":               ["angular", "i18next"],
+        "projector":                ["three"]
     }
 });
 

@@ -37,6 +37,7 @@ var paths = {
             ],
             javascript: [
                 base.bower + 'angular/angular.js',
+                base.bower + 'angular-google-analytics/dist/angular-google-analytics.js',
                 base.bower + 'angular-route/angular-route.js',
                 base.bower + 'angular-sanitize/angular-sanitize.js',
                 base.bower + 'angularjs-viewhead/angularjs-viewhead.js',

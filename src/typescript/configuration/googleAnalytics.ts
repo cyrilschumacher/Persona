@@ -21,37 +21,40 @@
  * SOFTWARE.
  */
 
-/// <reference path="../typing/angularjs/angular.d.ts" />
+/// <reference path="../typing/angular-google-analytics/angular-google-analytics.d.ts" />
+
+import app = require("../app");
 
 /**
- * @summary Manages the template cache.
+ * Configuration for {@link AnalyticsProvider}.
  * @author  Cyril Schumacher
  * @class
  */
-class TemplateCacheRun {
+class GoogleAnalyticsConfiguration {
     /**
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ["$rootScope", "$templateCache"];
+    public static $inject: Array<string> = ["AnalyticsProvider"];
 
     /**
      * @summary Constructor.
-     * @constructs
-     * @param {IRootScopeService}       $rootScope      The root scope.
-     * @param {ITemplateCacheService}   $templateCache  The template cache service.
+     * @constructor
+     * @param {I18nextProvider} $i18nextProvider i18next provider.
      */
-    public constructor(private $rootScope: ng.IRootScopeService, private $templateCache: ng.ITemplateCacheService) {
-        this.$rootScope.$on("$viewContentLoaded", this._onViewContentLoaded);
+    public constructor(private AnalyticsProvider: angular.google.analytics.IAnalyticsProvider) {
+        this._initializeOptions();
     }
 
     /**
-     * @summary Occurs when the view content is loaded with success.
+     * @summary Initializes i18next provider.
      * @private
      */
-    private _onViewContentLoaded = (): void => {
-        this.$templateCache.removeAll();
+    private _initializeOptions = (): void => {
+        const accountId = "UA-53009035-1";
+        this.AnalyticsProvider.setAccount(accountId)
+            .logAllCalls(true);
     };
 }
 
-export = TemplateCacheRun;
+export = GoogleAnalyticsConfiguration;

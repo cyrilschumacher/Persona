@@ -21,11 +21,16 @@
  * SOFTWARE.
  */
 
+/* Provider */
 import ConfigurationProvider = require("./provider/configuration");
+/* Configuration */
+import GoogleAnalyticsConfiguration = require("./configuration/googleAnalytics");
 import i18nextConfiguration = require("./configuration/i18next");
 import RegisterConfiguration = require("./configuration/register");
 import RouteConfiguration = require("./configuration/route");
 import LocationConfiguration = require("./configuration/location");
+/* Run */
+import GoogleAnalytics = require("./run/googleAnalytics");
 import TemplateCacheRun = require("./run/templateCache");
 
 /**
@@ -103,7 +108,8 @@ class Application {
      * @private
      */
     private _initializeConfigurations = (): void => {
-        this._module.config(i18nextConfiguration)
+        this._module.config(GoogleAnalyticsConfiguration)
+                    .config(i18nextConfiguration)
                     .config(LocationConfiguration)
                     .config(RegisterConfiguration)
                     .config(RouteConfiguration);
@@ -114,7 +120,8 @@ class Application {
      * @private
      */
     private _initializeRun = (): void => {
-        this._module.run(TemplateCacheRun);
+        this._module.run(TemplateCacheRun)
+                    .run(GoogleAnalytics);
     };
 
     /**
@@ -145,7 +152,7 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        const requires = ["jm.i18next", "ngRoute", "viewhead"];
+        const requires = ["angular-google-analytics", "jm.i18next", "ngRoute", "viewhead"];
         this._module = angular.module(this.name, requires);
     };
 }
