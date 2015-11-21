@@ -5,9 +5,11 @@ before_install:
   - npm install -g gulp
   - npm install -g bower
   - npm install -g karma-cli
+  - npm install -g tsd
 install:
   - npm install
   - bower install
+  - tsd install
   - gem install sass
   - gem install compass
 before_script: gulp

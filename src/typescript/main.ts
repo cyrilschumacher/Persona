@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="typing/requirejs/require.d.ts" />
+/// <reference path="../../typings/requirejs/require.d.ts" />
 
 require.config({
     paths: {

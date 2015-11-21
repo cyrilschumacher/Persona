@@ -14,7 +14,7 @@
     ],
     "files": [
         "./src/typescript/app.ts",
-        "./src/typescript/configuration/bingmaps.ts",
+        "./src/typescript/configuration/googleAnalytics.ts",
         "./src/typescript/configuration/i18next.ts",
         "./src/typescript/configuration/location.ts",
         "./src/typescript/configuration/register.ts",
@@ -25,14 +25,16 @@
         "./src/typescript/controller/home.ts",
         "./src/typescript/controller/works.ts",
         "./src/typescript/directive/autosize.ts",
-        "./src/typescript/directive/canvasLineSphere.ts",
         "./src/typescript/directive/canvasParticlesWaves.ts",
         "./src/typescript/directive/fullHeightWindow.ts",
         "./src/typescript/directive/isFilled.ts",
         "./src/typescript/loader.ts",
         "./src/typescript/main.ts",
         "./src/typescript/provider/configuration.ts",
+        "./src/typescript/run/googleAnalytics.ts",
         "./src/typescript/run/templateCache.ts",
+        "./src/typescript/typing/angular-google-analytics/angular-google-analytics-tests.ts",
+        "./src/typescript/typing/angular-google-analytics/angular-google-analytics.d.ts",
         "./src/typescript/typing/angularjs/angular-amd-tests.ts",
         "./src/typescript/typing/angularjs/angular-animate.d.ts",
         "./src/typescript/typing/angularjs/angular-cookies.d.ts",
@@ -66,14 +68,6 @@
         "./src/typescript/typing/angularjs/legacy/angular-sanitize-1.2.d.ts",
         "./src/typescript/typing/angularjs/legacy/angular-scenario-1.0.d.ts",
         "./src/typescript/typing/angularjs/legacy/angular-scenario-1.2.d.ts",
-        "./src/typescript/typing/bingmaps/bingmaps-test.ts",
-        "./src/typescript/typing/bingmaps/Microsoft.Maps.AdvancedShapes.d.ts",
-        "./src/typescript/typing/bingmaps/Microsoft.Maps.d.ts",
-        "./src/typescript/typing/bingmaps/Microsoft.Maps.Directions.d.ts",
-        "./src/typescript/typing/bingmaps/Microsoft.Maps.Search.d.ts",
-        "./src/typescript/typing/bingmaps/Microsoft.Maps.Themes.BingTheme.d.ts",
-        "./src/typescript/typing/bingmaps/Microsoft.Maps.Traffic.d.ts",
-        "./src/typescript/typing/bingmaps/Microsoft.Maps.VenueMaps.d.ts",
         "./src/typescript/typing/i18next/i18next-tests.ts",
         "./src/typescript/typing/i18next/i18next.d.ts",
         "./src/typescript/typing/jquery.autosize/jquery.autosize-tests.ts",
@@ -133,5 +127,8 @@
         "./src/typescript/typing/threejs/three-vreffect.d.ts",
         "./src/typescript/typing/threejs/three.d.ts"
     ],
-    "exclude": []
+    "exclude": [],
+    "atom": {
+        "rewriteTsconfig": true
+    }
 }

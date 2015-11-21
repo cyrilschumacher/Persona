@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../typing/angularjs/angular-route.d.ts" />
+/// <reference path="../../../typings/angularjs/angular-route.d.ts" />
 
 /**
  * @summary Application routing configuration block.

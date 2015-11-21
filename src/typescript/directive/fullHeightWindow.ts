@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../typing/angularjs/angular.d.ts" />
+/// <reference path="../../../typings/angularjs/angular.d.ts" />
 /// <amd-dependency path="jquery"/>
 
 import app = require("../app");

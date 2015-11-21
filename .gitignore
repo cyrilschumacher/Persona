@@ -105,6 +105,7 @@ Temporary Items
 .Trash-*
 
 ### Typescript ###
+typings/
 .tscache
 .baseDir.ts
 src/typescript/**/*.js

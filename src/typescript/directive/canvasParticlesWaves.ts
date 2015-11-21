@@ -25,10 +25,10 @@
 /// <amd-dependency path="projector"/>
 /// <amd-dependency path="jquery"/>
 
-/// <reference path="../typing/angularjs/angular.d.ts" />
-/// <reference path="../typing/threejs/three-canvasrenderer.d.ts"/>
-/// <reference path="../typing/threejs/detector.d.ts"/>
-/// <reference path="../typing/threejs/three.d.ts" />
+/// <reference path="../../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../../typings/threejs/three-canvasrenderer.d.ts"/>
+/// <reference path="../../../typings/threejs/detector.d.ts"/>
+/// <reference path="../../../typings/threejs/three.d.ts" />
 
 import app = require("../app");
 

@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../typing/ng-i18next/ng-i18next.d.ts" />
+/// <reference path="../../../typings/ng-i18next/ng-i18next.d.ts" />
 
 import app = require("../app");
 
