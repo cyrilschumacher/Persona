@@ -45,7 +45,7 @@ require.config({
         "loader":                   "loader",
 
         /* Online */
-        "reCaptcha":                "https://www.google.com/recaptcha/api.js"
+        "reCaptcha":                "https://www.google.com/recaptcha/api"
     },
     shim: {
         "angular": {
