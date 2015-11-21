@@ -36,5 +36,7 @@ section.l-section.l-section--contact
             p
                 label(for="message") Message
                 textarea#message(data-autosize data-is-filled data-css-class-filled="message-filled" data-input-id="message" data-ng-model="model.form.message" name="message" required)
+            br
+            .g-recaptcha(data-sitekey="6LctehETAAAAAB58Df0sFmzbNOGW_4Z37_iOQCP4")
             p
                 input.btn(data-ng-disabled="!contactForm.$valid" type="submit" value="Envoyer mon message")

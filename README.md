@@ -1,5 +1,7 @@
 # Persona
 [![Build Status](https://travis-ci.org/cyrilschumacher/Persona.svg)](https://travis-ci.org/cyrilschumacher/Persona)
+[![MIT License][license-image]][license-url]
+[![typescript-standard-style][standard-image]][standard-url]
 
 Persona is my portfolio website which is available at: [www.cyrilschumacher.fr](http://www.cyrilschumacher.fr/).
 
@@ -45,3 +47,8 @@ After installing Node.js dependencies, you can get [Bower](http://bower.io/) dep
 > LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 > OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 > SOFTWARE.
+
+[license-image]: http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-url]: LICENSE
+[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat
+[standard-url]: https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines

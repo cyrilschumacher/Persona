@@ -25,6 +25,7 @@
 
 require.config({
     paths: {
+        /* Vendor */
         "angular":                  "vendor/angular",
         "angular-google-analytics": "vendor/angular-google-analytics",
         "angular-route":            "vendor/angular-route",
@@ -39,7 +40,12 @@ require.config({
         "ng-i18next":               "vendor/ng-i18next",
         "projector":                "vendor/Projector",
         "three":                    "vendor/three",
-        "loader":                   "loader"
+
+        /* Project */
+        "loader":                   "loader",
+
+        /* Online */
+        "reCaptcha":                "https://www.google.com/recaptcha/api.js"
     },
     shim: {
         "angular": {
