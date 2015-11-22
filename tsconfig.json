@@ -32,9 +32,7 @@
         "./src/typescript/main.ts",
         "./src/typescript/provider/configuration.ts",
         "./src/typescript/run/googleAnalytics.ts",
-        "./src/typescript/run/templateCache.ts",
-        "./src/typescript/typing/angular-google-analytics/angular-google-analytics-tests.ts",
-        "./src/typescript/typing/angular-google-analytics/angular-google-analytics.d.ts"
+        "./src/typescript/run/templateCache.ts"
     ],
     "exclude": [],
     "atom": {

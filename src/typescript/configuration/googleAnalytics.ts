@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../typing/angular-google-analytics/angular-google-analytics.d.ts" />
+/// <reference path="../../../typings/angular-google-analytics/angular-google-analytics.d.ts" />
 
 import app = require("../app");
 
