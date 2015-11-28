@@ -54,27 +54,13 @@ class IsFilledDirective implements ng.IDirective {
     };
 
     /**
-     * @summary jqLite-wrapped element that this directive matches.
-     * @private
-     * @type {JQuery}
-     */
-    private _element: JQuery;
-
-    /**
-     * @summary Angular scope object.
-     * @private
-     * @type {ng.IScope}
-     */
-    private _scope: ng.IScope;
-
-    /**
      * @summary Manipulates the DOM of the current page.
      * @param {IScope}      scope   Angular scope object.
      * @param {JQuery}      element jqLite-wrapped element that this directive matches.
      * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        var input = $("#" + scope["inputId"]);
+        const input = $("#" + scope["inputId"]);
         input.keydown(e => {
             if (input.val() !== "") {
                 element.addClass(scope["cssClassFilled"]);

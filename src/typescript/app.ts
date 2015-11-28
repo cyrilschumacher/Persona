@@ -74,7 +74,7 @@ class Application {
      * @returns {Application} Instance of class.
      */
     public static get instance(): Application {
-        if(!Application._instance) {
+        if (!Application._instance) {
             Application._instance = new Application();
         }
 

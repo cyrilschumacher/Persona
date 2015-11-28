@@ -20,41 +20,37 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-/* Variables */
+// Variables
 $smaller-smartphone-breakpoint: 320px;
 $smartphone-breakpoint: 480px;
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 992px;
 $wide-screens-breakpoint: 1281px;
-$smaller-smartphone-min-width-breakpoint: "min-width: 320px";
-$smartphone-min-width-breakpoint: "min-width: 480px";
-$tablet-min-width-breakpoint: "min-width: 768px";
-$desktop-min-width-breakpoint: "min-width: 992px";
-$wide-screens-min-width-breakpoint: "min-width: 1281px";
+$smaller-smartphone-min-width-breakpoint: 'min-width: 320px';
+$smartphone-min-width-breakpoint: 'min-width: 480px';
+$tablet-min-width-breakpoint: 'min-width: 768px';
+$desktop-min-width-breakpoint: 'min-width: 992px';
+$wide-screens-min-width-breakpoint: 'min-width: 1281px';
 
-/* Mixins */
+// Mixins
 @mixin respond-to($media) {
     @if $media == smaller-smartphone {
         @media only screen and (min-width: $smaller-smartphone-breakpoint) {
             @content;
         }
-    }
-    @else if $media == smartphone {
+    } @else if $media == smartphone {
         @media only screen and (min-width: $smartphone-breakpoint) {
             @content;
         }
-    }
-    @else if $media == tablet {
+    } @else if $media == tablet {
         @media only screen and (min-width: $tablet-breakpoint) {
             @content;
         }
-    }
-    @else if $media == desktop {
+    } @else if $media == desktop {
         @media only screen and (min-width: $desktop-breakpoint) {
             @content;
         }
-    }
-    @else if $media == wide-screen {
+    } @else if $media == wide-screen {
         @media only screen and ($wide-screens-min-width-breakpoint) {
             @content;
         }

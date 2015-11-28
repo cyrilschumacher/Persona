@@ -23,8 +23,6 @@
 
 /// <reference path="../../../typings/angular-google-analytics/angular-google-analytics.d.ts" />
 
-import app = require("../app");
-
 /**
  * Configuration for {@link AnalyticsProvider}.
  * @author  Cyril Schumacher
@@ -42,7 +40,7 @@ class GoogleAnalyticsConfiguration {
      * @constructor
      * @param {I18nextProvider} $i18nextProvider i18next provider.
      */
-    public constructor(private AnalyticsProvider: angular.google.analytics.IAnalyticsProvider) {
+    public constructor(private AnalyticsProvider: angular.google.analytics.AnalyticsProvider) {
         this._initializeOptions();
     }
 

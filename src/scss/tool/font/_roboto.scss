@@ -3,7 +3,7 @@
 // Copyright (c) 2015 Cyril Schumacher.fr
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
+// of this software and associated documentation files (the 'Software'), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
@@ -20,39 +20,39 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-/* Roboto Regular, Thin and Bold */
+// Roboto Regular, Thin and Bold
 @include font-face(
-    "Roboto",
+    'Roboto',
     font-files(
-        "/content/font/roboto/Roboto.woff",
-        "/content/font/roboto/Roboto.woff2",
-        "/content/font/roboto/Roboto.ttf",
-        "/content/font/roboto/Roboto.svg"
+        '/content/font/roboto/Roboto.woff',
+        '/content/font/roboto/Roboto.woff2',
+        '/content/font/roboto/Roboto.ttf',
+        '/content/font/roboto/Roboto.svg'
     ),
-    "/content/font/roboto/Roboto.eot",
+    '/content/font/roboto/Roboto.eot',
     normal
 );
 
 @include font-face(
-    "Roboto Thin",
+    'Roboto Thin',
     font-files(
-        "/content/font/roboto/Roboto-Thin.woff",
-        "/content/font/roboto/Roboto-Thin.woff2",
-        "/content/font/roboto/Roboto-Thin.ttf",
-        "/content/font/roboto/Roboto-Thin.svg"
+        '/content/font/roboto/Roboto-Thin.woff',
+        '/content/font/roboto/Roboto-Thin.woff2',
+        '/content/font/roboto/Roboto-Thin.ttf',
+        '/content/font/roboto/Roboto-Thin.svg'
     ),
-    "/content/font/roboto/Roboto-Thin.eot",
+    '/content/font/roboto/Roboto-Thin.eot',
     lighter
 );
 
 @include font-face(
-    "Roboto Bold",
+    'Roboto Bold',
     font-files(
-        "/content/font/roboto/Roboto-Bold.woff",
-        "/content/font/roboto/Roboto-Bold.woff2",
-        "/content/font/roboto/Roboto-Bold.ttf",
-        "/content/font/roboto/Roboto-Bold.svg"
+        '/content/font/roboto/Roboto-Bold.woff',
+        '/content/font/roboto/Roboto-Bold.woff2',
+        '/content/font/roboto/Roboto-Bold.ttf',
+        '/content/font/roboto/Roboto-Bold.svg'
     ),
-    "/content/font/roboto/Roboto-Bold.eot",
+    '/content/font/roboto/Roboto-Bold.eot',
     bold
 );

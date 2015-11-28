@@ -32,7 +32,8 @@
         "./src/typescript/main.ts",
         "./src/typescript/provider/configuration.ts",
         "./src/typescript/run/googleAnalytics.ts",
-        "./src/typescript/run/templateCache.ts"
+        "./src/typescript/run/templateCache.ts",
+        "./src/typescript/service/mail.ts"
     ],
     "exclude": [],
     "atom": {

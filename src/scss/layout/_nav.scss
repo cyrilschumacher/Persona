@@ -28,7 +28,7 @@
         margin: 1rem 0 !important;
         text-decoration: none;
 
-        &:before {
+        &::before {
             font-size: 3rem;
             width: 2rem;
         }
@@ -40,7 +40,7 @@
         a {
             font-size: 2.5rem;
 
-            &:before {
+            &::before {
                 font-size: 3.5rem;
                 width: 4rem;
             }
@@ -53,7 +53,7 @@
         a {
             font-size: 3rem;
 
-            &:before {
+            &::before {
                 font-size: 4rem;
                 width: 6rem;
             }
@@ -66,9 +66,11 @@
         a {
             font-size: 4rem;
 
-            &:before {
-                font-size: 5rem;
-                width: 8rem;
+            &:dir(direction) {
+                &:before {
+                    font-size: 5rem;
+                    width: 8rem;
+                }
             }
         }
     }

@@ -42,15 +42,15 @@ class RouteConfiguration {
      * @param {Object}         appConfig     The application configuration.
      */
     public constructor(private $routeProvider: ng.route.IRouteProvider, private appConfigRoute: Object) {
-        $routeProvider.when("/",                          this._addRoute("home"))
-                      .when("/about",                     this._addRoute("about"))
-                      .when("/works",                     this._addRoute("works"))
-                      .when("/contact",                   this._addRoute("contact"))
-                      .when("/:language",                 this._addRoute("home"))
-                      .when("/:language/about",           this._addRoute("about"))
-                      .when("/:language/works",           this._addRoute("works"))
-                      .when("/:language/contact",         this._addRoute("contact"))
-                      .otherwise({redirectTo: "/"});
+        $routeProvider.when("/", this._addRoute("home"))
+            .when("/about", this._addRoute("about"))
+            .when("/works", this._addRoute("works"))
+            .when("/contact", this._addRoute("contact"))
+            .when("/:language", this._addRoute("home"))
+            .when("/:language/about", this._addRoute("about"))
+            .when("/:language/works", this._addRoute("works"))
+            .when("/:language/contact", this._addRoute("contact"))
+            .otherwise({ redirectTo: "/" });
     }
 
     /**
@@ -61,17 +61,17 @@ class RouteConfiguration {
      * @param   {string|string[]}   stylesheetName  Stylesheet name. Optional.
      * @return  {IRoute}                            A route definition.
      */
-     private _addRoute = (viewName: string, controllerName?: string, stylesheetName?: string|Array<string>): ng.route.IRoute => {
+    private _addRoute = (viewName: string, controllerName?: string, stylesheetName?: string|Array<string>): ng.route.IRoute => {
         controllerName = controllerName ? controllerName : viewName;
 
-        var controllerNameWithPrefix    = controllerName.concat("Controller");
-        var templateFile                = this.appConfigRoute["viewPath"].concat(viewName, ".html");
-        var controllerFile              = this.appConfigRoute["controllerPath"].concat(controllerName);
+        const controllerNameWithPrefix = controllerName.concat("Controller");
+        const templateFile = this.appConfigRoute["viewPath"].concat(viewName, ".html");
+        const controllerFile = this.appConfigRoute["controllerPath"].concat(controllerName);
 
         return {
-            controller:     controllerNameWithPrefix,
-            resolve:        this._resolve(controllerFile),
-            templateUrl:    templateFile
+            controller: controllerNameWithPrefix,
+            resolve: this._resolve(controllerFile),
+            templateUrl: templateFile
         };
     };
 
@@ -82,8 +82,14 @@ class RouteConfiguration {
      * @return  {any}                           Resolve object.
      */
     private _resolve = (controllerFile: string|Array<string>): any => {
-        var dependencies: Array<string> = (typeof controllerFile === "string") ? [controllerFile] : controllerFile;
-        return { load: ["$q", "$rootScope", ($q: ng.IQService, $rootScope: ng.IRootScopeService) => this._resolveDependencies($q, $rootScope, dependencies)] };
+        const dependencies: Array<string> = (typeof controllerFile === "string") ? [controllerFile] : controllerFile;
+        return {
+            load: [
+                "$q",
+                "$rootScope",
+                ($q: ng.IQService, $rootScope: ng.IRootScopeService) => this._resolveDependencies($q, $rootScope, dependencies)
+            ]
+        };
     };
 
     /**
@@ -95,7 +101,7 @@ class RouteConfiguration {
      * @return  {IPromise<any>}                  Promise.
      */
     private _resolveDependencies = ($q: ng.IQService, $rootScope: ng.IRootScopeService, dependencies: Array<string>): ng.IPromise<any> => {
-        var defer = $q.defer();
+        const defer = $q.defer();
 
         require(dependencies, () => {
             defer.resolve();

@@ -24,6 +24,7 @@
     0% {
         left: 0;
     }
+
     100% {
         left: .5rem;
     }
@@ -89,7 +90,9 @@
         }
     }
 
-    &--about, &--works, &--contact {
+    &--about,
+    &--works,
+    &--contact {
         position: relative;
 
         &__wrapper {
@@ -99,18 +102,18 @@
 
             &__content {
                 h1 {
-                    color: $material_design_white;
+                    color: $material-design-white;
                 }
 
                 &__subtitle {
-                    color: $material_design_white;
+                    color: $material-design-white;
                 }
             }
         }
     }
 
     &--home {
-        background: #000 url(/content/image/ocean.jpg);
+        background: #000;
         height: inherit;
         width: inherit;
 
@@ -122,7 +125,7 @@
             width: 100%;
 
             &__content {
-                color: $material_design_white;
+                color: $material-design-white;
                 margin: 0 auto;
                 padding: 0;
                 text-align: center;
@@ -152,8 +155,8 @@
 
                 &__discover-skills {
                     background: none;
-                    border: 1px solid $material_design_white;
-                    color: $material_design_white;
+                    border: 1px solid $material-design-white;
+                    color: $material-design-white;
                     display: inline-block;
                     font-size: 1rem;
                     margin: .5rem auto 0;
@@ -181,9 +184,10 @@
                     }
 
                     $parent: &;
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         span {
-                            color: $material_design_black;
+                            color: $material-design-black;
                         }
 
                         #{$parent}__icon {
@@ -228,16 +232,16 @@
     &--about {
         &__wrapper {
             &__background {
-                background: $material_design_dark_primary_blue;
+                background: $material-design-dark-primary-blue;
             }
         }
     }
 
     &--works {
-        background: $material_design_dark_primary_green;
+        background: $material-design-dark-primary-green;
     }
 
     &--contact {
-        background: $material_design_dark_primary_red;
+        background: $material-design-dark-primary-red;
     }
 }

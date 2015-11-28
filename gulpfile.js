@@ -1,18 +1,20 @@
 'use strict';
 
-var gulp = require('gulp'),
-    gutil = require('gulp-util'),
-    browserSync = require('browser-sync').create(),
-    compass = require('gulp-compass'),
-    cssmin = require('gulp-cssmin'),
-    critical = require('critical'),
-    jade = require('gulp-jade'),
-    modRewrite = require("connect-modrewrite"),
-    path = require('path'),
-    plumber = require('gulp-plumber'),
-    ts = require('gulp-typescript'),
-    uglify = require("gulp-uglify"),
-    watch = require('gulp-watch');
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+var browserSync = require('browser-sync').create();
+var compass = require('gulp-compass');
+var cssmin = require('gulp-cssmin');
+var critical = require('critical');
+var jade = require('gulp-jade');
+var modRewrite = require("connect-modrewrite");
+var path = require('path');
+var plumber = require('gulp-plumber');
+var scsslint = require('gulp-scss-lint');
+var ts = require('gulp-typescript');
+var tslint = require('gulp-tslint');
+var uglify = require("gulp-uglify");
+var watch = require('gulp-watch');
 
 var base = {
     bower: path.join(__dirname, 'bower_components/'),
@@ -66,6 +68,9 @@ var paths = {
     }
 };
 
+/**
+ * @summary Execute the time-saving synchronised browser.
+ */
 function exec_browser_sync() {
     browserSync.init({
         server: {
@@ -79,6 +84,10 @@ function exec_browser_sync() {
     gulp.watch("dist/**/*.*").on("change", browserSync.reload);
 }
 
+/**
+ * @summary Execute the CSS minifier.
+ * @param {Function} cb The callback.
+ */
 function exec_cssmin(cb) {
     gulp.src(paths.scss.destination + '**/*.css')
         .pipe(plumber())
@@ -88,6 +97,9 @@ function exec_cssmin(cb) {
     if (cb && typeof cb === 'function') cb();
 }
 
+/**
+ * @summary Execute Compass tool.
+ */
 function exec_compass() {
     gutil.log('Start the Compass task...');
 
@@ -103,6 +115,9 @@ function exec_compass() {
         .pipe(gulp.dest(paths.scss.destination));
 }
 
+/**
+ * @summary Copy the files.
+ */
 function exec_copy() {
     gutil.log('Copy files...');
 
@@ -118,6 +133,9 @@ function exec_copy() {
         .pipe(gulp.dest(base.destination + 'css/vendor/'));
 }
 
+/**
+ * @summary Determines the CSS critical.
+ */
 function exec_critical() {
     gutil.log('Start the Critical task...');
 
@@ -143,6 +161,10 @@ function exec_critical() {
     });
 }
 
+/**
+ * @summary Executes the Jade compiler.
+ * @param {Function} cb The callback.
+ */
 function exec_jade(cb) {
     gutil.log('Start the Jade task...');
 
@@ -154,6 +176,22 @@ function exec_jade(cb) {
     if (cb && typeof cb === 'function') cb();
 }
 
+/**
+ * @summary Checks the code quality.
+ * @param {Function} cb The callback.
+ */
+function exec_tslint(cb) {
+    var source = [path.normalize(paths.source + '**/*.ts'), path.normalize('!' + paths.source + 'typing/**/*.ts')];
+    gulp.src(source)
+        .pipe(tslint())
+        .pipe(tslint.report('verbose'));
+
+    if (cb && typeof cb === 'function') cb();
+}
+
+/**
+ * @summary Compiles TypeScript files to JavaScript files.
+ */
 function exec_typescript() {
     gutil.log('Start the TypeScript task...');
 
@@ -172,6 +210,9 @@ function exec_typescript() {
         .pipe(gulp.dest(paths.typescript.destination));
 }
 
+/**
+ * @summary Executes the uglify tool.
+ */
 function exec_uglify() {
     return gulp.src(paths.typescript.destination + '**/*.js')
         .pipe(plumber())
@@ -179,6 +220,9 @@ function exec_uglify() {
         .pipe(gulp.dest(paths.typescript.destination));
 }
 
+/**
+ * @summary Executes the watcher.
+ */
 function exec_watch() {
     watch(paths.jade.source, exec_jade);
     watch(paths.scss.pattern, exec_compass);
@@ -186,12 +230,19 @@ function exec_watch() {
     watch(paths.copy.content, exec_copy);
 }
 
+function exec_scss_lint() {
+    return gulp.src(paths.scss.pattern)
+        .pipe(scsslint());
+}
+
+/* Tasks */
 gulp.task('browser-sync', exec_browser_sync);
 gulp.task('cssmin', exec_cssmin);
 gulp.task('compass', exec_compass);
 gulp.task('copy', exec_copy);
 gulp.task('critical', exec_critical);
 gulp.task('jade', exec_jade);
+gulp.task('scss-lint', exec_scss_lint);
 gulp.task('typescript', exec_typescript);
 gulp.task('uglify', exec_uglify);
 gulp.task('watch', exec_watch);

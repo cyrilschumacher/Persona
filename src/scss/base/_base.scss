@@ -19,10 +19,9 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
-
 @include global-reset;
-
-html, body {
+html,
+body {
     height: 100%;
     min-height: 100%;
     overflow-x: hidden;
@@ -31,86 +30,89 @@ html, body {
 
 html {
     font-size: 62.5%;
-
     body {
-        background: $material_design_white;
+        background: $material-design-white;
         font: 1.5rem "Roboto Thin";
+    }
+}
 
-        h1, h2, h3 {
-            font-family: "Mohave Bold";
-        }
+h1,
+h2,
+h3 {
+    font-family: 'Mohave Bold';
+}
 
-        h1 {
-            font-size: 3rem;
-            font-weight: bolder;
+h1 {
+    font-size: 3rem;
+    font-weight: bolder;
 
-            @include respond-to(smaller-smartphone) {
-                font-size: 3.5rem;
-            }
+    @include respond-to(smaller-smartphone) {
+        font-size: 3.5rem;
+    }
 
-            @include respond-to(smartphone) {
-                font-size: 4rem;
-            }
+    @include respond-to(smartphone) {
+        font-size: 4rem;
+    }
 
-            @include respond-to(tablet) {
-                font-size: 4.5rem;
-            }
+    @include respond-to(tablet) {
+        font-size: 4.5rem;
+    }
 
-            @include respond-to(desktop) {
-                font-size: 6rem;
-            }
+    @include respond-to(desktop) {
+        font-size: 6rem;
+    }
 
-            @include respond-to(wide-screens) {
-                font-size: 8rem;
-            }
-        }
+    @include respond-to(wide-screens) {
+        font-size: 8rem;
+    }
+}
 
-        h2 {
-            font-size: 2.5rem;
+h2 {
+    font-size: 2.5rem;
 
-            @include respond-to(smaller-smartphone) {
-                font-size: 3rem;
-            }
+    @include respond-to(smaller-smartphone) {
+        font-size: 3rem;
+    }
 
-            @include respond-to(tablet) {
-                font-size: 3.5rem;
-            }
+    @include respond-to(tablet) {
+        font-size: 3.5rem;
+    }
 
-            @include respond-to(desktop) {
-                font-size: 4rem;
-            }
+    @include respond-to(desktop) {
+        font-size: 4rem;
+    }
 
-            @include respond-to(wide-screens) {
-                font-size: 6rem;
-            }
-        }
+    @include respond-to(wide-screens) {
+        font-size: 6rem;
+    }
+}
 
-        h3 {
-            font-size: 2rem;
+h3 {
+    font-size: 2rem;
 
-            @include respond-to(smaller-smartphone) {
-                font-size: 2.5rem;
-            }
+    @include respond-to(smaller-smartphone) {
+        font-size: 2.5rem;
+    }
 
-            @include respond-to(tablet) {
-                font-size: 3rem;
-            }
+    @include respond-to(tablet) {
+        font-size: 3rem;
+    }
 
-            @include respond-to(desktop) {
-                font-size: 3.5rem;
-            }
+    @include respond-to(desktop) {
+        font-size: 3.5rem;
+    }
 
-            @include respond-to(wide-screens) {
-                font-size: 4rem;
-            }
-        }
+    @include respond-to(wide-screens) {
+        font-size: 4rem;
+    }
+}
 
-        a {
-            font-family: "Roboto";
+a {
+    font-family: 'Roboto';
 
-            &:link, &:active, &:visited {
-                color: inherit;
-            }
-        }
+    &:link,
+    &:active,
+    &:visited {
+        color: inherit;
     }
 }

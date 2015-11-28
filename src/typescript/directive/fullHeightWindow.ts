@@ -56,7 +56,7 @@ class FullHeightWindowDirective implements ng.IDirective {
      */
     private _onWindowResize = (): void => {
         this._element.height($(window).height());
-    }
+    };
 
     /**
      * @summary Manipulates the DOM of the current page.
@@ -69,7 +69,7 @@ class FullHeightWindowDirective implements ng.IDirective {
         this._onWindowResize();
 
         $(window).bind("resize", this._onWindowResize);
-    }
+    };
 }
 
 export = FullHeightWindowDirective;

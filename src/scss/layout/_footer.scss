@@ -21,8 +21,8 @@
 // SOFTWARE.
 
 .l-footer {
-    background: $material_design_black;
-    color: $material_design_gray;
+    background: $material-design-black;
+    color: $material-design-gray;
     font-size: 1rem;
     padding: 1rem 0;
     text-align: center;
@@ -60,14 +60,14 @@
 
                 &:last-child {
                     &:after {
-                        padding: 0;
                         content: '';
+                        padding: 0;
                     }
                 }
 
                 &:after {
-                    padding: 0 .5rem;
                     content: '|';
+                    padding: 0 .5rem;
 
                     @include respond-to(smartphone) {
                         padding: 0 1rem;
@@ -93,12 +93,15 @@
                 a {
                     text-transform: uppercase;
 
-                    &:link, &:active, &:visited {
-                        text-decoration: none;
+                    &:link,
+                    &:active,
+                    &:visited {
                         color: inherit;
+                        text-decoration: none;
                     }
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         @include opacity(.5);
                     }
                 }
@@ -155,17 +158,17 @@
             }
 
             &__link {
-                color: $material_design_gray;
+                color: $material-design-gray;
                 text-decoration: none;
 
                 &__icon {
                     @include border-radius(50%);
                     @include transition(background, border, color .3s);
-                    background: $material_design_gray;
-                    border: 1px solid $material_design_gray;
-                    color: $material_design_black;
-                    font-size: 2rem;
+                    background: $material-design-gray;
+                    border: 1px solid $material-design-gray;
+                    color: $material-design-black;
                     display: table;
+                    font-size: 2rem;
                     height: 4rem;
                     margin: .5rem auto;
                     vertical-align: middle;
@@ -177,7 +180,8 @@
                         width: 4rem;
                     }
 
-                    &:hover, &:focus {
+                    &:hover,
+                    &:focus {
                         background: none;
                     }
 
@@ -189,7 +193,7 @@
 
                         &:active {
                             background: $bc-github;
-                            color: $material_design_white;
+                            color: $material-design-white;
                         }
                     }
 
@@ -201,7 +205,7 @@
 
                         &:active {
                             background: $bc-linkedin;
-                            color: $material_design_white;
+                            color: $material-design-white;
                         }
                     }
 
@@ -213,7 +217,7 @@
 
                         &:active {
                             background: $bc-twitter;
-                            color: $material_design_white;
+                            color: $material-design-white;
                         }
                     }
 

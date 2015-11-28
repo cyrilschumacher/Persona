@@ -38,6 +38,18 @@ class ConfigurationProvider {
     private _settings: JQueryAjaxSettings;
 
     /**
+     * @summary Reads the content of the HTTP response.
+     * @private
+     * @param q   {JQueryXHR} HTTP response.
+     */
+    private _readResponse = (q: JQueryXHR): void => {
+        const HTTP_OK = 200;
+        if (q.status === HTTP_OK) {
+            angular.extend(this._module, angular.fromJson(q.responseText));
+        }
+    };
+
+    /**
      * @summary Constructor.
      * @constructs
      * @public
@@ -56,29 +68,16 @@ class ConfigurationProvider {
     }
 
     /**
-     * @summary Reads the content of the HTTP response.
-     * @private
-     * @param q   {JQueryXHR} HTTP response.
-     */
-    private _readResponse = (q: JQueryXHR): void => {
-        const HTTP_OK = 200;
-        if (q.status === HTTP_OK) {
-            angular.extend(this._module, angular.fromJson(q.responseText));
-        }
-    };
-
-    /**
      * @summary Shortcut method to perform GET request.
      * @public
      * @return {ng.IModule} Module.
      */
     public $get = (): ng.IModule => {
         // Creates a HTTP request and send it.
-        var q: JQueryXHR = jQuery.ajax(this._settings);
+        const q: JQueryXHR = jQuery.ajax(this._settings);
 
         // Reads the HTTP response.
         this._readResponse(q);
-
         return this._module;
     };
 }

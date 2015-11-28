@@ -1,7 +1,7 @@
-/* General button style (reset) */
+// General button style (reset)
 .btn {
-	@include transition(all .3s);
-	border: none;
+    @include transition(all .3s);
+    border: none;
 	font-family: inherit;
 	font-size: inherit;
 	color: inherit;

@@ -199,8 +199,8 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         this._scene = new THREE.Scene();
         this._particles = new Array<THREE.Sprite>();
 
-        var PI2 = Math.PI * 2;
-        var material = new THREE.SpriteCanvasMaterial({
+        let PI2 = Math.PI * 2;
+        let material = new THREE.SpriteCanvasMaterial({
             color: 0xA6ABB2,
             program: (context) => {
                 context.beginPath();
@@ -209,10 +209,10 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
             }
         });
 
-        var i = 0;
+        let i = 0;
         for (var ix = 0; ix < this._amountX; ix++) {
             for (var iy = 0; iy < this._amountY; iy++) {
-                var particle = this._particles[i++] = new THREE.Sprite(material);
+                let particle = this._particles[i++] = new THREE.Sprite(material);
                 particle.position.x = (ix * this.SEPARATION) - ((this._amountX * this.SEPARATION) / 2);
                 particle.position.z = (iy * this.SEPARATION) - ((this._amountY * this.SEPARATION) / 2);
 
@@ -236,8 +236,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         return (() => {
             try {
                 return !!window["WebGLRenderingContext"] && !!document.createElement("canvas").getContext("experimental-webgl");
-            }
-            catch(e) {
+            } catch (e) {
                 return false;
             }
         })();
@@ -267,7 +266,8 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
     };
 
     /**
-     * @summary Raises when the user makes contact with the touch surface and creates a touch point inside the element the event is bound to.
+     * @summary Raises when the user makes contact with the touch surface and
+     * creates a touch point inside the element the event is bound to.
      * @private
      */
     private _onDocumentTouchStart = (event: TouchEvent): void => {
@@ -284,7 +284,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
      * @private
      */
     private _onDocumentTouchMove = (event: TouchEvent): void => {
-        if (event.touches.length == 1) {
+        if (event.touches.length === 1) {
             event.preventDefault();
 
             this._mouseX = event.touches[0].pageX - this._windowHalfX;
@@ -301,12 +301,13 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         this._camera.position.y += (- this._mouseY - this._camera.position.y) * .05;
         this._camera.lookAt(this._scene.position);
 
-        var i = 0;
+        let i = 0;
         for (var ix = 0; ix < this._amountX; ix++) {
             for (var iy = 0; iy < this._amountY; iy++) {
-                var particle = this._particles[i++];
+                let particle = this._particles[i++];
                 particle.position.y = (Math.sin((ix + this._count) * 0.3) * 50) + (Math.sin((iy + this._count) * 0.5) * 50);
-                particle.scale.x = particle.scale.y = (Math.sin((ix + this._count) * 0.3) + 1) * 4 + (Math.sin((iy + this._count) * 0.5) + 1) * 4;
+                particle.scale.x = (Math.sin((ix + this._count) * 0.3) + 1) * 4 + (Math.sin((iy + this._count) * 0.5) + 1) * 4;
+                particle.scale.y = particle.scale.x;
             }
         }
 

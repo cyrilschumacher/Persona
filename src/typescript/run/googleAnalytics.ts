@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../typing/angular-google-analytics/angular-google-analytics.d.ts"/>
+/// <reference path="../../../typings/angular-google-analytics/angular-google-analytics.d.ts"/>
 
 /**
  * @summary Manages the Google Analytics provider.
@@ -40,7 +40,7 @@ class GoogleAnalyticsRun {
      * @constructs
      * @param {angular.google.analytics} Analytics The Google Analytics provider.
      */
-    public constructor(private Analytics: angular.google.analytics.IAnalyticsProvider) {
+    public constructor(private Analytics: angular.google.analytics.AnalyticsProvider) {
     }
 }
 

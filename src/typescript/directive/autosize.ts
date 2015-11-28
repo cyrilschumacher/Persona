@@ -57,7 +57,7 @@ class AutosizeDirective implements ng.IDirective {
         if (autosize instanceof Function) {
             autosize(element);
         }
-    }
+    };
 }
 
 

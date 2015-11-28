@@ -31,25 +31,25 @@
 
     &--about {
         &__header {
-            background: $material_design_primary_blue;
-            border-top-color: $material_design_dark_primary_blue;
-            color: $material_design_white;
+            background: $material-design-primary-blue;
+            border-top-color: $material-design-dark-primary-blue;
+            color: $material-design-white;
         }
     }
 
     &--works {
         &__header {
-            background: $material_design_primary_green;
-            border-top-color: $material_design_dark_primary_green;
-            color: $material_design_white;
+            background: $material-design-primary-green;
+            border-top-color: $material-design-dark-primary-green;
+            color: $material-design-white;
         }
     }
 
     &--contact {
         &__header {
-            background: $material_design_primary_red;
-            border-top-color: $material_design_dark_primary_red;
-            color: $material_design_white;
+            background: $material-design-primary-red;
+            border-top-color: $material-design-dark-primary-red;
+            color: $material-design-white;
         }
 
         &__postal_address {
@@ -63,8 +63,8 @@
         }
 
         &__online {
-            background: $material_design_primary_red;
-            color: $material_design_white;
+            background: $material-design-primary-red;
+            color: $material-design-white;
             padding: 2rem 0;
 
             form {
@@ -78,22 +78,22 @@
                     width: 100%;
 
                     &__label {
-                        color: $material_design_white !important;
+                        color: $material-design-white !important;
                         font-size: 1.5rem;
                         padding: 1.3rem 0;
 
                         &::before {
-                            background: $material_design_white;
+                            background: $material-design-white;
                         }
 
                         &::after {
-                            background: $material_design_white;
+                            background: $material-design-white;
                             height: 1px;
                         }
                     }
 
                     &__field {
-                        color: $material_design_primary_red;
+                        color: $material-design-primary-red;
                         margin: 0 0 2rem;
                         padding: 2rem;
                     }
@@ -107,44 +107,44 @@
                     @include box-sizing(border-box);
                     @include transition(background .5s);
                     background: transparent;
-                    border: none;
-                    border-bottom: 1px solid $material_design_white;
-                    color: $material_design_white;
-                    font-family: "Roboto";
+                    border: 0;
+                    border-bottom: 1px solid $material-design-white;
+                    color: $material-design-white;
+                    font-family: 'Roboto';
                     height: auto;
                     padding: 1rem 2rem;
                     width: 100%;
                 }
 
                 input[type="submit"] {
-                    @include box-shadow(0 6px $material_design_gray);
+                    @include box-shadow(0 6px $material-design-gray);
                     @include transition(none);
-            		background: $material_design_white;
-            		color: $material_design_primary_red;
-                    font-family: "Roboto";
+            		background: $material-design-white;
+            		color: $material-design-primary-red;
+                    font-family: 'Roboto';
                     margin: 2rem 0;
                     padding: 1rem 2rem;
                     width: 100%;
 
                     &:disabled {
-                        @include box-shadow(0 6px $material_design_dark_primary_red);
+                        @include box-shadow(0 6px $material-design-dark-primary-red);
                         background: none;
-                        border: 1px solid $material_design_dark_primary_red;
-                        color:  $material_design_dark_primary_red;
+                        border: 1px solid $material-design-dark-primary-red;
+                        color: $material-design-dark-primary-red;
 
                         &:hover, &:active {
-                            @include box-shadow(0 6px $material_design_dark_primary_red);
+                            @include box-shadow(0 6px $material-design-dark-primary-red);
                             top: 0;
                         }
                     }
 
         			&:hover {
-                        @include box-shadow(0 8px $material_design_gray);
+                        @include box-shadow(0 8px $material-design-gray);
         				top: -2px;
         			}
 
         			&:active {
-                        @include box-shadow(0 0 $material_design_gray);
+                        @include box-shadow(0 0 $material-design-gray);
         				top: 6px;
         			}
                 }
@@ -154,11 +154,12 @@
 }
 
 .message-filled {
-    background: $material_design_white !important;
-    color: $material_design_primary_red !important;
+    background: $material-design-white !important;
+    color: $material-design-primary-red !important;
 }
 
-.input__field--manami:focus + .input__label--manami .input__label-content--manami, .input--filled .input__label--manami .input__label-content--manami {
-    color: $material_design_white !important;
+.input__field--manami:focus + .input__label--manami .input__label-content--manami,
+.input--filled .input__label--manami .input__label-content--manami {
+    color: $material-design-white !important;
     font-size: 2rem;
 }

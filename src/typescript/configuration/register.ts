@@ -21,8 +21,6 @@
  * SOFTWARE.
  */
 
-import Application = require("../app");
-
 /**
  * Configuration for register.
  * @author  Cyril Schumacher
@@ -41,7 +39,10 @@ class RegisterConfiguration {
      * @param {any}       angularBingMapsProvider The angular bing maps provider.
      * @param {Object}    appConfig               The application configuration.
      */
-    public constructor(private $controllerProvider: ng.IServiceProvider, private $compileProvider: ng.IServiceProvider, private $filterProvider: ng.IServiceProvider, private $provide: ng.IServiceProvider) {
+    public constructor(private $controllerProvider: ng.IControllerService,
+                       private $compileProvider: ng.ICompileService,
+                       private $filterProvider: ng.IFilterService,
+                       private $provide: ng.IServiceProvider) {
         this._initializeRegister();
     }
 
@@ -50,7 +51,7 @@ class RegisterConfiguration {
      * @private
      */
     private _initializeRegister = (): void => {
-        var module = angular.module("persona");
+        const module = angular.module("persona");
 
         module.controller = this.$controllerProvider["register"];
         module.directive = this.$compileProvider["directive"];

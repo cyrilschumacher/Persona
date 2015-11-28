@@ -21,42 +21,20 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/ng-i18next/ng-i18next.d.ts" />
+class MailService {
+    /**
+     * @summary Constructor.
+     * @param {IHttpService}
+     */
+    public constructor(private $http: ng.IHttpService, private configuration: Object) {
+    }
 
-/**
- * Configuration for {@link i18next}.
- * @author  Cyril Schumacher
- * @class
- */
-class i18nextConfiguration {
-  /**
-   * @summary Dependencies injection.
-   * @type {Array<string>}
-   */
-  public static $inject: Array<string> = ["$i18nextProvider"];
-
-  /**
-   * @summary Constructor.
-   * @constructor
-   * @param {I18nextProvider} $i18nextProvider i18next provider.
-   */
-  public constructor(private $i18nextProvider: angular.i18next.I18nextProvider) {
-    this._initializeOptions();
-  }
-
-  /**
-   * @summary Initializes i18next provider.
-   * @private
-   */
-  private _initializeOptions = (): void => {
-    this.$i18nextProvider.options = {
-      fallbackLng: "fr",
-      lng: "fr",
-      resGetPath: "/content/locale/__ns__-__lng__.json",
-      useCookie: false,
-      useLocalStorage: false
+    /**
+     * @summary Gets the education section.
+     * @return {IPromise} The promise.
+     */
+    public getEducationSection = (): ng.IPromise<any> => {
+        const url = this.configuration["rest"].server.concat("resume/education");
+        return this.$http.get(url).then(response => response.data);
     };
-  };
 }
-
-export = i18nextConfiguration;
