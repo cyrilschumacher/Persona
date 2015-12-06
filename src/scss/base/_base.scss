@@ -19,7 +19,9 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
+
 @include global-reset;
+
 html,
 body {
     height: 100%;
@@ -30,19 +32,21 @@ body {
 
 html {
     font-size: 62.5%;
+
     body {
         background: $material-design-white;
         font: 1.5rem "Roboto Thin";
     }
 }
 
-h1,
 h2,
 h3 {
-    font-family: 'Mohave Bold';
+    font-family: 'Roboto Bold';
+    text-transform: uppercase;
 }
 
 h1 {
+    font-family: 'Mohave Bold';
     font-size: 3rem;
     font-weight: bolder;
 

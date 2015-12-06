@@ -23,58 +23,16 @@
 .l-nav {
     z-index: 99;
 
-    a {
-        font: 2rem "Mohave";
-        margin: 1rem 0 !important;
-        text-decoration: none;
+    .bt-menu-trigger {
+        border: .2rem solid $material-design-white;
+        width: 5rem;
 
-        &::before {
-            font-size: 3rem;
-            width: 2rem;
+        span {
+            height: 6%;
+            left: 0;
+            margin: auto;
+            right: 0;
+            width: 50%;
         }
     }
-}
-
-@media only screen and ($smartphone-min-width-breakpoint) {
-    .l-nav {
-        a {
-            font-size: 2.5rem;
-
-            &::before {
-                font-size: 3.5rem;
-                width: 4rem;
-            }
-        }
-    }
-}
-
-@media only screen and ($tablet-min-width-breakpoint) {
-    .l-nav {
-        a {
-            font-size: 3rem;
-
-            &::before {
-                font-size: 4rem;
-                width: 6rem;
-            }
-        }
-    }
-}
-
-@media only screen and ($desktop-min-width-breakpoint) {
-    .l-nav {
-        a {
-            font-size: 4rem;
-
-            &:dir(direction) {
-                &:before {
-                    font-size: 5rem;
-                    width: 8rem;
-                }
-            }
-        }
-    }
-}
-
-@media only screen and ($wide-screens-min-width-breakpoint) {
 }

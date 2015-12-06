@@ -24,7 +24,7 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		.container
 			.wrapper(data-ng-view)
 
-			footer.l-footer(itemscope itemtype="http://schema.org/WPFooter")
+			footer.l-footer(ng-class="{'l-footer--home': viewName == 'home'}" itemscope itemtype="http://schema.org/WPFooter")
 				.l-footer__copyright
 					span Copyright © 2015 Cyril Schumacher
 
@@ -58,7 +58,7 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 								span.ion-social-twitter
 							span.l-footer__social_network__item__link__title Twitter
 
-			nav#bt-menu.bt-menu(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
+			nav#bt-menu.l-nav.bt-menu(lang="fr" itemscope itemtype="http://schema.org/SiteNavigationElement")
 				a.bt-menu-trigger(href="#")
 					span Menu
 				ul

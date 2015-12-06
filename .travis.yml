@@ -10,8 +10,6 @@ install:
   - npm install
   - bower install
   - tsd install
-  - gem install sass
-  - gem install compass
-  - gem install scss_lint
+  - bundle
 before_script: gulp
 script: npm run-script test

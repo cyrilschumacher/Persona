@@ -11,10 +11,19 @@
                 "description": "Découvrez mes compétences que j'ai acquises durant mes formations et stages, mes expériences professionnelles que j'ai effectuées ainsi que mes formations que j'ai passées.",
                 "title": "A propos"
             },
-            "education": "Mes formations",
-            "experience": "Mes expériences",
+            "education": {
+                "subtitle": "Explorez, années par années, les institutions scolaires auquel j'ai participé",
+                "title": "Mes formations"
+            },
+            "experience": {
+                "subtitle": "Apercevez les horizons que j'ai joints dans ma vie",
+                "title": "Mes expériences"
+            },
+            "skills": {
+                "subtitle": "Trouvez les compétences qui m'intéressent et que je maîtrise",
+                "title": "Mes compétences"
+            },
             "get_know_me": "Apprenez à me connaître",
-            "skills": "Mes compétences",
             "through_various_information": "A travers diverses informations tel que mes formations, mes expériences ou mes compétences."
         },
         "contact": {

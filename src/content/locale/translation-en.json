@@ -11,10 +11,19 @@
                 "description": "Discover my skills I acquired during my training and courses, my professional experiences I have done and my training I spent.",
                 "title": "About"
             },
-            "education": "My education",
-            "experience": "My experience",
+            "education": {
+                "subtitle": "Explore, years by years, educational institutions I attended",
+                "title": "My education"
+            },
+            "experience": {
+                "subtitle": "Behold walks I join in my lifetime",
+                "title": "My experience"
+            },
+            "skills": {
+                "subtitle": "Find the skills that interest me and that I master",
+                "title": "My skills"
+            },
             "get_know_me": "Get to know me",
-            "skills": "My skills",
             "through_various_information": "Through various information such as my training, my experiences and my skills."
         },
         "contact": {

@@ -25,6 +25,10 @@
 
 // Compass
 @import 'compass';
+@import 'susy';
+
+// Vendor
+@import 'vendor/vertical-timeline';
 
 // Tool
 @import 'tool/breakpoint',
@@ -40,13 +44,21 @@
         'module/creative_button',
         'module/loading',
         'module/menu_button',
-        'module/post-tag',
         'module/resume',
-        'module/text_input_effects',
-        'module/vertical-timeline';
+        'module/text_input_effects';
 
 // Layout
 @import 'layout/footer',
         'layout/header',
         'layout/nav',
-        'layout/section';
+        'layout/section',
+
+        'layout/about/header',
+        'layout/about/section',
+
+        'layout/contact/header',
+
+        'layout/home/footer',
+        'layout/home/header',
+
+        'layout/works/header';
