@@ -24,47 +24,47 @@ var base = {
 var paths = {
     copy: {
         content: [
-            base.source + 'content/**/*.*', '!' + base.source + 'content/**/Thumbs.db'
+            path.join(base.source, 'content/**/*.*', '!', base.source, 'content/**/Thumbs.db')
         ],
         javascript: [
-            base.source + 'javascript/vendor/**/*.js'
+            path.join(base.source, 'javascript/vendor/**/*.js')
         ],
         bower: {
             css: [
-                base.bower + 'css-spinners/css/spinners.css',
-                base.bower + 'Ionicons/css/ionicons.css'
+                path.join(base.bower, 'css-spinners/css/spinners.css'),
+                path.join(base.bower, 'Ionicons/css/ionicons.css')
             ],
             font: [
-                base.bower + 'Ionicons/fonts/**/*.*'
+                path.join(base.bower, 'Ionicons/fonts/**/*.*')
             ],
             javascript: [
-                base.bower + 'angular/angular.js',
-                base.bower + 'angular-google-analytics/dist/angular-google-analytics.js',
-                base.bower + 'angular-route/angular-route.js',
-                base.bower + 'angular-sanitize/angular-sanitize.js',
-                base.bower + 'angularjs-viewhead/angularjs-viewhead.js',
-                base.bower + 'autosize/dist/autosize.js',
-                base.bower + 'i18next/i18next.js',
-                base.bower + 'jquery/dist/jquery.js',
-                base.bower + 'modernizr/modernizr.js',
-                base.bower + 'ng-i18next/dist/ng-i18next.js',
-                base.bower + 'requirejs/require.js',
-                base.bower + 'three.js/three.js'
+                path.join(base.bower, 'angular/angular.js'),
+                path.join(base.bower, 'angular-google-analytics/dist/angular-google-analytics.js'),
+                path.join(base.bower, 'angular-route/angular-route.js'),
+                path.join(base.bower, 'angular-sanitize/angular-sanitize.js'),
+                path.join(base.bower, 'angularjs-viewhead/angularjs-viewhead.js'),
+                path.join(base.bower, 'autosize/dist/autosize.js'),
+                path.join(base.bower, 'i18next/i18next.js'),
+                path.join(base.bower, 'jquery/dist/jquery.js'),
+                path.join(base.bower, 'modernizr/modernizr.js'),
+                path.join(base.bower, 'ng-i18next/dist/ng-i18next.js'),
+                path.join(base.bower, 'requirejs/require.js'),
+                path.join(base.bower, 'three.js/three.js')
             ]
         }
     },
     jade: {
-        source: base.source + '**/*.jade',
+        source: path.join(base.source, '**/*.jade'),
         destination: base.destination
     },
     scss: {
-        pattern: base.source + 'scss/**/*.scss',
-        source: base.source + 'scss/',
-        destination: base.destination + 'css/'
+        pattern: path.join(base.source, 'scss/**/*.scss'),
+        source: path.join(base.source, 'scss/'),
+        destination: path.join(base.destination, 'css/')
     },
     typescript: {
         source: [base.source + 'typescript/**/*.ts', '!' + base.source + 'typescript/typing/**/*.ts'],
-        destination: base.destination + 'javascript/'
+        destination: path.join(base.destination, 'javascript/')
     }
 };
 

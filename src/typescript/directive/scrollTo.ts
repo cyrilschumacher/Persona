@@ -22,16 +22,15 @@
  */
 
 /// <reference path="../../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../../typings/jquery/jquery.d.ts" />
 
 import app = require("../app");
 
 /**
- * @summary Directive for increase the height of the element based on the text.
+ * @summary Directive for scroll to an element by its identifier.
  * @author  Cyril Schumacher
  * @class
  */
-class IsFilledDirective implements ng.IDirective {
+class ScrollToDirective implements ng.IDirective {
     /**
      * @summary Dependencies injection.
      * @type {Array<string>}
@@ -43,33 +42,24 @@ class IsFilledDirective implements ng.IDirective {
      * @type {string}
      */
     public restrict: string = "A";
-    /**
-     * @summary Scope.
-     * @type {Object}
-     */
-    public scope: Object = {
-        cssClassFilled: "@",
-        inputId: "@"
-    };
 
     /**
      * @summary Manipulates the DOM of the current page.
+     * @public
      * @param {IScope}      scope   Angular scope object.
      * @param {JQuery}      element jqLite-wrapped element that this directive matches.
      * @param {IAttributes} attrs   hash object with key-value pairs of normalized attribute names and their corresponding attribute values.
      */
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
-        const input = $("#" + scope["inputId"]);
-        input.keydown(e => {
-            if (input.val() !== "") {
-                element.addClass(scope["cssClassFilled"]);
-            } else {
-                element.removeClass(scope["cssClassFilled"]);
-            }
+        $(element).bind("click", () => {
+            const to = attrs["href"];
+            const duration = "slow";
+            const properties = { scrollTop: $(to).offset().top };
+
+            $("html, body").animate(properties, duration);
         });
     };
 }
 
-
-export = IsFilledDirective;
-app.module.directive("isFilled", () => new IsFilledDirective());
+export = ScrollToDirective;
+app.module.directive("scrollTo", () => new ScrollToDirective());

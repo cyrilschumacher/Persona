@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <amd-dependency path="directive/scrollTo"/>
+
 import app = require("app");
 import baseController = require("controller/base");
 

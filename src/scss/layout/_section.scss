@@ -28,11 +28,45 @@
         text-align: center;
         width: inherit;
 
+        .icon {
+            @include border-radius(50%);
+            border: 1px solid $material-design-primary-gray;
+            color: $material-design-primary-gray;
+            display: table;
+            font-size: 5rem;
+            height: 10rem;
+            margin: 0 auto 2.5rem;
+            width: 10rem;
+
+            &__content {
+                display: table-cell;
+                vertical-align: middle;
+            }
+        }
+
         .subtitle {
             color: $material-design-dark-primary-gray;
             font-size: 2.5rem;
             line-height: 3rem;
             padding: 2rem 0;
+        }
+    }
+
+    &__nav {
+        background: $material-design-black;
+        padding: 2.5rem 0;
+
+        ul {
+            li {
+                display: inline-block;
+                margin: 0 1rem;
+
+                a {
+                    color: $material-design-white;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+            }
         }
     }
 }

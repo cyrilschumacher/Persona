@@ -20,9 +20,17 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+$susy: (columns: 12);
+
 .l-section {
     &--about {
         text-align: center;
+
+        &__header {
+            .icon {
+                color: $material-design-dark-primary-blue;
+            }
+        }
     }
 }
 
@@ -94,9 +102,53 @@
 }
 
 .skill {
-    appearance: none;
-    border: none;
-    background-size: auto;
-    height: 100px;
-    width: 100%;
+    @include border-radius(.25rem);
+    @include container (90%);
+    background: $material-design-dark-primary-blue;
+    margin: 0 auto 1rem;
+    padding: 1rem 2rem;
+
+    &__name {
+        @include span(4.5);
+        color: $material-design-white;
+        padding: .5rem 0;
+        text-align: left;
+    }
+
+    &__score {
+        @include border-radius(.5rem);
+        @include span(2.5);
+        background: $material-design-primary-blue;
+        color: $material-design-white;
+        padding: .5rem 0;
+        text-align: center;
+    }
+
+    &__value {
+        @include span(5 last);
+        padding: .5rem 0;
+
+        progress {
+            @include appearance(none);
+            @include border-radius(.25rem);
+            background: $material-design-primary-blue;
+            background-size: auto;
+            border: 0;
+            color: $material-design-white;
+            height: 1rem;
+            width: 100%;
+
+            &::-moz-progress-bar {
+                background: $material-design-white;
+            }
+
+            &::-webkit-progress-value {
+                background: $material-design-white;
+            }
+
+            &::-ms-fill {
+                border: 0;
+            }
+        }
+    }
 }
