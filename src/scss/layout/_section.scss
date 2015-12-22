@@ -54,17 +54,104 @@
 
     &__nav {
         background: $material-design-black;
-        padding: 2.5rem 0;
+
+        @include respond-to(smaller-smartphone) {
+            padding: 2rem 0;
+        }
+
+        @include respond-to(smartphone) {
+            padding: 2.5rem 0;
+        }
+
+        @include respond-to(tablet) {
+            padding: 3rem 0;
+        }
+
+        @include respond-to(desktop) {
+            padding: 3.5rem 0;
+        }
+
+        @include respond-to(wide-screen) {
+            padding: 4rem 0;
+        }
 
         ul {
             li {
-                display: inline-block;
-                margin: 0 1rem;
+                @include respond-to(smaller-smartphone) {
+                    display: block;
+                    margin: 2rem 1rem;
+                }
+
+                @include respond-to(smartphone) {
+                    display: inline-block;
+                    margin: 0 1rem;
+                }
+
+                @include respond-to(tablet) {
+                    display: inline-block;
+                    margin: 0 2rem;
+                }
+
+                @include respond-to(desktop) {
+                    display: inline-block;
+                    margin: 0 4rem;
+                }
+
+                @include respond-to(wide-screen) {
+                    display: inline-block;
+                    margin: 0 6rem;
+                }
 
                 a {
-                    color: $material-design-white;
+                    color: $material-design-dark-primary-gray;
                     text-decoration: none;
                     text-transform: uppercase;
+
+                    .icon {
+                        @include border-radius(50%);
+                        border: 1px solid $material-design-dark-primary-gray;
+                        color: $material-design-dark-primary-gray;
+                        font-size: 2rem;
+                        height: 5rem;
+                        margin: 0 auto 1rem;
+                        width: 5rem;
+
+                        @include respond-to(smaller-smartphone) {
+                            display: none;
+                        }
+
+                        @include respond-to(smartphone) {
+                            display: none;
+                        }
+
+                        @include respond-to(tablet) {
+                            display: table;
+                        }
+
+                        @include respond-to(desktop) {
+                            display: table;
+                        }
+
+                        @include respond-to(wide-screen) {
+                            display: table;
+                        }
+
+                        &__content {
+                            display: table-cell;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    &:hover {
+                        @include transition(color 250ms);
+                        color: $material-design-white;
+
+                        .icon {
+                            background: $material-design-white;
+                            border-color: $material-design-white;
+                            color: $material-design-dark-primary-gray;
+                        }
+                    }
                 }
             }
         }

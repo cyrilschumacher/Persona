@@ -1,0 +1,11 @@
+.l-section {
+    &--contact {
+        text-align: center;
+
+        &__header {
+            .icon {
+                color: $material-design-dark-primary-blue;
+            }
+        }
+    }
+}

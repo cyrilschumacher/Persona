@@ -24,19 +24,18 @@
     &--contact {
         &__wrapper {
             &__background {
-                background: $material-design-dark-primary-red url('/content/image/sky-clouds-cloudy-mountain.jpg') top;
-                background-attachment: fixed;
+                background: $material-design-dark-primary-red url('/content/image/forest-fog-foggy-spruce.jpg');
                 background-position: center bottom;
                 background-size: cover;
             }
 
             &__content {
                 h1 {
-                    color: $material-design-black;
+                    color: $material-design-white;
                 }
 
                 &__subtitle {
-                    color: $material-design-black;
+                    color: $material-design-white;
                 }
             }
         }

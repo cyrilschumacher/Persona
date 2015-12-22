@@ -1,7 +1,7 @@
 view-title(data-ng-i18next="view.about.meta.title")
 meta(data-view-head data-ng-i18next="[content]view.about.meta.description" name="description")
 
-header.l-header.l-header--about(data-full-height-window role="banner" itemscope itemtype="http://schema.org/WPHeader")
+header.l-header.l-header--about(role="banner" itemscope itemtype="http://schema.org/WPHeader")
 	.l-header__wrapper.l-header--about__wrapper
 		.l-header__wrapper__background.l-header--about__wrapper__background
 		.l-header__wrapper__content.l-header--about__wrapper__content
@@ -12,12 +12,21 @@ section.l-section.l-section--about
 	nav.l-section__nav
 		ul
 			li
-				a(href="#education" data-scroll-to data-ng-i18next="view.about.education.title")
+				a(href="#education" data-scroll-to)
+					.icon
+						span.icon__content.ion-ios-bookmarks-outline
+					span(data-ng-i18next="view.about.education.title")
 			li
-				a(href="#experiences" data-scroll-to data-ng-i18next="view.about.experience.title")
+				a(href="#experiences" data-scroll-to)
+					.icon
+						span.icon__content.ion-ios-flask-outline
+					span(data-ng-i18next="view.about.experience.title")
 			li
-				a(href="#skills" data-scroll-to data-ng-i18next="view.about.skills.title")
+				a(href="#skills" data-scroll-to)
+					.icon
+						span.icon__content.ion-ios-speedometer-outline
+					span(data-ng-i18next="view.about.skills.title")
 
-include ./part/about/education.jade
-include ./part/about/experience.jade
-include ./part/about/skills.jade
+include ./part/about/_education.jade
+include ./part/about/_experience.jade
+include ./part/about/_skills.jade

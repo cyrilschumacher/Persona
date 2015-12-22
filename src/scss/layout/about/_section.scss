@@ -41,13 +41,43 @@ $susy: (columns: 12);
 }
 
 .cd-timeline {
+    &-block {
+        &:nth-child(even) {
+            .cd-timeline-content {
+                &::before {
+                    border-right-color: $material-design-dark-primary-blue;
+                }
+            }
+        }
+    }
+
     &-content {
         @include box-shadow(none);
         padding: 0;
         text-align: left;
 
         &::before {
-            border-right-color: $material-design-dark-primary-blue;
+            @include respond-to(smaller-smartphone) {
+                border-right-color: $material-design-dark-primary-blue;
+            }
+
+            @include respond-to(smartphone) {
+                border-right-color: $material-design-dark-primary-blue;
+            }
+
+            @include respond-to(tablet) {
+                border-right-color: $material-design-dark-primary-blue;
+            }
+
+            @include respond-to(desktop) {
+                border-left-color: $material-design-dark-primary-blue;
+                border-right-color: transparent;
+            }
+
+            @include respond-to(wide-screen) {
+                border-left-color: $material-design-dark-primary-blue;
+                border-right-color: transparent;
+            }
         }
 
         header,
@@ -89,8 +119,27 @@ $susy: (columns: 12);
         background: $material-design-dark-primary-blue;
         display: table;
         height: 6rem;
-        margin: 0 0 0 -1rem;
         width: 6rem;
+
+        @include respond-to(smaller-smartphone) {
+            margin: 0 0 0 -1rem;
+        }
+
+        @include respond-to(smartphone) {
+            margin: 0 0 0 -1rem;
+        }
+
+        @include respond-to(tablet) {
+            margin: 0 0 0 -1rem;
+        }
+
+        @include respond-to(desktop) {
+            margin: 0 0 0 -3rem;
+        }
+
+        @include respond-to(wide-screen) {
+            margin: 0 0 0 -3rem;
+        }
 
         span {
             color: $material-design-white;
@@ -103,10 +152,29 @@ $susy: (columns: 12);
 
 .skill {
     @include border-radius(.25rem);
-    @include container (90%);
     background: $material-design-dark-primary-blue;
     margin: 0 auto 1rem;
     padding: 1rem 2rem;
+
+    @include respond-to(smaller-smartphone) {
+        @include container (90%);
+    }
+
+    @include respond-to(smartphone) {
+        @include container (90%);
+    }
+
+    @include respond-to(tablet) {
+        @include container (40rem);
+    }
+
+    @include respond-to(desktop) {
+        @include container (40rem);
+    }
+
+    @include respond-to(wide-screen) {
+        @include container (40rem);
+    }
 
     &__name {
         @include span(4.5);

@@ -1,30 +1,32 @@
 'use strict';
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var browserSync = require('browser-sync').create();
-var compass = require('gulp-compass');
-var cssmin = require('gulp-cssmin');
-var critical = require('critical');
-var jade = require('gulp-jade');
-var modRewrite = require("connect-modrewrite");
-var path = require('path');
-var plumber = require('gulp-plumber');
-var scsslint = require('gulp-scss-lint');
-var ts = require('gulp-typescript');
-var tslint = require('gulp-tslint');
-var uglify = require("gulp-uglify");
-var watch = require('gulp-watch');
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const browserSync = require('browser-sync').create();
+const compass = require('gulp-compass');
+const cssmin = require('gulp-cssmin');
+const critical = require('critical');
+const imagemin = require('gulp-imagemin');
+const pngquant = require('imagemin-pngquant');
+const jade = require('gulp-jade');
+const modRewrite = require('connect-modrewrite');
+const path = require('path');
+const plumber = require('gulp-plumber');
+const scsslint = require('gulp-scss-lint');
+const ts = require('gulp-typescript');
+const tslint = require('gulp-tslint');
+const uglify = require('gulp-uglify');
+const watch = require('gulp-watch');
 
-var base = {
+const base = {
     bower: path.join(__dirname, 'bower_components/'),
     source: path.join(__dirname, 'src/'),
     destination: path.join(__dirname, 'dist/')
 };
-var paths = {
-    copy: {
-        content: [
-            path.join(base.source, 'content/**/*.*', '!', base.source, 'content/**/Thumbs.db')
+const paths = {
+        copy: {
+            content: [
+                path.join(base.source, 'content/**/*.*') + '!' + path.join(base.source, 'content/**/Thumbs.db'))
         ],
         javascript: [
             path.join(base.source, 'javascript/vendor/**/*.js')
@@ -53,8 +55,12 @@ var paths = {
             ]
         }
     },
+    image: {
+        source: path.join(base.destination, 'content/image/');
+        destination: path.join(base.destination, 'content/image/')
+    },
     jade: {
-        source: path.join(base.source, '**/*.jade'),
+        source: path.join(base.source, '**/!(_)*.jade'),
         destination: base.destination
     },
     scss: {
@@ -81,15 +87,18 @@ function exec_browser_sync() {
         }
     });
 
-    gulp.watch("dist/**/*.*").on("change", browserSync.reload);
+    gulp.watch('dist/**/*.*').on('change', browserSync.reload);
 }
 
 /**
- * @summary Execute the CSS minifier.
+ * @summary Minify CSS.
  * @param {Function} cb The callback.
  */
 function exec_cssmin(cb) {
-    gulp.src(paths.scss.destination + '**/*.css')
+    gutil.log('Minify CSS...');
+
+    const source = path.join(paths.scss.destination, '**/*.css');
+    gulp.src(source)
         .pipe(plumber())
         .pipe(cssmin())
         .pipe(gulp.dest(paths.scss.destination));
@@ -103,7 +112,7 @@ function exec_cssmin(cb) {
 function exec_compass() {
     gutil.log('Start the Compass task...');
 
-    var options = {
+    const options = {
         config_file: './compass.rb',
         css: paths.scss.destination,
         sass: paths.scss.source
@@ -139,11 +148,11 @@ function exec_copy() {
 function exec_critical() {
     gutil.log('Start the Critical task...');
 
-    critical.generateInline({
+    const options = {
         base: base.destination,
         src: 'index.html',
-        css: [base.destination + 'css/base.css'],
-        dest: base.destination + 'index.html',
+        css: [path.join(base.destination, 'css/base.css')],
+        dest: path.join(base.destination, 'index.html'),
         minify: true,
         dimensions: [{
             width: 320,
@@ -158,15 +167,33 @@ function exec_critical() {
             width: 1920,
             height: 1080
         }],
-    });
+    };
+    critical.generateInline(options);
 }
 
 /**
- * @summary Executes the Jade compiler.
+ * @summary Minify PNG, JPEG, GIF and SVG images.
+ */
+function exec_imagemin() {
+    gutil.log('Minify PNG, JPEG, GIF and SVG images...');
+
+    const options = {
+        progressive: true,
+        use: [pngquant()]
+    };
+
+    gulp.src(paths.image.source)
+        .pipe(plumber())
+        .pipe(imagemin(options))
+        .pipe(gulp.dest(paths.image.destination));
+}
+
+/**
+ * @summary Compile Jade templates.
  * @param {Function} cb The callback.
  */
 function exec_jade(cb) {
-    gutil.log('Start the Jade task...');
+    gutil.log('Compile Jade templates...');
 
     gulp.src(paths.jade.source)
         .pipe(plumber())
@@ -181,7 +208,9 @@ function exec_jade(cb) {
  * @param {Function} cb The callback.
  */
 function exec_tslint(cb) {
-    var source = [path.normalize(paths.source + '**/*.ts'), path.normalize('!' + paths.source + 'typing/**/*.ts')];
+    gutil.log('Checks the code quality...');
+
+    const source = [path.normalize(paths.source + '**/*.ts'), path.normalize('!' + paths.source + 'typing/**/*.ts')];
     gulp.src(source)
         .pipe(tslint())
         .pipe(tslint.report('verbose'));
@@ -193,15 +222,15 @@ function exec_tslint(cb) {
  * @summary Compiles TypeScript files to JavaScript files.
  */
 function exec_typescript() {
-    gutil.log('Start the TypeScript task...');
+    gutil.log('Compiles TypeScript files to JavaScript files...');
 
     var options = {
         declaration: false,
         failOnTypeErrors: false,
-        module: "amd",
+        module: 'amd',
         removeComments: false,
         sourceMap: false,
-        target: "es5"
+        target: 'es5'
     };
 
     return gulp.src(paths.typescript.source)
@@ -211,10 +240,13 @@ function exec_typescript() {
 }
 
 /**
- * @summary Executes the uglify tool.
+ * @summary Minify files with UglifyJS.
  */
 function exec_uglify() {
-    return gulp.src(paths.typescript.destination + '**/*.js')
+    gutil.log('Minify files with UglifyJS...');
+
+    const source = path.join(paths.typescript.destination, '**/*.js');
+    return gulp.src(source)
         .pipe(plumber())
         .pipe(uglify())
         .pipe(gulp.dest(paths.typescript.destination));
@@ -230,22 +262,29 @@ function exec_watch() {
     watch(paths.copy.content, exec_copy);
 }
 
+/**
+ * @summary Validate SCSS files.
+ */
 function exec_scss_lint() {
+    gutil.log('Validate SCSS files...');
+
     return gulp.src(paths.scss.pattern)
         .pipe(scsslint());
 }
 
-/* Tasks */
+// Individual tasks
 gulp.task('browser-sync', exec_browser_sync);
 gulp.task('cssmin', exec_cssmin);
 gulp.task('compass', exec_compass);
 gulp.task('copy', exec_copy);
 gulp.task('critical', exec_critical);
+gulp.task('imagemin', exec_imagemin);
 gulp.task('jade', exec_jade);
 gulp.task('scss-lint', exec_scss_lint);
 gulp.task('typescript', exec_typescript);
 gulp.task('uglify', exec_uglify);
 gulp.task('watch', exec_watch);
 
+// Tasks
 gulp.task('default', ['copy', 'typescript', 'jade', 'compass']);
-gulp.task('optimize', ['critical', 'uglify', 'cssmin']);
+gulp.task('production', ['critical', 'uglify', 'cssmin', 'imagemin']);

@@ -21,21 +21,16 @@
 // SOFTWARE.
 
 // Variables
-$smaller-smartphone-breakpoint: 320px;
+$smaller-smartphone-breakpoint: 480px;
 $smartphone-breakpoint: 480px;
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 992px;
 $wide-screens-breakpoint: 1281px;
-$smaller-smartphone-min-width-breakpoint: 'min-width: 320px';
-$smartphone-min-width-breakpoint: 'min-width: 480px';
-$tablet-min-width-breakpoint: 'min-width: 768px';
-$desktop-min-width-breakpoint: 'min-width: 992px';
-$wide-screens-min-width-breakpoint: 'min-width: 1281px';
 
 // Mixins
 @mixin respond-to($media) {
     @if $media == smaller-smartphone {
-        @media only screen and (min-width: $smaller-smartphone-breakpoint) {
+        @media only screen and (max-width: $smaller-smartphone-breakpoint) {
             @content;
         }
     } @else if $media == smartphone {
@@ -51,7 +46,7 @@ $wide-screens-min-width-breakpoint: 'min-width: 1281px';
             @content;
         }
     } @else if $media == wide-screen {
-        @media only screen and ($wide-screens-min-width-breakpoint) {
+        @media only screen and (min-width: $wide-screens-breakpoint) {
             @content;
         }
     }

@@ -17,8 +17,6 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		link(rel="shortcut icon" href="/favicon.ico")
 		
 		base(href="/")
-		
-		script(src="/javascript/vendor/modernizr.js")
 
 	body(data-status="{{status}}")
 		.container
@@ -31,29 +29,29 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 				.l-footer__sitemap
 					ul.l-footer__sitemap__items
 						li
-							a(data-ng-i18next="navigation.home" href="/{{language}}/")
+							a(data-ng-i18next="[title]navigation.home;navigation.home" href="/{{language}}/")
 						li
-							a(data-ng-i18next="navigation.about" href="/{{language}}/about")
+							a(data-ng-i18next="[title]navigation.about;navigation.about" href="/{{language}}/about")
 						li
-							a(data-ng-i18next="navigation.works" href="/{{language}}/works")
+							a(data-ng-i18next="[title]navigation.works;navigation.works" href="/{{language}}/works")
 						li
-							a(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
+							a(data-ng-i18next="[title]navigation.contact;navigation.contact" href="/{{language}}/contact")
 			
 				ul.l-footer__social_network
 					li.l-footer__social_network__item
-						a.l-footer__social_network__item__link(href="http://www.github.com/CyrilSchumacher")
+						a.l-footer__social_network__item__link(title="GitHub" href="http://www.github.com/CyrilSchumacher")
 							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--github
 								span.ion-social-github
 							span.l-footer__social_network__item__link__title GitHub
 
 					li.l-footer__social_network__item
-						a.l-footer__social_network__item__link(href="http://fr.linkedin.com/in/CyrilSchumacher")
+						a.l-footer__social_network__item__link(title="Linkedin" href="http://fr.linkedin.com/in/CyrilSchumacher")
 							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--linkedin
 								span.ion-social-linkedin
 							span.l-footer__social_network__item__link__title Linkedin
 
 					li.l-footer__social_network__item
-						a.l-footer__social_network__item__link(href="http://www.twitter.com/CyrilSchumacher")
+						a.l-footer__social_network__item__link(title="Twitter" href="http://www.twitter.com/CyrilSchumacher")
 							.l-footer__social_network__item__link__icon.l-footer__social_network__item__link__icon--twitter
 								span.ion-social-twitter
 							span.l-footer__social_network__item__link__title Twitter
@@ -63,13 +61,13 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 					span Menu
 				ul
 					li
-						a(data-ng-i18next="navigation.home" href="/{{language}}/")
+						a(data-ng-i18next="[title]navigation.home;navigation.home" href="/{{language}}/")
 					li
-						a(data-ng-i18next="navigation.about" href="/{{language}}/about")
+						a(data-ng-i18next="[title]navigation.about;navigation.about" href="/{{language}}/about")
 					li
-						a(data-ng-i18next="navigation.works" href="/{{language}}/works")
+						a(data-ng-i18next="[title]navigation.works;navigation.works" href="/{{language}}/works")
 					li
-						a(data-ng-i18next="navigation.contact" href="/{{language}}/contact")
+						a(data-ng-i18next="[title]navigation.contact;navigation.contact" href="/{{language}}/contact")
 
 		.loading(data-ng-cloak)
 			.loading__wrapper

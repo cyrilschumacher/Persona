@@ -23,33 +23,27 @@
 .l-footer {
     background: $material-design-black;
     color: $material-design-gray;
-    font-size: 1.1rem;
     padding: 1rem 0;
     text-align: center;
     z-index: 2;
 
     @include respond-to(smaller-smartphone) {
-        font-size: 1.2rem;
         padding: 1.5rem 0;
     }
 
     @include respond-to(smartphone) {
-        font-size: 1.3rem;
         padding: 1.5rem 0;
     }
 
     @include respond-to(tablet) {
-        font-size: 1.3rem;
         padding: 1.5rem 0;
     }
 
     @include respond-to(desktop) {
-        font-size: 1.4rem;
         padding: 2rem 0;
     }
 
     @include respond-to(wide-screen) {
-        font-size: 1.5rem;
         padding: 2.5rem 0;
     }
 

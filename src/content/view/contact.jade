@@ -14,16 +14,8 @@ header.l-header.l-header--contact(role="banner" itemscope itemtype="http://schem
 
 section.l-section.l-section--contact
     header.l-section__header.l-section--contact__header
-        h2(data-ng-i18next="view.contact.postal_address")
-        p(data-ng-i18next="view.contact.meet_me")
-    section.l-section.l-section--contact__postal_address
-        div.l-section.l-section--contact__postal_address__map
-            bing-map(options="mapOptions.options" center="mapOptions.center" zoom="mapOptions.zoom")
-                pushpin(lat="pushpin.location.latitude" lng="pushpin.location.longitude" options="pushpin.options" events="pushpin.events")
-                    info-box(options="infobox.options" title="infobox.title" description="infobox.description" visible="infobox.visible")
-
-section.l-section.l-section--contact
-    header.l-section__header.l-section--contact__header
+        .icon
+            span.icon__content.ion-ios-email-outline
         h2(data-ng-i18next="view.contact.online")
         p(data-ng-i18next="view.contact.start_link")
     section.l-section--contact__online
