@@ -60,7 +60,7 @@ class IsFilledDirective implements ng.IDirective {
      */
     public link = (scope: ng.IScope, element: JQuery, attrs: ng.IAttributes): void => {
         const input = $("#" + scope["inputId"]);
-        input.keydown(e => {
+        input.bind("change keydown keyup", e => {
             if (input.val() !== "") {
                 element.addClass(scope["cssClassFilled"]);
             } else {

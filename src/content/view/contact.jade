@@ -1,34 +1,8 @@
-mixin manami-text-input-effect(id, i18next, type, model)
-    - text = text || "text"
-    span.input.input--manami(data-is-filled data-css-class-filled="input--filled" data-input-id=id)
-        input.input__field.input__field--manami(data-ng-model=model id=id name=id type=type required)
-        label.input__label.input__label--manami(for=id)
-            span.input__label-content.input__label-content--manami(data-ng-i18next=i18next)
-
 header.l-header.l-header--contact(role="banner" itemscope itemtype="http://schema.org/WPHeader")
     .l-header__wrapper.l-header.l-header--contact__wrapper
         .l-header__wrapper__background.l-header--contact__wrapper__background
         .l-header__wrapper__content.l-header--contact__wrapper__content
             h1(data-ng-i18next="[html]view.contact.many_routes")
             p.l-header__wrapper__content__subtitle.l-header--contact__wrapper__content__subtitle(data-ng-i18next="view.contact.for_questions")
-
-section.l-section.l-section--contact
-    header.l-section__header.l-section--contact__header
-        .icon
-            span.icon__content.ion-ios-email-outline
-        h2(data-ng-i18next="view.contact.online")
-        p(data-ng-i18next="view.contact.start_link")
-    section.l-section--contact__online
-        form(name="contactForm")
-            p
-                +manami-text-input-effect("email_address", "view.contact.email_address", "email", "model.form.email_address")
-            p
-                +manami-text-input-effect("subject", "view.contact.subject", "text", "model.form.subject")
-            br
-            p
-                label(for="message") Message
-                textarea#message(data-autosize data-is-filled data-css-class-filled="message-filled" data-input-id="message" data-ng-model="model.form.message" name="message" required)
-            br
-            .g-recaptcha(data-sitekey="6LctehETAAAAAB58Df0sFmzbNOGW_4Z37_iOQCP4")
-            p
-                input.btn(data-ng-disabled="!contactForm.$valid" type="submit" value="Envoyer mon message")
+            
+include ./part/contact/_online.jade

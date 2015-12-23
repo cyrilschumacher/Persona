@@ -21,11 +21,20 @@
  * SOFTWARE.
  */
 
-class MailService {
+class ResumeService {
     /**
      * @summary Constructor.
      * @param {IHttpService}
      */
     public constructor(private $http: ng.IHttpService, private configuration: Object) {
     }
+
+    /**
+     * @summary Gets the education section.
+     * @return {IPromise} The promise.
+     */
+    public getEducationSection = (): ng.IPromise<any> => {
+        const url = this.configuration["rest"].server.concat("resume/education");
+        return this.$http.get(url).then(response => response.data);
+    };
 }
