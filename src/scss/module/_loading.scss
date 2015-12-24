@@ -1,4 +1,8 @@
-[ng\:cloak].loading, [ng-cloak].loading, [data-ng-cloak].loading { display: block !important }
+[ng\:cloak].loading,
+[ng-cloak].loading,
+[data-ng-cloak].loading {
+    display: block;
+}
 
 .loading {
     background: #fff;
@@ -19,5 +23,14 @@
         right: 0;
         text-align: center;
         top: 0;
+
+        :not(:required).timer-loader::after,
+        :not(:required).timer-loader::before {
+            background: $material-design-gray;
+        }
+
+         :not(:required).timer-loader {
+            border-color: $material-design-gray;
+        }
     }
 }

@@ -6,33 +6,19 @@ section#education.l-section.l-section--about
 		p.subtitle(data-ng-i18next="view.about.education.subtitle")
 	section.l-section__sub_section
 		#cd-timeline.cd-container
-			.cd-timeline-block.cd-timeline-block
+			.cd-timeline-block(data-ng-repeat="school in schools | orderBy: 'period.start':true")
 				.cd-timeline-img
-					span 2015
+					span(data-ng-bind="school.period.end | date:'yyyy'")
 				.cd-timeline-content
 					header
-						h3 Phasellus dictum
+						h3(data-ng-bind="school.name")
 					section
 						ul
-							li Curabitur neque ex, auctor sit amet augue a, pulvinar sollicitudin felis
-							li Curabitur neque ex, auctor sit amet augue a, pulvinar sollicitudin felis
-							li Curabitur neque ex, auctor sit amet augue a, pulvinar sollicitudin felis
+							li(data-ng-repeat="degree in school.degrees[language]" data-ng-bind="degree")
 					footer
 						.post-tag
-							span depuis
-							time(datetime="2011-09-04") septembre 2011
-			.cd-timeline-block
-				.cd-timeline-img
-					span 2014
-				.cd-timeline-content
-					header
-						h3 Phasellus dictum
-					section
-						ul
-							li Curabitur neque ex, auctor sit amet augue a, pulvinar sollicitudin felis
-					footer
-						.post-tag
-								span de
-								time(datetime="2006-09-04") septembre 2006
-								span à
-								time(datetime="2011-06-29") juin 2011
+							span de
+							time(datetime="{{school.period.start}}") {{school.period.start | date:'MMMM yyyy'}}
+							span(data-ng-hide="!school.period.end") à
+							time(data-ng-hide="!school.period.end" datetime="{{school.period.end}}") {{school.period.end | date:'MMMM yyyy'}}
+ 

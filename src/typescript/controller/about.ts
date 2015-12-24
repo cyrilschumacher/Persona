@@ -22,9 +22,11 @@
  */
 
 /// <amd-dependency path="directive/scrollTo"/>
+/// <amd-dependency path="service/resume"/>
 
 import app = require("app");
 import baseController = require("controller/base");
+import ResumeService = require("service/resume");
 
 /**
  * @summary Controller for about page.
@@ -36,7 +38,7 @@ class AboutController extends baseController {
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-     public static $inject: Array<string> = ["$scope", "$rootScope", "$routeParams", "$location", "$i18next"];
+     public static $inject: Array<string> = ["$scope", "$rootScope", "$routeParams", "$location", "$i18next", "resumeService"];
 
      /**
       * @summary Constructor.
@@ -47,7 +49,7 @@ class AboutController extends baseController {
       * @param {ILocationService}       $location       The location service.
       * @param {I18nextProvider}        $i18next        The i18next provider.
       */
-    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
+    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider, private _resumeService: ResumeService) {
         super("about", $scope, $rootScope, $routeParams, $location, $i18next);
         this.$scope["initialize"] = this._initialize;
     };
@@ -57,7 +59,9 @@ class AboutController extends baseController {
      * @private
      */
     private _initialize = (): void => {
-        //todo: Add service usage.
+        this._resumeService.getEducationSection().then((schools: Array<Object>) => {
+            this.$scope["schools"] = schools;
+        });
     };
 }
 

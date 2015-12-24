@@ -24,13 +24,7 @@ const base = {
     destination: path.join(__dirname, 'dist/')
 };
 const paths = {
-        copy: {
-            content: [
-                path.join(base.source, 'content/**/*.*') + '!' + path.join(base.source, 'content/**/Thumbs.db'))
-        ],
-        javascript: [
-            path.join(base.source, 'javascript/vendor/**/*.js')
-        ],
+    copy: {
         bower: {
             css: [
                 path.join(base.bower, 'css-spinners/css/spinners.css'),
@@ -53,14 +47,25 @@ const paths = {
                 path.join(base.bower, 'requirejs/require.js'),
                 path.join(base.bower, 'three.js/three.js')
             ]
+        },
+        font: {
+            source: path.join(base.source, 'content/font/**/*.*'),
+            destination: path.join(base.destination, 'content/font/')
+        },
+        image: {
+            source: path.join(base.source, 'content/image/**/*.*'),
+            destination: path.join(base.destination, 'content/image/')
+        },
+        javascript: [
+            path.join(base.source, 'javascript/vendor/**/*.js')
+        ],
+        locale: {
+            source: path.join(base.source, 'content/locale/**/*.json'),
+            destination: path.join(base.destination, 'content/locale/')
         }
     },
-    image: {
-        source: path.join(base.destination, 'content/image/');
-        destination: path.join(base.destination, 'content/image/')
-    },
     jade: {
-        source: path.join(base.source, '**/!(_)*.jade'),
+        source: path.join(base.source, '**/*.jade'),
         destination: base.destination
     },
     scss: {
@@ -132,8 +137,12 @@ function exec_copy() {
 
     gulp.src(paths.copy.bower.font)
         .pipe(gulp.dest(base.destination + 'css/fonts/'));
-    gulp.src(paths.copy.content)
-        .pipe(gulp.dest(base.destination + 'content/'));
+    gulp.src(paths.copy.font.source)
+        .pipe(gulp.dest(paths.copy.font.destination));
+    gulp.src(paths.copy.locale.source)
+        .pipe(gulp.dest(paths.copy.locale.destination));
+    gulp.src(paths.copy.image.source)
+        .pipe(gulp.dest(paths.copy.image.destination));
     gulp.src(paths.copy.javascript)
         .pipe(gulp.dest(base.destination + 'javascript/vendor/'));
     gulp.src(paths.copy.bower.javascript)
@@ -224,7 +233,7 @@ function exec_tslint(cb) {
 function exec_typescript() {
     gutil.log('Compiles TypeScript files to JavaScript files...');
 
-    var options = {
+    const options = {
         declaration: false,
         failOnTypeErrors: false,
         module: 'amd',
@@ -246,9 +255,13 @@ function exec_uglify() {
     gutil.log('Minify files with UglifyJS...');
 
     const source = path.join(paths.typescript.destination, '**/*.js');
+    const options = {
+        compress: true,
+        mangle: true
+    };
     return gulp.src(source)
         .pipe(plumber())
-        .pipe(uglify())
+        .pipe(uglify(options))
         .pipe(gulp.dest(paths.typescript.destination));
 }
 

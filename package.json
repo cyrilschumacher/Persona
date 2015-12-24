@@ -4,16 +4,13 @@
   "private": true,
   "license": "MIT",
   "author": "Cyril Schumacher",
-  "bin": {
-    "karma": "./node_modules/karma/bin/karma"
-  },
   "scripts": {
     "test": "karma start karma.config.js --single-run"
   },
   "devDependencies": {
     "browser-sync": "^2.10.1",
-    "connect-modrewrite": "*",
-    "critical": "^0.6.0",
+    "connect-modrewrite": "0.8.2",
+    "critical": "^0.7.0",
     "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
     "gulp-cssmin": "^0.1.7",

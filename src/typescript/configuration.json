@@ -1,16 +1,15 @@
 {
     "rest": {
-        "server": "http://www.mocky.io/v2/",
+        "server": "http://private-b90a0-cyrilschumacher.apiary-mock.com/",
         "path": {
             "resume": {
-                "education": "",
-                "experience": "",
-                "skills": "",
-                "hobbies": ""
+                "education": "resume/education",
+                "experience": "resume/experience",
+                "skills": "resume/skills"
             },
             "works": "",
             "mail": {
-                "send": ""
+                "send": "mail/send/"
             }
         }
     }

@@ -21,12 +21,20 @@
  * SOFTWARE.
  */
 
+import app = require("app");
+
 class ResumeService {
+    /**
+     * @summary Dependencies injection.
+     * @type {Array<string>}
+     */
+    public static $inject: Array<string> = ["$http", "appConfig"];
+
     /**
      * @summary Constructor.
      * @param {IHttpService}
      */
-    public constructor(private $http: ng.IHttpService, private configuration: Object) {
+    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
     }
 
     /**
@@ -34,7 +42,18 @@ class ResumeService {
      * @return {IPromise} The promise.
      */
     public getEducationSection = (): ng.IPromise<any> => {
-        const url = this.configuration["rest"].server.concat("resume/education");
+        const url = this.appConfig["rest"].server.concat("resume/education");
+        return this.$http.get(url).then(response => response.data);
+    };
+
+    /**
+     * @summary Gets the experiences section.
+     * @return {IPromise} The promise.
+     */
+    public getExperiencesSection = (): ng.IPromise<any> => {
+        const url = this.appConfig["rest"].server.concat("resume/experiences");
         return this.$http.get(url).then(response => response.data);
     };
 }
+
+app.module.service("resumeService", ResumeService);
