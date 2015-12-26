@@ -69,7 +69,7 @@ abstract class ControllerBase {
 
         this.$rootScope["language"] = language;
         this.$i18next.options.lng = language;
-        tmhDynamicLocale.set(language);
+        this.tmhDynamicLocale.set(language);
     };
 
     /**

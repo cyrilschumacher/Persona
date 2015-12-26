@@ -7,9 +7,14 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		meta(name="viewport" content="width=device-width, user-scalable=no")
 		meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
 		meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
+		
+		meta(http-equiv="content-language" content="fr,en")
 
 		link(rel="shortcut icon" href="/content/image/favicon.ico")
 		link(rel="dns-prefetch" href="//www.cyrilschumacher.fr")
+		
+		link(rel="alternate" hreflang="fr" href="//www.cyrilschumacher.fr/fr")
+		link(rel="alternate" hreflang="en" href="//www.cyrilschumacher.fr/en")
 		
 		link(rel="stylesheet" href="/css/vendor/ionicons.css")
 		link(rel="stylesheet" href="/css/vendor/spinners.css")
@@ -24,7 +29,9 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 
 			footer.l-footer(ng-class="{'l-footer--home': viewName == 'home'}" itemscope itemtype="http://schema.org/WPFooter")
 				.l-footer__copyright
-					span Copyright © 2016 Cyril Schumacher
+					span Copyright © 
+					span(itemprop="copyrightYear") 2016 
+					span(itemprop="copyrightHolder") Cyril Schumacher
 
 				.l-footer__sitemap
 					ul.l-footer__sitemap__items
@@ -61,19 +68,19 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 					span Menu
 				ul
 					li
-						a(href="/{{language}}/")
+						a(itemprop="url" href="/{{language}}/" data-ng-i18next="[title]navigation.home")
 							span.icon.ion-ios-home-outline
 							span(data-ng-i18next="[title]navigation.home;navigation.home")
 					li
-						a(href="/{{language}}/about")
+						a(itemprop="url" href="/{{language}}/about" data-ng-i18next="[title]navigation.about")
 							span.icon.ion-ios-person-outline
 							span(data-ng-i18next="[title]navigation.about;navigation.about")
 					li
-						a(href="/{{language}}/works")
+						a(itemprop="url" href="/{{language}}/works" data-ng-i18next="[title]navigation.works")
 							span.icon.ion-ios-pricetags-outline
-							span(data-ng-i18next="[title]navigation.works;navigation.works")
+							span(data-ng-i18next="navigation.works")
 					li
-						a(href="/{{language}}/contact")
+						a(itemprop="url" href="/{{language}}/contact" data-ng-i18next="[title]navigation.contact")
 							span.icon.ion-ios-email-outline
 							span(data-ng-i18next="[title]navigation.contact;navigation.contact")
 

@@ -7,6 +7,8 @@
     },
     "view": {
         "about": {
+            "from": "du",
+            "to": "au",
             "meta": {
                 "description": "Découvrez mes compétences que j'ai acquises durant mes formations et stages, mes expériences professionnelles que j'ai effectuées ainsi que mes formations que j'ai passées.",
                 "title": "A propos"

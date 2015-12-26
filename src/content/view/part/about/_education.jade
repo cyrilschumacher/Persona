@@ -9,16 +9,21 @@ section#education.l-section.l-section--about
 			.cd-timeline-block(data-ng-repeat="school in schools | orderBy: 'period.start':true")
 				.cd-timeline-img
 					span(data-ng-bind="school.period.end | date:'yyyy'")
-				.cd-timeline-content
+				.cd-timeline-content(itemscope itemtype="http://schema.org/School")
 					header
-						h3(data-ng-bind="school.name")
+						h3(data-ng-bind="school.name" itemprop="name")
 					section
 						ul
 							li(data-ng-repeat="degree in school.degrees[language]" data-ng-bind="degree")
-					footer
+					footer(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
 						.post-tag
-							span de
-							time(datetime="{{school.period.start}}") {{school.period.start | date:'MMMM yyyy'}}
-							span(data-ng-hide="!school.period.end") à
-							time(data-ng-hide="!school.period.end" datetime="{{school.period.end}}") {{school.period.end | date:'MMMM yyyy'}}
- 
+							span(data-ng-i18next="view.about.from")
+							time(datetime="{{school.period.start}}" data-ng-bind="school.period.start | date:'MMMM yyyy'")
+							span(data-ng-hide="!school.period.end" data-ng-i18next="view.about.to")
+							time(data-ng-hide="!school.period.end" datetime="{{school.period.end}}" data-ng-bind="school.period.end | date:'MMMM yyyy'")
+						.post-tag
+							span(data-ng-bind="school.location.address.addressLine" itemprop="streetAddress")
+						.post-tag
+							span(data-ng-bind="school.location.address.city" itemprop="addressLocality")
+						.post-tag
+							span(data-ng-bind="school.location.address.countryRegion" itemprop="addressRegion")

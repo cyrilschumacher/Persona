@@ -7,6 +7,8 @@
     },
     "view": {
         "about": {
+            "from": "from",
+            "to": "to",
             "meta": {
                 "description": "Discover my skills I acquired during my training and courses, my professional experiences I have done and my training I spent.",
                 "title": "About"

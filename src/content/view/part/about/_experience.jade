@@ -10,14 +10,20 @@ section#experiences.l-section.l-section--about
 			.cd-timeline-block(data-ng-repeat="company in companies | orderBy: 'period.start':true")
 				.cd-timeline-img
 					span(data-ng-bind="company.period.end | date:'yyyy'")
-				.cd-timeline-content
+				.cd-timeline-content(itemscope itemtype="http://schema.org/Organization")
 					header
 						h3(data-ng-bind="company.name")
 					section
 						p(data-ng-bind="company.summary[language]")
-					footer
+					footer(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
 						.post-tag
-							span de
+							span(data-ng-i18next="view.about.from")
 							time(datetime="{{company.period.start}}" data-ng-bind="company.period.start | date:'MMMM yyyy'")
-							span(data-ng-hide="!company.period.end") à
+							span(data-ng-hide="!company.period.end" data-ng-i18next="view.about.to")
 							time(data-ng-hide="!company.period.end" datetime="{{company.period.end}}" data-ng-bind="company.period.end | date:'MMMM yyyy'")
+						.post-tag
+							span(data-ng-bind="company.location.address.addressLine" itemprop="streetAddress")
+						.post-tag
+							span(data-ng-bind="company.location.address.city" itemprop="addressLocality")
+						.post-tag
+							span(data-ng-bind="company.location.address.countryRegion" itemprop="addressRegion")
