@@ -26,42 +26,56 @@
 require.config({
     paths: {
         /* Vendor */
-        "angular":                  "vendor/angular",
+        "angular": "vendor/angular",
         "angular-google-analytics": "vendor/angular-google-analytics",
-        "angular-route":            "vendor/angular-route",
-        "angular-sanitize":         "vendor/angular-sanitize",
-        "angularjs-viewhead":       "vendor/angularjs-viewhead",
-        "autosize":                 "vendor/autosize",
-        "classie":                  "vendor/classie",
-        "borderMenu":               "vendor/borderMenu",
-        "canvasRenderer":           "vendor/CanvasRenderer",
-        "jquery":                   "vendor/jquery",
-        "i18next":                  "vendor/i18next",
-        "ng-i18next":               "vendor/ng-i18next",
-        "projector":                "vendor/Projector",
-        "three":                    "vendor/three",
+        "angular-route": "vendor/angular-route",
+        "angular-sanitize": "vendor/angular-sanitize",
+        "angular-translate": "vendor/angular-translate",
+        "angularjs-viewhead": "vendor/angularjs-viewhead",
+        "autosize": "vendor/autosize",
+        "borderMenu": "vendor/borderMenu",
+        "canvasRenderer": "vendor/CanvasRenderer",
+        "classie": "vendor/classie",
+        "i18next": "vendor/i18next",
+        "jquery": "vendor/jquery",
+        "ng-i18next": "vendor/ng-i18next",
+        "projector": "vendor/Projector",
+        "tmhDynamicLocale": "vendor/tmhDynamicLocale",
+        "three": "vendor/three",
 
         /* Project */
-        "loader":                   "loader",
+        "loader": "loader",
 
         /* Online */
-        "reCaptcha":                "https://www.google.com/recaptcha/api"
+        "reCaptcha": "https://www.google.com/recaptcha/api"
     },
     shim: {
         "angular": {
             exports: "angular"
         },
         "angular-google-analytics": ["angular"],
-        "angular-route":            ["angular"],
-        "angular-sanitize":         ["angular"],
-        "angularjs-viewhead":       ["angular"],
-        "autosize":                 ["jquery"],
-        "borderMenu":               ["classie"],
-        "canvasRenderer":           ["three"],
-        "i18next":                  ["jquery"],
-        "loader":                   ["borderMenu", "angular-google-analytics", "angular-route", "angular-sanitize", "angularjs-viewhead", "ng-i18next"],
-        "ng-i18next":               ["angular", "i18next"],
-        "projector":                ["three"]
+        "angular-route": ["angular"],
+        "angular-sanitize": ["angular"],
+        "angular-translate": ["angular"],
+        "angularjs-viewhead": ["angular"],
+        "tmhDynamicLocale": ["angular", "angular-translate"],
+        "autosize": ["jquery"],
+        "borderMenu": ["classie"],
+        "canvasRenderer": ["three"],
+        "i18next": [
+            "jquery"
+        ],
+        "loader": [
+            "borderMenu",
+            "angular-google-analytics",
+            "angular-route",
+            "angular-sanitize",
+            "angularjs-viewhead",
+            "ng-i18next",
+            "tmhDynamicLocale"
+        ],
+        "ng-i18next": ["angular", "i18next"],
+        "projector": ["three"]
     }
 });
 

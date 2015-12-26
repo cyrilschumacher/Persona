@@ -29,6 +29,7 @@ import i18nextConfiguration = require("./configuration/i18next");
 import RegisterConfiguration = require("./configuration/register");
 import RouteConfiguration = require("./configuration/route");
 import LocationConfiguration = require("./configuration/location");
+import TranslationConfiguration = require("./configuration/translation");
 /* Run */
 import GoogleAnalytics = require("./run/googleAnalytics");
 import TemplateCacheRun = require("./run/templateCache");
@@ -112,7 +113,8 @@ class Application {
                     .config(i18nextConfiguration)
                     .config(LocationConfiguration)
                     .config(RegisterConfiguration)
-                    .config(RouteConfiguration);
+                    .config(RouteConfiguration)
+                    .config(TranslationConfiguration);
     };
 
     /**
@@ -154,7 +156,7 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        const requires = ["angular-google-analytics", "jm.i18next", "ngRoute", "viewhead"];
+        const requires = ["tmh.dynamicLocale", "angular-google-analytics", "jm.i18next", "ngRoute", "viewhead"];
         this._module = angular.module(this.name, requires);
     };
 }

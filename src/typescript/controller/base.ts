@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
+
 /**
  * @summary Controller base.
  * @author  Cyril Schumacher
@@ -30,14 +32,22 @@ abstract class ControllerBase {
     /**
      * @summary Constructor.
      * @constructor
-     * @param {string}                 viewName        The view name.
-     * @param {IScope}                 $scope          The model.
-     * @param {IRootScopeService}      $rootScope      The root scope
-     * @param {IRouteParamsService}    $routeParams    The route parameters.
-     * @param {ILocationService}       $location       The location service.
-     * @param {I18nextProvider}        $i18next        The i18next provider.
+     * @param {string}                  viewName            The view name.
+     * @param {IScope}                  $scope              The model.
+     * @param {IRootScopeService}       $rootScope          The root scope
+     * @param {IRouteParamsService}     $routeParams        The route parameters.
+     * @param {ILocationService}        $location           The location service.
+     * @param {I18nextProvider}         $i18next            The i18next provider.
+     * @param {tmhDynamicLocaleService} tmhDynamicLocale    The angular dynamic locale.
      */
-    public constructor(public viewName: string, public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
+    public constructor(
+        public viewName: string,
+        public $scope: ng.IScope,
+        public $rootScope: ng.IRootScopeService,
+        public $routeParams: angular.route.IRouteParamsService,
+        public $location: angular.ILocationService,
+        public $i18next: angular.i18next.I18nextProvider,
+        public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService) {
         /* Function */
         this.$rootScope["viewName"] = viewName;
         this.$rootScope["navigateTo"] = this._navigateTo;
@@ -51,14 +61,15 @@ abstract class ControllerBase {
      * @private
      */
     private _initializeLocalization = (): void => {
-        var language = this.$routeParams["language"];
+        let language = this.$routeParams["language"];
         if (!language) {
-            var navigatorLanguage = navigator.language || navigator.userLanguage;
-            language = navigatorLanguage.substr(0,2);
+            const navigatorLanguage = navigator.language || navigator.userLanguage;
+            language = navigatorLanguage.substr(0, 2);
         }
 
         this.$rootScope["language"] = language;
         this.$i18next.options.lng = language;
+        tmhDynamicLocale.set(language);
     };
 
     /**

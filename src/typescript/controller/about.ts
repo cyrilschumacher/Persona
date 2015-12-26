@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
+
 /// <amd-dependency path="directive/scrollTo"/>
 /// <amd-dependency path="service/resume"/>
 
@@ -38,19 +40,36 @@ class AboutController extends baseController {
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-     public static $inject: Array<string> = ["$scope", "$rootScope", "$routeParams", "$location", "$i18next", "resumeService"];
+    public static $inject: Array<string> = [
+        "$scope",
+        "$rootScope",
+        "$routeParams",
+        "$location",
+        "$i18next",
+        "tmhDynamicLocale",
+        "resumeService"
+    ];
 
-     /**
-      * @summary Constructor.
-      * @constructs
-      * @param {IScope}                 $scope          The model.
-      * @param {IRootScopeService}      $rootScope      The root scope
-      * @param {IRouteParamsService}    $routeParams    The route parameters.
-      * @param {ILocationService}       $location       The location service.
-      * @param {I18nextProvider}        $i18next        The i18next provider.
-      */
-    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider, private _resumeService: ResumeService) {
-        super("about", $scope, $rootScope, $routeParams, $location, $i18next);
+    /**
+     * @summary Constructor.
+     * @constructs
+     * @param {IScope}                  $scope              The model.
+     * @param {IRootScopeService}       $rootScope          The root scope
+     * @param {IRouteParamsService}     $routeParams        The route parameters.
+     * @param {ILocationService}        $location           The location service.
+     * @param {I18nextProvider}         $i18next            The i18next provider.
+     * @param {tmhDynamicLocaleService} tmhDynamicLocale    The angular dynamic locale.
+     * @param {ResumeService}           _resumeService      The resume service.
+     */
+    public constructor(
+        public $scope: ng.IScope,
+        public $rootScope: ng.IRootScopeService,
+        public $routeParams: angular.route.IRouteParamsService,
+        public $location: angular.ILocationService,
+        public $i18next: angular.i18next.I18nextProvider,
+        public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService,
+        private _resumeService: ResumeService) {
+        super("about", $scope, $rootScope, $routeParams, $location, $i18next, tmhDynamicLocale);
         this.$scope["initialize"] = this._initialize;
     };
 
@@ -65,6 +84,10 @@ class AboutController extends baseController {
 
         this._resumeService.getExperienceSection().then((companies: Array<Object>) => {
             this.$scope["companies"] = companies;
+        });
+
+        this._resumeService.getSkillsSection().then((skills: Array<Object>) => {
+            this.$scope["skills"] = skills;
         });
     };
 }

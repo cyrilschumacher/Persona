@@ -26,6 +26,10 @@ const base = {
 const paths = {
     copy: {
         bower: {
+            angular: {
+                source: path.join(base.bower, 'angular-i18n/*.*'),
+                destination: path.join(base.destination, 'content/locale/angular/')
+            },
             css: [
                 path.join(base.bower, 'css-spinners/css/spinners.css'),
                 path.join(base.bower, 'Ionicons/css/ionicons.css')
@@ -38,6 +42,8 @@ const paths = {
                 path.join(base.bower, 'angular-google-analytics/dist/angular-google-analytics.js'),
                 path.join(base.bower, 'angular-route/angular-route.js'),
                 path.join(base.bower, 'angular-sanitize/angular-sanitize.js'),
+                path.join(base.bower, 'angular-translate/angular-translate.js'),
+                path.join(base.bower, 'angular-dynamic-locale/dist/tmhDynamicLocale.js'),
                 path.join(base.bower, 'angularjs-viewhead/angularjs-viewhead.js'),
                 path.join(base.bower, 'autosize/dist/autosize.js'),
                 path.join(base.bower, 'i18next/i18next.js'),
@@ -91,7 +97,7 @@ function exec_browser_sync() {
             ]
         }
     });
-
+gutil.log(JSON.stringify(a));
     gulp.watch('dist/**/*.*').on('change', browserSync.reload);
 }
 
@@ -134,6 +140,9 @@ function exec_compass() {
  */
 function exec_copy() {
     gutil.log('Copy files...');
+
+    gulp.src(paths.copy.bower.angular.source)
+        .pipe(gulp.dest(paths.copy.bower.angular.destination));
 
     gulp.src(paths.copy.bower.font)
         .pipe(gulp.dest(base.destination + 'css/fonts/'));

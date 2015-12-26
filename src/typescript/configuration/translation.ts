@@ -21,48 +21,28 @@
  * SOFTWARE.
  */
 
-import app = require("app");
+/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
 
-class ResumeService {
+/**
+ * @summary Angular translation configuration block.
+ * @author  Cyril Schumacher
+ * @class
+ */
+class TranslationConfiguration {
     /**
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ["$http", "appConfig"];
+    public static $inject: Array<string> = ["tmhDynamicLocaleProvider"];
 
     /**
      * @summary Constructor.
-     * @param {IHttpService}
+     * @constructs
+     * @param {tmhDynamicLocaleProvider} tmhDynamicLocaleProvider The dynamic locale provider.
      */
-    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
+    public constructor(tmhDynamicLocaleProvider: angular.dynamicLocale.tmhDynamicLocaleProvider) {
+        tmhDynamicLocaleProvider.localeLocationPattern("/content/locale/angular/angular-locale_{{locale}}.js");
     }
-
-    /**
-     * @summary Gets the education section.
-     * @return {IPromise} The promise.
-     */
-    public getEducationSection = (): ng.IPromise<any> => {
-        const url = this.appConfig["rest"].server.concat("resume/education");
-        return this.$http.get(url).then(response => response.data);
-    };
-
-    /**
-     * @summary Gets the experience section.
-     * @return {IPromise} The promise.
-     */
-    public getExperienceSection = (): ng.IPromise<any> => {
-        const url = this.appConfig["rest"].server.concat("resume/experience");
-        return this.$http.get(url).then(response => response.data);
-    };
-
-    /**
-     * @summary Gets the skills section.
-     * @return {IPromise} The promise.
-     */
-    public getSkillsSection = (): ng.IPromise<any> => {
-        const url = this.appConfig["rest"].server.concat("resume/skills");
-        return this.$http.get(url).then(response => response.data);
-    };
 }
 
-app.module.service("resumeService", ResumeService);
+export = TranslationConfiguration;

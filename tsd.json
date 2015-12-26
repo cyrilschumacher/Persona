@@ -6,10 +6,10 @@
     "bundle": "typings/tsd.d.ts",
     "installed": {
         "jquery/jquery.d.ts": {
-            "commit": "e5a27ea95e47b95333784f1f0d590127b4e39a89"
+            "commit": "1da639a106527e0c4010b354a1efe52a3059a291"
         },
         "angularjs/angular.d.ts": {
-            "commit": "e5a27ea95e47b95333784f1f0d590127b4e39a89"
+            "commit": "1da639a106527e0c4010b354a1efe52a3059a291"
         },
         "requirejs/require.d.ts": {
             "commit": "e5a27ea95e47b95333784f1f0d590127b4e39a89"
@@ -37,6 +37,9 @@
         },
         "angular-google-analytics/angular-google-analytics.d.ts": {
             "commit": "e5a27ea95e47b95333784f1f0d590127b4e39a89"
+        },
+        "angular-dynamic-locale/angular-dynamic-locale.d.ts": {
+            "commit": "1da639a106527e0c4010b354a1efe52a3059a291"
         }
     }
 }

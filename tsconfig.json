@@ -19,6 +19,7 @@
         "./src/typescript/configuration/location.ts",
         "./src/typescript/configuration/register.ts",
         "./src/typescript/configuration/route.ts",
+        "./src/typescript/configuration/translation.ts",
         "./src/typescript/controller/about.ts",
         "./src/typescript/controller/base.ts",
         "./src/typescript/controller/contact.ts",
