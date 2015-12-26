@@ -33,17 +33,22 @@
 .l-header {
     &--home {
         &__wrapper {
-            @include display-flex;
-            @include align-items(center);
+            display: table;
             height: 100%;
             position: relative;
             width: 100%;
 
+            &__background {
+                background: $material-design-black;
+            }
+
             &__content {
                 color: $material-design-white;
+                display: table-cell;
                 margin: 0 auto;
                 padding: 0;
                 text-align: center;
+                vertical-align: middle;
                 z-index: 1;
 
                 &__me {
@@ -88,10 +93,6 @@
 
                     @include respond-to(tablet) {
                         margin-top: 2rem;
-                    }
-
-                    @include respond-to(desktop) {
-                        margin-top: 2.5rem;
                     }
 
                     @include respond-to(desktop) {

@@ -62,6 +62,10 @@ class AboutController extends baseController {
         this._resumeService.getEducationSection().then((schools: Array<Object>) => {
             this.$scope["schools"] = schools;
         });
+
+        this._resumeService.getExperienceSection().then((companies: Array<Object>) => {
+            this.$scope["companies"] = companies;
+        });
     };
 }
 

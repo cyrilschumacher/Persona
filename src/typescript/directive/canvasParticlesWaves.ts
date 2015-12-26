@@ -221,7 +221,7 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
         }
 
         this._renderer = new THREE.CanvasRenderer();
-        this._renderer.setClearColor(0x212121);
+        this._renderer.setClearColor(0xffffff, 0);
         this._renderer.setPixelRatio(window.devicePixelRatio);
         this._renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(this._renderer.domElement);

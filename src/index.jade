@@ -61,13 +61,21 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 					span Menu
 				ul
 					li
-						a(data-ng-i18next="[title]navigation.home;navigation.home" href="/{{language}}/")
+						a(href="/{{language}}/")
+							span.icon.ion-ios-home-outline
+							span(data-ng-i18next="[title]navigation.home;navigation.home")
 					li
-						a(data-ng-i18next="[title]navigation.about;navigation.about" href="/{{language}}/about")
+						a(href="/{{language}}/about")
+							span.icon.ion-ios-person-outline
+							span(data-ng-i18next="[title]navigation.about;navigation.about")
 					li
-						a(data-ng-i18next="[title]navigation.works;navigation.works" href="/{{language}}/works")
+						a(href="/{{language}}/works")
+							span.icon.ion-ios-pricetags-outline
+							span(data-ng-i18next="[title]navigation.works;navigation.works")
 					li
-						a(data-ng-i18next="[title]navigation.contact;navigation.contact" href="/{{language}}/contact")
+						a(href="/{{language}}/contact")
+							span.icon.ion-ios-email-outline
+							span(data-ng-i18next="[title]navigation.contact;navigation.contact")
 
 		.loading(data-ng-cloak)
 			.loading__wrapper

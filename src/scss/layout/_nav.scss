@@ -21,6 +21,7 @@
 // SOFTWARE.
 
 .l-nav {
+    background: none;
     z-index: 99;
 
     .bt-menu-trigger {
@@ -34,5 +35,68 @@
             right: 0;
             width: 50%;
         }
+    }
+
+    ul {
+        li {
+            @include respond-to(tablet) {
+                height: 11rem;
+                line-height: normal;
+            }
+
+            @include respond-to(desktop) {
+                height: 11rem;
+                line-height: normal;
+            }
+
+            @include respond-to(wide-screen) {
+                height: 11rem;
+                line-height: normal;
+            }
+
+            a {
+                font-size: 1.5rem !important;
+            }
+        }
+    }
+
+    .icon {
+        font-size: 4rem;
+
+        @include respond-to(smaller-smartphone) {
+            display: none;
+        }
+
+        @include respond-to(smartphone) {
+            display: none;
+        }
+
+        @include respond-to(tablet) {
+            display: block;
+        }
+
+        @include respond-to(desktop) {
+            display: block;
+        }
+
+        @include respond-to(wide-screen) {
+            display: block;
+        }
+    }
+}
+
+.bt-menu-open {
+    border-width: 5rem 5rem 9rem 5rem !important;
+
+    @include respond-to(tablet) {
+        border-bottom-width: 12.5rem !important;
+    }
+
+    @include respond-to(desktop) {
+        border-bottom-width: 12.5rem !important;
+    }
+
+    @include respond-to(wide-screen) {
+        border-bottom-width: 12.5rem !important;
     }
 }

@@ -22,9 +22,25 @@
 
 .l-footer {
     &--home {
-        bottom: 2rem;
+        background: none;
         left: 0;
         position: absolute;
         right: 0;
+
+        @include respond-to(smaller-smartphone) {
+            bottom: .5rem;
+        }
+
+        @include respond-to(smartphone) {
+            bottom: 1rem;
+        }
+
+        @include respond-to(tablet) {
+            bottom: 1.5rem;
+        }
+
+        @include respond-to(desktop) {
+            bottom: 2rem;
+        }
     }
 }

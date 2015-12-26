@@ -47,11 +47,11 @@ class ResumeService {
     };
 
     /**
-     * @summary Gets the experiences section.
+     * @summary Gets the experience section.
      * @return {IPromise} The promise.
      */
-    public getExperiencesSection = (): ng.IPromise<any> => {
-        const url = this.appConfig["rest"].server.concat("resume/experiences");
+    public getExperienceSection = (): ng.IPromise<any> => {
+        const url = this.appConfig["rest"].server.concat("resume/experience");
         return this.$http.get(url).then(response => response.data);
     };
 }
