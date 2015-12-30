@@ -30,6 +30,7 @@ require.config({
         "angular-google-analytics": "vendor/angular-google-analytics",
         "angular-route": "vendor/angular-route",
         "angular-sanitize": "vendor/angular-sanitize",
+        "angular-scroll": "vendor/angular-scroll",
         "angular-translate": "vendor/angular-translate",
         "angularjs-viewhead": "vendor/angularjs-viewhead",
         "autosize": "vendor/autosize",
@@ -56,6 +57,7 @@ require.config({
         "angular-google-analytics": ["angular"],
         "angular-route": ["angular"],
         "angular-sanitize": ["angular"],
+        "angular-scroll": ["angular"],
         "angular-translate": ["angular"],
         "angularjs-viewhead": ["angular"],
         "tmhDynamicLocale": ["angular", "angular-translate"],
@@ -70,6 +72,7 @@ require.config({
             "angular-google-analytics",
             "angular-route",
             "angular-sanitize",
+            "angular-scroll",
             "angularjs-viewhead",
             "ng-i18next",
             "tmhDynamicLocale"

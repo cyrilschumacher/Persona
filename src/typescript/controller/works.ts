@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
+
 import app = require("app");
 import baseController = require("controller/base");
 
@@ -34,10 +36,17 @@ class WorksController extends baseController {
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-     public static $inject: Array<string> = ["$scope", "$rootScope", "$routeParams", "$location", "$i18next"];
+     public static $inject: Array<string> = [
+         "$scope",
+         "$rootScope",
+         "$routeParams",
+         "$location",
+         "$i18next",
+         "tmhDynamicLocale"
+     ];
 
      /**
-      * Constructor.
+      * @summary Constructor.
       * @constructs
       * @param {IScope}                 $scope          The model.
       * @param {IRootScopeService}      $rootScope      The root scope
@@ -45,8 +54,14 @@ class WorksController extends baseController {
       * @param {ILocationService}       $location       The location service.
       * @param {I18nextProvider}        $i18next        The i18next provider.
       */
-    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
-        super("works", $scope, $rootScope, $routeParams, $location, $i18next);
+    public constructor(
+        public $scope: ng.IScope,
+        public $rootScope: ng.IRootScopeService,
+        public $routeParams: angular.route.IRouteParamsService,
+        public $location: angular.ILocationService,
+        public $i18next: angular.i18next.I18nextProvider,
+        public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService) {
+        super("works", $scope, $rootScope, $routeParams, $location, $i18next, tmhDynamicLocale);
     };
 }
 

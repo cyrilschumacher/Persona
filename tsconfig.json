@@ -29,12 +29,12 @@
         "./src/typescript/directive/canvasParticlesWaves.ts",
         "./src/typescript/directive/fullHeightWindow.ts",
         "./src/typescript/directive/isFilled.ts",
-        "./src/typescript/directive/scrollTo.ts",
         "./src/typescript/loader.ts",
         "./src/typescript/main.ts",
         "./src/typescript/provider/configuration.ts",
         "./src/typescript/run/googleAnalytics.ts",
         "./src/typescript/run/templateCache.ts",
+        "./src/typescript/service/github.ts",
         "./src/typescript/service/mail.ts",
         "./src/typescript/service/resume.ts"
     ],

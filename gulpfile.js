@@ -23,6 +23,18 @@ const base = {
     source: path.join(__dirname, 'src/'),
     destination: path.join(__dirname, 'dist/')
 };
+const directory = {
+    source: {
+        content: path.join(base.source, 'content/'),
+        scss: path.join(base.source, 'scss/'),
+        typescript: path.join(base.source, 'typescript/')
+    },
+    destination: {
+        content: path.join(base.destination, 'content/'),
+        css: path.join(base.destination, 'css/'),
+        javascript: path.join(base.destination, 'javascript/')
+    }
+};
 const paths = {
     copy: {
         bower: {
@@ -42,6 +54,7 @@ const paths = {
                 path.join(base.bower, 'angular-google-analytics/dist/angular-google-analytics.js'),
                 path.join(base.bower, 'angular-route/angular-route.js'),
                 path.join(base.bower, 'angular-sanitize/angular-sanitize.js'),
+                path.join(base.bower, 'angular-scroll/angular-scroll.js'),
                 path.join(base.bower, 'angular-translate/angular-translate.js'),
                 path.join(base.bower, 'angular-dynamic-locale/dist/tmhDynamicLocale.js'),
                 path.join(base.bower, 'angularjs-viewhead/angularjs-viewhead.js'),
@@ -53,6 +66,10 @@ const paths = {
                 path.join(base.bower, 'requirejs/require.js'),
                 path.join(base.bower, 'three.js/three.js')
             ]
+        },
+        configuration: {
+            source: path.join(base.source, 'typescript/configuration.json'),
+            destination: path.join(base.destination, 'javascript/')
         },
         font: {
             source: path.join(base.source, 'content/font/**/*.*'),
@@ -97,8 +114,6 @@ function exec_browser_sync() {
             ]
         }
     });
-gutil.log(JSON.stringify(a));
-    gulp.watch('dist/**/*.*').on('change', browserSync.reload);
 }
 
 /**
@@ -144,6 +159,8 @@ function exec_copy() {
     gulp.src(paths.copy.bower.angular.source)
         .pipe(gulp.dest(paths.copy.bower.angular.destination));
 
+    gulp.src(paths.copy.configuration.source)
+        .pipe(gulp.dest(paths.copy.configuration.destination));
     gulp.src(paths.copy.bower.font)
         .pipe(gulp.dest(base.destination + 'css/fonts/'));
     gulp.src(paths.copy.font.source)
@@ -200,10 +217,10 @@ function exec_imagemin() {
         use: [pngquant()]
     };
 
-    gulp.src(paths.image.source)
+    gulp.src(paths.copy.image.source)
         .pipe(plumber())
         .pipe(imagemin(options))
-        .pipe(gulp.dest(paths.image.destination));
+        .pipe(gulp.dest(paths.copy.image.destination));
 }
 
 /**
@@ -281,7 +298,12 @@ function exec_watch() {
     watch(paths.jade.source, exec_jade);
     watch(paths.scss.pattern, exec_compass);
     watch(paths.typescript.source, exec_typescript);
-    watch(paths.copy.content, exec_copy);
+
+    // Content.
+    watch(paths.copy.font.source, exec_copy);
+    watch(paths.copy.image.source, exec_copy);
+    watch(paths.copy.locale.source, exec_copy);
+    watch(paths.copy.javascript, exec_copy);
 }
 
 /**

@@ -24,9 +24,7 @@
     &--contact {
         &__wrapper {
             &__background {
-                background: $material-design-dark-primary-red url('/content/image/forest-fog-foggy-spruce.jpg');
-                background-position: center bottom;
-                background-size: cover;
+                background: $material-design-dark-primary-red;
             }
 
             &__content {

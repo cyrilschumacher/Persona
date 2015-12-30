@@ -23,12 +23,13 @@
 .l-footer {
     background: $material-design-black;
     color: $material-design-gray;
+    margin: 5rem 0 0;
     padding: 1rem 0;
     text-align: center;
     z-index: 2;
 
     @include respond-to(smaller-smartphone) {
-        padding: 1.5rem 0;
+        padding: 1rem 0;
     }
 
     @include respond-to(smartphone) {
@@ -36,15 +37,48 @@
     }
 
     @include respond-to(tablet) {
-        padding: 1.5rem 0;
-    }
-
-    @include respond-to(desktop) {
         padding: 2rem 0;
     }
 
+    @include respond-to(desktop) {
+        padding: 3rem 0;
+    }
+
     @include respond-to(wide-screen) {
-        padding: 2.5rem 0;
+        padding: 5rem 0;
+    }
+
+    &__scrollup {
+        @include border-radius(50%);
+        background: $material-design-black;
+        height: 4rem;
+        margin: 0 auto 2rem;
+        width: 4rem;
+
+        @include respond-to(smaller-smartphone) {
+            margin-top: -2rem;
+        }
+
+        @include respond-to(smartphone) {
+            margin-top: -3rem;
+        }
+
+        @include respond-to(tablet) {
+            margin-top: -3rem;
+        }
+
+        @include respond-to(desktop) {
+            margin-top: -4rem;
+        }
+
+        @include respond-to(wide-screen) {
+            margin-top: -6rem;
+        }
+
+        &__link {
+            font-size: 3rem;
+            text-decoration: none;
+        }
     }
 
     &__sitemap {
@@ -224,7 +258,6 @@
                 &__title {
                     @include respond-to(desktop) {
                         display: block;
-                        font-size: 1.2rem;
                     }
                 }
             }

@@ -24,10 +24,7 @@
     &--works {
         &__wrapper {
             &__background {
-                background: $material-design-dark-primary-green url('/content/image/lights-night-lens-blur.jpg') bottom;
-                background-attachment: fixed;
-                background-position: center bottom;
-                background-size: cover;
+                background: $material-design-dark-primary-green;
             }
 
             &__content {

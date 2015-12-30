@@ -21,6 +21,8 @@
  * SOFTWARE.
  */
 
+/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
+
 /// <amd-dependency path="directive/canvasParticlesWaves"/>
 /// <amd-dependency path="directive/fullHeightWindow"/>
 
@@ -37,19 +39,33 @@ class HomeController extends baseController {
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-     public static $inject: Array<string> = ["$scope", "$rootScope", "$routeParams", "$location", "$i18next"];
+    public static $inject: Array<string> = [
+        "$scope",
+        "$rootScope",
+        "$routeParams",
+        "$location",
+        "$i18next",
+        "tmhDynamicLocale"
+    ];
 
-     /**
-      * Constructor.
-      * @constructs
-      * @param {IScope}                 $scope          The model.
-      * @param {IRootScopeService}      $rootScope      The root scope
-      * @param {IRouteParamsService}    $routeParams    The route parameters.
-      * @param {ILocationService}       $location       The location service.
-      * @param {I18nextProvider}        $i18next        The i18next provider.
-      */
-    public constructor(public $scope: ng.IScope, public $rootScope: ng.IRootScopeService, public $routeParams: angular.route.IRouteParamsService, public $location: angular.ILocationService, public $i18next: angular.i18next.I18nextProvider) {
-        super("home", $scope, $rootScope, $routeParams, $location, $i18next);
+    /**
+     * Constructor.
+     * @constructs
+     * @param {IScope}                  $scope               The model.
+     * @param {IRootScopeService}       $rootScope           The root scope
+     * @param {IRouteParamsService}     $routeParams         The route parameters.
+     * @param {ILocationService}        $location            The location service.
+     * @param {I18nextProvider}         $i18next             The i18next provider.
+     * @param {tmhDynamicLocaleService} tmhDynamicLocale     The angular dynamic locale.
+     */
+    public constructor(
+        public $scope: ng.IScope,
+        public $rootScope: ng.IRootScopeService,
+        public $routeParams: angular.route.IRouteParamsService,
+        public $location: angular.ILocationService,
+        public $i18next: angular.i18next.I18nextProvider,
+        public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService) {
+        super("home", $scope, $rootScope, $routeParams, $location, $i18next, tmhDynamicLocale);
     };
 }
 

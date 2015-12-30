@@ -1,4 +1,11 @@
 {
+    "error": {
+        "resume": {
+            "education": "An error occured when retrieving schools.",
+            "experience": "An error occured when retrieving companies.",
+            "skills": "An error occurred while retrieving skills."
+        }
+    },
     "navigation": {
         "about": "About",
         "contact": "Contact",

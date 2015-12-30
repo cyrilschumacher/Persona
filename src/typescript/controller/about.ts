@@ -23,7 +23,6 @@
 
 /// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
 
-/// <amd-dependency path="directive/scrollTo"/>
 /// <amd-dependency path="service/resume"/>
 
 import app = require("app");
@@ -74,21 +73,35 @@ class AboutController extends baseController {
     };
 
     /**
+     * @summary Initializes resume section.
+     * @param {IPromise}    promise     The promise.
+     * @param {string}      scopeName   The scope name.
+     */
+    private _initializeSection = (promise: ng.IPromise<{}>, scopeName: string): void => {
+        const defaultStatus = {
+            data: {},
+            hasError: false,
+            inProgress: true
+        };
+
+        this.$scope[scopeName] = defaultStatus;
+        promise.then((schools: Array<Object>) => {
+            this.$scope[scopeName]["data"] = schools;
+        }, (response: any) => {
+            this.$scope[scopeName]["hasError"] = true;
+        }).finally(() => {
+            this.$scope[scopeName]["inProgress"] = false;
+        });
+    };
+
+    /**
      * @summary Initializes controller.
      * @private
      */
     private _initialize = (): void => {
-        this._resumeService.getEducationSection().then((schools: Array<Object>) => {
-            this.$scope["schools"] = schools;
-        });
-
-        this._resumeService.getExperienceSection().then((companies: Array<Object>) => {
-            this.$scope["companies"] = companies;
-        });
-
-        this._resumeService.getSkillsSection().then((skills: Array<Object>) => {
-            this.$scope["skills"] = skills;
-        });
+        this._initializeSection(this._resumeService.getEducationSection(), "education");
+        this._initializeSection(this._resumeService.getEducationSection(), "experience");
+        this._initializeSection(this._resumeService.getEducationSection(), "skills");
     };
 }
 

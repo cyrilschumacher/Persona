@@ -1,12 +1,13 @@
 section#education.l-section.l-section--about
 	header.l-section__header.l-section--about__header
 		.icon
-			span.icon__content.ion-ios-bookmarks-outline
+			i.icon__content.ion-ios-bookmarks-outline
 		h2(data-ng-i18next="view.about.education.title")
 		p.subtitle(data-ng-i18next="view.about.education.subtitle")
-	section.l-section__sub_section
-		#cd-timeline.cd-container
-			.cd-timeline-block(data-ng-repeat="school in schools | orderBy: 'period.start':true")
+	section
+		.loading.gauge-loader(data-ng-hide="!education.inProgress")
+		#cd-timeline.cd-container(data-ng-hide="education.inProgress || education.hasError")
+			.cd-timeline-block(data-ng-repeat="school in education.data | orderBy: 'period.start':true")
 				.cd-timeline-img
 					span(data-ng-bind="school.period.end | date:'yyyy'")
 				.cd-timeline-content(itemscope itemtype="http://schema.org/School")
@@ -27,3 +28,8 @@ section#education.l-section.l-section--about
 							span(data-ng-bind="school.location.address.city" itemprop="addressLocality")
 						.post-tag
 							span(data-ng-bind="school.location.address.countryRegion" itemprop="addressRegion")
+	section.error_box(data-ng-hide="!education.hasError || education.inProgress")
+		.error_box__icon
+			i.ion-alert-circled
+		.error_box__text
+			p(data-ng-i18next="error.resume.education")

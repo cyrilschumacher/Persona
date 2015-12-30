@@ -23,11 +23,14 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		
 		base(href="/")
 
-	body(data-status="{{status}}")
-		.container
+	body(data-status="{{status}}" du-scroll-container="scroll-container")
+		#top.container.ng-hide(data-ng-hide="status != 'ready'")
 			.wrapper(data-ng-view)
 
 			footer.l-footer(ng-class="{'l-footer--home': viewName == 'home'}" itemscope itemtype="http://schema.org/WPFooter")
+				.l-footer__scrollup
+					a.l-footer__scrollup__link(href="#top" du-smooth-scroll)
+						span.ion-ios-arrow-up
 				.l-footer__copyright
 					span Copyright © 
 					span(itemprop="copyrightYear") 2016 
@@ -88,4 +91,4 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 			.loading__wrapper
 				.timer-loader
 
-		script(data-main="/javascript/main.js" src="/javascript/vendor/require.js")
+		script(async data-main="/javascript/main.js" src="/javascript/vendor/require.js")

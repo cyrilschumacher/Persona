@@ -1,13 +1,21 @@
 {
-    "rest": {
+    "github": {
+        "server": "https://api.github.com/",
+        "resources": {
+            "repositories": {
+                "list": ":username/repos"
+            }
+        }
+    },
+    "api": {
         "server": "http://private-b90a0-cyrilschumacher.apiary-mock.com/",
-        "path": {
+        "resources": {
             "resume": {
                 "education": "resume/education",
                 "experience": "resume/experience",
                 "skills": "resume/skills"
             },
-            "works": "",
+            "works": "works/:id?",
             "mail": {
                 "send": "mail/send/"
             }

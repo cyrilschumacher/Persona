@@ -1,4 +1,11 @@
 {
+    "error": {
+        "resume": {
+            "education": "Une erreur est survenue lors de la récupération des écoles.",
+            "experience": "Une erreur est survenue lors de la récupération des entreprises.",
+            "skills": "Une erreur est survenue lors de la récupération des compétences."
+        }
+    },
     "navigation": {
         "about": "A propos",
         "contact": "Contact",
@@ -14,29 +21,29 @@
                 "title": "A propos"
             },
             "education": {
-                "subtitle": "Explorez, années par années, les institutions scolaires auquel j'ai participé",
+                "subtitle": "Explorez, années par années, les institutions scolaires auxquelles j'ai participé",
                 "title": "Mes formations"
             },
             "experience": {
-                "subtitle": "Apercevez les horizons que j'ai joints dans ma vie",
+                "subtitle": "Apercevez les horizons",
                 "title": "Mes expériences"
             },
             "skills": {
-                "subtitle": "Trouvez les compétences qui m'intéressent et que je maîtrise",
+                "subtitle": "Trouvez mes compétences que je maîtrise",
                 "title": "Mes compétences"
             },
             "get_know_me": "Apprenez à me connaître",
-            "through_various_information": "A travers diverses informations tel que mes formations, mes expériences ou mes compétences."
+            "through_various_information": "A travers diverses informations : mes formations, mes expériences ou mes compétences"
         },
         "contact": {
             "email_address": "Adresse e-mail",
-            "for_questions": "Pour toutes questions, n'hésitez pas à me contacter au moyen du formulaire ou mes coordonnées postales.",
+            "for_questions": "Pour toutes questions, n'hésitez pas à me contacter en complétant le formulaire ou prendre note de mes coordonnées postales",
             "many_routes": "Plusieurs itinéraires, une destination",
             "meet_me": "Retrouvez-moi à divers endroits au moyen de la carte interactive.",
             "message": "Message",
             "online": "En ligne",
             "postal_address": "Coordonnées postales",
-            "start_link": "Commencez un début de liaison avec ce formulaire.",
+            "start_link": "Commencez un début de liaison avec ce formulaire",
             "subject": "Sujet"
         },
         "home": {
@@ -48,7 +55,7 @@
         },
         "works": {
             "discover_works": "Découvrez mes travaux",
-            "works_carried": "Des travaux réalisés à l'école, en entreprise ou pendant mon temps libre."
+            "works_carried": "Des travaux réalisés en milieu scolaire, en entreprise ou pendant mon temps libre."
         }
     }
 }

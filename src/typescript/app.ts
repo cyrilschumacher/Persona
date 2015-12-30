@@ -21,16 +21,18 @@
  * SOFTWARE.
  */
 
-/* Provider */
+// Provider
 import ConfigurationProvider = require("./provider/configuration");
-/* Configuration */
+
+// Configuration
 import GoogleAnalyticsConfiguration = require("./configuration/googleAnalytics");
 import i18nextConfiguration = require("./configuration/i18next");
 import RegisterConfiguration = require("./configuration/register");
 import RouteConfiguration = require("./configuration/route");
 import LocationConfiguration = require("./configuration/location");
 import TranslationConfiguration = require("./configuration/translation");
-/* Run */
+
+// Run
 import GoogleAnalytics = require("./run/googleAnalytics");
 import TemplateCacheRun = require("./run/templateCache");
 
@@ -93,18 +95,6 @@ class Application {
     }
 
     /**
-     * @summary Initialize class.
-     * @public
-     */
-    public initialize = (): void => {
-        // Initialize constants, configuration and run blocks.
-        this._initializeProvider();
-        this._initializeConstants();
-        this._initializeConfigurations();
-        this._initializeRun();
-    };
-
-    /**
      * @summary Initialize configuration blocks.
      * @private
      */
@@ -156,8 +146,18 @@ class Application {
      * @private
      */
     private _initializeModule = (): void => {
-        const requires = ["tmh.dynamicLocale", "angular-google-analytics", "jm.i18next", "ngRoute", "viewhead"];
+        const requires = ["tmh.dynamicLocale", "angular-google-analytics", "jm.i18next", "ngRoute", "viewhead", "duScroll"];
         this._module = angular.module(this.name, requires);
+    };
+
+    /**
+     * @summary Initialize class.
+     */
+    public initialize = (): void => {
+        this._initializeProvider();
+        this._initializeConstants();
+        this._initializeConfigurations();
+        this._initializeRun();
     };
 }
 

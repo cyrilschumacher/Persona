@@ -24,10 +24,7 @@
     &--about {
         &__wrapper {
             &__background {
-                background: $material-design-dark-primary-blue url('/content/image/sea-man-person-ocean.jpg');
-                background-attachment: fixed;
-                background-position: center;
-                background-size: cover;
+                background: $material-design-dark-primary-blue;
             }
 
             &__content {

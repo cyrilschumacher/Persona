@@ -1,13 +1,13 @@
 section#experiences.l-section.l-section--about
 	header.l-section__header.l-section--about__header
 		.icon
-			span.icon__content.ion-ios-flask-outline
+			i.icon__content.ion-ios-flask-outline
 		h2(data-ng-i18next="view.about.experience.title")
 		p.subtitle(data-ng-i18next="view.about.experience.subtitle")
-		
-	section.l-section__sub_section
-		#cd-timeline.cd-container
-			.cd-timeline-block(data-ng-repeat="company in companies | orderBy: 'period.start':true")
+	section
+		.loading.gauge-loader(data-ng-hide="!experience.inProgress")
+		#cd-timeline.cd-container(data-ng-hide="experience.inProgress || experience.hasError")
+			.cd-timeline-block(data-ng-repeat="company in experience.data | orderBy: 'period.start':true")
 				.cd-timeline-img
 					span(data-ng-bind="company.period.end | date:'yyyy'")
 				.cd-timeline-content(itemscope itemtype="http://schema.org/Organization")
@@ -27,3 +27,8 @@ section#experiences.l-section.l-section--about
 							span(data-ng-bind="company.location.address.city" itemprop="addressLocality")
 						.post-tag
 							span(data-ng-bind="company.location.address.countryRegion" itemprop="addressRegion")
+	section.error_box(data-ng-hide="!experience.hasError || experience.inProgress")
+		.error_box__icon
+			i.ion-alert-circled
+		.error_box__text
+			p(data-ng-i18next="error.resume.experience")

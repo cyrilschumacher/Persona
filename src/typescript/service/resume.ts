@@ -23,46 +23,86 @@
 
 import app = require("app");
 
+/**
+ * @summary Service for get resume sections.
+ * @author  Cyril Schumacher
+ * @class
+ */
 class ResumeService {
     /**
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ["$http", "appConfig"];
+    public static $inject: Array<string> = ["$http", "$q", "appConfig"];
+
+    /**
+     * @summary Server address.
+     * @private
+     * @type {string}
+     */
+    private _serverAddress: string;
 
     /**
      * @summary Constructor.
-     * @param {IHttpService}
+     * @param {IHttpService}    $http       The HTTP service.
+     * @param {IQService}       $q          The Q service.
+     * @param {Object}          appConfig   The application configuration.
      */
-    public constructor(private $http: ng.IHttpService, private appConfig: Object) {
+    public constructor(private $http: ng.IHttpService, private $q: ng.IQService, private appConfig: Object) {
+        this._serverAddress = this.appConfig["api"]["server"];
     }
+
+    /**
+     * @summary Callback for failure of the request.
+     * @param {IHttpPromiseCallbackArg} response The HTTP response.
+     * @return {Object} The data.
+     */
+    private _errorCallback = (response: ng.IHttpPromiseCallbackArg<Object>): Object => {
+        return this.$q.reject(response.data);
+    };
+
+    /**
+     * @summary Callback for success of the request.
+     * @param {IHttpPromiseCallbackArg} response The HTTP response.
+     * @return {Object} The data.
+     */
+    private _successCallback = (response: ng.IHttpPromiseCallbackArg<Object>): Object => {
+        return response.data;
+    };
 
     /**
      * @summary Gets the education section.
      * @return {IPromise} The promise.
      */
-    public getEducationSection = (): ng.IPromise<any> => {
-        const url = this.appConfig["rest"].server.concat("resume/education");
-        return this.$http.get(url).then(response => response.data);
+    public getEducationSection = (): ng.IPromise<Object> => {
+        const path = this.appConfig["api"]["resources"]["resume"]["education"];
+        const url = this._serverAddress.concat(path);
+
+        return this.$http.get(url).then(this._successCallback, this._errorCallback);
     };
 
     /**
      * @summary Gets the experience section.
      * @return {IPromise} The promise.
      */
-    public getExperienceSection = (): ng.IPromise<any> => {
-        const url = this.appConfig["rest"].server.concat("resume/experience");
-        return this.$http.get(url).then(response => response.data);
+    public getExperienceSection = (): ng.IPromise<Object> => {
+        const path = this.appConfig["api"]["resources"]["resume"]["experience"];
+        const url = this._serverAddress.concat(path);
+
+        return this.$http.get(url).then(this._successCallback, this._errorCallback);
     };
 
     /**
      * @summary Gets the skills section.
      * @return {IPromise} The promise.
      */
-    public getSkillsSection = (): ng.IPromise<any> => {
-        const url = this.appConfig["rest"].server.concat("resume/skills");
-        return this.$http.get(url).then(response => response.data);
+    public getSkillsSection = (): ng.IPromise<Object> => {
+        const path = this.appConfig["api"]["resources"]["resume"]["skills"];
+        const url = this._serverAddress.concat(path);
+
+        return this.$http.get(url).then(this._successCallback, this._errorCallback);
     };
 }
 
 app.module.service("resumeService", ResumeService);
+export = ResumeService;
