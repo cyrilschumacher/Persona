@@ -8,6 +8,16 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		meta(name="msvalidate.01" content="BD1F594BA412B936EF9573364E3DD353")
 		meta(name="google-site-verification" content="Um2PnIeRij_vuWfeGs0zW3J0khKVI-FvX8czxYjrm6k")
 		
+		
+		meta(property="og:title" content="{{viewTitle}}")
+		meta(property="og:site_name" content="Cyril Schumacher")
+		meta(property="og:type" content="website")
+		meta(property="og:image" content="/content/image/me.jpg")
+		meta(property="og:locale" content="{{language}}")
+		meta(property="og:locale:alternate" content="fr")
+		meta(property="og:locale:alternate" content="en")
+		meta(property="og:url" content="{{currentPath}}")
+		
 		meta(http-equiv="content-language" content="fr,en")
 
 		link(rel="shortcut icon" href="/content/image/favicon.ico")
@@ -15,15 +25,16 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 		
 		link(rel="alternate" hreflang="fr" href="//www.cyrilschumacher.fr/fr")
 		link(rel="alternate" hreflang="en" href="//www.cyrilschumacher.fr/en")
-		
+
 		link(rel="stylesheet" href="/css/vendor/ionicons.css")
 		link(rel="stylesheet" href="/css/vendor/spinners.css")
 		link(rel="stylesheet" href="/css/base.css")
+
 		link(rel="shortcut icon" href="/favicon.ico")
 		
 		base(href="/")
 
-	body(data-status="{{status}}" du-scroll-container="scroll-container")
+	body(data-status="{{status}}" data-du-scroll-container)
 		#top.container.ng-hide(data-ng-hide="status != 'ready'")
 			.wrapper(data-ng-view)
 
@@ -39,13 +50,13 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 				.l-footer__sitemap
 					ul.l-footer__sitemap__items
 						li
-							a(data-ng-i18next="[title]navigation.home;navigation.home" href="/{{language}}/")
+							a(data-ng-i18next="[title]navigation.home;navigation.home" data-ng-href="/{{language}}")
 						li
-							a(data-ng-i18next="[title]navigation.about;navigation.about" href="/{{language}}/about")
+							a(data-ng-i18next="[title]navigation.about;navigation.about" data-ng-href="/{{language ? language + '/' : ''}}about")
 						li
-							a(data-ng-i18next="[title]navigation.works;navigation.works" href="/{{language}}/works")
+							a(data-ng-i18next="[title]navigation.works;navigation.works" data-ng-href="/{{language ? language + '/' : ''}}works")
 						li
-							a(data-ng-i18next="[title]navigation.contact;navigation.contact" href="/{{language}}/contact")
+							a(data-ng-i18next="[title]navigation.contact;navigation.contact" data-ng-href="/{{language ? language + '/' : ''}}contact")
 			
 				ul.l-footer__social_network
 					li.l-footer__social_network__item
@@ -71,19 +82,19 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 					span Menu
 				ul
 					li
-						a(itemprop="url" href="/{{language}}/" data-ng-i18next="[title]navigation.home")
+						a(itemprop="url" href="/{{language ? language + '/' : ''}}" data-ng-i18next="[title]navigation.home")
 							span.icon.ion-ios-home-outline
 							span(data-ng-i18next="[title]navigation.home;navigation.home")
 					li
-						a(itemprop="url" href="/{{language}}/about" data-ng-i18next="[title]navigation.about")
+						a(itemprop="url" href="/{{language ? language + '/' : ''}}about" data-ng-i18next="[title]navigation.about")
 							span.icon.ion-ios-person-outline
 							span(data-ng-i18next="[title]navigation.about;navigation.about")
 					li
-						a(itemprop="url" href="/{{language}}/works" data-ng-i18next="[title]navigation.works")
+						a(itemprop="url" href="/{{language ? language + '/' : ''}}works" data-ng-i18next="[title]navigation.works")
 							span.icon.ion-ios-pricetags-outline
 							span(data-ng-i18next="navigation.works")
 					li
-						a(itemprop="url" href="/{{language}}/contact" data-ng-i18next="[title]navigation.contact")
+						a(itemprop="url" href="/{{language ? language + '/' : ''}}contact" data-ng-i18next="[title]navigation.contact")
 							span.icon.ion-ios-email-outline
 							span(data-ng-i18next="[title]navigation.contact;navigation.contact")
 

@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-import app = require("app");
+import app = require("../app");
 
 /**
  * @summary Service for get GitHub informations.
@@ -33,7 +33,7 @@ class GitHubService {
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-    public static $inject: Array<string> = ["$http", "$q", "appConfig"];
+    public static $inject: Array<string> = ["$resource", "appConfig"];
 
     /**
      * @summary Server address.
@@ -44,43 +44,27 @@ class GitHubService {
 
     /**
      * @summary Constructor.
-     * @param {IHttpService}    $http       The HTTP service.
-     * @param {IQService}       $q          The Q service.
-     * @param {Object}          appConfig   The application configuration.
+     * @constructs
+     * @param {IResourceService}    $resource   The resource service.
+     * @param {Object}              appConfig   The application configuration.
      */
-    public constructor(private $http: ng.IHttpService, private $q: ng.IQService, private appConfig: Object) {
-        this._serverAddress = this.appConfig["api"]["server"];
+    public constructor(private $resource: angular.resource.IResourceService, private appConfig: Object) {
+        this._serverAddress = this.appConfig["github"]["server"];
     }
-
-    /**
-     * @summary Callback for failure of the request.
-     * @param {IHttpPromiseCallbackArg} response The HTTP response.
-     * @return {Object} The data.
-     */
-    private _errorCallback = (response: ng.IHttpPromiseCallbackArg<Object>): Object => {
-        return this.$q.reject(response.data);
-    };
-
-    /**
-     * @summary Callback for success of the request.
-     * @param {IHttpPromiseCallbackArg} response The HTTP response.
-     * @return {Object} The data.
-     */
-    private _successCallback = (response: ng.IHttpPromiseCallbackArg<Object>): Object => {
-        return response.data;
-    };
 
     /**
      * @summary List public repositories for the specified user.
      * @param {string} username The username.
-     * @return {Object} the repositories.
+     * @return {Object} The repositories.
      */
     public getUserRepositories = (username: string): ng.IPromise<Object> => {
         const path = this.appConfig["github"]["resources"]["repositories"]["list"];
         const url = this._serverAddress.concat(path);
-        const parameters = { params: { "username": username } };
+        const parameters = { "username": username };
+        const actions = { query: { isArray: true, method: "GET"}};
+        const query = this.$resource(url, parameters, actions).query();
 
-        return this.$http.get(url, parameters).then(this._successCallback, this._errorCallback);
+        return query.$promise;
     };
 }
 

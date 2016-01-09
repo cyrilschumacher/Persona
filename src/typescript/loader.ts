@@ -21,9 +21,6 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="app.ts" />
-
 import app = require("./app");
 
 // Initialize application.

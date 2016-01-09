@@ -95,7 +95,7 @@ class Application {
     }
 
     /**
-     * @summary Initialize configuration blocks.
+     * @summary Initializes configuration blocks.
      * @private
      */
     private _initializeConfigurations = (): void => {
@@ -108,7 +108,7 @@ class Application {
     };
 
     /**
-     * @summary Initialize run blocks.
+     * @summary Initializes run blocks.
      * @private
      */
     private _initializeRun = (): void => {
@@ -117,7 +117,7 @@ class Application {
     };
 
     /**
-     * @summary Initialize providers.
+     * @summary Initializes providers.
      * @private
      */
     private _initializeProvider = (): void => {
@@ -128,7 +128,7 @@ class Application {
     };
 
     /**
-     * @summary Initialize constants.
+     * @summary Initializes constants.
      * @private
      */
     private _initializeConstants = (): void => {
@@ -142,16 +142,16 @@ class Application {
     };
 
     /**
-     * @summary Initialize module.
+     * @summary Initializes module.
      * @private
      */
     private _initializeModule = (): void => {
-        const requires = ["tmh.dynamicLocale", "angular-google-analytics", "jm.i18next", "ngRoute", "viewhead", "duScroll"];
+        const requires = ["tmh.dynamicLocale", "angular-google-analytics", "jm.i18next", "ngRoute", "viewhead", "duScroll", "ngResource"];
         this._module = angular.module(this.name, requires);
     };
 
     /**
-     * @summary Initialize class.
+     * @summary Initializes class.
      */
     public initialize = (): void => {
         this._initializeProvider();

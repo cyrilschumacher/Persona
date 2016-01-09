@@ -6,10 +6,8 @@ section#skills.l-section.l-section--about
 		p.subtitle(data-ng-i18next="view.about.skills.subtitle")
 	section
 		.loading.gauge-loader(data-ng-hide="!skills.inProgress")
-		article(data-ng-repeat="skillCategory in skills.data" data-ng-hide="skills.inProgress || skills.hasError")
-			h3(data-ng-bind="skillCategory.name[language]")
-			.skill(data-ng-repeat="skill in skillCategory.values")
-				.skill__name(data-ng-bind="skill")
+		article(data-ng-repeat="skill in skills.data" data-ng-hide="skills.inProgress || skills.hasError")
+			p(data-ng-bind="skill.name")
 	section.error_box(data-ng-hide="!skills.hasError || skills.inProgress")
 		.error_box__icon
 			i.ion-alert-circled

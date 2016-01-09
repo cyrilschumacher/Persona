@@ -21,8 +21,6 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angularjs/angular.d.ts" />
-
 /**
  * @summary Manages the template cache.
  * @author  Cyril Schumacher

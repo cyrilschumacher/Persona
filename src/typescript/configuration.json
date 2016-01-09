@@ -3,7 +3,7 @@
         "server": "https://api.github.com/",
         "resources": {
             "repositories": {
-                "list": ":username/repos"
+                "list": "users/:username/repos"
             }
         }
     },

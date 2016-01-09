@@ -21,11 +21,77 @@
  * SOFTWARE.
  */
 
+import app = require("../app");
+
 class MailService {
     /**
-     * @summary Constructor.
-     * @param {IHttpService}
+     * @summary Dependencies injection.
+     * @type {Array<string>}
      */
-    public constructor(private $http: ng.IHttpService, private configuration: Object) {
+    public static $inject: Array<string> = ["$http", "$q", "appConfig"];
+
+    /**
+     * @summary Server address.
+     * @private
+     * @type {string}
+     */
+    private _serverAddress: string;
+
+    /**
+     * @summary Constructor.
+     * @constructs
+     * @param {IHttpService}    $http       The HTTP service.
+     * @param {IQService}       $q          The Q service.
+     * @param {Object}          appConfig   The application configuration.
+     */
+    public constructor(private $http: ng.IHttpService, private $q: ng.IQService, private appConfig: Object) {
+        this._serverAddress = this.appConfig["api"]["server"];
     }
+
+    /**
+     * @summary Callback for failure of the request.
+     * @param {IHttpPromiseCallbackArg} response The HTTP response.
+     * @return {Object} The data.
+     */
+    private _errorCallback = (response: ng.IHttpPromiseCallbackArg<{}>): Object => {
+        return this.$q.reject(response.data);
+    };
+
+    /**
+     * @summary Callback for success of the request.
+     * @param {IHttpPromiseCallbackArg} response The HTTP response.
+     * @return {Object} The data.
+     */
+    private _successCallback = (response: ng.IHttpPromiseCallbackArg<{}>): Object => {
+        return response.data;
+    };
+
+    /**
+     * @summary Sends e-mail.
+     * @param {string}  emailAddress    The e-mail address.
+     * @param {string}  subject         The subject.
+     * @param {string}  message         The message.
+     * @param {string}  catpcha         The captcha.
+     * @return {IPromise} The promise.
+     */
+    public send = (emailAddress: string, subject: string, message: string, captcha: string): ng.IPromise<{}> => {
+        const path = this.appConfig["api"]["resources"]["resume"]["skills"];
+        const url = this._serverAddress.concat(path);
+        const config: ng.IRequestShortcutConfig = {
+            headers: {
+                "Content-Type": "application/json; charset=utf-8"
+            }
+        };
+        const data = {
+            captcha: captcha,
+            emailAddress: emailAddress,
+            message: message,
+            subject: subject
+        };
+
+        return this.$http.post(url, data, config).then(this._successCallback, this._errorCallback);
+    };
 }
+
+app.module.service("mailService", MailService);
+export = MailService;

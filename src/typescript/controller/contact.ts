@@ -25,8 +25,8 @@
 ///<amd-dependency path="directive/isFilled"/>
 ///<amd-dependency path="reCaptcha"/>
 
-import app = require("app");
-import baseController = require("controller/base");
+import app = require("../app");
+import baseController = require("../controller/base");
 
 /**
  * @summary Controller for contact page.

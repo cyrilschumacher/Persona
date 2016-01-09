@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../typings/requirejs/require.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 
 require.config({
     paths: {
@@ -29,6 +29,7 @@ require.config({
         "angular": "vendor/angular",
         "angular-google-analytics": "vendor/angular-google-analytics",
         "angular-route": "vendor/angular-route",
+        "angular-resource": "vendor/angular-resource",
         "angular-sanitize": "vendor/angular-sanitize",
         "angular-scroll": "vendor/angular-scroll",
         "angular-translate": "vendor/angular-translate",
@@ -56,6 +57,7 @@ require.config({
         },
         "angular-google-analytics": ["angular"],
         "angular-route": ["angular"],
+        "angular-resource": ["angular"],
         "angular-sanitize": ["angular"],
         "angular-scroll": ["angular"],
         "angular-translate": ["angular"],
@@ -71,6 +73,7 @@ require.config({
             "borderMenu",
             "angular-google-analytics",
             "angular-route",
+            "angular-resource",
             "angular-sanitize",
             "angular-scroll",
             "angularjs-viewhead",

@@ -21,11 +21,10 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
-
 /**
  * @summary Controller base.
  * @author  Cyril Schumacher
+ * @abstract
  * @class
  */
 abstract class ControllerBase {
@@ -48,26 +47,45 @@ abstract class ControllerBase {
         public $location: angular.ILocationService,
         public $i18next: angular.i18next.I18nextProvider,
         public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService) {
-        /* Function */
-        this.$rootScope["viewName"] = viewName;
+        // Function
         this.$rootScope["navigateTo"] = this._navigateTo;
 
-        /* Event */
+        // Variable
+        this.$rootScope["viewName"] = viewName;
+        this.$rootScope["currentPath"] = this.$location.absUrl();
+
+        // Event
         this.$scope.$on("$viewContentLoaded", this._onViewContentLoaded);
     }
+
+    /**
+     * @summary Gets the hostname extension.
+     * @return {string} The extension.
+     */
+    private _getHostnameExtension = (): string => {
+        const host = this.$location.host();
+        const elements = host.split(".");
+
+        return elements[elements.length - 1];
+    };
 
     /**
      * @summary Initializes localization.
      * @private
      */
     private _initializeLocalization = (): void => {
-        let language = this.$routeParams["language"];
-        if (!language) {
-            const navigatorLanguage = navigator.language || navigator.userLanguage;
-            language = navigatorLanguage.substr(0, 2);
+        const hostnameExtension = this._getHostnameExtension();
+        let language = hostnameExtension;
+
+        if ((hostnameExtension === "com") || ((hostnameExtension !== "fr") || (hostnameExtension !== "en"))) {
+            language = this.$routeParams["language"];
+            if (!language) {
+                const navigatorLanguage = navigator.language || navigator.userLanguage;
+                language = navigatorLanguage.substr(0, 2);
+            }
         }
 
-        this.$rootScope["language"] = language;
+        this.$rootScope["language"] = this.$routeParams["language"];
         this.$i18next.options.lng = language;
         this.tmhDynamicLocale.set(language);
     };
@@ -82,6 +100,7 @@ abstract class ControllerBase {
 
     /**
      * @summary Navigates to page.
+     * @private
      * @param {string} path The path.
      */
     private _navigateTo = (path: string): void => {
@@ -90,6 +109,7 @@ abstract class ControllerBase {
 
     /**
      * @summary Initializes controller.
+     * @private
      * @private
      */
     private _onViewContentLoaded = (): void => {

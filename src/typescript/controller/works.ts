@@ -21,10 +21,11 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
+/// <amd-dependency path="service/github"/>
 
-import app = require("app");
-import baseController = require("controller/base");
+import app = require("../app");
+import baseController = require("../controller/base");
+import GitHubService = require("../service/github");
 
 /**
  * @summary Controller for works page.
@@ -42,7 +43,8 @@ class WorksController extends baseController {
          "$routeParams",
          "$location",
          "$i18next",
-         "tmhDynamicLocale"
+         "tmhDynamicLocale",
+         "gitHubService"
      ];
 
      /**
@@ -53,6 +55,7 @@ class WorksController extends baseController {
       * @param {IRouteParamsService}    $routeParams    The route parameters.
       * @param {ILocationService}       $location       The location service.
       * @param {I18nextProvider}        $i18next        The i18next provider.
+      * @param {GitHubService}          githubService   The GitHub service.
       */
     public constructor(
         public $scope: ng.IScope,
@@ -60,8 +63,19 @@ class WorksController extends baseController {
         public $routeParams: angular.route.IRouteParamsService,
         public $location: angular.ILocationService,
         public $i18next: angular.i18next.I18nextProvider,
-        public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService) {
+        public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService,
+        private _gitHubService: GitHubService) {
         super("works", $scope, $rootScope, $routeParams, $location, $i18next, tmhDynamicLocale);
+        this.$scope["initialize"] = this._initialize;
+    };
+
+    /**
+     * @summary Initializes controller.
+     * @private
+     */
+    private _initialize = (): void => {
+        this._gitHubService.getUserRepositories("cyrilschumacher").then(data => {
+        });
     };
 }
 

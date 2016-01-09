@@ -25,11 +25,6 @@
 /// <amd-dependency path="projector"/>
 /// <amd-dependency path="jquery"/>
 
-/// <reference path="../../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../../typings/threejs/three-canvasrenderer.d.ts"/>
-/// <reference path="../../../typings/threejs/detector.d.ts"/>
-/// <reference path="../../../typings/threejs/three.d.ts" />
-
 import app = require("../app");
 
 /**
@@ -220,7 +215,8 @@ class CanvasParticlesWavesDirective implements ng.IDirective {
             }
         }
 
-        this._renderer = new THREE.CanvasRenderer({ alpha: true });
+		const parameters: THREE.CanvasRendererParameters = { alpha: true };
+        this._renderer = new THREE.CanvasRenderer(parameters);
         this._renderer.setPixelRatio(window.devicePixelRatio);
         this._renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(this._renderer.domElement);

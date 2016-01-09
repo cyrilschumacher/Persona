@@ -21,10 +21,6 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angularjs/angular.d.ts" />
-/// <reference path="../../../typings/jquery/jquery.d.ts" />
-/// <reference path="../../../typings/jquery.autosize/jquery.autosize.d.ts" />
-
 import app = require("../app");
 import autosize = require("autosize");
 

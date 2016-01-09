@@ -21,8 +21,6 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angularjs/angular.d.ts" />
-
 /**
  * @summary Persona location configuration block.
  * @author  Cyril Schumacher

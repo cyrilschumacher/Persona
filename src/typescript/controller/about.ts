@@ -21,13 +21,11 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
-
 /// <amd-dependency path="service/resume"/>
 
-import app = require("app");
-import baseController = require("controller/base");
-import ResumeService = require("service/resume");
+import app = require("../app");
+import baseController = require("../controller/base");
+import ResumeService = require("../service/resume");
 
 /**
  * @summary Controller for about page.

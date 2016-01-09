@@ -53,6 +53,7 @@ const paths = {
                 path.join(base.bower, 'angular/angular.js'),
                 path.join(base.bower, 'angular-google-analytics/dist/angular-google-analytics.js'),
                 path.join(base.bower, 'angular-route/angular-route.js'),
+                path.join(base.bower, 'angular-resource/angular-resource.js'),
                 path.join(base.bower, 'angular-sanitize/angular-sanitize.js'),
                 path.join(base.bower, 'angular-scroll/angular-scroll.js'),
                 path.join(base.bower, 'angular-translate/angular-translate.js'),
@@ -114,6 +115,13 @@ function exec_browser_sync() {
             ]
         }
     });
+}
+
+/**
+ * @summary Reloads the time-saving synchronised browser if one or more files are changed.
+ */
+function exec_browser_sync_watch() {
+    gulp.watch(['dist/javascript/**/*.js', 'dist/javascript/**/*.json', 'dist/css/**/*.css']).on('change', browserSync.reload);
 }
 
 /**
@@ -318,6 +326,7 @@ function exec_scss_lint() {
 
 // Individual tasks
 gulp.task('browser-sync', exec_browser_sync);
+gulp.task('browser-sync-watch', exec_browser_sync_watch);
 gulp.task('cssmin', exec_cssmin);
 gulp.task('compass', exec_compass);
 gulp.task('copy', exec_copy);
@@ -332,3 +341,4 @@ gulp.task('watch', exec_watch);
 // Tasks
 gulp.task('default', ['copy', 'typescript', 'jade', 'compass']);
 gulp.task('production', ['critical', 'uglify', 'cssmin', 'imagemin']);
+gulp.task('server', ['browser-sync', 'browser-sync-watch'])

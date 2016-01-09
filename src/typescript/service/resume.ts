@@ -21,7 +21,7 @@
  * SOFTWARE.
  */
 
-import app = require("app");
+import app = require("../app");
 
 /**
  * @summary Service for get resume sections.
@@ -44,6 +44,7 @@ class ResumeService {
 
     /**
      * @summary Constructor.
+     * @constructs
      * @param {IHttpService}    $http       The HTTP service.
      * @param {IQService}       $q          The Q service.
      * @param {Object}          appConfig   The application configuration.
@@ -54,6 +55,7 @@ class ResumeService {
 
     /**
      * @summary Callback for failure of the request.
+     * @private
      * @param {IHttpPromiseCallbackArg} response The HTTP response.
      * @return {Object} The data.
      */
@@ -63,6 +65,7 @@ class ResumeService {
 
     /**
      * @summary Callback for success of the request.
+     * @private
      * @param {IHttpPromiseCallbackArg} response The HTTP response.
      * @return {Object} The data.
      */

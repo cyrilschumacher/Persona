@@ -21,13 +21,11 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
-
 /// <amd-dependency path="directive/canvasParticlesWaves"/>
 /// <amd-dependency path="directive/fullHeightWindow"/>
 
-import app = require("app");
-import baseController = require("controller/base");
+import app = require("../app");
+import baseController = require("../controller/base");
 
 /**
  * @summary Controller for home page.

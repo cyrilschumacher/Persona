@@ -21,8 +21,6 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angular-google-analytics/angular-google-analytics.d.ts"/>
-
 /**
  * @summary Manages the Google Analytics provider.
  * @author  Cyril Schumacher

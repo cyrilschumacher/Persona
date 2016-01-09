@@ -21,8 +21,6 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/angular-dynamic-locale/angular-dynamic-locale.d.ts" />
-
 /**
  * @summary Angular translation configuration block.
  * @author  Cyril Schumacher

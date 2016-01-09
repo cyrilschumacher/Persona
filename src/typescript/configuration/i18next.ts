@@ -21,42 +21,40 @@
  * SOFTWARE.
  */
 
-/// <reference path="../../../typings/ng-i18next/ng-i18next.d.ts" />
-
 /**
  * Configuration for {@link i18next}.
  * @author  Cyril Schumacher
  * @class
  */
 class i18nextConfiguration {
-  /**
-   * @summary Dependencies injection.
-   * @type {Array<string>}
-   */
-  public static $inject: Array<string> = ["$i18nextProvider"];
+    /**
+     * @summary Dependencies injection.
+     * @type {Array<string>}
+     */
+    public static $inject: Array<string> = ["$i18nextProvider"];
 
-  /**
-   * @summary Constructor.
-   * @constructor
-   * @param {I18nextProvider} $i18nextProvider i18next provider.
-   */
-  public constructor(private $i18nextProvider: angular.i18next.I18nextProvider) {
-    this._initializeOptions();
-  }
+    /**
+     * @summary Constructor.
+     * @constructor
+     * @param {I18nextProvider} $i18nextProvider i18next provider.
+     */
+    public constructor(private $i18nextProvider: angular.i18next.I18nextProvider) {
+        this._initializeOptions();
+    }
 
-  /**
-   * @summary Initializes i18next provider.
-   * @private
-   */
-  private _initializeOptions = (): void => {
-    this.$i18nextProvider.options = {
-      fallbackLng: "fr",
-      lng: "fr",
-      resGetPath: "/content/locale/__ns__-__lng__.json",
-      useCookie: false,
-      useLocalStorage: false
+    /**
+     * @summary Initializes i18next provider.
+     * @private
+     */
+    private _initializeOptions = (): void => {
+        this.$i18nextProvider.options = {
+            fallbackLng: "fr",
+            lng: "fr",
+            resGetPath: "/content/locale/__ns__-__lng__.json",
+            useCookie: false,
+            useLocalStorage: false
+        };
     };
-  };
 }
 
 export = i18nextConfiguration;
