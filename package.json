@@ -30,6 +30,6 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-requirejs": "^0.2.2",
     "tslint": "^3.2.1",
-    "typescript": "^1.8.0-dev.20151030"
+    "typescript": "^1.7.5"
   }
 }
