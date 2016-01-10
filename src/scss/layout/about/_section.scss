@@ -86,9 +86,8 @@ $susy: (columns: 12);
         }
 
         header,
-        section,
-        footer {
-            padding: 1rem 2rem;
+        section {
+            padding: 1rem 3rem;
         }
 
         header {
@@ -104,6 +103,10 @@ $susy: (columns: 12);
             p {
                 font-size: inherit;
             }
+        }
+
+        footer {
+            padding: 1rem 2rem;
         }
 
         .post-tag {

@@ -1,4 +1,5 @@
 {
+    "no_summary": "Aucune description disponible.",
     "error": {
         "resume": {
             "education": "Une erreur est survenue lors de la récupération des écoles.",
@@ -36,26 +37,36 @@
             "through_various_information": "A travers diverses informations : mes formations, mes expériences ou mes compétences"
         },
         "contact": {
-            "email_address": "Adresse e-mail",
             "for_questions": "Pour toutes questions, n'hésitez pas à me contacter en complétant le formulaire ou prendre note de mes coordonnées postales",
             "many_routes": "Plusieurs itinéraires, une destination",
-            "meet_me": "Retrouvez-moi à divers endroits au moyen de la carte interactive.",
-            "message": "Message",
-            "online": "En ligne",
-            "postal_address": "Coordonnées postales",
             "start_link": "Commencez un début de liaison avec ce formulaire",
-            "subject": "Sujet"
+            "meet_me": "Retrouvez-moi à divers endroits au moyen de la carte interactive.",
+            "online": "En ligne",
+            "form": {
+                "email_address": "Adresse e-mail",
+                "message": "Message",
+                "postal_address": "Coordonnées postales",
+                "subject": "Sujet"
+            },
+            "meta": {
+                "description": "",
+                "title": "Me contacter"
+            }
         },
         "home": {
+            "discover_skills": "Découvrez mes compétences",
+            "student": "Étudiant en cinquième année à l'exia.cesi de Nancy",
             "meta": {
                 "description": "Je suis Cyril Schumacher, étudiant en cinquième année à l'exia.cesi de nancy et passionné des technologies Microsoft."
-            },
-            "discover_skills": "Découvrez mes compétences",
-            "student": "Étudiant en cinquième année à l'exia.cesi de Nancy"
+            }
         },
         "works": {
             "discover_works": "Découvrez mes travaux",
-            "works_carried": "Des travaux réalisés en milieu scolaire, en entreprise ou pendant mon temps libre."
+            "works_carried": "Des travaux réalisés en milieu scolaire, en entreprise ou pendant mon temps libre.",
+            "meta": {
+                "description": "",
+                "title": "Mes réalisations"
+            }
         }
     }
 }

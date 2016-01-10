@@ -77,7 +77,7 @@ class ResumeService {
      * @summary Gets the education section.
      * @return {IPromise} The promise.
      */
-    public getEducationSection = (): ng.IPromise<Object> => {
+    public getEducationSectionAsync = (): ng.IPromise<Object> => {
         const path = this.appConfig["api"]["resources"]["resume"]["education"];
         const url = this._serverAddress.concat(path);
 
@@ -88,7 +88,7 @@ class ResumeService {
      * @summary Gets the experience section.
      * @return {IPromise} The promise.
      */
-    public getExperienceSection = (): ng.IPromise<Object> => {
+    public getExperienceSectionAsync = (): ng.IPromise<Object> => {
         const path = this.appConfig["api"]["resources"]["resume"]["experience"];
         const url = this._serverAddress.concat(path);
 
@@ -99,7 +99,7 @@ class ResumeService {
      * @summary Gets the skills section.
      * @return {IPromise} The promise.
      */
-    public getSkillsSection = (): ng.IPromise<Object> => {
+    public getSkillsSectionAsync = (): ng.IPromise<Object> => {
         const path = this.appConfig["api"]["resources"]["resume"]["skills"];
         const url = this._serverAddress.concat(path);
 

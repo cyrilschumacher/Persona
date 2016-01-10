@@ -26,6 +26,8 @@
 import app = require("../app");
 import baseController = require("../controller/base");
 import GitHubService = require("../service/github");
+import ProjectModel = require("../model/works/project");
+import ProjectType = require("../model/works/type");
 
 /**
  * @summary Controller for works page.
@@ -37,26 +39,26 @@ class WorksController extends baseController {
      * @summary Dependencies injection.
      * @type {Array<string>}
      */
-     public static $inject: Array<string> = [
-         "$scope",
-         "$rootScope",
-         "$routeParams",
-         "$location",
-         "$i18next",
-         "tmhDynamicLocale",
-         "gitHubService"
-     ];
+    public static $inject: Array<string> = [
+        "$scope",
+        "$rootScope",
+        "$routeParams",
+        "$location",
+        "$i18next",
+        "tmhDynamicLocale",
+        "gitHubService"
+    ];
 
-     /**
-      * @summary Constructor.
-      * @constructs
-      * @param {IScope}                 $scope          The model.
-      * @param {IRootScopeService}      $rootScope      The root scope
-      * @param {IRouteParamsService}    $routeParams    The route parameters.
-      * @param {ILocationService}       $location       The location service.
-      * @param {I18nextProvider}        $i18next        The i18next provider.
-      * @param {GitHubService}          githubService   The GitHub service.
-      */
+    /**
+     * @summary Constructor.
+     * @constructs
+     * @param {IScope}                 $scope          The model.
+     * @param {IRootScopeService}      $rootScope      The root scope
+     * @param {IRouteParamsService}    $routeParams    The route parameters.
+     * @param {ILocationService}       $location       The location service.
+     * @param {I18nextProvider}        $i18next        The i18next provider.
+     * @param {GitHubService}          githubService   The GitHub service.
+     */
     public constructor(
         public $scope: ng.IScope,
         public $rootScope: ng.IRootScopeService,
@@ -70,12 +72,34 @@ class WorksController extends baseController {
     };
 
     /**
+     * @summary Gets the GitHub projects.
+     * @private
+     */
+    private _getGitHubProjects = (): void => {
+        this._gitHubService.getUserRepositoriesAsync("cyrilschumacher").then((data: Array<Object>) => {
+            for (let project of data) {
+                const name: any = {
+                    "en": project["name"],
+                    "fr": project["name"]
+                };
+                const summary: any = {
+                    "en": project["description"],
+                    "fr": project["description"]
+                };
+
+                let projectToAdd = new ProjectModel(name, ProjectType.FREE_TIME, null, summary, null, null);
+                this.$scope["projects"].push(projectToAdd);
+            }
+        });
+    };
+
+    /**
      * @summary Initializes controller.
      * @private
      */
     private _initialize = (): void => {
-        this._gitHubService.getUserRepositories("cyrilschumacher").then(data => {
-        });
+        this.$scope["projects"] = new Array<ProjectModel>();
+        this._getGitHubProjects();
     };
 }
 

@@ -86,8 +86,8 @@ class AboutController extends baseController {
         promise.then((schools: Array<Object>) => {
             this.$scope[scopeName]["data"] = schools;
         }, (response: any) => {
-            this.$scope[scopeName]["hasError"] = true;
-        }).finally(() => {
+                this.$scope[scopeName]["hasError"] = true;
+            }).finally(() => {
             this.$scope[scopeName]["inProgress"] = false;
         });
     };
@@ -97,9 +97,9 @@ class AboutController extends baseController {
      * @private
      */
     private _initialize = (): void => {
-        this._initializeSection(this._resumeService.getEducationSection(), "education");
-        this._initializeSection(this._resumeService.getEducationSection(), "experience");
-        this._initializeSection(this._resumeService.getEducationSection(), "skills");
+        this._initializeSection(this._resumeService.getEducationSectionAsync(), "education");
+        this._initializeSection(this._resumeService.getExperienceSectionAsync(), "experience");
+        this._initializeSection(this._resumeService.getSkillsSectionAsync(), "skills");
     };
 }
 

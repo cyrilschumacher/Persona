@@ -1,4 +1,5 @@
 {
+    "no_summary": "No available summary.",
     "error": {
         "resume": {
             "education": "An error occured when retrieving schools.",
@@ -36,26 +37,36 @@
             "through_various_information": "Through various information such as my training, my experiences and my skills."
         },
         "contact": {
-            "email_address": "Email address",
             "for_questions": "For any questions, do not hesitate to contact me using the form or my postal address.",
             "many_routes": "Many routes, one destination",
             "meet_me": "Meet me at various locations using the interactive map.",
-            "message": "Message",
             "online": "Online",
-            "postal_address": "Postal addresses",
             "start_link": "Start a link beginning with this form",
-            "subject": "Subject"
+            "form": {
+                "email_address": "Email address",
+                "message": "Message",
+                "postal_address": "Postal addresses",
+                "subject": "Subject"
+            },
+            "meta": {
+                "description": "",
+                "title": "Contact me"
+            }
         },
         "home": {
-            "meta": {
-                "description": "I am Cyril Schumacher, fifth-year student in exia.cesi Nancy and passionate about Microsoft technologies."
-            },
             "discover_skills": "Discover my skills",
-            "student": "Fifth-year student in exia.cesi Nancy"
+            "student": "Fifth-year student in exia.cesi Nancy",
+            "meta": {
+                "description": "I am Cyril Schumacher, fifth-year student at exia.cesi Nancy and passionate for the Microsoft technologies."
+            }
         },
         "works": {
             "discover_works": "Discover my works",
-            "works_carried": "Work completed in school, in business or in my free time."
+            "works_carried": "Work completed in school, in business or in my free time.",
+            "meta": {
+                "description": "",
+                "title": "My works"
+            }
         }
     }
 }

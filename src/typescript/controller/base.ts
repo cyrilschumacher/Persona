@@ -85,7 +85,7 @@ abstract class ControllerBase {
             }
         }
 
-        this.$rootScope["language"] = this.$routeParams["language"];
+        this.$rootScope["language"] = language;
         this.$i18next.options.lng = language;
         this.tmhDynamicLocale.set(language);
     };

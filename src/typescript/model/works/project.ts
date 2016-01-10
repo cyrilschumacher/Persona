@@ -10,17 +10,17 @@ class ProjectModel {
     /**
      * @summary Constructor.
      * @constructor
-     * @param {string}          name        The name.
+     * @param {Object}          name        The name.
      * @param {ProjectType}     type        The type.
      * @param {ProjectPeriod}   period      The period.
-     * @param {Array}           summary     The summary.
+     * @param {Object}          summary     The summary.
      * @param {Array}           thumbnails  The thumbnails.
      * @param {Array}           files       The files.
      */
-    public constructor(public name: string,
+    public constructor(public name: {[languageName: string]: string},
         public type: ProjectType,
         public period: ProjectPeriod,
-        public summary: Array<string>,
+        public summary: {[languageName: string]: string},
         public thumbnails: Array<string>,
         public files: Array<string>) {
     }

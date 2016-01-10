@@ -1,3 +1,7 @@
+view-title(data-ng-i18next="view.works.meta.title")
+meta(data-view-head name="description" data-ng-i18next="[content]view.works.meta.description")
+meta(data-view-head property="og:description" data-ng-i18next="[article]view.works.meta.description")
+
 div(data-ng-init="initialize()")
     header.l-header.l-header--works(role="banner" itemscope itemtype="http://schema.org/WPHeader")
         .l-header__wrapper.l-header--works__wrapper
@@ -5,3 +9,12 @@ div(data-ng-init="initialize()")
             .l-header__wrapper__content.l-header--works__wrapper__content
                 h1(data-ng-i18next="view.works.discover_works")
                 p.l-header__wrapper__content__subtitle.l-header--works__wrapper__content__subtitle(data-ng-i18next="view.works.works_carried")
+
+    section.l-section.l-section--works__projects
+        div.project(data-ng-repeat="project in projects")
+            div.project__image
+                i.project__image__icon.ion-folder
+                img
+            div.project__content
+                h2(data-ng-bind="project.name[language]")
+                p(data-ng-bind="project.summary[language] || ('no_summary' | i18next)")

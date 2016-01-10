@@ -15,11 +15,11 @@ section.l-section.l-section--contact
     section.l-section--contact__online
         form(name="contactForm")
             p
-                +manami-text-input-effect("email_address", "view.contact.email_address", "email", "model.form.email_address")(required)
+                +manami-text-input-effect("email_address", "view.contact.form.email_address", "email", "model.form.email_address")(required)
             p
-                +manami-text-input-effect("subject", "view.contact.subject", "text", "model.form.subject")(required)
+                +manami-text-input-effect("subject", "view.contact.form.subject", "text", "model.form.subject")(required)
             p
-                +manami-text-input-effect("message", "view.contact.message", "text", "model.form.message", "textarea")(data-autosize)
+                +manami-text-input-effect("message", "view.contact.form.message", "text", "model.form.message", "textarea")(data-autosize)
             p
                 .g-recaptcha(data-sitekey="6LctehETAAAAAB58Df0sFmzbNOGW_4Z37_iOQCP4")
             p

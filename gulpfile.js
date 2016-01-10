@@ -13,6 +13,7 @@ const modRewrite = require('connect-modrewrite');
 const path = require('path');
 const plumber = require('gulp-plumber');
 const scsslint = require('gulp-scss-lint');
+const sitemap = require('gulp-sitemap');
 const ts = require('gulp-typescript');
 const tslint = require('gulp-tslint');
 const uglify = require('gulp-uglify');
@@ -86,6 +87,10 @@ const paths = {
         locale: {
             source: path.join(base.source, 'content/locale/**/*.json'),
             destination: path.join(base.destination, 'content/locale/')
+        },
+        robots: {
+            source: path.join(base.source, 'robots.txt'),
+            destination: base.destination
         }
     },
     jade: {
@@ -121,7 +126,7 @@ function exec_browser_sync() {
  * @summary Reloads the time-saving synchronised browser if one or more files are changed.
  */
 function exec_browser_sync_watch() {
-    gulp.watch(['dist/javascript/**/*.js', 'dist/javascript/**/*.json', 'dist/css/**/*.css']).on('change', browserSync.reload);
+    gulp.watch(['dist/content/view/**/*.html', 'dist/javascript/**/*.js', 'dist/javascript/**/*.json', 'dist/css/**/*.css']).on('change', browserSync.reload);
 }
 
 /**
@@ -137,7 +142,9 @@ function exec_cssmin(cb) {
         .pipe(cssmin())
         .pipe(gulp.dest(paths.scss.destination));
 
-    if (cb && typeof cb === 'function') cb();
+    if (cb && typeof cb === 'function') {
+        cb();
+    }
 }
 
 /**
@@ -164,13 +171,10 @@ function exec_compass() {
 function exec_copy() {
     gutil.log('Copy files...');
 
-    gulp.src(paths.copy.bower.angular.source)
-        .pipe(gulp.dest(paths.copy.bower.angular.destination));
-
     gulp.src(paths.copy.configuration.source)
         .pipe(gulp.dest(paths.copy.configuration.destination));
-    gulp.src(paths.copy.bower.font)
-        .pipe(gulp.dest(base.destination + 'css/fonts/'));
+    gulp.src(paths.copy.robots.source)
+        .pipe(gulp.dest(paths.copy.robots.destination));
     gulp.src(paths.copy.font.source)
         .pipe(gulp.dest(paths.copy.font.destination));
     gulp.src(paths.copy.locale.source)
@@ -179,10 +183,16 @@ function exec_copy() {
         .pipe(gulp.dest(paths.copy.image.destination));
     gulp.src(paths.copy.javascript)
         .pipe(gulp.dest(base.destination + 'javascript/vendor/'));
+
+    // Bower dependencies.
+    gulp.src(paths.copy.bower.font)
+        .pipe(gulp.dest(base.destination + 'css/fonts/'));
     gulp.src(paths.copy.bower.javascript)
         .pipe(gulp.dest(base.destination + 'javascript/vendor/'));
     gulp.src(paths.copy.bower.css)
         .pipe(gulp.dest(base.destination + 'css/vendor/'));
+    gulp.src(paths.copy.bower.angular.source)
+        .pipe(gulp.dest(paths.copy.bower.angular.destination));
 }
 
 /**
@@ -209,7 +219,7 @@ function exec_critical() {
         }, {
             width: 1920,
             height: 1080
-        }],
+        }]
     };
     critical.generateInline(options);
 }
@@ -243,7 +253,9 @@ function exec_jade(cb) {
         .pipe(jade())
         .pipe(gulp.dest(paths.jade.destination));
 
-    if (cb && typeof cb === 'function') cb();
+    if (cb && typeof cb === 'function') {
+        cb();
+    }
 }
 
 /**
@@ -255,10 +267,13 @@ function exec_tslint(cb) {
 
     const source = [path.normalize(paths.source + '**/*.ts'), path.normalize('!' + paths.source + 'typing/**/*.ts')];
     gulp.src(source)
+        .pipe(plumber())
         .pipe(tslint())
         .pipe(tslint.report('verbose'));
 
-    if (cb && typeof cb === 'function') cb();
+    if (cb && typeof cb === 'function') {
+        cb();
+    }
 }
 
 /**
@@ -321,7 +336,22 @@ function exec_scss_lint() {
     gutil.log('Validate SCSS files...');
 
     return gulp.src(paths.scss.pattern)
+        .pipe(plumber())
         .pipe(scsslint());
+}
+
+/**
+ * @summary Generates sitemap.
+ */
+function generate_sitemap() {
+    const options = {
+        siteUrl: '/'
+    };
+
+    gulp.src('dist/content/view/*.html')
+        .pipe(plumber())
+        .pipe(sitemap(options))
+        .pipe(gulp.dest('./dist'));
 }
 
 // Individual tasks
@@ -334,11 +364,12 @@ gulp.task('critical', exec_critical);
 gulp.task('imagemin', exec_imagemin);
 gulp.task('jade', exec_jade);
 gulp.task('scss-lint', exec_scss_lint);
+gulp.task('sitemap', generate_sitemap);
 gulp.task('typescript', exec_typescript);
 gulp.task('uglify', exec_uglify);
 gulp.task('watch', exec_watch);
 
 // Tasks
 gulp.task('default', ['copy', 'typescript', 'jade', 'compass']);
-gulp.task('production', ['critical', 'uglify', 'cssmin', 'imagemin']);
-gulp.task('server', ['browser-sync', 'browser-sync-watch'])
+gulp.task('production', ['critical', 'uglify', 'cssmin', 'imagemin', 'sitemap']);
+gulp.task('server', ['browser-sync', 'browser-sync-watch']);

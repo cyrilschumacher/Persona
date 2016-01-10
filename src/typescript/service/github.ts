@@ -57,7 +57,7 @@ class GitHubService {
      * @param {string} username The username.
      * @return {Object} The repositories.
      */
-    public getUserRepositories = (username: string): ng.IPromise<Object> => {
+    public getUserRepositoriesAsync = (username: string): ng.IPromise<Object> => {
         const path = this.appConfig["github"]["resources"]["repositories"]["list"];
         const url = this._serverAddress.concat(path);
         const parameters = { "username": username };
