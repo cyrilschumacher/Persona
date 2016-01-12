@@ -18,30 +18,43 @@ require.config({
     callback: window.__karma__.start,
 
     paths: {
-        'angular': 'vendor/angular',
-        'angular-route': 'vendor/angular-route',
-        'angular-sanitize': 'vendor/angular-sanitize',
-        'angularjs-viewhead': 'vendor/angularjs-viewhead',
-        'autosize': 'vendor/autosize',
-        'canvasRenderer': 'vendor/CanvasRenderer',
-        'jquery': 'vendor/jquery',
-        'i18next': 'vendor/i18next',
-        'ng-i18next': 'vendor/ng-i18next',
-        'projector': 'vendor/Projector',
-        'three': 'vendor/three'
+        "angular": "vendor/angular",
+        "angular-google-analytics": "vendor/angular-google-analytics",
+        "angular-route": "vendor/angular-route",
+        "angular-resource": "vendor/angular-resource",
+        "angular-sanitize": "vendor/angular-sanitize",
+        "angular-scroll": "vendor/angular-scroll",
+        "angular-translate": "vendor/angular-translate",
+        "angularjs-viewhead": "vendor/angularjs-viewhead",
+        "autosize": "vendor/autosize",
+        "borderMenu": "vendor/borderMenu",
+        "canvasRenderer": "vendor/CanvasRenderer",
+        "classie": "vendor/classie",
+        "i18next": "vendor/i18next",
+        "jquery": "vendor/jquery",
+        "ng-i18next": "vendor/ng-i18next",
+        "projector": "vendor/Projector",
+        "tmhDynamicLocale": "vendor/tmhDynamicLocale",
+        "three": "vendor/three",
+        "reCaptcha": "https://www.google.com/recaptcha/api"
     },
     shim: {
-        'angular': {
-            exports: 'angular'
+        "angular": {
+            exports: "angular"
         },
-        'angular-route': ['angular'],
-        'angular-sanitize': ['angular'],
-        'angularjs-viewhead': ['angular'],
-        'autosize': ['jquery'],
-        'canvasRenderer': ['three'],
-        'i18next': ['jquery'],
-        'app': ['angular-route', 'angular-sanitize', 'angularjs-viewhead', 'ng-i18next'],
-        'ng-i18next': ['angular', 'i18next'],
-        'projector': ['three']
+        "angular-google-analytics": ["angular"],
+        "angular-route": ["angular"],
+        "angular-resource": ["angular"],
+        "angular-sanitize": ["angular"],
+        "angular-scroll": ["angular"],
+        "angular-translate": ["angular"],
+        "angularjs-viewhead": ["angular"],
+        "tmhDynamicLocale": ["angular", "angular-translate"],
+        "autosize": ["jquery"],
+        "borderMenu": ["classie"],
+        "canvasRenderer": ["three"],
+        "i18next": ["jquery"],
+        "ng-i18next": ["angular", "i18next"],
+        "projector": ["three"]
     }
 });

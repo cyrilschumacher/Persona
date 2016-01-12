@@ -21,6 +21,15 @@
  * SOFTWARE.
  */
 
+///<amd-dependency path="angular-google-analytics"/>
+///<amd-dependency path="angular-route"/>
+///<amd-dependency path="angular-resource"/>
+///<amd-dependency path="angular-sanitize"/>
+///<amd-dependency path="angular-scroll"/>
+///<amd-dependency path="angularjs-viewhead"/>
+///<amd-dependency path="ng-i18next"/>
+///<amd-dependency path="tmhDynamicLocale"/>
+
 // Provider
 import ConfigurationProvider = require("./provider/configuration");
 

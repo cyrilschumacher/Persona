@@ -69,17 +69,6 @@ require.config({
         "i18next": [
             "jquery"
         ],
-        "loader": [
-            "borderMenu",
-            "angular-google-analytics",
-            "angular-route",
-            "angular-resource",
-            "angular-sanitize",
-            "angular-scroll",
-            "angularjs-viewhead",
-            "ng-i18next",
-            "tmhDynamicLocale"
-        ],
         "ng-i18next": ["angular", "i18next"],
         "projector": ["three"]
     }

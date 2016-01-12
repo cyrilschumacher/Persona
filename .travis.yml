@@ -12,4 +12,4 @@ install:
   - tsd install
   - bundle
 before_script: gulp
-script: npm run-script test
+script: npm test
