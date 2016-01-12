@@ -130,10 +130,7 @@ class Application {
      * @private
      */
     private _initializeProvider = (): void => {
-        const url = "javascript/configuration.json";
-        const provider = new ConfigurationProvider(this._module, url);
-
-        this._module.provider("appConfig", provider);
+        this._module.provider("appConfig", ConfigurationProvider);
     };
 
     /**
@@ -168,6 +165,12 @@ class Application {
         this._initializeConfigurations();
         this._initializeRun();
     };
+
+    public setConfiguration = (configuration: Object): void => {
+        this._module.config(['appConfigProvider', (appConfigProvider: ConfigurationProvider) => {
+            appConfigProvider.set(configuration);
+        }]);
+    }
 }
 
 export = Application.instance;

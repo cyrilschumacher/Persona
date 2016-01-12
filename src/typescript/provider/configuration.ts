@@ -28,54 +28,39 @@
  */
 class ConfigurationProvider {
     /**
-     * AJAX settings.
+     * @summary Configuration.
      * @private
-     * @type {JQueryAjaxSettings}
+     * @type {Object}
      */
-    private _settings: JQueryAjaxSettings;
-
-    /**
-     * @summary Reads the content of the HTTP response.
-     * @private
-     * @param q   {JQueryXHR} HTTP response.
-     */
-    private _readResponse = (q: JQueryXHR): void => {
-        const HTTP_OK = 200;
-        if (q.status === HTTP_OK) {
-            angular.extend(this._module, angular.fromJson(q.responseText));
-        }
-    };
+    private _configuration: Object;
 
     /**
      * @summary Constructor.
-     * @constructs
-     * @public
-     * @param _module   {IModule} Module.
-     * @param url       {string}  URL address to JSON configuration file.
+     * @constructor
      */
-    public constructor(private _module: ng.IModule, url: string) {
-        this._settings = {
-            async: false,
-            cache: false,
-            contentType: "application/json",
-            dataType: "json",
-            type: "GET",
-            url: url
-        };
+    public constructor() {
+        this._configuration = {};
     }
+
+    /**
+     * @summary Reads the content of the HTTP response.
+     * @param configuration   {Object} The configuration.
+     */
+    public set = (configuration: Object): void => {
+        angular.extend(this._configuration, configuration);
+    };
 
     /**
      * @summary Shortcut method to perform GET request.
      * @public
      * @return {ng.IModule} Module.
      */
-    public $get = (): ng.IModule => {
-        // Creates a HTTP request and send it.
-        const q: JQueryXHR = jQuery.ajax(this._settings);
+    public $get = (): Object => {
+        if (!this._configuration) {
+            throw new Error("No configuration defined.");
+        }
 
-        // Reads the HTTP response.
-        this._readResponse(q);
-        return this._module;
+        return this._configuration;
     };
 }
 

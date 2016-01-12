@@ -20,7 +20,8 @@ module.exports = function(config) {
                 included: false
             }, {
                 pattern: 'dist/content/**/*.*',
-                included: false
+                included: false,
+                served: true
             }, {
                 pattern: 'test/spec/**/*.js',
                 included: false
@@ -34,15 +35,29 @@ module.exports = function(config) {
         ],
 
 
+        proxies: {
+            '/content/locale/': '/base/dist/content/locale/',
+        },
+
+
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {},
+        preprocessors: {
+            // source files, that you wanna generate coverage for
+            // do not include tests or libraries
+            // (these files will be instrumented by Istanbul)
+            'dist/javascript/configuration/*.js': ['coverage'],
+            'dist/javascript/controller/*.js': ['coverage'],
+            'dist/javascript/provider/*.js': ['coverage'],
+            'dist/javascript/run/*.js': ['coverage'],
+            'dist/javascript/service/*.js': ['coverage']
+        },
 
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage'],
 
 
         // web server port
@@ -55,7 +70,7 @@ module.exports = function(config) {
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_DEBUG,
+        logLevel: config.LOG_INFO,
 
 
         // enable / disable watching file and executing tests whenever any file changes
@@ -73,6 +88,13 @@ module.exports = function(config) {
 
         // Concurrency level
         // how many browser should be started simultanous
-        concurrency: Infinity
+        concurrency: Infinity,
+
+
+        // Code coverage
+        coverageReporter: {
+            type: 'html',
+            dir: 'coverage/'
+        }
     })
 }

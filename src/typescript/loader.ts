@@ -26,5 +26,10 @@ import app = require("./app");
 // Initialize application.
 app.initialize();
 
-// Start angular application.
-angular.bootstrap(document, [app.name]);
+// Obtains the application configuration.
+$.get('/javascript/configuration.json', configuration => {
+    app.setConfiguration(configuration);
+
+    // Start angular application.
+    angular.bootstrap(document, [app.name]);
+});
