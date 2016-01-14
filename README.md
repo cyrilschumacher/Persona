@@ -1,9 +1,13 @@
 # Persona
+> The Front-End part for my portfolio.
+
 [![Build Status](https://travis-ci.org/cyrilschumacher/Persona.svg)](https://travis-ci.org/cyrilschumacher/Persona)
 [![MIT License][license-image]][license-url]
 [![typescript-standard-style][standard-image]][standard-url]
 
-Persona is my portfolio website which is available at: [www.cyrilschumacher.fr](http://www.cyrilschumacher.fr/).
+Persona is the front-end for my portfolio website which is available at: [www.cyrilschumacher.fr](http://www.cyrilschumacher.fr/).
+
+For back-end, see the [Blue DragonFly](http://www.github.com/cyrilschumacher/BlueDragonFly) project.
 
 ## Getting Started
 ### Software requirements
@@ -28,7 +32,7 @@ After installing Node.js dependencies, you can get [Bower](http://bower.io/) dep
 
 > The MIT License (MIT)
 >
-> Copyright (c) 2015 Cyril Schumacher.fr
+> Copyright (c) 2016 Cyril Schumacher.fr
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
 > of this software and associated documentation files (the "Software"), to deal

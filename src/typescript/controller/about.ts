@@ -72,6 +72,7 @@ class AboutController extends baseController {
 
     /**
      * @summary Initializes resume section.
+     * @private
      * @param {IPromise}    promise     The promise.
      * @param {string}      scopeName   The scope name.
      */
