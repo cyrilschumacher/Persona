@@ -1,6 +1,6 @@
 /* The MIT License (MIT)
  *
- * Copyright (c) 2015 Cyril Schumacher.fr
+ * Copyright (c) 2016 Cyril Schumacher.fr
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ import app = require("./app");
 app.initialize();
 
 // Obtains the application configuration.
-$.get('/javascript/configuration.json', configuration => {
+$.get("/javascript/configuration.json", configuration => {
     app.setConfiguration(configuration);
 
     // Start angular application.

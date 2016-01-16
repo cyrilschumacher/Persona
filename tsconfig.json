@@ -31,6 +31,7 @@
         "./src/typescript/directive/isFilled.ts",
         "./src/typescript/loader.ts",
         "./src/typescript/main.ts",
+        "./src/typescript/menu.ts",
         "./src/typescript/model/works/period.ts",
         "./src/typescript/model/works/project.ts",
         "./src/typescript/model/works/type.ts",

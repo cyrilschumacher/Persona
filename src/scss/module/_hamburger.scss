@@ -20,5 +20,54 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import 'color/brandcolors';
-@import 'color/material_design';
+@include keyframes(shake) {
+    0% {
+        @include transform(rotate(0));
+    }
+
+    25% {
+        @include transform(rotate(10deg));
+    }
+
+    50% {
+        @include transform(rotate(-10deg));
+    }
+
+    75% {
+        @include transform(rotate(10deg));
+    }
+
+    100% {
+        @include transform(rotate(0deg));
+    }
+}
+
+.hamburger {
+    @include transition(border-color 100ms);
+    @include transition(margin-left .3s);
+    border: .1rem solid transparent;
+    display: table;
+    height: 5rem;
+    left: 4rem;
+    position: absolute;
+    top: 4rem;
+    width: 6rem;
+    z-index: 9;
+
+    &:hover {
+        border-color: $material-design-white;
+        cursor: pointer;
+
+        i {
+            @include animation(300ms shake forwards);
+        }
+    }
+
+    i {
+        color: $material-design-white;
+        display: table-cell;
+        font-size: 5rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+}

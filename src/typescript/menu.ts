@@ -22,19 +22,32 @@
  */
 
 /**
- * @summary Project period.
- * @author  Cyril Schumacher
- * @class
+ * @summary Shows the menu.
  */
-class ProjectPeriod {
-    /**
-     * @summary Constructor.
-     * @constructor
-     * @param {Date}    end     The end date.
-     * @param {Date}    start   The start date.
-     */
-    public constructor(public end: Date, public start: Date) {
-    }
+const _show_menu = () => {
+    _toggle_menu();
+
+    document.getElementById("top").addEventListener("click", _hide_menu, false);
+    document.getElementById("hamburger").addEventListener("click", _hide_menu, false);
+    document.getElementById("hamburger").removeEventListener("click", _show_menu, false);
+};
+
+/**
+ * @summary Shows or hides the menu.
+ */
+function _toggle_menu() {
+    document.body.classList.toggle("sidenav-active");
 }
 
-export = ProjectPeriod;
+/**
+ * @summary Hides the menu.
+ */
+function _hide_menu() {
+    _toggle_menu();
+
+    document.getElementById("top").removeEventListener("click", _hide_menu, false);
+    document.getElementById("hamburger").addEventListener("click", _show_menu, false);
+    document.getElementById("hamburger").removeEventListener("click", _hide_menu, false);
+}
+
+document.getElementById("hamburger").addEventListener("click", _show_menu, false);

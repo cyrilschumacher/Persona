@@ -20,5 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import 'color/brandcolors';
-@import 'color/material_design';
+.container {
+    @include transition(margin-left .3s);
+    position: relative;
+}

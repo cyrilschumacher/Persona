@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2015 Cyril Schumacher.fr
+// Copyright (c) 2016 Cyril Schumacher.fr
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,82 +21,47 @@
 // SOFTWARE.
 
 .l-nav {
-    background: none;
-    z-index: 99;
+    @include transition(transform .3s);
+    background: $material-design-white;
+    display: table;
+    height: 100%;
+    left: -30rem;
+    position: fixed;
+    width: 30rem;
+    z-index: 10;
 
-    .bt-menu-trigger {
-        border: .2rem solid $material-design-white;
-        width: 5rem;
+    &__list {
+        display: table-cell;
+        vertical-align: middle;
 
-        span {
-            height: 6%;
-            left: 0;
-            margin: auto;
-            right: 0;
-            width: 50%;
-        }
-    }
+        &__item {
+            margin: 4rem 0 4rem 4rem;
 
-    ul {
-        li {
-            @include respond-to(tablet) {
-                height: 11rem;
-                line-height: normal;
+            &__link {
+                $_selector: &;
+
+                color: $material-design-black;
+                font-size: 2.5rem;
+                text-decoration: none;
+
+                &:hover {
+                    #{$_selector}__icon {
+                        @include box-shadow(0 0 1rem .3rem $material-design-black);
+                    }
+                }
+
+                &__icon {
+                    @include border-radius(50%);
+                    @include transition(200ms box-shadow);
+                    background: $material-design-black;
+                    color: $material-design-gray;
+                    display: inline-block;
+                    height: 3.5rem;
+                    margin: 0 1rem 0 0;
+                    text-align: center;
+                    width: 3.5rem;
+                }
             }
-
-            @include respond-to(desktop) {
-                height: 11rem;
-                line-height: normal;
-            }
-
-            @include respond-to(wide-screen) {
-                height: 11rem;
-                line-height: normal;
-            }
-
-            a {
-                font-size: 1.5rem !important;
-            }
         }
-    }
-
-    .icon {
-        font-size: 4rem;
-
-        @include respond-to(smaller-smartphone) {
-            display: none;
-        }
-
-        @include respond-to(smartphone) {
-            display: none;
-        }
-
-        @include respond-to(tablet) {
-            display: block;
-        }
-
-        @include respond-to(desktop) {
-            display: block;
-        }
-
-        @include respond-to(wide-screen) {
-            display: block;
-        }
-    }
-}
-
-.bt-menu-open {
-    border-width: 5rem 5rem 9rem 5rem !important;
-
-    @include respond-to(tablet) {
-        border-bottom-width: 12.5rem !important;
-    }
-
-    @include respond-to(desktop) {
-        border-bottom-width: 12.5rem !important;
-    }
-
-    @include respond-to(wide-screen) {
-        border-bottom-width: 12.5rem !important;
     }
 }

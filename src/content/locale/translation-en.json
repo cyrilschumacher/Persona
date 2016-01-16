@@ -1,5 +1,6 @@
 {
     "no_summary": "No available summary.",
+    "scroll_up": "Back to top of page",
     "error": {
         "resume": {
             "education": "An error occured when retrieving schools.",
@@ -55,7 +56,7 @@
         },
         "home": {
             "discover_skills": "Discover my skills",
-            "student": "Fifth-year student in exia.cesi Nancy",
+            "student": "Fifth-year student at exia.cesi Nancy",
             "meta": {
                 "description": "I am Cyril Schumacher, fifth-year student at exia.cesi Nancy and passionate for the Microsoft technologies."
             }

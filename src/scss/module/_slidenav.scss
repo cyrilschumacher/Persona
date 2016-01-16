@@ -20,5 +20,27 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@import 'color/brandcolors';
-@import 'color/material_design';
+.sidenav-active {
+    .l-nav,
+    .hamburger {
+        @include transform(translateX(30rem));
+        @include transition(transform .3s);
+    }
+
+    .l-nav {
+        @include box-shadow(0 0 5rem 0 $material-design-black);
+    }
+
+    .hamburger {
+        background: $material-design-white;
+
+        i {
+            @include animation-play-state(paused);
+            color: $material-design-gray;
+        }
+    }
+
+    .container {
+        margin-left: 30rem;
+    }
+}
