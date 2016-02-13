@@ -20,47 +20,166 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+$susy: (columns: 10);
+
 .l-nav {
+    @include box-sizing(border-box);
     @include transition(transform .3s);
     background: $material-design-white;
     display: table;
     height: 100%;
-    left: -30rem;
+    padding: 2rem 0;
     position: fixed;
-    width: 30rem;
     z-index: 10;
 
-    &__list {
+    @include respond-to(smaller-smartphone) {
+        left: -100%;
+        width: 100%;
+    }
+
+    @include respond-to(desktop) {
+        left: -40rem;
+        width: 40rem;
+    }
+
+    &__close {
+        background: none;
+        border: 0;
+        display: table;
+        position: absolute;
+
+        @include respond-to(smaller-smartphone) {
+            left: 50%;
+            margin: auto;
+            text-align: center;
+            top: 1rem;
+            transform: translateX(-50%);
+        }
+
+        @include respond-to(desktop) {
+            right: 2rem;
+            top: 1rem;
+        }
+
+        > * {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        &__label {
+            color: $material-design-gray;
+            padding: 0 1rem 0 0;
+            text-transform: uppercase;
+        }
+
+        &__icon {
+            color: $material-design-dark-primary-blue;
+            font-size: 4rem;
+        }
+    }
+
+    &__wrapper {
         display: table-cell;
         vertical-align: middle;
+    }
+
+    &__header {
+        margin: 0 0 2rem;
+        text-align: center;
+
+        img {
+            @include respond-to(smaller-smartphone) {
+                height: 15rem;
+                width: 15rem;
+            }
+
+            @include respond-to(desktop) {
+                height: 20rem;
+                width: 20rem;
+            }
+        }
+
+        &__subtitle,
+        &__title {
+            @include respond-to(smaller-smartphone) {
+                display: none;
+            }
+
+            @include respond-to(desktop) {
+                display: block;
+            }
+        }
+
+        &__title {
+            font-family: 'Mohave Bold';
+            font-size: 3rem;
+        }
+    }
+
+    &__menu {
+        margin: 0 auto;
+        width: 90%;
 
         &__item {
-            margin: 4rem 0 4rem 4rem;
+            @include box-sizing(border-box);
+            border-bottom: 1px solid $material-design-gray;
+            color: $material-design-gray;
+            margin: 0 auto;
+            width: inherit;
+
+            $parent: &;
+
+            &:hover {
+                @include border-radius(.4rem);
+                background: $material-design-dark-primary-blue;
+                border-bottom-color: transparent;
+                color: $material-design-white;
+
+                #{$parent}__link {
+                    &__arrow {
+                        color: $material-design-white;
+                    }
+
+                    &__icon {
+                        color: $material-design-primary-blue;
+                    }
+                }
+            }
 
             &__link {
-                $_selector: &;
-
-                color: $material-design-black;
-                font-size: 2.5rem;
+                @include container;
+                display: table;
                 text-decoration: none;
+                text-transform: uppercase;
+                width: inherit;
 
-                &:hover {
-                    #{$_selector}__icon {
-                        @include box-shadow(0 0 1rem .3rem $material-design-black);
-                    }
+                @include respond-to(smaller-smartphone) {
+                    padding: 1rem;
+                }
+
+                @include respond-to(desktop) {
+                    padding: 1rem 2rem;
+                }
+
+                span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+
+                &__arrow {
+                    color: $material-design-primary-blue;
+                    font-size: 2.5rem;
+                    text-align: right;
+                    width: span(1 last);
                 }
 
                 &__icon {
-                    @include border-radius(50%);
-                    @include transition(200ms box-shadow);
-                    background: $material-design-black;
-                    border: 1px solid $material-design-black;
-                    color: $material-design-gray;
-                    display: inline-block;
-                    height: 3.5rem;
-                    margin: 0 1rem 0 0;
-                    text-align: center;
-                    width: 3.5rem;
+                    font-size: 3.5rem;
+                    width: span(2);
+                }
+
+                &__label {
+                    width: span(7);
                 }
             }
         }

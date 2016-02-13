@@ -23,8 +23,15 @@
 .sidenav-active {
     .l-nav,
     .hamburger {
-        @include transform(translateX(30rem));
         @include transition(transform .3s);
+
+        @include respond-to(smaller-smartphone) {
+            @include transform(translateX(100%));
+        }
+
+        @include respond-to(desktop) {
+            @include transform(translateX(40rem));
+        }
     }
 
     .l-nav {
@@ -41,6 +48,13 @@
     }
 
     .container {
-        margin-left: 30rem;
+        @include respond-to(smaller-smartphone) {
+            display: none;
+            margin-left: 100%;
+        }
+
+        @include respond-to(desktop) {
+            margin-left: 40rem;
+        }
     }
 }

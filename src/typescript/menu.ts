@@ -51,3 +51,4 @@ function _hide_menu() {
 }
 
 document.getElementById("hamburger").addEventListener("click", _show_menu, false);
+document.getElementById("close-hamburger").addEventListener("click", _hide_menu, false);

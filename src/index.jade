@@ -38,23 +38,35 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 			i.ion-android-menu
 
 		nav.l-nav(lang="{{language}}" itemscope itemtype="http://schema.org/SiteNavigationElement")
-			ul.l-nav__list
-				li.l-nav__list__item
-					a.l-nav__list__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}" data-ng-i18next="[title]navigation.home")
-						span.l-nav__list__item__link__icon.ion-ios-home-outline
-						span(data-ng-i18next="[title]navigation.home;navigation.home")
-				li.l-nav__list__item
-					a.l-nav__list__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}about" data-ng-i18next="[title]navigation.about")
-						span.l-nav__list__item__link__icon.ion-ios-person-outline
-						span(data-ng-i18next="[title]navigation.about;navigation.about")
-				li.l-nav__list__item
-					a.l-nav__list__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}works" data-ng-i18next="[title]navigation.works")
-						span.l-nav__list__item__link__icon.ion-ios-pricetags-outline
-						span(data-ng-i18next="navigation.works")
-				li.l-nav__list__item
-					a.l-nav__list__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}contact" data-ng-i18next="[title]navigation.contact")
-						span.l-nav__list__item__link__icon.ion-ios-email-outline
-						span(data-ng-i18next="[title]navigation.contact;navigation.contact")
+			button.l-nav__close#close-hamburger
+				span.l-nav__close__label Close
+				span.l-nav__close__icon.ion-ios-close-empty
+			.l-nav__wrapper
+				header.l-nav__header
+					img.l-header--home__wrapper__content__me(alt="Cyril Schumacher" src="/content/image/me.jpg")
+					span.l-nav__header__title Cyril Schumacher
+					span.l-nav__header__subtitle(data-ng-i18next="view.home.student")
+				ul.l-nav__menu
+					li.l-nav__menu__item
+						a.l-nav__menu__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}" data-ng-i18next="[title]navigation.home")
+							span.l-nav__menu__item__link__icon.ion-ios-home-outline
+							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.home;navigation.home")
+							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
+					li.l-nav__menu__item
+						a.l-nav__menu__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}about" data-ng-i18next="[title]navigation.about")
+							span.l-nav__menu__item__link__icon.ion-ios-person-outline
+							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.about;navigation.about")
+							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
+					li.l-nav__menu__item
+						a.l-nav__menu__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}works" data-ng-i18next="[title]navigation.works")
+							span.l-nav__menu__item__link__icon.ion-ios-flask-outline
+							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.works;navigation.works")
+							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
+					li.l-nav__menu__item
+						a.l-nav__menu__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}contact" data-ng-i18next="[title]navigation.contact")
+							span.l-nav__menu__item__link__icon.ion-ios-email-outline
+							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.contact;navigation.contact")
+							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
 			
 		#top.container.ng-hide(data-ng-hide="status != 'ready'")
 			.wrapper(data-ng-view)
