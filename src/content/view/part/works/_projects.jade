@@ -1,0 +1,18 @@
+section.l-section.l-section--works__projects
+    .project(data-ng-repeat="project in projects")
+        header.project__header
+            img(src="http://fakeimg.pl/600x300")
+        footer.project__footer
+            .project__footer__left
+                ul
+                    li
+                        i.icon.ion-paperclip
+            .project__footer__right
+                ul
+                    li
+                        i.icon.ion-ios-clock-outline
+                    li
+                        i.icon.ion-image
+                        
+            //h2(data-ng-bind="project.name[language]")
+            //p(data-ng-bind="project.summary[language] || ('no_summary' | i18next)")

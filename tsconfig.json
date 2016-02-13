@@ -29,6 +29,7 @@
         "./src/typescript/directive/canvasParticlesWaves.ts",
         "./src/typescript/directive/fullHeightWindow.ts",
         "./src/typescript/directive/isFilled.ts",
+        "./src/typescript/directive/ratingProgress.ts",
         "./src/typescript/loader.ts",
         "./src/typescript/main.ts",
         "./src/typescript/menu.ts",

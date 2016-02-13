@@ -160,15 +160,19 @@ $susy: (columns: 12);
 }
 
 .skill {
-    @include border-radius(.25rem);
-    background: $material-design-dark-primary-blue;
     display: inline-block;
-    margin: 1rem;
-    padding: 1rem 2rem;
+    vertical-align: top;
+    width: 20%;
+}
 
-    &__name {
-        color: $material-design-white;
-        padding: .5rem 0;
-        text-align: center;
+.skill-rating {
+    &__fill {
+        color: $material-design-dark-primary-blue;
+        font-size: 2rem;
+    }
+
+    &__empty {
+        color: $material-design-gray;
+        font-size: 2rem;
     }
 }

@@ -22,20 +22,15 @@
 
 .l-footer {
     &--home {
-        @media only screen and (max-height: 600px) {
+        @media only screen and (max-height: 800px) {
             margin: 0;
         }
 
-        @media only screen and (min-height: 600px) {
+        @media only screen and (min-height: 800px) {
             background: none;
             left: 0;
-            padding: 1rem;
             position: absolute;
             right: 0;
-        }
-
-        .l-footer__scrollup {
-            display: none;
         }
 
         @include respond-to(smaller-smartphone) {

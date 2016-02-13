@@ -54,6 +54,7 @@
                     @include border-radius(50%);
                     @include transition(200ms box-shadow);
                     background: $material-design-black;
+                    border: 1px solid $material-design-black;
                     color: $material-design-gray;
                     display: inline-block;
                     height: 3.5rem;

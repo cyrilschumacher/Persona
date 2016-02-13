@@ -4,10 +4,15 @@ section#skills.l-section.l-section--about
 			span.icon__content.ion-ios-speedometer-outline
 		h2(data-ng-i18next="view.about.skills.title")
 		p.subtitle(data-ng-i18next="view.about.skills.subtitle")
-	section
+	section.skill(data-ng-repeat="skill in skills.data" data-ng-hide="skills.inProgress || skills.hasError")
 		.loading.gauge-loader(data-ng-hide="!skills.inProgress")
-		article(data-ng-repeat="skill in skills.data" data-ng-hide="skills.inProgress || skills.hasError")
-			p(data-ng-bind="skill.name")
+		article
+			header
+				h3(data-ng-bind="skill.name.fr")
+			section(data-ng-repeat="item in skill.items")
+				p(data-ng-bind="item.name")
+				data-rating-progress(count="5" min="0" max="100" value="item.rating" rating-fill-icon="ion-record skill-rating__fill" rating-empty-icon="ion-android-radio-button-off skill-rating__empty")
+		
 	section.error_box(data-ng-hide="!skills.hasError || skills.inProgress")
 		.error_box__icon
 			i.ion-alert-circled

@@ -21,6 +21,7 @@
  * SOFTWARE.
  */
 
+/// <amd-dependency path="directive/ratingProgress"/>
 /// <amd-dependency path="service/resume"/>
 
 import app = require("../app");
