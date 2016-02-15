@@ -29,7 +29,19 @@
             @include transform(translateX(100%));
         }
 
+        @include respond-to(smartphone) {
+            @include transform(translateX(100%));
+        }
+
+        @include respond-to(tablet) {
+            @include transform(translateX(40rem));
+        }
+
         @include respond-to(desktop) {
+            @include transform(translateX(40rem));
+        }
+
+        @include respond-to(wide-desktop) {
             @include transform(translateX(40rem));
         }
     }
@@ -53,7 +65,23 @@
             margin-left: 100%;
         }
 
+        @include respond-to(smartphone) {
+            display: none;
+            margin-left: 100%;
+        }
+
+        @include respond-to(tablet) {
+            display: block;
+            margin-left: 40rem;
+        }
+
         @include respond-to(desktop) {
+            display: block;
+            margin-left: 40rem;
+        }
+
+        @include respond-to(wide-desktop) {
+            display: block;
             margin-left: 40rem;
         }
     }
