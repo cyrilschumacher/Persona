@@ -1,7 +1,7 @@
 'use strict';
 
 define(['app', 'controller/about', 'provider/configuration'],
-    function(app, homeController, configurationProvider) {
+    function(app, aboutController, configurationProvider) {
         var controller;
 
         beforeEach(module('persona'));
@@ -13,7 +13,7 @@ define(['app', 'controller/about', 'provider/configuration'],
         describe('AboutController', function() {
             beforeEach(inject(function($rootScope, $routeParams, $location, $i18next, tmhDynamicLocale, resumeService) {
                 var $scope = $rootScope.$new();
-                controller = new homeController($scope, $rootScope, $routeParams, $location, $i18next, tmhDynamicLocale, resumeService);
+                controller = new aboutController($scope, $rootScope, $routeParams, $location, $i18next, tmhDynamicLocale, resumeService);
             }));
 
             it('should have a method to check if the path is active', function() {

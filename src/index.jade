@@ -52,21 +52,25 @@ html(lang="{{language}}" prefix="og:http://ogp.me/ns#")
 							span.l-nav__menu__item__link__icon.ion-ios-home-outline
 							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.home;navigation.home")
 							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
+						div.l-nav__menu__item__separator
 					li.l-nav__menu__item
 						a.l-nav__menu__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}about" data-ng-i18next="[title]navigation.about")
 							span.l-nav__menu__item__link__icon.ion-ios-person-outline
 							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.about;navigation.about")
 							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
+						div.l-nav__menu__item__separator
 					li.l-nav__menu__item
 						a.l-nav__menu__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}works" data-ng-i18next="[title]navigation.works")
 							span.l-nav__menu__item__link__icon.ion-ios-flask-outline
 							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.works;navigation.works")
 							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
+						div.l-nav__menu__item__separator
 					li.l-nav__menu__item
 						a.l-nav__menu__item__link(itemprop="url" href="/{{language ? language + '/' : ''}}contact" data-ng-i18next="[title]navigation.contact")
 							span.l-nav__menu__item__link__icon.ion-ios-email-outline
 							span.l-nav__menu__item__link__label(data-ng-i18next="[title]navigation.contact;navigation.contact")
 							span.l-nav__menu__item__link__arrow.ion-ios-arrow-right
+						div.l-nav__menu__item__separator
 			
 		#top.container.ng-hide(data-ng-hide="status != 'ready'")
 			.wrapper(data-ng-view)

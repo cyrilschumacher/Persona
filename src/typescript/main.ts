@@ -35,14 +35,13 @@ require.config({
         "angular-translate": "vendor/angular-translate",
         "angularjs-viewhead": "vendor/angularjs-viewhead",
         "autosize": "vendor/autosize",
-        "borderMenu": "vendor/borderMenu",
         "canvasRenderer": "vendor/CanvasRenderer",
-        "classie": "vendor/classie",
         "i18next": "vendor/i18next",
         "jquery": "vendor/jquery",
         "ng-i18next": "vendor/ng-i18next",
         "projector": "vendor/Projector",
         "tmhDynamicLocale": "vendor/tmhDynamicLocale",
+        "snap.js": "vendor/snap",
         "three": "vendor/three",
 
         /* Project */
@@ -64,7 +63,6 @@ require.config({
         "angularjs-viewhead": ["angular"],
         "tmhDynamicLocale": ["angular", "angular-translate"],
         "autosize": ["jquery"],
-        "borderMenu": ["classie"],
         "canvasRenderer": ["three"],
         "i18next": [
             "jquery"

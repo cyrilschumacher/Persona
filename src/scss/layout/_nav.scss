@@ -45,6 +45,7 @@ $susy: (columns: 10);
     &__close {
         background: none;
         border: 0;
+        cursor: pointer;
         display: table;
         position: absolute;
 
@@ -122,7 +123,6 @@ $susy: (columns: 10);
 
         &__item {
             @include box-sizing(border-box);
-            border-bottom: 1px solid $material-design-gray;
             color: $material-design-gray;
             margin: 0 auto;
             width: inherit;
@@ -143,6 +143,10 @@ $susy: (columns: 10);
                     &__icon {
                         color: $material-design-primary-blue;
                     }
+                }
+
+                #{$parent}__separator {
+                    background: none;
                 }
             }
 
@@ -181,6 +185,13 @@ $susy: (columns: 10);
                 &__label {
                     width: span(7);
                 }
+            }
+
+            &__separator {
+                background: $material-design-gray;
+                height: 1px;
+                margin: 0 auto;
+                width: 70%;
             }
         }
     }
