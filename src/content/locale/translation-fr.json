@@ -27,8 +27,12 @@
                 "title": "Mes formations"
             },
             "experience": {
-                "subtitle": "Apercevez les horizons",
+                "subtitle": "Prenez connaissance de mes expériences",
                 "title": "Mes expériences"
+            },
+            "hobbies": {
+                "subtitle": "Examinez mes passe-temps que je pratique",
+                "title": "Mes intérêts"
             },
             "skills": {
                 "subtitle": "Trouvez mes compétences que je maîtrise",

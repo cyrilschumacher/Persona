@@ -160,19 +160,49 @@ $susy: (columns: 12);
 }
 
 .skill {
-    display: inline-block;
-    vertical-align: top;
-    width: 20%;
-}
-
-.skill-rating {
-    &__fill {
-        color: $material-design-dark-primary-blue;
-        font-size: 2rem;
+    @include respond-to(desktop) {
+        display: inline-block;
+        vertical-align: top;
+        width: 20%;
     }
 
-    &__empty {
-        color: $material-design-gray;
-        font-size: 2rem;
+    @include respond-to(wide-desktop) {
+        display: inline-block;
+        vertical-align: top;
+        width: 30%;
+    }
+
+    h3 {
+        @include respond-to(smaller-smartphone) {
+            margin: 1rem 0;
+        }
+
+        @include respond-to(smartphone) {
+            margin: 1rem 0;
+        }
+
+        @include respond-to(tablet) {
+            margin: 1rem 0;
+        }
+
+        @include respond-to(desktop) {
+            margin: 0;
+        }
+
+        @include respond-to(wide-desktop) {
+            margin: 0;
+        }
+    }
+
+    &__rating {
+        &--fill {
+            color: $material-design-dark-primary-blue;
+            font-size: 2rem;
+        }
+
+        &--empty {
+            color: $material-design-gray;
+            font-size: 2rem;
+        }
     }
 }

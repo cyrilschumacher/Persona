@@ -11,7 +11,7 @@ section#skills.l-section.l-section--about
 				h3(data-ng-bind="skill.name[language]")
 			section(data-ng-repeat="item in skill.items")
 				p(data-ng-bind="item.name")
-				data-rating-progress(data-ng-hide="!item.rating" title="{{item.rating}}%" count="6" min="0" max="100" value="item.rating" rating-fill-icon="ion-record skill-rating__fill" rating-empty-icon="ion-android-radio-button-off skill-rating__empty")
+				data-rating-progress(data-ng-hide="!item.rating" title="{{item.rating}}%" count="6" min="0" max="100" value="item.rating" rating-fill-icon="ion-record skill__rating--fill" rating-empty-icon="ion-android-radio-button-off skill__rating--empty")
 		
 	section.error_box(data-ng-hide="!skills.hasError || skills.inProgress")
 		.error_box__icon

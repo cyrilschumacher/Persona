@@ -19,16 +19,20 @@
             "from": "from",
             "to": "to",
             "meta": {
-                "description": "Discover my skills I acquired during my training and courses, my professional experiences I have done and my training I spent.",
+                "description": "Discover my skills I acquired during my training and courses, my professional experiences that I have done and my training I spent.",
                 "title": "About"
             },
             "education": {
-                "subtitle": "Explore, years by years, educational institutions I attended",
+                "subtitle": "Explore, years by years, educational institutions that I attended",
                 "title": "My education"
             },
             "experience": {
-                "subtitle": "Behold walks I join in my lifetime",
+                "subtitle": "Read about my experiences",
                 "title": "My experience"
+            },
+            "hobbies": {
+                "subtitle": "Examine my hobbies that I practice",
+                "title": "My hobbies"
             },
             "skills": {
                 "subtitle": "Find the skills that interest me and that I master",

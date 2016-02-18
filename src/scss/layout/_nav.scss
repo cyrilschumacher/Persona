@@ -121,13 +121,31 @@ $susy: (columns: 10);
         margin: 0 0 2rem;
         text-align: center;
 
-        img {
+        &__me {
+            @include border-radius(50%);
+
             @include respond-to(smaller-smartphone) {
-                height: 15rem;
-                width: 15rem;
+                display: none;
+            }
+
+            @include respond-to(smartphone) {
+                display: none;
+            }
+
+            @include respond-to(tablet) {
+                display: inline-block;
+                height: 14rem;
+                width: 14rem;
             }
 
             @include respond-to(desktop) {
+                display: inline-block;
+                height: 18rem;
+                width: 18rem;
+            }
+
+            @include respond-to(wide-desktop) {
+                display: inline-block;
                 height: 20rem;
                 width: 20rem;
             }
