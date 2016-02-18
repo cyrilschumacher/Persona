@@ -37,7 +37,8 @@
     "modernizr": "~3.3.1",
     "ng-i18next": "~0.5.2",
     "requirejs": "~2.1.20",
-    "three.js": "~0.74.0"
+    "three.js": "~0.74.0",
+    "animate.css": "~3.5.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.0"

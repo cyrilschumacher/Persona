@@ -44,6 +44,7 @@ const paths = {
                 destination: path.join(base.destination, 'content/locale/angular/')
             },
             css: [
+                path.join(base.bower, 'animate.css/animate.css'),
                 path.join(base.bower, 'css-spinners/css/spinners.css'),
                 path.join(base.bower, 'Ionicons/css/ionicons.css')
             ],

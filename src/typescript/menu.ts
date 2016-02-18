@@ -52,3 +52,7 @@ function _hide_menu() {
 
 document.getElementById("hamburger").addEventListener("click", _show_menu, false);
 document.getElementById("close-hamburger").addEventListener("click", _hide_menu, false);
+var className = document.getElementsByClassName("l-nav__menu__item__link");
+for (var i = 0; i < className.length; i++) {
+    className[i].addEventListener("click", _hide_menu, false);
+}

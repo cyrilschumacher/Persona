@@ -195,6 +195,8 @@ $susy: (columns: 12);
     }
 
     &__rating {
+        cursor: default;
+
         &--fill {
             color: $material-design-dark-primary-blue;
             font-size: 2rem;
