@@ -47,14 +47,14 @@ abstract class ControllerBase {
         public $location: angular.ILocationService,
         public $i18next: angular.i18next.I18nextProvider,
         public tmhDynamicLocale: angular.dynamicLocale.tmhDynamicLocaleService) {
-        // Function
+        // Functions
         this.$rootScope["navigateTo"] = this._navigateTo;
 
-        // Variable
+        // Variables
         this.$rootScope["viewName"] = viewName;
         this.$rootScope["currentPath"] = this.$location.absUrl();
 
-        // Event
+        // Events
         this.$scope.$on("$viewContentLoaded", this._onViewContentLoaded);
     }
 
@@ -70,20 +70,32 @@ abstract class ControllerBase {
     };
 
     /**
-     * @summary Initializes localization.
+     * @summary Gets the language.
      * @private
+     * @param {string} hostnameExtension The hostname extension.
+     * @return {string} The language.
      */
-    private _initializeLocalization = (): void => {
-        const hostnameExtension = this._getHostnameExtension();
+    private _getLanguage = (hostnameExtension: string): string => {
         let language = hostnameExtension;
 
         if ((hostnameExtension === "com") || ((hostnameExtension !== "fr") || (hostnameExtension !== "en"))) {
             language = this.$routeParams["language"];
             if (!language) {
                 const navigatorLanguage = navigator.language || navigator.userLanguage;
-                language = navigatorLanguage.substr(0, 2);
+                return navigatorLanguage.substr(0, 2);
             }
         }
+
+        return language;
+    }
+
+    /**
+     * @summary Initializes localization.
+     * @private
+     */
+    private _initializeLocalization = (): void => {
+        const hostnameExtension = this._getHostnameExtension();
+        const language = this._getLanguage(hostnameExtension);
 
         this.$rootScope["language"] = language;
         this.$i18next.options.lng = language;
@@ -108,13 +120,13 @@ abstract class ControllerBase {
     };
 
     /**
-     * @summary Initializes controller.
-     * @private
+     * @summary Emitted every time the ngView content is reloaded.
      * @private
      */
     private _onViewContentLoaded = (): void => {
         this._initializeLocalization();
         this._initializeStatus();
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
     };
 }
 
